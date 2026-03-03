@@ -1,22 +1,21 @@
-/* File: assets/app.js
- * CCT Lab - lightweight client-side rendering (no build)
- * Source of truth: /data/posts.json
- */
+/* CCT Lab - app.js
+   目的:
+   - data/posts.json を Single Source of Truth として読み込み
+   - 各ページは「入れ物」だけ置けば、記事一覧・最新記事・カテゴリ一覧を自動描画できるようにする
+   使い方:
+   - 記事一覧ページ:  <div id="js-articles-list"></div>
+   - 最新記事(数件): <div id="js-latest-posts" data-limit="5"></div>
+   - カテゴリ一覧:    <div id="js-topics-list"></div>
+*/
 
-(async function () {
+(() => {
+  "use strict";
+
   const POSTS_URL = "/data/posts.json";
 
-  async function loadPosts() {
-    const res = await fetch(POSTS_URL, { cache: "no-store" });
-    if (!res.ok) throw new Error("Failed to load posts.json");
-    const posts = await res.json();
-    // updated desc
-    posts.sort((a, b) => (b.updated || "").localeCompare(a.updated || ""));
-    return posts;
-  }
-
-  function esc(s) {
-    return String(s ?? "")
+  /** @returns {string} */
+  function escapeHtml(s) {
+    return String(s)
       .replaceAll("&", "&amp;")
       .replaceAll("<", "&lt;")
       .replaceAll(">", "&gt;")
@@ -24,118 +23,176 @@
       .replaceAll("'", "&#39;");
   }
 
-  function postCard(p) {
-    const tags = (p.tags || []).map(t => `<a class="tag" href="/tags/${esc(t)}/">${esc(t)}</a>`).join(" ");
+  /** @returns {string} */
+  function formatDateISOToJP(iso) {
+    if (!iso) return "";
+    // "YYYY-MM-DD" 前提。違う形式でも極力壊れないようにする。
+    const m = String(iso).match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (!m) return escapeHtml(iso);
+    return `${m[1]}-${m[2]}-${m[3]}`;
+  }
+
+  /** posts.json の揺れを吸収して正規化 */
+  function normalizePost(raw) {
+    const slug = raw.slug ?? raw.id ?? raw.path;
+    const title = raw.title ?? raw.h1 ?? "";
+    const summary = raw.summary ?? raw.lead ?? raw.description ?? "";
+    const date = raw.date ?? raw.published ?? raw.created ?? "";
+    const updated = raw.updated ?? raw.modified ?? "";
+    const minutes = raw.reading_minutes ?? raw.readingMinutes ?? raw.minutes ?? raw.readTime ?? null;
+
+    // categories / topics / tags を全部 categories に寄せる（配列化）
+    const catRaw = raw.categories ?? raw.topics ?? raw.tags ?? [];
+    const categories = Array.isArray(catRaw)
+      ? catRaw.filter(Boolean).map(String)
+      : String(catRaw).split(",").map(s => s.trim()).filter(Boolean);
+
+    return {
+      slug: slug ? String(slug) : "",
+      title: String(title),
+      summary: String(summary),
+      date: String(date),
+      updated: String(updated),
+      minutes: minutes == null ? null : Number(minutes),
+      categories,
+    };
+  }
+
+  async function fetchPosts() {
+    // iPhone/Cloudflare のキャッシュで「反映遅い」体感が出やすいので軽い bust を入れる
+    const bust = `v=${Date.now()}`;
+    const res = await fetch(`${POSTS_URL}?${bust}`, { cache: "no-store" });
+    if (!res.ok) throw new Error(`Failed to fetch posts.json: ${res.status}`);
+    const json = await res.json();
+
+    const rawList = Array.isArray(json) ? json : (json.posts ?? json.items ?? []);
+    const posts = rawList.map(normalizePost).filter(p => p.slug && p.title);
+
+    // 日付で降順。date が無い場合は末尾へ。
+    posts.sort((a, b) => {
+      const ad = a.date ? Date.parse(a.date) : 0;
+      const bd = b.date ? Date.parse(b.date) : 0;
+      return bd - ad;
+    });
+
+    return posts;
+  }
+
+  function postUrl(slug) {
+    // 記事URLは /articles/<slug>/ に統一（Cloudflare Pages なら index.html を省略できる）
+    return `/articles/${encodeURIComponent(slug)}/`;
+  }
+
+  function renderPostCard(p) {
+    const cats = (p.categories || []).slice(0, 3).map(c => {
+      const label = escapeHtml(c);
+      // いまは topic ページは静的なままでもOK。後で topics 連動する。
+      const href = `/topics/#${encodeURIComponent(c)}`;
+      return `<a class="tag" href="${href}">${label}</a>`;
+    }).join("");
+
+    const metaParts = [];
+    if (p.updated) metaParts.push(`更新: ${escapeHtml(formatDateISOToJP(p.updated))}`);
+    else if (p.date) metaParts.push(`更新: ${escapeHtml(formatDateISOToJP(p.date))}`);
+    if (Number.isFinite(p.minutes) && p.minutes > 0) metaParts.push(`読了目安: ${escapeHtml(p.minutes)}分`);
+
+    const meta = metaParts.length ? `<div class="post-meta">${metaParts.join(" ・ ")}</div>` : "";
+
+    const summary = p.summary ? `<p class="post-summary">${escapeHtml(p.summary)}</p>` : "";
+
     return `
       <article class="post-card">
-        <h3 class="post-card__title">
-          <a href="/articles/${esc(p.slug)}/">${esc(p.title)}</a>
-        </h3>
-        <div class="post-meta">
-          <span class="post-meta__date">更新: ${esc(p.updated)}</span>
-          ${p.readingMinutes ? `<span class="post-meta__read">読了目安: ${esc(p.readingMinutes)}分</span>` : ""}
-          ${p.category ? `<a class="post-meta__cat" href="/categories/${esc(p.category)}/">${esc(p.categoryLabel || p.category)}</a>` : ""}
-        </div>
-        ${p.excerpt ? `<p class="post-card__excerpt">${esc(p.excerpt)}</p>` : ""}
-        ${tags ? `<div class="post-tags">${tags}</div>` : ""}
+        <h2 class="post-title">
+          <a href="${postUrl(p.slug)}">${escapeHtml(p.title)}</a>
+        </h2>
+        ${meta}
+        ${summary}
+        ${cats ? `<div class="post-tags">${cats}</div>` : ""}
       </article>
-    `;
+    `.trim();
   }
 
-  function groupByCategory(posts) {
-    const map = new Map();
-    for (const p of posts) {
-      const key = p.category || "uncategorized";
-      if (!map.has(key)) map.set(key, { label: p.categoryLabel || key, posts: [] });
-      map.get(key).posts.push(p);
+  function mountArticlesList(posts) {
+    const el = document.getElementById("js-articles-list");
+    if (!el) return;
+
+    if (!posts.length) {
+      el.innerHTML = `<p>記事がまだありません。</p>`;
+      return;
     }
-    return map;
+
+    el.innerHTML = posts.map(renderPostCard).join("\n");
   }
 
-  function renderLatest(posts) {
+  function mountLatestPosts(posts) {
     const el = document.getElementById("js-latest-posts");
     if (!el) return;
-    const latest = posts.slice(0, 6);
-    el.innerHTML = latest.map(postCard).join("");
+
+    const limitAttr = el.getAttribute("data-limit");
+    const limit = limitAttr ? Math.max(1, Number(limitAttr)) : 5;
+
+    const list = posts.slice(0, limit);
+    if (!list.length) {
+      el.innerHTML = `<p>まだ記事がありません。</p>`;
+      return;
+    }
+
+    el.innerHTML = `
+      <div class="post-list">
+        ${list.map(renderPostCard).join("\n")}
+      </div>
+    `.trim();
   }
 
-  function renderArticles(posts) {
-    const el = document.getElementById("js-article-list");
-    if (!el) return;
-    el.innerHTML = posts.map(postCard).join("");
-  }
-
-  function renderCategories(posts) {
-    const el = document.getElementById("js-category-list");
-    if (!el) return;
-
-    const map = groupByCategory(posts);
-    const items = Array.from(map.entries())
-      .sort((a, b) => a[0].localeCompare(b[0]))
-      .map(([slug, v]) => {
-        return `
-          <li>
-            <a href="/categories/${esc(slug)}/">${esc(v.label)}</a>
-            <span class="count">(${v.posts.length})</span>
-          </li>
-        `;
-      })
-      .join("");
-
-    el.innerHTML = `<ul class="link-list">${items}</ul>`;
-  }
-
-  function renderCategoryPage(posts) {
-    const el = document.getElementById("js-category-posts");
+  function mountTopicsList(posts) {
+    const el = document.getElementById("js-topics-list");
     if (!el) return;
 
-    const slug = el.getAttribute("data-category");
-    if (!slug) return;
+    // 集計
+    const map = new Map(); // topic -> count
+    for (const p of posts) {
+      for (const c of (p.categories || [])) {
+        map.set(c, (map.get(c) || 0) + 1);
+      }
+    }
 
-    const filtered = posts.filter(p => p.category === slug);
-    el.innerHTML = filtered.length
-      ? filtered.map(postCard).join("")
-      : `<p class="muted">このカテゴリの記事はまだありません。</p>`;
+    const topics = Array.from(map.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map(([name, count]) => ({ name, count }));
+
+    if (!topics.length) {
+      el.innerHTML = `<p>カテゴリがまだありません。</p>`;
+      return;
+    }
+
+    el.innerHTML = `
+      <ul class="topic-list">
+        ${topics.map(t => {
+          const label = escapeHtml(t.name);
+          const href = `/topics/#${encodeURIComponent(t.name)}`;
+          return `<li><a href="${href}">${label}</a> <span class="topic-count">(${t.count})</span></li>`;
+        }).join("\n")}
+      </ul>
+    `.trim();
   }
 
-  function renderRelated(posts) {
-    const el = document.getElementById("js-related-posts");
-    if (!el) return;
+  async function init() {
+    try {
+      const posts = await fetchPosts();
 
-    const slug = el.getAttribute("data-slug");
-    if (!slug) return;
-
-    const current = posts.find(p => p.slug === slug);
-    if (!current) return;
-
-    const related = posts
-      .filter(p => p.slug !== slug)
-      .map(p => {
-        let score = 0;
-        if (p.category && current.category && p.category === current.category) score += 3;
-        const ct = new Set(current.tags || []);
-        for (const t of (p.tags || [])) if (ct.has(t)) score += 1;
-        return { p, score };
-      })
-      .filter(x => x.score > 0)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 6)
-      .map(x => x.p);
-
-    el.innerHTML = related.length
-      ? related.map(postCard).join("")
-      : `<p class="muted">関連記事はまだありません。</p>`;
+      // “入れ物”があるページだけ描画される
+      mountArticlesList(posts);
+      mountLatestPosts(posts);
+      mountTopicsList(posts);
+    } catch (e) {
+      // 壊れたときに静かに死ぬより、最低限のエラーを出す
+      console.error(e);
+    }
   }
 
-  try {
-    const posts = await loadPosts();
-    renderLatest(posts);
-    renderArticles(posts);
-    renderCategories(posts);
-    renderCategoryPage(posts);
-    renderRelated(posts);
-  } catch (e) {
-    // fail silently (static fallback remains)
-    console.warn(e);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
   }
 })();
