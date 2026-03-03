@@ -4,41 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>カテゴリ | CCT Lab</title>
+  <meta name="description" content="カテゴリ一覧。" />
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
-
-<script src="/assets/app.js" defer></script>
-  
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a class="brand" href="/"><strong>CCT</strong> Lab</a>
-      <nav class="nav">
-        <a href="/articles/">記事</a>
-        <a href="/topics/">カテゴリ</a>
-        <a href="/about/">About</a>
-      </nav>
-    </div>
-  </header>
+  <header id="site-header"></header>
 
   <main class="container">
-    <h1 class="page-title">カテゴリ</h1>
-    <p class="page-sub">テーマ別に整理します。</p>
+    <nav id="breadcrumbs" class="breadcrumbs"></nav>
 
-    <section class="grid">
-      <div class="card"><h2><a href="/topics/sleep/">睡眠</a></h2><p class="muted">深い睡眠 / 体内時計 / 回復。</p></div>
-      <div class="card"><h2><a href="/topics/glucose/">血糖</a></h2><p class="muted">食後の眠気 / スパイク / 満腹感。</p></div>
-      <div class="card"><h2><a href="/topics/gut/">腸</a></h2><p class="muted">腸内環境 / 炎症 / 食欲。</p></div>
-      <div class="card"><h2><a href="/topics/stress/">ストレス</a></h2><p class="muted">自律神経 / 呼吸 / 情報過多。</p></div>
-      <div class="card"><h2><a href="/topics/cct/">CCT理論</a></h2><p class="muted">ディゾ / レゾ / 再同調。</p></div>
-    </section>
+    <header class="page-header">
+      <h1>カテゴリ</h1>
+      <p>テーマ別に記事をまとめます。</p>
+    </header>
+
+    <section id="topics-list"></section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p class="muted small">© Core Cycle Tune Lab</p>
-      <p class="muted small"><a href="/disclaimer/">免責</a> / <a href="/about/">About</a></p>
-    </div>
-  </footer>
+  <footer id="site-footer"></footer>
+
+  <script src="/assets/app.js" defer></script>
 </body>
 </html>
