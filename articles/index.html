@@ -3,69 +3,46 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>記事一覧 | CCT Lab</title>
-  <meta name="description" content="CCT Labの記事一覧。論文をソースに、ディゾをレゾる。">
+  <title>記事 | CCT Lab</title>
+  <meta name="description" content="CCT Lab の記事一覧。睡眠・血糖・腸内環境・ストレス・やる気を、公開論文/一次情報を土台に日常へ翻訳します。" />
+
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
+
 <body>
-
-<script src="/assets/app.js" defer></script>
-
-<header class="site-header">
-  <div class="container">
-    <a class="brand" href="/"><strong>CCT</strong> Lab</a>
-    <nav class="nav">
-      <a href="/articles/">記事</a>
-      <a href="/topics/">カテゴリ</a>
-      <a href="/about/">About</a>
-    </nav>
-  </div>
-</header>
-
-<main class="container">
-
-  <h1 class="page-title">記事一覧</h1>
-  <p class="page-sub">
-    論文をソースに、日常のディゾをCCTでレゾる。
-  </p>
-
-  <section class="grid">
-
-    <div class="card">
-      <span class="badge dizo">血糖</span>
-      <h2>
-        <a href="/articles/sample-001/">
-          食後に強烈な眠気がくる人へ｜それ、意志の弱さじゃない
-        </a>
-      </h2>
-      <p class="muted">
-        血糖スパイクと自律神経の関係を論文ベースで整理。
-        CCT的レゾリューションまで解説。
-      </p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-title" href="/">CCT Lab</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/articles/">記事</a>
+        <a href="/topics/">カテゴリ</a>
+        <a href="/about/">About</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="card">
-      <span class="badge rezo">睡眠</span>
-      <h2>
-        <a href="#">
-          深い睡眠が30分しかない理由（準備中）
-        </a>
-      </h2>
-      <p class="muted">
-        睡眠構造とストレスホルモンの関係を整理予定。
+  <main class="container">
+    <header class="page-hero">
+      <h1>記事</h1>
+      <p class="lead">
+        ここは「診断」ではなく、状態を“整え直す”ための整理ノートです。
+        まずは気になるテーマからどうぞ。
       </p>
+    </header>
+
+    <!-- ✅ ここに app.js が posts.json から記事カードを自動生成して差し込む -->
+    <section aria-label="記事一覧">
+      <div id="js-articles-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© CCT Lab</small>
     </div>
+  </footer>
 
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <p class="muted small">© Core Cycle Tune Lab</p>
-    <p class="muted small"><a href="/disclaimer/">免責</a></p>
-  </div>
-</footer>
-
+  <!-- ✅ 全ページ共通：app.js -->
+  <script src="/assets/app.js" defer></script>
 </body>
 </html>
