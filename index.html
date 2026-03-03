@@ -3,63 +3,136 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Core Cycle Tune Lab</title>
-  <meta name="description" content="CCT（Core Cycle Tune）の個人研究ラボ。論文をソースに、日常のディゾをCCTでレゾる。">
+  <title>CCT Lab｜睡眠・血糖・腸・ストレス・やる気を整える個人研究ラボ</title>
+  <meta name="description" content="CCT Lab は、睡眠・血糖・腸内環境・ストレス、そして「やる気」を整えるための個人研究ラボです。公開論文や一次情報を土台に、日常行動へ翻訳します（医療助言ではありません）。" />
+
+  <!-- OGP -->
+  <meta property="og:title" content="CCT Lab｜睡眠・血糖・腸・ストレス・やる気を整える個人研究ラボ" />
+  <meta property="og:description" content="公開論文や一次情報を土台に、日常行動へ翻訳する個人研究ラボ（医療助言ではありません）。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CCT Lab" />
+  <meta property="og:url" content="https://corecycletune.com/" />
+
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
+
 <body>
   <header class="site-header">
-    <div class="container">
-      <a class="brand" href="/"><strong>CCT</strong> Lab</a>
-      <nav class="nav">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <span class="mark">CCT</span><span class="name">Lab</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
         <a href="/articles/">記事</a>
-        <a href="/topics/">カテゴリ</a>
+        <a href="/categories/">カテゴリ</a>
         <a href="/about/">About</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <h1>論文をソースに、日常のディゾをCCTでレゾる。</h1>
+  <main class="container article">
+    <div class="content">
+      <h1>状態を整えると、行動が変わる。</h1>
       <p class="lead">
-        ここは個人研究ラボです。医療助言ではなく、公開論文の要点を整理し、生活に落とし込みます。
+        CCT Lab は、睡眠・血糖・腸内環境・ストレス、そして「やる気」を整えるための個人研究ラボです。<br />
+        公開論文や一次情報を土台にしながら、それを日常行動に翻訳します（医療助言ではありません）。
       </p>
-      <div class="cta-row">
-        <a class="btn" href="/articles/">最新記事を見る</a>
-        <a class="btn btn-ghost" href="/about/">方針を読む</a>
-      </div>
-    </section>
 
-    <section class="grid">
-      <div class="card">
-        <h2>カテゴリ</h2>
-        <ul class="link-list">
-          <li><a href="/topics/sleep/">睡眠</a></li>
-          <li><a href="/topics/glucose/">血糖</a></li>
-          <li><a href="/topics/gut/">腸</a></li>
-          <li><a href="/topics/stress/">ストレス</a></li>
-          <li><a href="/topics/cct/">CCT理論</a></li>
+      <div class="btn-row">
+        <a class="btn primary" href="/articles/">記事を読む</a>
+        <a class="btn ghost" href="/about/">このサイトについて</a>
+      </div>
+
+      <section class="card">
+        <h2 class="section-title">まずはここから（30秒）</h2>
+        <ul>
+          <li><strong>やる気は性格ではなく、状態</strong>として扱う</li>
+          <li><strong>原因を1つに決めつけない</strong>（睡眠・食べ方・刺激・活動量の合算）</li>
+          <li><strong>今日の1アクション</strong>に落として、記録して再現する</li>
         </ul>
-      </div>
+        <p class="note">
+          ここで扱うのは「診断」ではなく「整理」です。体調に不安がある場合や治療中の方は医療機関にご相談ください。
+        </p>
+      </section>
 
-      <div class="card">
-        <h2>まず読むなら</h2>
-        <p class="muted">サンプル記事（型の確認用）</p>
-        <p><a href="/articles/sample-001/">食後の眠気が強い日の「ディゾ→レゾ」</a></p>
-        <p class="muted small">※後で毎日自動生成に置き換えます。</p>
-      </div>
-    </section>
+      <section class="card">
+        <h2 class="section-title">最新の記事</h2>
+        <p class="lead" style="margin-bottom:10px;">
+          記事は「結論 → 整え直し → 研究要約（要点と限界）」の順で読めるようにしています。
+        </p>
 
-    <section class="notice">
-      <strong>免責：</strong>このサイトは医療行為を目的としません。症状の判断や治療は医療機関へ。
-    </section>
+        <!-- いまは手動でOK：自動化は後でやる -->
+        <ul>
+          <li>
+            <a href="/articles/sample-001/">食後に眠気が強い日｜原因を決めつけずに「整え直す」5つの手順</a>
+            <span style="color:var(--muted); font-size:14px;">（サンプル）</span>
+          </li>
+        </ul>
+
+        <div class="btn-row" style="margin-top:12px;">
+          <a class="btn" href="/articles/">記事一覧へ</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">カテゴリ</h2>
+        <p class="lead" style="margin-bottom:10px;">
+          気になる入口からどうぞ。あとで内部リンクを増やして回遊しやすくします。
+        </p>
+
+        <div class="grid-2">
+          <section class="card">
+            <h3 style="margin-top:0;">血糖</h3>
+            <p>食後の眠気、空腹感、過食衝動。食べ方と日常の整え直し。</p>
+            <a class="btn" href="/categories/blood-glucose/">見る</a>
+          </section>
+
+          <section class="card">
+            <h3 style="margin-top:0;">睡眠</h3>
+            <p>入眠、深い睡眠、生活リズム。翌日の状態の土台。</p>
+            <a class="btn" href="/categories/sleep/">見る</a>
+          </section>
+
+          <section class="card">
+            <h3 style="margin-top:0;">腸</h3>
+            <p>腹部不快感、排便、発酵。体感のノイズを減らす。</p>
+            <a class="btn" href="/categories/gut/">見る</a>
+          </section>
+
+          <section class="card">
+            <h3 style="margin-top:0;">ストレス</h3>
+            <p>呼吸、緊張、刺激過多。交感／副交感の偏りを整える。</p>
+            <a class="btn" href="/categories/stress/">見る</a>
+          </section>
+
+          <section class="card">
+            <h3 style="margin-top:0;">やる気</h3>
+            <p>集中、先延ばし、無気力。“状態”として整える。</p>
+            <a class="btn" href="/categories/motivation/">見る</a>
+          </section>
+
+          <section class="card">
+            <h3 style="margin-top:0;">情報環境</h3>
+            <p>スマホ、刺激、報酬。疲れやすさの背景を整理する。</p>
+            <a class="btn" href="/categories/info/">見る</a>
+          </section>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">免責（要点）</h2>
+        <ul>
+          <li>本サイトは医療助言・診断を目的としません。</li>
+          <li>公開論文等を参考にした「個人研究としての整理」です。</li>
+          <li>効果には個人差があります。既往症がある方、治療中の方は医療機関へご相談ください。</li>
+        </ul>
+      </section>
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p class="muted small">© Core Cycle Tune Lab</p>
-      <p class="muted small"><a href="/disclaimer/">免責</a> / <a href="/about/">About</a></p>
+      <p class="small">© CCT Lab — 個人研究ラボ / 医療助言ではありません</p>
     </div>
   </footer>
 </body>
