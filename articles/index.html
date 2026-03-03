@@ -4,45 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>記事 | CCT Lab</title>
-  <meta name="description" content="CCT Lab の記事一覧。睡眠・血糖・腸内環境・ストレス・やる気を、公開論文/一次情報を土台に日常へ翻訳します。" />
-
+  <meta name="description" content="記事一覧。" />
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
-
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="site-title" href="/">CCT Lab</a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="/articles/">記事</a>
-        <a href="/topics/">カテゴリ</a>
-        <a href="/about/">About</a>
-      </nav>
-    </div>
-  </header>
+  <header id="site-header"></header>
 
   <main class="container">
-    <header class="page-hero">
+    <nav id="breadcrumbs" class="breadcrumbs"></nav>
+
+    <header class="page-header">
       <h1>記事</h1>
-      <p class="lead">
-        ここは「診断」ではなく、状態を“整え直す”ための整理ノートです。
-        まずは気になるテーマからどうぞ。
-      </p>
+      <p>睡眠・血糖・腸内環境・ストレス・やる気を、研究の要点から日常行動へ落とし込みます。</p>
     </header>
 
-    <!-- ✅ ここに app.js が posts.json から記事カードを自動生成して差し込む -->
-    <section aria-label="記事一覧">
-      <div id="js-articles-list"></div>
-    </section>
+    <section id="articles-list"></section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <small>© CCT Lab</small>
-    </div>
-  </footer>
+  <footer id="site-footer"></footer>
 
-  <!-- ✅ 全ページ共通：app.js -->
   <script src="/assets/app.js" defer></script>
 </body>
 </html>
