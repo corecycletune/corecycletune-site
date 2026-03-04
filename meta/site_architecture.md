@@ -7,8 +7,8 @@
 
 ---
 
-## 1) 現行のディレクトリ構造（実ファイルに一致）
-~~~text
+# 1) 現行のディレクトリ構造（実ファイルに一致）
+
 /
   index.html
   README.md
@@ -18,7 +18,7 @@
 
   articles/
     index.html
-    sample-001/
+    post-meal-sleepiness/
       index.html
 
   assets/
@@ -35,69 +35,139 @@
     site_architecture.md
 
   prompts/
-    article_template.md
+    generate_article.md
+    article_structure.md
     base_cct_concept.md
 
   topics/
     index.html
-~~~
 
 ---
 
-## 2) URL ルール（静的サイトの基本）
+# 2) URL ルール（静的サイトの基本）
 
-- フォルダ配下は `index.html` に統一（URLが綺麗になる）
-  - `/about/` → `about/index.html`
-  - `/articles/sample-001/` → `articles/sample-001/index.html`
-- ルートは `/index.html`
+フォルダ配下は index.html に統一する。
 
----
+例
 
-## 3) 役割まとめ（どれが何をするか）
+/about/ → about/index.html  
+/articles/post-meal-sleepiness/ → articles/post-meal-sleepiness/index.html  
+/topics/ → topics/index.html  
 
-### 3.1 画面（HTML）
-- `index.html`：トップページ（入口）
-- `about/index.html`：サイトについて（方針・説明）
-- `disclaimer/index.html`：免責
-- `topics/index.html`：カテゴリ/トピック一覧（入口）
-- `articles/index.html`：記事一覧（入口）
-- `articles/<slug>/index.html`：記事本文
+ルート
 
-### 3.2 見た目（CSS）
-- `assets/style.css`：全ページ共通のスタイル（青緑〜エメラルド寄りの方向性）
-
-### 3.3 振る舞い（JS）
-- `assets/app.js`：全ページ共通で読み込む（軽いCMS的な役割を担う）
-  - 記事一覧の生成
-  - 関連リンク等の自動化（今後拡張）
-
-### 3.4 データ
-- `data/posts.json`：記事メタ情報のソース（一覧生成・カテゴリ分け等に使用）
-  - ここが「記事一覧の台帳（index）」になる
-
-### 3.5 生成用プロンプト（将来の自動化のために保存）
-- `prompts/base_cct_concept.md`：CCTのベースコンセプト（全記事の前提）
-- `prompts/article_template.md`：記事テンプレ（構成・SEO・読みやすさ方針）
+/ → index.html  
 
 ---
 
-## 4) 運用ルール（迷ったらここ）
+# 3) 役割まとめ（どれが何をするか）
 
-### 4.1 新規ファイルを増やす判断基準
-- 原則：**増やさない**
-- 例外：明確に役割が違う場合のみ
-- 「似た目的のファイル」は絶対に量産しない（混乱の元）
+## 3.1 画面（HTML）
 
-### 4.2 記事を1本追加する手順（現行）
-1. `articles/<slug>/index.html` を作る（slugは英小文字＋ハイフン推奨）
-2. `data/posts.json` に1件追記（タイトル、slug、topics、date など）
-3. トップ/一覧が `posts.json` を参照して自動表示されるようにする（app.js 側で対応）
+index.html  
+トップページ（入口）
 
-※記事内の「関連記事リンク」を手作業で増やさない方向で設計する（app.js + posts.json で寄せる）
+about/index.html  
+サイト説明
+
+disclaimer/index.html  
+免責
+
+articles/index.html  
+記事一覧（入口）
+
+articles/<slug>/index.html  
+記事本文
+
+topics/index.html  
+カテゴリ一覧（入口）＋カテゴリ別記事一覧（動的表示）
 
 ---
 
-## 5) 変更履歴（このファイルの更新理由を残す）
+## 3.2 見た目（CSS）
 
-- 2026-03-03: 構造を「posts.json + app.js で軽いCMS化」する方針を採用し、`data/posts.json` と `assets/app.js` を中核に位置付けた。
-- 2026-03-03: 生成用プロンプトを `prompts/` に集約（`base_cct_concept.md`, `article_template.md`）。
+assets/style.css  
+全ページ共通のスタイル（青緑〜エメラルド方向）
+
+---
+
+## 3.3 振る舞い（JS）
+
+assets/app.js  
+全ページ共通で読み込み、軽いCMSの役割を担う。
+
+主な機能
+
+・ヘッダー挿入  
+・フッター挿入  
+・パンくず生成  
+・最新記事生成  
+・記事一覧生成  
+・関連記事生成  
+・カテゴリ自動生成  
+・カテゴリ別の記事一覧を動的に表示（/topics/?t=...）
+
+---
+
+## 3.4 データ（SSOT）
+
+data/posts.json  
+記事メタデータの唯一のソース（Single Source of Truth）
+
+app.js が posts.json を読み込み
+
+・トップ  
+・記事一覧  
+・カテゴリ一覧  
+・カテゴリ別記事一覧  
+・関連記事  
+・パンくず（記事タイトル表示）
+
+を生成する。
+
+---
+
+## 3.5 生成用プロンプト
+
+prompts/base_cct_concept.md  
+CCTの思想（全記事共通の前提）
+
+prompts/article_structure.md  
+記事の構造テンプレート
+
+prompts/generate_article.md  
+記事生成ルール（SEO・研究引用・見出しルール）
+
+---
+
+# 4) 運用ルール
+
+## 4.1 新規ファイルを増やす判断基準
+
+原則：増やさない  
+例外：役割が明確に違う場合のみ  
+禁止：同用途ファイルの量産（混乱の元）
+
+---
+
+## 4.2 記事を1本追加する手順（現行）
+
+1. articles/<slug>/index.html を作る（slugは英小文字＋ハイフン推奨）
+2. data/posts.json に1件追記（title, path, tags/topics/category, updated, description 等）
+3. app.js が自動で以下を反映する
+   ・トップ最新
+   ・記事一覧
+   ・カテゴリ一覧
+   ・カテゴリ別記事一覧（/topics/?t=...）
+   ・関連記事
+   ・パンくず
+
+---
+
+# 5) 変更履歴
+
+2026-03-03  
+posts.json + app.js による軽量CMS型静的サイトを採用。
+
+2026-03-04  
+カテゴリは posts.json の tags/topics/category から自動生成し、/topics/?t=... でカテゴリ別の記事一覧を動的表示する方式に更新。
