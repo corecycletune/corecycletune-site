@@ -61,6 +61,15 @@
     return p.split("/").filter(Boolean);
   }
 
+  function getQueryParam(name) {
+    try {
+      const u = new URL(location.href);
+      return u.searchParams.get(name);
+    } catch {
+      return null;
+    }
+  }
+
   // ---------- Header / Footer ----------
   function injectHeaderFooter() {
     const header = $("#site-header");
@@ -81,7 +90,6 @@
         </div>
       `;
 
-      // Active state
       header.querySelectorAll("a.nav-link").forEach((a) => {
         if (isActivePath(a.getAttribute("href"))) a.classList.add("is-active");
       });
@@ -114,7 +122,6 @@
     const segs = getPathSegments();
     const crumbs = [{ name: "Home", href: "/" }];
 
-    // /articles/sample-001/ => try to map sample-001 to title
     if (segs.length >= 1) {
       const first = segs[0];
       if (first === "articles") {
@@ -131,18 +138,20 @@
         }
       } else if (first === "topics") {
         crumbs.push({ name: "カテゴリ", href: "/topics/" });
-        // (将来 /topics/{slug}/ を作るならここに追加)
+
+        const t = getQueryParam("t");
+        if (t) {
+          crumbs.push({ name: t, href: "/topics/?t=" + encodeURIComponent(t) });
+        }
       } else if (first === "about") {
         crumbs.push({ name: "About", href: "/about/" });
       } else if (first === "disclaimer") {
         crumbs.push({ name: "免責", href: "/disclaimer/" });
       } else {
-        // fallback
         crumbs.push({ name: esc(first), href: "/" + first + "/" });
       }
     }
 
-    // Render
     el.innerHTML = `
       <ol class="breadcrumbs-list">
         ${crumbs
@@ -163,38 +172,36 @@
 
   // ---------- Data loading ----------
   async function loadPosts() {
-    // Prefer fresh during editing; Cloudflare may still cache sometimes.
-    // If you need stronger busting, append ?v= with commit hash manually.
     const res = await fetch("/data/posts.json", { cache: "no-store" });
     if (!res.ok) throw new Error("Failed to fetch /data/posts.json");
     const json = await res.json();
     const posts = toArrayMaybe(json);
 
-    // Normalize fields we rely on
-    return posts.map((p) => {
-      const path =
-        p.path ||
-        p.url ||
-        (p.slug ? `/articles/${String(p.slug).replace(/^\/+|\/+$/g, "")}/` : "");
+    return posts
+      .map((p) => {
+        const path =
+          p.path ||
+          p.url ||
+          (p.slug ? `/articles/${String(p.slug).replace(/^\/+|\/+$/g, "")}/` : "");
 
-      return {
-        title: p.title || p.name || "",
-        description: p.description || p.excerpt || p.lead || "",
-        path,
-        slug: p.slug || path.split("/").filter(Boolean).slice(-1)[0] || "",
-        tags: Array.isArray(p.tags) ? p.tags : (p.tags ? [p.tags] : []),
-        topics: Array.isArray(p.topics) ? p.topics : (p.topics ? [p.topics] : []),
-        category: p.category || "",
-        updated: p.updated || p.date || p.published || "",
-        readingTime: p.readingTime || p.reading_time || p.readTime || p.read || "",
-      };
-    }).filter((p) => p.path && p.title);
+        return {
+          title: p.title || p.name || "",
+          description: p.description || p.excerpt || p.lead || "",
+          path,
+          slug: p.slug || path.split("/").filter(Boolean).slice(-1)[0] || "",
+          tags: Array.isArray(p.tags) ? p.tags : p.tags ? [p.tags] : [],
+          topics: Array.isArray(p.topics) ? p.topics : p.topics ? [p.topics] : [],
+          category: p.category || "",
+          updated: p.updated || p.date || p.published || "",
+          readingTime: p.readingTime || p.reading_time || p.readTime || p.read || "",
+        };
+      })
+      .filter((p) => p.path && p.title);
   }
 
   function indexPostsByPath(posts) {
     const m = new Map();
     posts.forEach((p) => {
-      // Ensure trailing slash for matching
       let key = p.path;
       if (!key.endsWith("/")) key += "/";
       if (!key.startsWith("/")) key = "/" + key;
@@ -203,9 +210,8 @@
     return m;
   }
 
-  // ---------- Rendering: Topics ----------
+  // ---------- Topics ----------
   function collectTopics(posts) {
-    // Use tags/topics/category; keep simple: show unique labels from tags + category
     const fromTags = posts.flatMap((p) => (p.tags || []).map(String));
     const fromTopics = posts.flatMap((p) => (p.topics || []).map(String));
     const fromCategory = posts.map((p) => String(p.category || "")).filter(Boolean);
@@ -223,6 +229,7 @@
     if (!target) return;
 
     const topics = collectTopics(posts);
+    const selected = getQueryParam("t");
 
     if (topics.length === 0) {
       target.innerHTML = `<p class="muted">カテゴリは準備中です。</p>`;
@@ -231,13 +238,86 @@
 
     target.innerHTML = `
       <ul class="topics">
-        ${topics.map((t) => `<li class="topic-pill">${esc(t)}</li>`).join("")}
+        ${topics
+          .map((t) => {
+            const href = "/topics/?t=" + encodeURIComponent(t);
+            const isSel = selected && String(selected) === String(t);
+            return `<li class="topic-pill ${isSel ? "is-selected" : ""}">
+              <a class="topic-link" href="${esc(href)}">${esc(t)}</a>
+            </li>`;
+          })
+          .join("")}
       </ul>
-      <p class="muted small">※いまはタグ/カテゴリの一覧表示のみ（将来、カテゴリ別ページを追加可能）</p>
+      <p class="muted small">※カテゴリは posts.json の tags / topics / category から自動生成されます。</p>
     `;
   }
 
-  // ---------- Rendering: Latest / List ----------
+  function postHasTopic(post, topicLabel) {
+    const label = String(topicLabel || "").trim();
+    if (!label) return false;
+
+    const tags = (post.tags || []).map(String);
+    const topics = (post.topics || []).map(String);
+    const category = post.category ? [String(post.category)] : [];
+
+    return [...tags, ...topics, ...category].some((x) => String(x).trim() === label);
+  }
+
+  function renderTopicPosts(posts) {
+    const target = $("#topic-posts");
+    if (!target) return;
+
+    const selected = getQueryParam("t");
+    if (!selected) {
+      target.innerHTML = `
+        <section class="card">
+          <h2>カテゴリ別の記事</h2>
+          <p class="muted">上のカテゴリをタップすると、そのカテゴリの記事がここに表示されます。</p>
+        </section>
+      `;
+      return;
+    }
+
+    const filtered = sortByDateDesc(posts).filter((p) => postHasTopic(p, selected));
+
+    if (filtered.length === 0) {
+      target.innerHTML = `
+        <section class="card">
+          <h2>「${esc(selected)}」の記事</h2>
+          <p class="muted">このカテゴリの記事はまだありません。</p>
+        </section>
+      `;
+      return;
+    }
+
+    target.innerHTML = `
+      <section class="card">
+        <h2>「${esc(selected)}」の記事</h2>
+        <div class="list">
+          ${filtered
+            .map((p) => {
+              const meta = [
+                p.updated ? `更新: ${esc(p.updated)}` : "",
+                p.readingTime ? `読了目安: ${esc(p.readingTime)}` : "",
+              ]
+                .filter(Boolean)
+                .join(" ・ ");
+
+              return `
+                <article class="list-item">
+                  <a class="list-title" href="${esc(p.path)}">${esc(p.title)}</a>
+                  ${p.description ? `<div class="list-desc">${esc(p.description)}</div>` : ""}
+                  ${meta ? `<div class="list-meta">${meta}</div>` : ""}
+                </article>
+              `;
+            })
+            .join("")}
+        </div>
+      </section>
+    `;
+  }
+
+  // ---------- Latest / List ----------
   function renderLatestArticles(posts) {
     const target = $("#latest-articles");
     if (!target) return;
@@ -307,7 +387,7 @@
     `;
   }
 
-  // ---------- Rendering: Related posts on article pages ----------
+  // ---------- Related posts ----------
   function renderRelatedPosts(posts, postsIndexByPath) {
     const target = $("#related-posts");
     if (!target) return;
@@ -316,7 +396,6 @@
     const cur = postsIndexByPath.get(curPath);
 
     if (!cur) {
-      // Not a known post
       target.innerHTML = "";
       return;
     }
@@ -377,9 +456,9 @@
     let posts = [];
     let postsIndexByPath = new Map();
 
-    // Only fetch posts.json if some page needs it (topics/list/related/breadcrumb titles)
     const needsPosts =
       $("#topics-list") ||
+      $("#topic-posts") ||
       $("#latest-articles") ||
       $("#articles-list") ||
       $("#related-posts") ||
@@ -390,8 +469,6 @@
         posts = await loadPosts();
         postsIndexByPath = indexPostsByPath(posts);
       } catch (e) {
-        // Fail softly
-        // eslint-disable-next-line no-console
         console.warn(e);
       }
     }
@@ -400,15 +477,17 @@
 
     if (posts.length) {
       renderTopicsList(posts);
+      renderTopicPosts(posts);
       renderLatestArticles(posts);
       renderArticlesList(posts);
       renderRelatedPosts(posts, postsIndexByPath);
     } else {
-      // Minimal fallbacks
       const a = $("#articles-list");
       if (a) a.innerHTML = `<p class="muted">記事一覧を読み込めませんでした（/data/posts.json を確認してください）。</p>`;
       const t = $("#topics-list");
       if (t) t.innerHTML = `<p class="muted">カテゴリを読み込めませんでした（/data/posts.json を確認してください）。</p>`;
+      const tp = $("#topic-posts");
+      if (tp) tp.innerHTML = `<p class="muted">記事一覧を読み込めませんでした（/data/posts.json を確認してください）。</p>`;
       const l = $("#latest-articles");
       if (l) l.innerHTML = `<p class="muted">最新記事を読み込めませんでした（/data/posts.json を確認してください）。</p>`;
     }
