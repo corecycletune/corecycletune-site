@@ -2,27 +2,36 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>カテゴリ | CCT Lab</title>
-  <meta name="description" content="カテゴリ一覧。" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>カテゴリ｜CCT Lab</title>
+  <meta name="description" content="CCT Lab のカテゴリ一覧。記事メタデータ（posts.json）から自動生成されます。" />
+
   <link rel="stylesheet" href="/assets/style.css" />
+  <script defer src="/assets/app.js"></script>
 </head>
+
 <body>
-  <header id="site-header"></header>
+  <div id="site-header"></div>
 
   <main class="container">
-    <nav id="breadcrumbs" class="breadcrumbs"></nav>
+    <nav id="breadcrumbs" aria-label="パンくず"></nav>
 
     <header class="page-header">
       <h1>カテゴリ</h1>
-      <p>テーマ別に記事をまとめます。</p>
+      <p class="lead">
+        カテゴリは <strong>posts.json の tags / topics / category</strong> から自動生成されます。
+        タップすると、そのカテゴリの記事が表示されます。
+      </p>
     </header>
 
-    <section id="topics-list"></section>
+    <section class="card">
+      <h2>カテゴリ一覧</h2>
+      <div id="topics-list"></div>
+    </section>
+
+    <div id="topic-posts"></div>
   </main>
 
-  <footer id="site-footer"></footer>
-
-  <script src="/assets/app.js" defer></script>
+  <div id="site-footer"></div>
 </body>
 </html>
