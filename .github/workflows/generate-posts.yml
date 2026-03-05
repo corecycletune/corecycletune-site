@@ -1,25 +1,24 @@
-name: Generate posts.json
+name: Generate posts.json and sitemap.xml
 
 on:
-  workflow_dispatch:
   push:
-    branches: ["main"]
     paths:
       - "articles/**"
-      - "scripts/generate_posts.js"
+      - "scripts/**"
+      - "data/**"
       - ".github/workflows/generate-posts.yml"
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  build-posts:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -29,16 +28,20 @@ jobs:
       - name: Generate posts.json
         run: node scripts/generate_posts.js
 
-      - name: Commit and push if changed
-        run: |
-          if git diff --quiet -- data/posts.json; then
-            echo "No changes in data/posts.json"
-            exit 0
-          fi
+      - name: Generate sitemap.xml
+        run: node scripts/generate_sitemap.js
 
+      - name: Commit generated files (if changed)
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add data/posts.json
-          git commit -m "chore: auto-generate posts.json"
+          git add data/posts.json sitemap.xml
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: update posts.json and sitemap.xml"
           git push
