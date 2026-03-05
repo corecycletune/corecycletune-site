@@ -7,6 +7,14 @@
 
 ---
 
+## 0) Base URL（このサイトの正）
+
+- https://corecycletune.com
+
+※ sitemap.xml などの絶対URL生成に使用する
+
+---
+
 ## 1) 現行のディレクトリ構造（実ファイルに一致）
 
 ※GitHub 上の現状（あなたのスクショ）に合わせた構造です。
@@ -14,6 +22,7 @@
     /
       index.html
       README.md
+      sitemap.xml
 
       .github/
         workflows/
@@ -47,6 +56,7 @@
 
       scripts/
         generate_posts.js
+        generate_sitemap.js
 
       topics/
         index.html
@@ -89,10 +99,14 @@
 
 ### 3.5 自動生成（GitHub Actions + Node）
 - `.github/workflows/generate-posts.yml`
-  - リポジトリ内の状態から `data/posts.json` を生成/更新するワークフロー
+  - リポジトリ内の状態から `data/posts.json` と `sitemap.xml` を生成/更新するワークフロー
 - `scripts/generate_posts.js`
   - `data/posts.json` を生成する実体（Nodeスクリプト）
   - 記事追加時の「カテゴリ（タグ）」もここで自動集計して `posts.json` に反映する（カテゴリ自動登録は必須要件）
+- `scripts/generate_sitemap.js`
+  - `data/posts.json` を読み、`sitemap.xml` を生成する実体
+- `sitemap.xml`
+  - 検索エンジン向けのサイトマップ（記事追加に追随して自動更新される）
 
 ### 3.6 生成用プロンプト（将来の自動化のために保存）
 - `prompts/base_cct_concept.md`：CCTのベースコンセプト（全記事の前提）
@@ -112,7 +126,8 @@
 ### 4.2 記事を1本追加する手順（現行）
 1. `articles/<slug>/index.html` を追加（slugは英小文字＋ハイフン推奨）
 2. `scripts/generate_posts.js`（＋workflow）で `data/posts.json` を更新
-3. サイト側は `assets/app.js` が `data/posts.json` を読んで自動反映する
+3. `scripts/generate_sitemap.js`（＋workflow）で `sitemap.xml` を更新
+4. サイト側は `assets/app.js` が `data/posts.json` を読んで自動反映する
    - トップの「最新記事」
    - 記事一覧
    - カテゴリ一覧
@@ -128,3 +143,4 @@
 - 2026-03-xx: プロンプト構成を整理（`prompts/article_structure.md`, `prompts/generate_article.md` を追加し、テンプレ/生成の役割を分離）。
 - 2026-03-xx: `scripts/generate_posts.js` と GitHub Actions（`.github/workflows/generate-posts.yml`）による posts.json 自動生成を運用に組み込み。
 - 2026-03-xx: カテゴリ（タグ）自動登録を必須要件として明記（記事追加→自動集計→表示までを一貫させる）。
+- 2026-03-xx: `scripts/generate_sitemap.js` と `sitemap.xml` を追加し、サイトマップを記事追加に追随して自動更新する構成を採用（Base URL: https://corecycletune.com）。
