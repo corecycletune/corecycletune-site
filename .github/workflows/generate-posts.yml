@@ -1,0 +1,44 @@
+name: Generate posts.json
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths:
+      - "articles/**"
+      - "scripts/generate_posts.js"
+      - ".github/workflows/generate-posts.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build-posts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate posts.json
+        run: node scripts/generate_posts.js
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet -- data/posts.json; then
+            echo "No changes in data/posts.json"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add data/posts.json
+          git commit -m "chore: auto-generate posts.json"
+          git push
