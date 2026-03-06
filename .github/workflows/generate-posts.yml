@@ -2,6 +2,8 @@ name: Generate posts.json and sitemap.xml
 
 on:
   push:
+    branches:
+      - main
     paths:
       - "articles/**"
       - "scripts/**"
@@ -12,6 +14,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: generate-posts-main
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,6 +25,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -44,4 +52,6 @@ jobs:
           fi
 
           git commit -m "chore: update posts.json and sitemap.xml"
-          git push
+
+          git pull --rebase origin main
+          git push origin HEAD:main
