@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
   <url>
-    <loc>https://corecycletune.com/</loc>
+    <loc>https://corecycletune.com/articles/nature-brain-recovery/</loc>
   </url>
+
   <url>
-    <loc>https://corecycletune.com/articles/</loc>
+    <loc>https://corecycletune.com/articles/post-meal-sleepiness/</loc>
   </url>
+
   <url>
-    <loc>https://corecycletune.com/topics/</loc>
+    <loc>https://corecycletune.com/articles/walking-creativity/</loc>
   </url>
-  <url>
-    <loc>https://corecycletune.com/about/</loc>
-  </url>
-  <url>
-    <loc>https://corecycletune.com/disclaimer/</loc>
-  </url>
+
+
 </urlset>
