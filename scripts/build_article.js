@@ -219,7 +219,6 @@ dirs.forEach((entry) => {
 
   const slug = entry.name;
 
-  // _template などのダミーは除外
   if (slug.startsWith("_")) return;
 
   const mdPath = path.join(SRC_DIR, slug, "article.md");
