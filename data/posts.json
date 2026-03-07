@@ -32,5 +32,22 @@
     ],
     "category": "metabolism",
     "readingTime": "6 min"
+  },
+  {
+    "title": "記事タイトル",
+    "path": "/articles/_template/",
+    "description": "記事の要約を120文字以内で書く",
+    "updated": "YYYY-MM-DD",
+    "tags": [
+      "tag-1",
+      "tag-2",
+      "tag-3"
+    ],
+    "topics": [
+      "health",
+      "research"
+    ],
+    "category": "sleep",
+    "readingTime": "6 min"
   }
 ]
