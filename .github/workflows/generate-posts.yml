@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - "articles/**"
+      - "articles_src/**"
+      - "templates/**"
       - "scripts/**"
       - "data/**"
       - ".github/workflows/generate-posts.yml"
@@ -33,6 +35,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Build article html
+        run: node scripts/build_article.js
+
       - name: Generate posts.json
         run: node scripts/generate_posts.js
 
@@ -44,14 +49,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add data/posts.json sitemap.xml
+          git add articles data/posts.json sitemap.xml
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
           fi
 
-          git commit -m "chore: update posts.json and sitemap.xml"
+          git commit -m "chore: build articles and update indexes"
 
           git pull --rebase origin main
           git push origin HEAD:main
