@@ -9,34 +9,6 @@ function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
 }
 
-function parseFrontMatter(md) {
-  const match = md.match(/^---\n([\s\S]*?)\n---\n?/);
-  if (!match) {
-    return { meta: {}, body: md };
-  }
-
-  const metaText = match[1];
-  const body = md.slice(match[0].length);
-
-  const meta = {};
-
-  metaText.split("\n").forEach((line) => {
-    const i = line.indexOf(":");
-    if (i === -1) return;
-
-    const key = line.slice(0, i).trim();
-    const raw = line.slice(i + 1).trim();
-
-    if (raw.includes(",")) {
-      meta[key] = raw.split(",").map((v) => v.trim()).filter(Boolean);
-    } else {
-      meta[key] = raw;
-    }
-  });
-
-  return { meta, body };
-}
-
 function escHtml(s) {
   return String(s ?? "")
     .replaceAll("&", "&amp;")
@@ -46,7 +18,38 @@ function escHtml(s) {
     .replaceAll("'", "&#039;");
 }
 
-function inlineMd(text) {
+function parseFrontMatter(md) {
+  const match = md.match(/^---\n([\s\S]*?)\n---\n?/);
+
+  if (!match) {
+    return {
+      meta: {},
+      body: md
+    };
+  }
+
+  const metaText = match[1];
+  const body = md.slice(match[0].length);
+  const meta = {};
+
+  metaText.split("\n").forEach((line) => {
+    const i = line.indexOf(":");
+    if (i === -1) return;
+
+    const key = line.slice(0, i).trim();
+    const value = line.slice(i + 1).trim();
+
+    if (value.includes(",")) {
+      meta[key] = value.split(",").map((v) => v.trim()).filter(Boolean);
+    } else {
+      meta[key] = value;
+    }
+  });
+
+  return { meta, body };
+}
+
+function inlineFormat(text) {
   let s = escHtml(text);
 
   s = s.replace(/$begin:math:display$\(\[\^$end:math:display$]+)\]$begin:math:text$\(\[\^\)\]\+\)$end:math:text$/g, '<a href="$2">$1</a>');
@@ -61,13 +64,12 @@ function markdownToHtml(md) {
   const lines = md.replace(/\r\n/g, "\n").split("\n");
 
   let html = "";
-  let paragraph = [];
   let inList = false;
-  let inBlockquote = false;
+  let paragraph = [];
 
   function flushParagraph() {
     if (!paragraph.length) return;
-    html += `<p>${inlineMd(paragraph.join(" "))}</p>\n`;
+    html += `<p>${inlineFormat(paragraph.join(" "))}</p>\n`;
     paragraph = [];
   }
 
@@ -77,92 +79,70 @@ function markdownToHtml(md) {
     inList = false;
   }
 
-  function closeBlockquote() {
-    if (!inBlockquote) return;
-    html += `</blockquote>\n`;
-    inBlockquote = false;
-  }
-
-  lines.forEach((raw) => {
-    const line = raw.trim();
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
 
     if (!line) {
       flushParagraph();
       closeList();
-      closeBlockquote();
-      return;
+      continue;
     }
 
     if (line.startsWith("### ")) {
       flushParagraph();
       closeList();
-      closeBlockquote();
-      html += `<h3>${inlineMd(line.slice(4))}</h3>\n`;
-      return;
+      html += `<h3>${inlineFormat(line.slice(4))}</h3>\n`;
+      continue;
     }
 
     if (line.startsWith("## ")) {
       flushParagraph();
       closeList();
-      closeBlockquote();
-      html += `<h2>${inlineMd(line.slice(3))}</h2>\n`;
-      return;
+      html += `<h2>${inlineFormat(line.slice(3))}</h2>\n`;
+      continue;
     }
 
     if (line.startsWith("# ")) {
       flushParagraph();
       closeList();
-      closeBlockquote();
-      html += `<h1>${inlineMd(line.slice(2))}</h1>\n`;
-      return;
+      html += `<h1>${inlineFormat(line.slice(2))}</h1>\n`;
+      continue;
     }
 
     if (line.startsWith("- ")) {
       flushParagraph();
-      closeBlockquote();
       if (!inList) {
         html += `<ul>\n`;
         inList = true;
       }
-      html += `<li>${inlineMd(line.slice(2))}</li>\n`;
-      return;
-    }
-
-    if (line.startsWith("> ")) {
-      flushParagraph();
-      closeList();
-      if (!inBlockquote) {
-        html += `<blockquote>\n`;
-        inBlockquote = true;
-      }
-      html += `<p>${inlineMd(line.slice(2))}</p>\n`;
-      return;
+      html += `<li>${inlineFormat(line.slice(2))}</li>\n`;
+      continue;
     }
 
     paragraph.push(line);
-  });
+  }
 
   flushParagraph();
   closeList();
-  closeBlockquote();
 
   return html;
 }
 
 function buildMetaComment(meta) {
-  const lines = [
+  const tags = Array.isArray(meta.tags) ? meta.tags.join(", ") : (meta.tags || "");
+  const topics = Array.isArray(meta.topics) ? meta.topics.join(", ") : (meta.topics || "");
+
+  return [
     "<!--",
     `title: ${meta.title || ""}`,
     `description: ${meta.description || ""}`,
     `updated: ${meta.updated || ""}`,
-    `tags: ${Array.isArray(meta.tags) ? meta.tags.join(", ") : (meta.tags || "")}`,
-    `topics: ${Array.isArray(meta.topics) ? meta.topics.join(", ") : (meta.topics || "")}`,
+    `tags: ${tags}`,
+    `topics: ${topics}`,
     `category: ${meta.category || ""}`,
     `readingTime: ${meta.readingTime || ""}`,
     "-->"
-  ];
-
-  return lines.join("\n");
+  ].join("\n");
 }
 
 function buildEyecatch(meta) {
@@ -170,11 +150,13 @@ function buildEyecatch(meta) {
   return `<figure class="article-eyecatch"><img src="${meta.eyecatch}" alt="${escHtml(meta.title || "")}"></figure>`;
 }
 
-function replaceAll(template, map) {
+function replaceTemplate(template, values) {
   let out = template;
-  Object.entries(map).forEach(([key, value]) => {
+
+  Object.entries(values).forEach(([key, value]) => {
     out = out.replaceAll(`{{${key}}}`, value);
   });
+
   return out;
 }
 
@@ -187,13 +169,14 @@ function run() {
 
     const slug = entry.name;
     const srcFile = path.join(SRC_DIR, slug, "article.md");
+
     if (!fs.existsSync(srcFile)) return;
 
     const md = fs.readFileSync(srcFile, "utf8");
     const { meta, body } = parseFrontMatter(md);
     const contentHtml = markdownToHtml(body);
 
-    const html = replaceAll(template, {
+    const pageHtml = replaceTemplate(template, {
       TITLE: escHtml(meta.title || slug),
       DESCRIPTION: escHtml(meta.description || ""),
       UPDATED: escHtml(meta.updated || ""),
@@ -205,7 +188,7 @@ function run() {
     const outDir = path.join(OUT_DIR, slug);
     ensureDir(outDir);
 
-    const finalHtml = `${buildMetaComment(meta)}\n${html}`;
+    const finalHtml = `${buildMetaComment(meta)}\n${pageHtml}`;
     fs.writeFileSync(path.join(outDir, "index.html"), finalHtml, "utf8");
 
     console.log("built:", slug);
