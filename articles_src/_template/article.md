@@ -2,7 +2,7 @@
 title: 記事タイトル
 description: 記事の要約を120文字以内で書く
 updated: YYYY-MM-DD
-tags: tag-1, tag-2, tag-3
+tags:
 topics: health, research
 category: sleep
 readingTime: 6 min
