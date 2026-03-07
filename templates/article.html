@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{{TITLE}}｜CCT Lab</title>
+<meta name="description" content="{{DESCRIPTION}}">
+
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+
+<body>
+
+<div id="site-header"></div>
+
+<main class="container">
+
+<nav id="breadcrumbs" aria-label="パンくず"></nav>
+
+<article class="article">
+  <header class="article-header">
+    <p class="kicker">CCT Lab｜研究 → 日常理解</p>
+    <h1>{{TITLE}}</h1>
+
+    <div class="article-meta">
+      <span>更新：{{UPDATED}}</span>
+      <span>•</span>
+      <span>読了目安：{{READING_TIME}}</span>
+    </div>
+
+    {{EYECATCH}}
+  </header>
+
+  <section class="article-body">
+    {{CONTENT}}
+  </section>
+
+  <section id="related-posts"></section>
+</article>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>
