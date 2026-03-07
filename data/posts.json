@@ -1,49 +1,41 @@
 [
   {
-    "title": "記事タイトル",
-    "path": "/articles/_template/",
-    "description": "記事の要約を120文字以内で書く",
-    "updated": "YYYY-MM-DD",
+    "slug": "nature-brain-recovery",
+    "title": "自然を見るだけで脳は回復するのか？注意回復理論の研究",
+    "description": "森や自然を見ると頭がスッキリする感覚は本当なのか。注意回復理論と環境心理学の研究を紹介し、CCTの視点で日常への意味を整理します。",
+    "updated": "2026-03-07",
     "tags": [
-      "tag-1",
-      "tag-2",
-      "tag-3"
+      "nature",
+      "attention",
+      "psychology"
     ],
-    "topics": [
-      "health",
-      "research"
-    ],
-    "category": "sleep",
+    "category": "focus",
     "readingTime": "6 min"
   },
   {
-    "title": "{{TITLE}}｜CCT Lab",
-    "path": "/articles/nature-brain-recovery/",
-    "description": "{{DESCRIPTION}}",
-    "updated": "",
-    "tags": [],
-    "topics": [],
-    "category": "",
-    "readingTime": ""
+    "slug": "post-meal-sleepiness",
+    "title": "食後に眠くなるのはなぜ？血糖値スパイクと集中力低下の関係",
+    "description": "食後の強い眠気は睡眠不足だけが原因とは限りません。血糖値スパイクと代謝の流れを研究ベースで整理します。",
+    "updated": "2026-03-05",
+    "tags": [
+      "blood-sugar",
+      "sleepiness",
+      "metabolism"
+    ],
+    "category": "metabolism",
+    "readingTime": "6 min"
   },
   {
-    "title": "{{TITLE}}｜CCT Lab",
-    "path": "/articles/post-meal-sleepiness/",
-    "description": "{{DESCRIPTION}}",
-    "updated": "",
-    "tags": [],
-    "topics": [],
-    "category": "",
-    "readingTime": ""
-  },
-  {
-    "title": "{{TITLE}}｜CCT Lab",
-    "path": "/articles/walking-creativity/",
-    "description": "{{DESCRIPTION}}",
-    "updated": "",
-    "tags": [],
-    "topics": [],
-    "category": "",
-    "readingTime": ""
+    "slug": "walking-creativity",
+    "title": "歩くとアイデアは本当に増えるのか？スタンフォード研究",
+    "description": "歩行が創造性を高めるというスタンフォード大学の研究を紹介し、日常生活への意味をCCTの視点から整理します。",
+    "updated": "2026-03-07",
+    "tags": [
+      "walking",
+      "creativity",
+      "cognition"
+    ],
+    "category": "focus",
+    "readingTime": "5 min"
   }
 ]
