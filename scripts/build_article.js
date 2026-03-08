@@ -262,6 +262,10 @@ ${buildTextBlock(valueX, valueY, item.valueLines, { className: "cct-flow-value",
 
   return `
 <div class="cct-flow-wrap">
+  <div class="cct-flow-header">
+    <span class="cct-flow-kicker">CCT Cycle</span>
+    <span class="cct-flow-title">循環調律の流れ</span>
+  </div>
   <svg class="cct-flow-svg" viewBox="0 0 ${viewW} ${viewH}" role="img" aria-label="循環調律の流れ図" preserveAspectRatio="xMidYMid meet">
     <g class="cct-flow-group">
       ${arrows.join("\n")}
@@ -309,9 +313,10 @@ function buildPaperSummaryBlock(rawLines) {
 
   const detailHtml = detailOrder
     .filter((label) => map[label])
-    .map((label) => {
+    .map((label, index) => {
+      const modClass = index % 2 === 0 ? "paper-card-item is-accent" : "paper-card-item";
       return `
-<div class="paper-card-item">
+<div class="${modClass}">
   <div class="paper-card-item-label">${inlineFormat(label)}</div>
   <div class="paper-card-item-value">${inlineFormat(map[label])}</div>
 </div>`.trim();
@@ -332,7 +337,7 @@ function buildPaperSummaryBlock(rawLines) {
   <div class="paper-card-top">
     <div class="paper-card-kicker">Research Note</div>
     <h3 class="paper-card-title">${inlineFormat(title || "論文概要")}</h3>
-    <div class="paper-card-chips">
+    <div class="paper-card-meta">
       ${chips}
     </div>
     ${linkHtml}
@@ -560,13 +565,14 @@ function buildComponentStyles() {
 
 .article-header {
   position: relative;
-  padding: 1.15rem 1.1rem 0.4rem;
-  border-radius: 24px;
+  padding: 1.18rem 1.12rem 0.48rem;
+  border-radius: 26px;
   background:
-    radial-gradient(circle at top right, rgba(122, 150, 137, 0.14), transparent 36%),
-    linear-gradient(180deg, rgba(122, 150, 137, 0.06), rgba(122, 150, 137, 0.01));
-  border: 1px solid rgba(122, 150, 137, 0.1);
-  margin-bottom: 1.1rem;
+    radial-gradient(circle at top right, rgba(122, 150, 137, 0.18), transparent 34%),
+    linear-gradient(180deg, rgba(122, 150, 137, 0.08), rgba(122, 150, 137, 0.01));
+  border: 1px solid rgba(122, 150, 137, 0.12);
+  box-shadow: 0 16px 36px rgba(122, 150, 137, 0.08);
+  margin-bottom: 1.25rem;
 }
 
 .kicker {
@@ -576,7 +582,11 @@ function buildComponentStyles() {
 }
 
 .article-header h1 {
-  line-height: 1.35;
+  line-height: 1.3;
+}
+
+.article-meta {
+  color: #667085;
 }
 
 .article-body {
@@ -585,12 +595,13 @@ function buildComponentStyles() {
 
 .article-body > p {
   line-height: 2;
-  margin: 1.15rem 0 1.4rem;
+  margin: 1.16rem 0 1.42rem;
 }
 
 .article-body > p:first-of-type {
-  font-size: 1.03rem;
+  font-size: 1.05rem;
   line-height: 2.02;
+  color: #334155;
 }
 
 .article-body > p + h2,
@@ -598,15 +609,15 @@ function buildComponentStyles() {
 .article-body > blockquote + h2,
 .article-body > .cct-flow-wrap + h2,
 .article-body > .paper-card + h2 {
-  margin-top: 2.65rem;
+  margin-top: 2.8rem;
 }
 
 .article-body h2 {
   position: relative;
   margin-bottom: 1rem;
-  padding: 0.95rem 1rem 0.92rem 1.15rem;
-  border-radius: 18px;
-  line-height: 1.45;
+  padding: 1rem 1rem 0.96rem 1.18rem;
+  border-radius: 20px;
+  line-height: 1.42;
   background:
     linear-gradient(90deg, rgba(122, 150, 137, 0.16), rgba(122, 150, 137, 0.03));
   color: #17212b;
@@ -616,10 +627,10 @@ function buildComponentStyles() {
 .article-body h2::before {
   content: "";
   position: absolute;
-  left: 0.72rem;
-  top: 0.92rem;
-  bottom: 0.92rem;
-  width: 4px;
+  left: 0.75rem;
+  top: 0.98rem;
+  bottom: 0.98rem;
+  width: 5px;
   border-radius: 999px;
   background: #7a9689;
 }
@@ -630,12 +641,13 @@ function buildComponentStyles() {
 }
 
 .article-body blockquote {
-  margin: 1.2rem 0 1.45rem;
-  padding: 1rem 1rem 1rem 1.15rem;
+  margin: 1.2rem 0 1.5rem;
+  padding: 1rem 1rem 1rem 1.16rem;
   border-left: 4px solid #7a9689;
   background:
-    linear-gradient(180deg, rgba(122, 150, 137, 0.1), rgba(122, 150, 137, 0.05));
-  border-radius: 16px;
+    linear-gradient(180deg, rgba(122, 150, 137, 0.12), rgba(122, 150, 137, 0.05));
+  border-radius: 18px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .article-body blockquote p {
@@ -644,13 +656,13 @@ function buildComponentStyles() {
 }
 
 .article-body ul {
-  margin: 0.95rem 0 1.35rem;
+  margin: 1rem 0 1.4rem;
   padding-left: 1.25rem;
 }
 
 .article-body li {
-  margin: 0.46rem 0;
-  line-height: 1.85;
+  margin: 0.5rem 0;
+  line-height: 1.86;
 }
 
 .article-body strong {
@@ -664,14 +676,41 @@ function buildComponentStyles() {
   font-size: 0.92em;
 }
 
+.article-body a {
+  color: #365c4b;
+  text-decoration-color: rgba(54, 92, 75, 0.35);
+  text-underline-offset: 0.14em;
+}
+
 .cct-flow-wrap {
-  margin: 1.55rem 0 1.9rem;
+  margin: 1.6rem 0 1.95rem;
   padding: 1rem;
-  border-radius: 22px;
+  border-radius: 24px;
   background:
-    linear-gradient(180deg, rgba(122, 150, 137, 0.1), rgba(122, 150, 137, 0.04));
+    linear-gradient(180deg, rgba(122, 150, 137, 0.12), rgba(122, 150, 137, 0.04));
   border: 1px solid rgba(122, 150, 137, 0.18);
-  box-shadow: 0 14px 34px rgba(122, 150, 137, 0.08);
+  box-shadow: 0 16px 34px rgba(122, 150, 137, 0.08);
+}
+
+.cct-flow-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  margin: 0 0 0.65rem;
+}
+
+.cct-flow-kicker {
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6a8578;
+  font-weight: 700;
+}
+
+.cct-flow-title {
+  font-size: 0.98rem;
+  color: #243428;
+  font-weight: 700;
 }
 
 .cct-flow-svg {
@@ -709,113 +748,131 @@ function buildComponentStyles() {
 }
 
 .paper-card {
-  margin: 2.4rem 0 1.25rem;
-  border-radius: 26px;
+  margin: 2.7rem 0 1.4rem;
+  border-radius: 28px;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(18, 37, 30, 0.96), rgba(32, 58, 48, 0.94));
-  color: #f4f8f6;
-  box-shadow: 0 18px 40px rgba(18, 37, 30, 0.24);
+    radial-gradient(circle at top right, rgba(170, 211, 193, 0.26), transparent 28%),
+    linear-gradient(180deg, #15241d 0%, #1d3228 45%, #233d31 100%);
+  color: #f6faf8;
+  box-shadow: 0 22px 46px rgba(18, 37, 30, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .paper-card-top {
-  padding: 1.2rem 1.1rem 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background:
-    radial-gradient(circle at top right, rgba(164, 199, 183, 0.22), transparent 34%);
+  padding: 1.22rem 1.12rem 1.02rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .paper-card-kicker {
   display: inline-block;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.5rem;
   font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #c5d8cf;
+  color: #c3d8ce;
   font-weight: 700;
 }
 
 .paper-card-title {
   margin: 0;
-  line-height: 1.45;
-  font-size: 1.06rem;
+  line-height: 1.48;
+  font-size: 1.08rem;
   color: #ffffff;
 }
 
-.paper-card-chips {
+.paper-card-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-top: 0.8rem;
+  gap: 0.48rem;
+  margin-top: 0.82rem;
 }
 
 .paper-card-chip {
   display: inline-flex;
   align-items: center;
-  padding: 0.34rem 0.62rem;
+  padding: 0.34rem 0.64rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  color: #edf5f1;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f0f7f3;
   font-size: 0.8rem;
   line-height: 1.2;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .paper-card-link {
-  display: inline-block;
-  margin-top: 0.9rem;
-  padding: 0.58rem 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.95rem;
+  padding: 0.62rem 0.9rem;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.1));
   color: #ffffff;
   text-decoration: none;
   font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 .paper-card-link:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.12));
 }
 
 .paper-card-bottom {
   display: grid;
-  gap: 0.7rem;
-  padding: 0.95rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  gap: 0.82rem;
+  padding: 0.96rem;
 }
 
 .paper-card-item {
-  padding: 0.82rem 0.86rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.08);
+  padding: 0.86rem 0.9rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.paper-card-item.is-accent {
+  background: linear-gradient(180deg, rgba(170, 211, 193, 0.12), rgba(255, 255, 255, 0.05));
 }
 
 .paper-card-item-label {
-  margin-bottom: 0.28rem;
+  margin-bottom: 0.3rem;
   font-size: 0.78rem;
   letter-spacing: 0.03em;
-  color: #c1d4cb;
+  color: #c6ddd3;
   font-weight: 700;
 }
 
 .paper-card-item-value {
   font-size: 0.95rem;
-  line-height: 1.8;
-  color: #f5f8f7;
+  line-height: 1.82;
+  color: #f5f9f7;
   word-break: break-word;
+}
+
+@media (min-width: 860px) {
+  .paper-card-bottom {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 640px) {
   .article-header {
-    padding: 1rem 0.92rem 0.35rem;
+    padding: 1rem 0.92rem 0.38rem;
     border-radius: 22px;
   }
 
   .article-body h2 {
-    padding: 0.88rem 0.9rem 0.84rem 1.05rem;
-    border-radius: 16px;
+    padding: 0.9rem 0.92rem 0.86rem 1.06rem;
+    border-radius: 18px;
   }
 
   .cct-flow-wrap {
-    padding: 0.8rem;
+    padding: 0.82rem;
+  }
+
+  .paper-card {
+    border-radius: 24px;
   }
 
   .paper-card-top {
