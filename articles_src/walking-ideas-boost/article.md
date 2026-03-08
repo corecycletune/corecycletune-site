@@ -22,7 +22,7 @@ eyecatch: /assets/eyecatch/walking-ideas-boost.jpg
 ## 歩行が創造的思考を高めた研究結果は何をずらすのか
 
 > "Four experiments demonstrate that walking boosts creative ideation." [1]  
-> （4つの実験は、歩行が創造的なアイデア生成を高めることを示している。）  
+> （4つの実験は、歩行が創造的なアイデア生成を高めることを示している。）
 
 この一文の面白さは、創造性を「才能」や「ひらめきの質」ではなく、状態によって変わる出力として扱っているところにあります。
 
@@ -147,30 +147,15 @@ eyecatch: /assets/eyecatch/walking-ideas-boost.jpg
 
 だからこそ、歩くことは単なる気分転換ではなく、思考の停滞をほどく解決として意味を持ちます。
 
-## スタンフォード歩行研究の概要と論文リンク
-
-- 論文タイトル  
-  Give Your Ideas Some Legs: The Positive Effect of Walking on Creative Thinking
-
-- 著者  
-  Marily Oppezzo, Daniel L. Schwartz
-
-- 年  
-  2014
-
-- どこの研究か  
-  Stanford University 関連の研究で、Journal of Experimental Psychology: Learning, Memory, and Cognition に掲載
-
-- どんな内容か  
-  4つの実験を通して、歩行中または歩行直後に、創造的なアイデア生成が高まりやすいかを検証した研究。主に発散的思考課題で効果が見られ、正解を一つに絞る課題では同じような利益は確認されなかった。
-
-- 対象・条件  
-  合計176人。座位、屋内トレッドミル歩行、屋外歩行などを比較。創造性課題として alternate uses 課題や analogy 課題などを実施。
-
-- 限界  
-  主に短時間の実験課題での結果であり、長期的な創造性そのものを直接測った研究ではない。また、発散的思考には有利でも、すべての認知課題に有利とは限らない。
-
-- 論文リンク  
-  https://doi.org/10.1037/a0036577
+[paper-summary]
+論文タイトル | Give Your Ideas Some Legs: The Positive Effect of Walking on Creative Thinking
+著者 | Marily Oppezzo, Daniel L. Schwartz
+年 | 2014
+どこの研究か | Stanford University 関連の研究で、Journal of Experimental Psychology: Learning, Memory, and Cognition に掲載
+どんな内容か | 4つの実験を通して、歩行中または歩行直後に、創造的なアイデア生成が高まりやすいかを検証した研究。主に発散的思考課題で効果が見られた
+対象・条件 | 合計176人。座位、屋内トレッドミル歩行、屋外歩行などを比較。創造性課題として alternate uses 課題や analogy 課題などを実施
+限界 | 主に短時間の実験課題での結果であり、長期的な創造性そのものを直接測った研究ではない。また、発散的思考には有利でも、すべての認知課題に有利とは限らない
+論文リンク | https://doi.org/10.1037/a0036577
+[/paper-summary]
 
 [1] Oppezzo, M., & Schwartz, D. L. (2014). Give Your Ideas Some Legs: The Positive Effect of Walking on Creative Thinking.
