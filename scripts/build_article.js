@@ -270,6 +270,43 @@ ${buildTextBlock(valueX, valueY, item.valueLines, { className: "cct-flow-value",
 </div>`.trim();
 }
 
+function buildPaperSummaryBlock(rawLines) {
+  const items = rawLines
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => {
+      const parts = line.split("|");
+      const label = (parts[0] || "").trim();
+      const value = parts.slice(1).join("|").trim();
+
+      return { label, value };
+    })
+    .filter((item) => item.label && item.value);
+
+  if (!items.length) return "";
+
+  const rowsHtml = items
+    .map((item) => {
+      return `
+<div class="paper-summary-row">
+  <div class="paper-summary-label">${inlineFormat(item.label)}</div>
+  <div class="paper-summary-value">${inlineFormat(item.value)}</div>
+</div>`.trim();
+    })
+    .join("\n");
+
+  return `
+<section class="paper-summary-block" aria-label="論文概要">
+  <div class="paper-summary-head">
+    <span class="paper-summary-kicker">Paper Summary</span>
+    <h3>論文概要</h3>
+  </div>
+  <div class="paper-summary-grid">
+    ${rowsHtml}
+  </div>
+</section>`.trim();
+}
+
 function markdownToHtml(md) {
   const lines = md.replace(/\r\n/g, "\n").split("\n");
 
@@ -279,6 +316,8 @@ function markdownToHtml(md) {
   let inBlockquote = false;
   let inCctCycle = false;
   let cctCycleLines = [];
+  let inPaperSummary = false;
+  let paperSummaryLines = [];
 
   function flushParagraph() {
     if (!paragraph.length) return;
@@ -305,6 +344,13 @@ function markdownToHtml(md) {
     cctCycleLines = [];
   }
 
+  function closePaperSummary() {
+    if (!inPaperSummary) return;
+    html += `${buildPaperSummaryBlock(paperSummaryLines)}\n`;
+    inPaperSummary = false;
+    paperSummaryLines = [];
+  }
+
   lines.forEach((rawLine) => {
     const line = rawLine.trim();
 
@@ -312,6 +358,7 @@ function markdownToHtml(md) {
       flushParagraph();
       closeList();
       closeBlockquote();
+      closePaperSummary();
       inCctCycle = true;
       cctCycleLines = [];
       return;
@@ -322,8 +369,28 @@ function markdownToHtml(md) {
       return;
     }
 
+    if (line === "[paper-summary]") {
+      flushParagraph();
+      closeList();
+      closeBlockquote();
+      closeCctCycle();
+      inPaperSummary = true;
+      paperSummaryLines = [];
+      return;
+    }
+
+    if (line === "[/paper-summary]") {
+      closePaperSummary();
+      return;
+    }
+
     if (inCctCycle) {
       cctCycleLines.push(rawLine);
+      return;
+    }
+
+    if (inPaperSummary) {
+      paperSummaryLines.push(rawLine);
       return;
     }
 
@@ -387,6 +454,7 @@ function markdownToHtml(md) {
   closeList();
   closeBlockquote();
   closeCctCycle();
+  closePaperSummary();
 
   return html;
 }
@@ -450,8 +518,95 @@ function buildStructuredData(meta, slug) {
 function buildComponentStyles() {
   return `
 <style>
+.article {
+  position: relative;
+}
+
+.article-body {
+  color: #1f2937;
+}
+
+.article-body > p {
+  line-height: 2;
+  margin: 1.1rem 0 1.35rem;
+}
+
+.article-body > p + h2,
+.article-body > ul + h2,
+.article-body > blockquote + h2,
+.article-body > .cct-flow-wrap + h2,
+.article-body > .paper-summary-block + h2 {
+  margin-top: 2.5rem;
+}
+
+.article-body h2 {
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 0.9rem 1rem 0.85rem 1.15rem;
+  border-radius: 18px;
+  line-height: 1.45;
+  background:
+    linear-gradient(90deg, rgba(127, 153, 141, 0.14), rgba(127, 153, 141, 0.03));
+  color: #17212b;
+}
+
+.article-body h2::before {
+  content: "";
+  position: absolute;
+  left: 0.7rem;
+  top: 0.9rem;
+  bottom: 0.9rem;
+  width: 4px;
+  border-radius: 999px;
+  background: #7a9689;
+}
+
+.article-body h3 {
+  margin: 2rem 0 0.8rem;
+  color: #304236;
+}
+
+.article-body blockquote {
+  margin: 1.1rem 0 1.4rem;
+  padding: 0.95rem 1rem 0.95rem 1.1rem;
+  border-left: 4px solid #7a9689;
+  background: rgba(127, 153, 141, 0.08);
+  border-radius: 14px;
+}
+
+.article-body blockquote p {
+  margin: 0.45rem 0;
+  line-height: 1.9;
+}
+
+.article-body ul {
+  margin: 0.85rem 0 1.3rem;
+  padding-left: 1.25rem;
+}
+
+.article-body li {
+  margin: 0.45rem 0;
+  line-height: 1.85;
+}
+
+.article-body strong {
+  color: #0f172a;
+}
+
+.article-body code {
+  padding: 0.12rem 0.38rem;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.06);
+  font-size: 0.92em;
+}
+
 .cct-flow-wrap {
-  margin: 1.5rem 0 1.7rem;
+  margin: 1.5rem 0 1.8rem;
+  padding: 1rem;
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(127, 153, 141, 0.08), rgba(127, 153, 141, 0.03));
+  border: 1px solid rgba(127, 153, 141, 0.18);
 }
 
 .cct-flow-svg {
@@ -486,6 +641,87 @@ function buildComponentStyles() {
   fill: #1b2430;
   font-size: 16px;
   font-weight: 600;
+}
+
+.paper-summary-block {
+  margin: 2rem 0 1.2rem;
+  padding: 1rem;
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(122, 150, 137, 0.1), rgba(122, 150, 137, 0.04));
+  border: 1px solid rgba(122, 150, 137, 0.18);
+}
+
+.paper-summary-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  margin-bottom: 0.9rem;
+}
+
+.paper-summary-kicker {
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b8579;
+  font-weight: 700;
+}
+
+.paper-summary-head h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #203126;
+}
+
+.paper-summary-grid {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.paper-summary-row {
+  display: grid;
+  grid-template-columns: 7.2rem 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.72rem 0.8rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(122, 150, 137, 0.12);
+}
+
+.paper-summary-label {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #5d786b;
+  line-height: 1.6;
+}
+
+.paper-summary-value {
+  font-size: 0.96rem;
+  color: #1f2937;
+  line-height: 1.75;
+  word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  .article-body h2 {
+    padding: 0.85rem 0.9rem 0.82rem 1.05rem;
+    border-radius: 16px;
+  }
+
+  .cct-flow-wrap {
+    padding: 0.8rem;
+  }
+
+  .paper-summary-block {
+    padding: 0.85rem;
+  }
+
+  .paper-summary-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    padding: 0.7rem 0.75rem;
+  }
 }
 </style>`.trim();
 }
