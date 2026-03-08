@@ -299,7 +299,7 @@ function buildPaperSummaryBlock(rawLines) {
   const { pairs, map } = extractPaperSummaryData(rawLines);
   if (!pairs.length) return "";
 
-  const title = map["論文タイトル"] || "";
+  const title = map["論文タイトル"] || "論文概要";
   const authors = map["著者"] || "";
   const year = map["年"] || "";
   const link = map["論文リンク"] || "";
@@ -336,7 +336,7 @@ function buildPaperSummaryBlock(rawLines) {
 <section class="paper-card" aria-label="論文概要">
   <div class="paper-card-top">
     <div class="paper-card-kicker">Research Note</div>
-    <h3 class="paper-card-title">${inlineFormat(title || "論文概要")}</h3>
+    <h3 class="paper-card-title">${inlineFormat(title)}</h3>
     <div class="paper-card-meta">
       ${chips}
     </div>
