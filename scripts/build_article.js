@@ -67,12 +67,13 @@ function wrapText(text, maxCharsPerLine, maxLines) {
     lines[lines.length - 1] = `${trimmed}…`;
   }
 
-  return lines;
+  return lines.length ? lines : [""];
 }
 
 function buildTextBlock(x, y, lines, options = {}) {
   const lineHeight = options.lineHeight || 22;
   const cls = options.className || "";
+
   return lines
     .map((line, index) => {
       const yy = y + index * lineHeight;
@@ -81,28 +82,45 @@ function buildTextBlock(x, y, lines, options = {}) {
     .join("\n");
 }
 
-function buildArrow(fromX, fromY, toX, toY) {
-  const isHorizontal = fromY === toY;
-  const arrowSize = 8;
+function buildArrowHead(x, y, direction) {
+  const size = 8;
 
-  if (isHorizontal) {
-    const dir = toX > fromX ? 1 : -1;
-    const endX = toX - dir * 14;
-    const startX = fromX + dir * 14;
-
-    return `
-<line x1="${startX}" y1="${fromY}" x2="${endX}" y2="${toY}" class="cct-flow-line" />
-<polygon points="${endX},${toY} ${endX - dir * arrowSize},${toY - arrowSize / 1.6} ${endX - dir * arrowSize},${toY + arrowSize / 1.6}" class="cct-flow-head" />
-`.trim();
+  if (direction === "right") {
+    return `<polygon points="${x},${y} ${x - size},${y - size / 1.6} ${x - size},${y + size / 1.6}" class="cct-flow-head" />`;
   }
 
-  const dir = toY > fromY ? 1 : -1;
-  const endY = toY - dir * 14;
-  const startY = fromY + dir * 14;
+  if (direction === "left") {
+    return `<polygon points="${x},${y} ${x + size},${y - size / 1.6} ${x + size},${y + size / 1.6}" class="cct-flow-head" />`;
+  }
+
+  if (direction === "down") {
+    return `<polygon points="${x},${y} ${x - size / 1.6},${y - size} ${x + size / 1.6},${y - size}" class="cct-flow-head" />`;
+  }
+
+  return `<polygon points="${x},${y} ${x - size / 1.6},${y + size} ${x + size / 1.6},${y + size}" class="cct-flow-head" />`;
+}
+
+function buildHorizontalArrow(x1, y, x2) {
+  const dir = x2 > x1 ? "right" : "left";
+  const offset = 14;
+  const startX = dir === "right" ? x1 + offset : x1 - offset;
+  const endX = dir === "right" ? x2 - offset : x2 + offset;
 
   return `
-<line x1="${fromX}" y1="${startY}" x2="${toX}" y2="${endY}" class="cct-flow-line" />
-<polygon points="${toX},${endY} ${toX - arrowSize / 1.6},${endY - dir * arrowSize} ${toX + arrowSize / 1.6},${endY - dir * arrowSize}" class="cct-flow-head" />
+<line x1="${startX}" y1="${y}" x2="${endX}" y2="${y}" class="cct-flow-line" />
+${buildArrowHead(endX, y, dir)}
+`.trim();
+}
+
+function buildVerticalArrow(x, y1, y2) {
+  const dir = y2 > y1 ? "down" : "up";
+  const offset = 14;
+  const startY = dir === "down" ? y1 + offset : y1 - offset;
+  const endY = dir === "down" ? y2 - offset : y2 + offset;
+
+  return `
+<line x1="${x}" y1="${startY}" x2="${x}" y2="${endY}" class="cct-flow-line" />
+${buildArrowHead(x, endY, dir)}
 `.trim();
 }
 
@@ -114,98 +132,139 @@ function buildCctCycleBlock(rawLines) {
       const parts = line.split("|");
       const label = (parts[0] || "").trim();
       const value = parts.slice(1).join("|").trim();
+
       return { label, value };
     })
     .filter((item) => item.label && item.value);
 
   if (!items.length) return "";
 
-  const boxW = 190;
-  const boxH = 92;
-  const gapX = 42;
-  const gapY = 54;
-  const margin = 24;
-
   const topCount = Math.ceil(items.length / 2);
   const bottomCount = items.length - topCount;
 
-  const topXs = Array.from({ length: topCount }, (_, i) => margin + i * (boxW + gapX));
-  const bottomXs = Array.from({ length: bottomCount }, (_, i) => margin + i * (boxW + gapX));
+  const boxW = 210;
+  const gapX = 36;
+  const gapY = 70;
+  const margin = 26;
 
-  const topY = margin;
-  const bottomY = margin + boxH + gapY;
+  const prepared = items.map((item) => {
+    const labelLines = wrapText(item.label, 8, 2);
+    const valueLines = wrapText(item.value, 12, 4);
 
-  const coords = items.map((item, index) => {
-    if (index < topCount) {
-      return {
-        ...item,
-        x: topXs[index],
-        y: topY
-      };
-    }
-
-    const j = index - topCount;
-    const reversed = bottomCount - 1 - j;
+    const labelHeight = labelLines.length * 18;
+    const valueHeight = valueLines.length * 22;
+    const boxH = 28 + labelHeight + 12 + valueHeight + 18;
 
     return {
       ...item,
-      x: bottomXs[reversed],
-      y: bottomY
+      labelLines,
+      valueLines,
+      boxH
     };
   });
 
-  const maxRight = Math.max(...coords.map((c) => c.x + boxW));
-  const maxBottom = Math.max(...coords.map((c) => c.y + boxH));
-  const viewW = maxRight + margin;
-  const viewH = maxBottom + margin;
+  const topItems = prepared.slice(0, topCount);
+  const bottomItems = prepared.slice(topCount).reverse();
 
-  const boxesHtml = coords
+  const topRowHeight = topItems.length ? Math.max(...topItems.map((i) => i.boxH)) : 0;
+  const bottomRowHeight = bottomItems.length ? Math.max(...bottomItems.map((i) => i.boxH)) : 0;
+
+  const topRowWidth = topItems.length * boxW + Math.max(0, topItems.length - 1) * gapX;
+  const bottomRowWidth = bottomItems.length * boxW + Math.max(0, bottomItems.length - 1) * gapX;
+  const viewW = Math.max(topRowWidth, bottomRowWidth) + margin * 2;
+
+  const topStartX = (viewW - topRowWidth) / 2;
+  const bottomStartX = (viewW - bottomRowWidth) / 2;
+
+  const topY = margin;
+  const bottomY = margin + topRowHeight + gapY;
+
+  topItems.forEach((item, index) => {
+    item.x = topStartX + index * (boxW + gapX);
+    item.y = topY;
+  });
+
+  bottomItems.forEach((item, index) => {
+    item.x = bottomStartX + index * (boxW + gapX);
+    item.y = bottomY;
+  });
+
+  const allBoxes = [...topItems, ...bottomItems];
+  const viewH = bottomY + bottomRowHeight + margin;
+
+  const boxHtml = allBoxes
     .map((item) => {
-      const labelLines = wrapText(item.label, 8, 1);
-      const valueLines = wrapText(item.value, 14, 3);
-
       const labelX = item.x + 16;
       const labelY = item.y + 28;
       const valueX = item.x + 16;
-      const valueY = item.y + 58;
+      const valueY = item.y + 28 + item.labelLines.length * 18 + 16;
 
       return `
-<rect x="${item.x}" y="${item.y}" rx="16" ry="16" width="${boxW}" height="${boxH}" class="cct-flow-box" />
-${buildTextBlock(labelX, labelY, labelLines, { className: "cct-flow-label", lineHeight: 18 })}
-${buildTextBlock(valueX, valueY, valueLines, { className: "cct-flow-value", lineHeight: 22 })}
+<rect x="${item.x}" y="${item.y}" rx="16" ry="16" width="${boxW}" height="${item.boxH}" class="cct-flow-box" />
+${buildTextBlock(labelX, labelY, item.labelLines, { className: "cct-flow-label", lineHeight: 18 })}
+${buildTextBlock(valueX, valueY, item.valueLines, { className: "cct-flow-value", lineHeight: 22 })}
 `.trim();
     })
     .join("\n");
 
-  const arrowsHtml = coords
-    .slice(0, -1)
-    .map((item, index) => {
-      const next = coords[index + 1];
+  const arrows = [];
 
-      const fromX = item.x + boxW / 2;
-      const fromY = item.y + boxH / 2;
-      const toX = next.x + boxW / 2;
-      const toY = next.y + boxH / 2;
+  for (let i = 0; i < topItems.length - 1; i++) {
+    const current = topItems[i];
+    const next = topItems[i + 1];
 
-      if (item.y === next.y) {
-        return buildArrow(item.x + boxW, fromY, next.x, toY);
-      }
+    arrows.push(
+      buildHorizontalArrow(
+        current.x + boxW,
+        current.y + current.boxH / 2,
+        next.x
+      )
+    );
+  }
 
-      return buildArrow(fromX, item.y + boxH, toX, next.y);
-    })
-    .join("\n");
+  if (bottomItems.length > 0) {
+    const lastTop = topItems[topItems.length - 1];
+    const firstBottom = bottomItems[0];
+
+    arrows.push(
+      buildVerticalArrow(
+        lastTop.x + boxW / 2,
+        lastTop.y + lastTop.boxH,
+        firstBottom.y
+      )
+    );
+
+    for (let i = 0; i < bottomItems.length - 1; i++) {
+      const current = bottomItems[i];
+      const next = bottomItems[i + 1];
+
+      arrows.push(
+        buildHorizontalArrow(
+          current.x,
+          current.y + current.boxH / 2,
+          next.x + boxW
+        )
+      );
+    }
+
+    const lastBottom = bottomItems[bottomItems.length - 1];
+    const firstTop = topItems[0];
+
+    arrows.push(
+      buildVerticalArrow(
+        firstTop.x + boxW / 2,
+        lastBottom.y,
+        firstTop.y + firstTop.boxH
+      )
+    );
+  }
 
   return `
 <div class="cct-flow-wrap">
   <svg class="cct-flow-svg" viewBox="0 0 ${viewW} ${viewH}" role="img" aria-label="循環調律の流れ図" preserveAspectRatio="xMidYMid meet">
-    <defs>
-      <filter id="cct-flow-shadow" x="-20%" y="-20%" width="140%" height="140%">
-        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#9db1a8" flood-opacity="0.18" />
-      </filter>
-    </defs>
-    <g class="cct-flow-group" filter="url(#cct-flow-shadow)">
-      ${arrowsHtml}
-      ${boxesHtml}
+    <g class="cct-flow-group">
+      ${arrows.join("\n")}
+      ${boxHtml}
     </g>
   </svg>
 </div>`.trim();
@@ -392,7 +451,7 @@ function buildComponentStyles() {
   return `
 <style>
 .cct-flow-wrap {
-  margin: 1.4rem 0 1.6rem;
+  margin: 1.5rem 0 1.7rem;
 }
 
 .cct-flow-svg {
@@ -403,22 +462,22 @@ function buildComponentStyles() {
 
 .cct-flow-box {
   fill: #ffffff;
-  stroke: #d7e3dd;
-  stroke-width: 1.4;
+  stroke: #d9e4de;
+  stroke-width: 1.5;
 }
 
 .cct-flow-line {
-  stroke: #7d998d;
-  stroke-width: 3.2;
+  stroke: #7a9689;
+  stroke-width: 3.6;
   stroke-linecap: round;
 }
 
 .cct-flow-head {
-  fill: #7d998d;
+  fill: #7a9689;
 }
 
 .cct-flow-label {
-  fill: #617d71;
+  fill: #617c70;
   font-size: 14px;
   font-weight: 700;
 }
