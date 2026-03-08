@@ -46,6 +46,7 @@ function parseFrontMatter(md) {
 function inlineFormat(text) {
   let s = escapeHtml(text);
 
+  s = s.replace(/$begin:math:display$\(\[\^$end:math:display$]+)\]$begin:math:text$\(\[\^\)\]\+\)$end:math:text$/g, '<a href="$2">$1</a>');
   s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   s = s.replace(/\*([^*]+)\*/g, "<em>$1</em>");
   s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
@@ -270,39 +271,74 @@ ${buildTextBlock(valueX, valueY, item.valueLines, { className: "cct-flow-value",
 </div>`.trim();
 }
 
-function buildPaperSummaryBlock(rawLines) {
-  const items = rawLines
+function extractPaperSummaryData(rawLines) {
+  const pairs = rawLines
     .map((line) => line.trim())
     .filter(Boolean)
     .map((line) => {
       const parts = line.split("|");
       const label = (parts[0] || "").trim();
       const value = parts.slice(1).join("|").trim();
-
       return { label, value };
     })
     .filter((item) => item.label && item.value);
 
-  if (!items.length) return "";
+  const map = {};
+  pairs.forEach((item) => {
+    map[item.label] = item.value;
+  });
 
-  const rowsHtml = items
-    .map((item) => {
+  return { pairs, map };
+}
+
+function buildPaperSummaryBlock(rawLines) {
+  const { pairs, map } = extractPaperSummaryData(rawLines);
+  if (!pairs.length) return "";
+
+  const title = map["論文タイトル"] || "";
+  const authors = map["著者"] || "";
+  const year = map["年"] || "";
+  const link = map["論文リンク"] || "";
+
+  const detailOrder = [
+    "どこの研究か",
+    "どんな内容か",
+    "対象・条件",
+    "限界"
+  ];
+
+  const detailHtml = detailOrder
+    .filter((label) => map[label])
+    .map((label) => {
       return `
-<div class="paper-summary-row">
-  <div class="paper-summary-label">${inlineFormat(item.label)}</div>
-  <div class="paper-summary-value">${inlineFormat(item.value)}</div>
+<div class="paper-card-item">
+  <div class="paper-card-item-label">${inlineFormat(label)}</div>
+  <div class="paper-card-item-value">${inlineFormat(map[label])}</div>
 </div>`.trim();
     })
     .join("\n");
 
+  const chips = [
+    year ? `<span class="paper-card-chip">${inlineFormat(year)}</span>` : "",
+    authors ? `<span class="paper-card-chip">${inlineFormat(authors)}</span>` : ""
+  ].filter(Boolean).join("\n");
+
+  const linkHtml = link
+    ? `<a class="paper-card-link" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">論文リンクを見る</a>`
+    : "";
+
   return `
-<section class="paper-summary-block" aria-label="論文概要">
-  <div class="paper-summary-head">
-    <span class="paper-summary-kicker">Paper Summary</span>
-    <h3>論文概要</h3>
+<section class="paper-card" aria-label="論文概要">
+  <div class="paper-card-top">
+    <div class="paper-card-kicker">Research Note</div>
+    <h3 class="paper-card-title">${inlineFormat(title || "論文概要")}</h3>
+    <div class="paper-card-chips">
+      ${chips}
+    </div>
+    ${linkHtml}
   </div>
-  <div class="paper-summary-grid">
-    ${rowsHtml}
+  <div class="paper-card-bottom">
+    ${detailHtml}
   </div>
 </section>`.trim();
 }
@@ -522,40 +558,67 @@ function buildComponentStyles() {
   position: relative;
 }
 
+.article-header {
+  position: relative;
+  padding: 1.15rem 1.1rem 0.4rem;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(122, 150, 137, 0.14), transparent 36%),
+    linear-gradient(180deg, rgba(122, 150, 137, 0.06), rgba(122, 150, 137, 0.01));
+  border: 1px solid rgba(122, 150, 137, 0.1);
+  margin-bottom: 1.1rem;
+}
+
+.kicker {
+  color: #6a8578;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+.article-header h1 {
+  line-height: 1.35;
+}
+
 .article-body {
   color: #1f2937;
 }
 
 .article-body > p {
   line-height: 2;
-  margin: 1.1rem 0 1.35rem;
+  margin: 1.15rem 0 1.4rem;
+}
+
+.article-body > p:first-of-type {
+  font-size: 1.03rem;
+  line-height: 2.02;
 }
 
 .article-body > p + h2,
 .article-body > ul + h2,
 .article-body > blockquote + h2,
 .article-body > .cct-flow-wrap + h2,
-.article-body > .paper-summary-block + h2 {
-  margin-top: 2.5rem;
+.article-body > .paper-card + h2 {
+  margin-top: 2.65rem;
 }
 
 .article-body h2 {
   position: relative;
   margin-bottom: 1rem;
-  padding: 0.9rem 1rem 0.85rem 1.15rem;
+  padding: 0.95rem 1rem 0.92rem 1.15rem;
   border-radius: 18px;
   line-height: 1.45;
   background:
-    linear-gradient(90deg, rgba(127, 153, 141, 0.14), rgba(127, 153, 141, 0.03));
+    linear-gradient(90deg, rgba(122, 150, 137, 0.16), rgba(122, 150, 137, 0.03));
   color: #17212b;
+  box-shadow: 0 10px 24px rgba(122, 150, 137, 0.08);
 }
 
 .article-body h2::before {
   content: "";
   position: absolute;
-  left: 0.7rem;
-  top: 0.9rem;
-  bottom: 0.9rem;
+  left: 0.72rem;
+  top: 0.92rem;
+  bottom: 0.92rem;
   width: 4px;
   border-radius: 999px;
   background: #7a9689;
@@ -567,11 +630,12 @@ function buildComponentStyles() {
 }
 
 .article-body blockquote {
-  margin: 1.1rem 0 1.4rem;
-  padding: 0.95rem 1rem 0.95rem 1.1rem;
+  margin: 1.2rem 0 1.45rem;
+  padding: 1rem 1rem 1rem 1.15rem;
   border-left: 4px solid #7a9689;
-  background: rgba(127, 153, 141, 0.08);
-  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(122, 150, 137, 0.1), rgba(122, 150, 137, 0.05));
+  border-radius: 16px;
 }
 
 .article-body blockquote p {
@@ -580,12 +644,12 @@ function buildComponentStyles() {
 }
 
 .article-body ul {
-  margin: 0.85rem 0 1.3rem;
+  margin: 0.95rem 0 1.35rem;
   padding-left: 1.25rem;
 }
 
 .article-body li {
-  margin: 0.45rem 0;
+  margin: 0.46rem 0;
   line-height: 1.85;
 }
 
@@ -601,12 +665,13 @@ function buildComponentStyles() {
 }
 
 .cct-flow-wrap {
-  margin: 1.5rem 0 1.8rem;
+  margin: 1.55rem 0 1.9rem;
   padding: 1rem;
   border-radius: 22px;
   background:
-    linear-gradient(180deg, rgba(127, 153, 141, 0.08), rgba(127, 153, 141, 0.03));
-  border: 1px solid rgba(127, 153, 141, 0.18);
+    linear-gradient(180deg, rgba(122, 150, 137, 0.1), rgba(122, 150, 137, 0.04));
+  border: 1px solid rgba(122, 150, 137, 0.18);
+  box-shadow: 0 14px 34px rgba(122, 150, 137, 0.08);
 }
 
 .cct-flow-svg {
@@ -643,69 +708,109 @@ function buildComponentStyles() {
   font-weight: 600;
 }
 
-.paper-summary-block {
-  margin: 2rem 0 1.2rem;
-  padding: 1rem;
-  border-radius: 22px;
+.paper-card {
+  margin: 2.4rem 0 1.25rem;
+  border-radius: 26px;
+  overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(122, 150, 137, 0.1), rgba(122, 150, 137, 0.04));
-  border: 1px solid rgba(122, 150, 137, 0.18);
+    linear-gradient(180deg, rgba(18, 37, 30, 0.96), rgba(32, 58, 48, 0.94));
+  color: #f4f8f6;
+  box-shadow: 0 18px 40px rgba(18, 37, 30, 0.24);
 }
 
-.paper-summary-head {
-  display: flex;
-  flex-direction: column;
-  gap: 0.18rem;
-  margin-bottom: 0.9rem;
+.paper-card-top {
+  padding: 1.2rem 1.1rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(circle at top right, rgba(164, 199, 183, 0.22), transparent 34%);
 }
 
-.paper-summary-kicker {
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
+.paper-card-kicker {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #6b8579;
+  color: #c5d8cf;
   font-weight: 700;
 }
 
-.paper-summary-head h3 {
+.paper-card-title {
   margin: 0;
-  font-size: 1.05rem;
-  color: #203126;
+  line-height: 1.45;
+  font-size: 1.06rem;
+  color: #ffffff;
 }
 
-.paper-summary-grid {
-  display: grid;
-  gap: 0.65rem;
+.paper-card-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.8rem;
 }
 
-.paper-summary-row {
-  display: grid;
-  grid-template-columns: 7.2rem 1fr;
-  gap: 0.75rem;
-  align-items: start;
-  padding: 0.72rem 0.8rem;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(122, 150, 137, 0.12);
+.paper-card-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.34rem 0.62rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #edf5f1;
+  font-size: 0.8rem;
+  line-height: 1.2;
 }
 
-.paper-summary-label {
-  font-size: 0.86rem;
+.paper-card-link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  padding: 0.58rem 0.82rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  text-decoration: none;
   font-weight: 700;
-  color: #5d786b;
-  line-height: 1.6;
 }
 
-.paper-summary-value {
-  font-size: 0.96rem;
-  color: #1f2937;
-  line-height: 1.75;
+.paper-card-link:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.paper-card-bottom {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0.95rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+}
+
+.paper-card-item {
+  padding: 0.82rem 0.86rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.paper-card-item-label {
+  margin-bottom: 0.28rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: #c1d4cb;
+  font-weight: 700;
+}
+
+.paper-card-item-value {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #f5f8f7;
   word-break: break-word;
 }
 
 @media (max-width: 640px) {
+  .article-header {
+    padding: 1rem 0.92rem 0.35rem;
+    border-radius: 22px;
+  }
+
   .article-body h2 {
-    padding: 0.85rem 0.9rem 0.82rem 1.05rem;
+    padding: 0.88rem 0.9rem 0.84rem 1.05rem;
     border-radius: 16px;
   }
 
@@ -713,14 +818,12 @@ function buildComponentStyles() {
     padding: 0.8rem;
   }
 
-  .paper-summary-block {
-    padding: 0.85rem;
+  .paper-card-top {
+    padding: 1rem 0.92rem 0.9rem;
   }
 
-  .paper-summary-row {
-    grid-template-columns: 1fr;
-    gap: 0.25rem;
-    padding: 0.7rem 0.75rem;
+  .paper-card-bottom {
+    padding: 0.82rem;
   }
 }
 </style>`.trim();
