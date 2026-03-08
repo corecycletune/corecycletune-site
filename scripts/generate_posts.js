@@ -20,30 +20,34 @@ function parseFrontMatter(md) {
   return meta;
 }
 
-const dirs = fs.readdirSync(SRC_DIR);
+const dirs = fs.readdirSync(SRC_DIR, { withFileTypes: true });
 
 const posts = [];
 
-dirs.forEach(slug => {
+dirs.forEach((entry) => {
+  if (!entry.isDirectory()) return;
 
-  // 👇 _template除外
+  const slug = entry.name;
+
+  // _template 除外
   if (slug.startsWith("_")) return;
 
   const mdPath = path.join(SRC_DIR, slug, "article.md");
-
   if (!fs.existsSync(mdPath)) return;
 
   const md = fs.readFileSync(mdPath, "utf8");
-
   const meta = parseFrontMatter(md);
 
   posts.push({
     slug,
-    title: meta.title,
-    description: meta.description,
-    updated: meta.updated,
+    title: meta.title || "",
+    description: meta.description || "",
+    updated: meta.updated || "",
     tags: meta.tags
-      ? meta.tags.split(",").map(t => t.trim())
+      ? meta.tags.split(",").map(t => t.trim()).filter(Boolean)
+      : [],
+    topics: meta.topics
+      ? meta.topics.split(",").map(t => t.trim()).filter(Boolean)
       : [],
     category: meta.category || "",
     readingTime: meta.readingTime || ""
@@ -52,7 +56,7 @@ dirs.forEach(slug => {
 
 fs.writeFileSync(
   OUT_FILE,
-  JSON.stringify(posts, null, 2)
+  JSON.stringify(posts, null, 2) + "\n"
 );
 
 console.log("posts.json generated:", posts.length);
