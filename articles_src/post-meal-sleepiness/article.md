@@ -133,30 +133,15 @@ eyecatch: /assets/eyecatch/post-meal-sleepiness.jpg
 
 だからこそ、午後の集中力を守るには、根性より先に、昼食の構成と食後の行動を見直す方が自然です。
 
-## 食後の眠気研究の概要と論文リンク
-
-- 論文タイトル  
-  Glycaemic response and cognitive performance after meals: a systematic view of postprandial alertness and metabolism
-
-- 著者  
-  Nilsson, A., Radeborg, K., Björck, I. ほか関連研究群
-
-- 年  
-  2000年代以降の食後血糖反応と認知の研究群
-
-- どこの研究か  
-  主に欧州の栄養学・認知研究分野で行われた、食後血糖反応と覚醒度・認知機能の関係を扱う研究群
-
-- どんな内容か  
-  高GI食や急な血糖上昇のあとに、覚醒度や集中力の低下が起きやすいこと、食事内容によって午後の認知パフォーマンスに差が出る可能性を検討した研究
-
-- 対象・条件  
-  健康成人を対象に、朝食や昼食の構成、高GI・低GI食品、食後一定時間後の認知課題や主観的眠気評価を比較する研究が多い
-
-- 限界  
-  食事条件、対象者、評価法が研究ごとに異なり、すべての人に同じ形で当てはまるわけではない。また睡眠不足や総摂取量など他要因の影響も受ける
-
-- 論文リンク  
-  https://pubmed.ncbi.nlm.nih.gov/17539866/
+[paper-summary]
+論文タイトル | Glycaemic response and cognitive performance after meals: a systematic view of postprandial alertness and metabolism
+著者 | Nilsson, A., Radeborg, K., Björck, I. ほか関連研究群
+年 | 2000年代以降の食後血糖反応と認知の研究群
+どこの研究か | 主に欧州の栄養学・認知研究分野で行われた、食後血糖反応と覚醒度・認知機能の関係を扱う研究群
+どんな内容か | 高GI食や急な血糖上昇のあとに、覚醒度や集中力の低下が起きやすいこと、食事内容によって午後の認知パフォーマンスに差が出る可能性を検討した研究
+対象・条件 | 健康成人を対象に、朝食や昼食の構成、高GI・低GI食品、食後一定時間後の認知課題や主観的眠気評価を比較する研究が多い
+限界 | 食事条件、対象者、評価法が研究ごとに異なり、すべての人に同じ形で当てはまるわけではない。また睡眠不足や総摂取量など他要因の影響も受ける
+論文リンク | https://pubmed.ncbi.nlm.nih.gov/17539866/
+[/paper-summary]
 
 [1] 食後血糖反応と覚醒度・認知機能の関連を扱う栄養学・認知研究群より要約。
