@@ -64,41 +64,74 @@ readingTime: 8 min
   position: relative;
 }
 
+.article-header {
+  position: relative;
+  padding: 1.18rem 1.12rem 0.48rem;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at top right, rgba(122, 150, 137, 0.18), transparent 34%),
+    linear-gradient(180deg, rgba(122, 150, 137, 0.08), rgba(122, 150, 137, 0.01));
+  border: 1px solid rgba(122, 150, 137, 0.12);
+  box-shadow: 0 16px 36px rgba(122, 150, 137, 0.08);
+  margin-bottom: 1.25rem;
+}
+
+.kicker {
+  color: #6a8578;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+.article-header h1 {
+  line-height: 1.3;
+}
+
+.article-meta {
+  color: #667085;
+}
+
 .article-body {
   color: #1f2937;
 }
 
 .article-body > p {
   line-height: 2;
-  margin: 1.1rem 0 1.35rem;
+  margin: 1.16rem 0 1.42rem;
+}
+
+.article-body > p:first-of-type {
+  font-size: 1.05rem;
+  line-height: 2.02;
+  color: #334155;
 }
 
 .article-body > p + h2,
 .article-body > ul + h2,
 .article-body > blockquote + h2,
 .article-body > .cct-flow-wrap + h2,
-.article-body > .paper-summary-block + h2 {
-  margin-top: 2.5rem;
+.article-body > .paper-card + h2 {
+  margin-top: 2.8rem;
 }
 
 .article-body h2 {
   position: relative;
   margin-bottom: 1rem;
-  padding: 0.9rem 1rem 0.85rem 1.15rem;
-  border-radius: 18px;
-  line-height: 1.45;
+  padding: 1rem 1rem 0.96rem 1.18rem;
+  border-radius: 20px;
+  line-height: 1.42;
   background:
-    linear-gradient(90deg, rgba(127, 153, 141, 0.14), rgba(127, 153, 141, 0.03));
+    linear-gradient(90deg, rgba(122, 150, 137, 0.16), rgba(122, 150, 137, 0.03));
   color: #17212b;
+  box-shadow: 0 10px 24px rgba(122, 150, 137, 0.08);
 }
 
 .article-body h2::before {
   content: "";
   position: absolute;
-  left: 0.7rem;
-  top: 0.9rem;
-  bottom: 0.9rem;
-  width: 4px;
+  left: 0.75rem;
+  top: 0.98rem;
+  bottom: 0.98rem;
+  width: 5px;
   border-radius: 999px;
   background: #7a9689;
 }
@@ -109,11 +142,13 @@ readingTime: 8 min
 }
 
 .article-body blockquote {
-  margin: 1.1rem 0 1.4rem;
-  padding: 0.95rem 1rem 0.95rem 1.1rem;
+  margin: 1.2rem 0 1.5rem;
+  padding: 1rem 1rem 1rem 1.16rem;
   border-left: 4px solid #7a9689;
-  background: rgba(127, 153, 141, 0.08);
-  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(122, 150, 137, 0.12), rgba(122, 150, 137, 0.05));
+  border-radius: 18px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .article-body blockquote p {
@@ -122,13 +157,13 @@ readingTime: 8 min
 }
 
 .article-body ul {
-  margin: 0.85rem 0 1.3rem;
+  margin: 1rem 0 1.4rem;
   padding-left: 1.25rem;
 }
 
 .article-body li {
-  margin: 0.45rem 0;
-  line-height: 1.85;
+  margin: 0.5rem 0;
+  line-height: 1.86;
 }
 
 .article-body strong {
@@ -142,13 +177,41 @@ readingTime: 8 min
   font-size: 0.92em;
 }
 
+.article-body a {
+  color: #365c4b;
+  text-decoration-color: rgba(54, 92, 75, 0.35);
+  text-underline-offset: 0.14em;
+}
+
 .cct-flow-wrap {
-  margin: 1.5rem 0 1.8rem;
+  margin: 1.6rem 0 1.95rem;
   padding: 1rem;
-  border-radius: 22px;
+  border-radius: 24px;
   background:
-    linear-gradient(180deg, rgba(127, 153, 141, 0.08), rgba(127, 153, 141, 0.03));
-  border: 1px solid rgba(127, 153, 141, 0.18);
+    linear-gradient(180deg, rgba(122, 150, 137, 0.12), rgba(122, 150, 137, 0.04));
+  border: 1px solid rgba(122, 150, 137, 0.18);
+  box-shadow: 0 16px 34px rgba(122, 150, 137, 0.08);
+}
+
+.cct-flow-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  margin: 0 0 0.65rem;
+}
+
+.cct-flow-kicker {
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6a8578;
+  font-weight: 700;
+}
+
+.cct-flow-title {
+  font-size: 0.98rem;
+  color: #243428;
+  font-weight: 700;
 }
 
 .cct-flow-svg {
@@ -185,84 +248,140 @@ readingTime: 8 min
   font-weight: 600;
 }
 
-.paper-summary-block {
-  margin: 2rem 0 1.2rem;
-  padding: 1rem;
-  border-radius: 22px;
+.paper-card {
+  margin: 2.7rem 0 1.4rem;
+  border-radius: 28px;
+  overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(122, 150, 137, 0.1), rgba(122, 150, 137, 0.04));
-  border: 1px solid rgba(122, 150, 137, 0.18);
+    radial-gradient(circle at top right, rgba(170, 211, 193, 0.26), transparent 28%),
+    linear-gradient(180deg, #15241d 0%, #1d3228 45%, #233d31 100%);
+  color: #f6faf8;
+  box-shadow: 0 22px 46px rgba(18, 37, 30, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.paper-summary-head {
-  display: flex;
-  flex-direction: column;
-  gap: 0.18rem;
-  margin-bottom: 0.9rem;
+.paper-card-top {
+  padding: 1.22rem 1.12rem 1.02rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.paper-summary-kicker {
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
+.paper-card-kicker {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #6b8579;
+  color: #c3d8ce;
   font-weight: 700;
 }
 
-.paper-summary-head h3 {
+.paper-card-title {
   margin: 0;
-  font-size: 1.05rem;
-  color: #203126;
+  line-height: 1.48;
+  font-size: 1.08rem;
+  color: #ffffff;
 }
 
-.paper-summary-grid {
-  display: grid;
-  gap: 0.65rem;
+.paper-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.48rem;
+  margin-top: 0.82rem;
 }
 
-.paper-summary-row {
-  display: grid;
-  grid-template-columns: 7.2rem 1fr;
-  gap: 0.75rem;
-  align-items: start;
-  padding: 0.72rem 0.8rem;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(122, 150, 137, 0.12);
+.paper-card-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.34rem 0.64rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f0f7f3;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.paper-summary-label {
-  font-size: 0.86rem;
+.paper-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.95rem;
+  padding: 0.62rem 0.9rem;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.1));
+  color: #ffffff;
+  text-decoration: none;
   font-weight: 700;
-  color: #5d786b;
-  line-height: 1.6;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
-.paper-summary-value {
-  font-size: 0.96rem;
-  color: #1f2937;
-  line-height: 1.75;
+.paper-card-link:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.12));
+}
+
+.paper-card-bottom {
+  display: grid;
+  gap: 0.82rem;
+  padding: 0.96rem;
+}
+
+.paper-card-item {
+  padding: 0.86rem 0.9rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.paper-card-item.is-accent {
+  background: linear-gradient(180deg, rgba(170, 211, 193, 0.12), rgba(255, 255, 255, 0.05));
+}
+
+.paper-card-item-label {
+  margin-bottom: 0.3rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: #c6ddd3;
+  font-weight: 700;
+}
+
+.paper-card-item-value {
+  font-size: 0.95rem;
+  line-height: 1.82;
+  color: #f5f9f7;
   word-break: break-word;
 }
 
+@media (min-width: 860px) {
+  .paper-card-bottom {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 640px) {
+  .article-header {
+    padding: 1rem 0.92rem 0.38rem;
+    border-radius: 22px;
+  }
+
   .article-body h2 {
-    padding: 0.85rem 0.9rem 0.82rem 1.05rem;
-    border-radius: 16px;
+    padding: 0.9rem 0.92rem 0.86rem 1.06rem;
+    border-radius: 18px;
   }
 
   .cct-flow-wrap {
-    padding: 0.8rem;
+    padding: 0.82rem;
   }
 
-  .paper-summary-block {
-    padding: 0.85rem;
+  .paper-card {
+    border-radius: 24px;
   }
 
-  .paper-summary-row {
-    grid-template-columns: 1fr;
-    gap: 0.25rem;
-    padding: 0.7rem 0.75rem;
+  .paper-card-top {
+    padding: 1rem 0.92rem 0.9rem;
+  }
+
+  .paper-card-bottom {
+    padding: 0.82rem;
   }
 }
 </style>
@@ -282,6 +401,10 @@ readingTime: 8 min
 <p>注意回復理論では、集中して何かをこらえて見る、選ぶ、抑えるといった「意図的な注意」は疲れやすいと考えます。 仕事やスマホ、街中の刺激は、この意図的注意をかなり使います。</p>
 <p>一方で自然環境には、強制的ではなく、ゆるやかに引きつける刺激があります。木の揺れ、空の広がり、水面、葉の形。こうしたものは、注意を無理に掴むのではなく、やわらかく向けさせます。結果として、張りつめた注意が少しゆるみやすくなります。</p>
 <div class="cct-flow-wrap">
+  <div class="cct-flow-header">
+    <span class="cct-flow-kicker">CCT Cycle</span>
+    <span class="cct-flow-title">循環調律の流れ</span>
+  </div>
   <svg class="cct-flow-svg" viewBox="0 0 824 378" role="img" aria-label="循環調律の流れ図" preserveAspectRatio="xMidYMid meet">
     <g class="cct-flow-group">
       <line x1="268" y1="84" x2="284" y2="84" class="cct-flow-line" />
@@ -376,39 +499,35 @@ readingTime: 8 min
 <p>日常では、「集中できない」のは意志の弱さというより、注意を使いすぎているサインとして理解できる場面があります。</p>
 <p>循環調律の視点で見ると、問題は集中できないこと自体ではなく、その状態を生みやすい不協です。整えるべき対象は症状ではなく、不協です。</p>
 <p>だからこそ、自然に触れることは贅沢ではなく、集中を戻しやすくする解決の一つとして扱えます。</p>
-<h2>注意回復理論研究の概要と論文リンク</h2>
-<ul>
-<li>論文タイトル</li>
-<p>The Experience of Nature: A Psychological Perspective</p>
-</ul>
-<ul>
-<li>著者</li>
-<p>Rachel Kaplan, Stephen Kaplan</p>
-</ul>
-<ul>
-<li>年</li>
-<p>1989</p>
-</ul>
-<ul>
-<li>どこの研究か</li>
-<p>環境心理学分野における注意回復理論の基盤となる研究と理論整理</p>
-</ul>
-<ul>
-<li>どんな内容か</li>
-<p>自然環境が、意図的注意の疲労からの回復に役立つ可能性を理論的・実証的に整理した研究群の基盤。自然の持つ回復的特性を説明した</p>
-</ul>
-<ul>
-<li>対象・条件</li>
-<p>環境評価、注意疲労、回復的体験に関する観察・実証研究を含む理論枠組み</p>
-</ul>
-<ul>
-<li>限界</li>
-<p>理論的整理の比重も大きく、個別研究ごとに条件は異なる。また都市公園や屋内緑視など、環境条件によって効果は幅がある</p>
-</ul>
-<ul>
-<li>論文リンク</li>
-<p>https://books.google.com/books/about/The_Experience_of_Nature.html?id=gXkoAQAAMAAJ</p>
-</ul>
+<section class="paper-card" aria-label="論文概要">
+  <div class="paper-card-top">
+    <div class="paper-card-kicker">Research Note</div>
+    <h3 class="paper-card-title">The Experience of Nature: A Psychological Perspective</h3>
+    <div class="paper-card-meta">
+      <span class="paper-card-chip">1989</span>
+<span class="paper-card-chip">Rachel Kaplan, Stephen Kaplan</span>
+    </div>
+    <a class="paper-card-link" href="https://books.google.com/books/about/The_Experience_of_Nature.html?id=gXkoAQAAMAAJ" target="_blank" rel="noopener noreferrer">論文リンクを見る</a>
+  </div>
+  <div class="paper-card-bottom">
+    <div class="paper-card-item is-accent">
+  <div class="paper-card-item-label">どこの研究か</div>
+  <div class="paper-card-item-value">環境心理学分野における注意回復理論の基盤となる研究と理論整理</div>
+</div>
+<div class="paper-card-item">
+  <div class="paper-card-item-label">どんな内容か</div>
+  <div class="paper-card-item-value">自然環境が、意図的注意の疲労からの回復に役立つ可能性を理論的・実証的に整理した研究群の基盤。自然の持つ回復的特性を説明した</div>
+</div>
+<div class="paper-card-item is-accent">
+  <div class="paper-card-item-label">対象・条件</div>
+  <div class="paper-card-item-value">環境評価、注意疲労、回復的体験に関する観察・実証研究を含む理論枠組み</div>
+</div>
+<div class="paper-card-item">
+  <div class="paper-card-item-label">限界</div>
+  <div class="paper-card-item-value">理論的整理の比重も大きく、個別研究ごとに条件は異なる。また都市公園や屋内緑視など、環境条件によって効果は幅がある</div>
+</div>
+  </div>
+</section>
 <p>[1] Kaplan, R., &amp; Kaplan, S. の注意回復理論に基づく要約。</p>
 
   </section>
