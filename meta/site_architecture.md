@@ -78,21 +78,13 @@ data/posts.json
 
   articles/
     index.html
-    post-meal-sleepiness/
-      index.html
-    walking-creativity/
-      index.html
-    nature-brain-recovery/
+    <slug>/
       index.html
 
   articles_src/
     _template/
       article.md
-    post-meal-sleepiness/
-      article.md
-    walking-creativity/
-      article.md
-    nature-brain-recovery/
+    <slug>/
       article.md
 
   assets/
@@ -128,19 +120,20 @@ data/posts.json
 
 # 3) URLルール
 
-フォルダURLは index.html に統一
+フォルダURLは index.html に統一する。
 
 例
 
 /about/
-/articles/post-meal-sleepiness/
+/articles/<slug>/
 
-slugルール
+slug ルール
 
-英小文字 + ハイフン  
-kebab-case
+- 英小文字
+- ハイフン区切り
+- kebab-case
 
-記事URLは必ず以下に統一する
+記事URLは必ず以下に統一する。
 
 /articles/<slug>/
 
@@ -241,7 +234,13 @@ article.md + article.html
 
 assets/style.css
 
-全ページ共通のスタイル。
+全ページ共通の基本スタイル。
+
+補足
+
+一部の build生成コンポーネントは、必要な専用スタイルを  
+`build_article.js` が記事HTML内へ埋め込む場合がある。  
+現時点では循環図コンポーネントがこれに該当する。
 
 ---
 
@@ -291,14 +290,10 @@ data/posts.json
 
 重要
 
-手編集しない
-
-生成元
-
-articles_src/<slug>/article.md
-
-※ HTML は読まない  
-※ Source のみを入力とする
+- 手編集しない
+- 生成元は `articles_src/<slug>/article.md`
+- HTML は読まない
+- Source のみを入力とする
 
 ---
 
@@ -317,6 +312,7 @@ articles_src/<slug>/article.md
 - templates/article.html へ差し込み
 - canonical / OGP / JSON-LD を埋め込み
 - HTML先頭にメタコメントを付与
+- 専用構文を解釈して記事用コンポーネントへ変換する
 
 出力
 
@@ -326,6 +322,8 @@ articles/<slug>/index.html
 
 - `_` で始まるディレクトリは除外する
 - `articles_src/_template/` は build対象外
+- 現在の専用構文として `[cct-cycle] ... [/cct-cycle]` を解釈する
+- `cct-cycle` は循環図用の専用オブジェクトとしてHTML/SVGへ変換される
 
 ---
 
@@ -370,7 +368,44 @@ sitemap.xml
 
 ---
 
-# 6) 検索エンジン
+# 6) Markdown対応範囲
+
+現行の `build_article.js` で対応している主な要素
+
+- 見出し
+  - `#`
+  - `##`
+  - `###`
+- 段落
+- 箇条書き
+  - `- `
+- 引用
+  - `> `
+- 太字
+  - `**text**`
+- 斜体
+  - `*text*`
+- インラインコード
+  - `` `code` ``
+- 専用構文
+  - `[cct-cycle] ... [/cct-cycle]`
+
+未保証または未対応として扱うもの
+
+- 表
+- 番号付きリスト
+- 画像Markdown記法
+- 脚注記法
+- 深いネスト
+- 複雑な埋め込み
+
+重要
+
+記事は **現行buildが対応しているMarkdown範囲** に収める。
+
+---
+
+# 7) 検索エンジン
 
 ## sitemap.xml
 
@@ -392,7 +427,7 @@ Sitemap: https://corecycletune.com/sitemap.xml
 
 ---
 
-# 7) プロンプト保存
+# 8) プロンプト保存
 
 prompts/
 
@@ -404,7 +439,7 @@ AI記事生成の設計保存
 
 ## base_cct_concept.md
 
-CCTの思想
+循環調律（コアサイクルチューン）の思想辞書
 
 ---
 
@@ -415,6 +450,7 @@ CCTの思想
 - 見出し設計
 - ブロック役割
 - 記事の流れ
+- 表現ルール
 
 ---
 
@@ -430,7 +466,7 @@ articles_src/<slug>/article.md
 
 ---
 
-# 8) 記事追加手順
+# 9) 記事追加手順
 
 1  
 articles_src/<slug>/article.md 作成
@@ -449,7 +485,7 @@ commit
 
 ---
 
-# 9) Single Source of Truth
+# 10) Single Source of Truth
 
 記事本文  
 articles_src/<slug>/article.md
@@ -471,7 +507,7 @@ meta/site_architecture.md
 
 ---
 
-# 10) ファイル増殖防止ルール
+# 11) ファイル増殖防止ルール
 
 似た役割のファイルを増やさない。
 
@@ -490,7 +526,7 @@ meta/site_architecture.md
 
 ---
 
-# 11) 変更履歴
+# 12) 変更履歴
 
 2026-03-03  
 軽量CMS構造を採用
@@ -515,3 +551,6 @@ sitemap 自動生成
 
 2026-03-xx  
 `build_article.js` / `generate_posts.js` ともに `_` で始まる補助ディレクトリを除外する方針を明記
+
+2026-03-xx  
+`[cct-cycle] ... [/cct-cycle]` を記事本文で使える専用構文として導入
