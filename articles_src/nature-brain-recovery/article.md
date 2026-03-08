@@ -9,7 +9,7 @@ readingTime: 8 min
 eyecatch: /assets/eyecatch/nature-brain-recovery.jpg
 ---
 
-## 自然を見ると頭が軽くなる感覚は本当に説明できるのか　
+## 自然を見ると頭が軽くなる感覚は本当に説明できるのか
 
 公園を歩いたあと、少し頭が軽くなることがあります。木や空を見ただけで、考えの詰まりがゆるむことがあります。逆に、街中や画面ばかり見続けた日は、頭が疲れたまま戻りにくいことがあります。
 
@@ -20,7 +20,7 @@ eyecatch: /assets/eyecatch/nature-brain-recovery.jpg
 ## 自然環境は注意回復にどう関係するのか
 
 > "Natural environments may provide a restorative experience that helps recover directed attention." [1]  
-> （自然環境は、意図的に向け続けた注意を回復させる修復的な体験を与える可能性がある。）  
+> （自然環境は、意図的に向け続けた注意を回復させる修復的な体験を与える可能性がある。）
 
 この考え方の面白さは、疲労を「体力不足」だけではなく、**注意資源の消耗** として見られることです。
 
@@ -124,30 +124,15 @@ eyecatch: /assets/eyecatch/nature-brain-recovery.jpg
 
 だからこそ、自然に触れることは贅沢ではなく、集中を戻しやすくする解決の一つとして扱えます。
 
-## 注意回復理論研究の概要と論文リンク
-
-- 論文タイトル  
-  The Experience of Nature: A Psychological Perspective
-
-- 著者  
-  Rachel Kaplan, Stephen Kaplan
-
-- 年  
-  1989
-
-- どこの研究か  
-  環境心理学分野における注意回復理論の基盤となる研究と理論整理
-
-- どんな内容か  
-  自然環境が、意図的注意の疲労からの回復に役立つ可能性を理論的・実証的に整理した研究群の基盤。自然の持つ回復的特性を説明した
-
-- 対象・条件  
-  環境評価、注意疲労、回復的体験に関する観察・実証研究を含む理論枠組み
-
-- 限界  
-  理論的整理の比重も大きく、個別研究ごとに条件は異なる。また都市公園や屋内緑視など、環境条件によって効果は幅がある
-
-- 論文リンク  
-  https://books.google.com/books/about/The_Experience_of_Nature.html?id=gXkoAQAAMAAJ
+[paper-summary]
+論文タイトル | The Experience of Nature: A Psychological Perspective
+著者 | Rachel Kaplan, Stephen Kaplan
+年 | 1989
+どこの研究か | 環境心理学分野における注意回復理論の基盤となる研究と理論整理
+どんな内容か | 自然環境が、意図的注意の疲労からの回復に役立つ可能性を理論的・実証的に整理した研究群の基盤。自然の持つ回復的特性を説明した
+対象・条件 | 環境評価、注意疲労、回復的体験に関する観察・実証研究を含む理論枠組み
+限界 | 理論的整理の比重も大きく、個別研究ごとに条件は異なる。また都市公園や屋内緑視など、環境条件によって効果は幅がある
+論文リンク | https://books.google.com/books/about/The_Experience_of_Nature.html?id=gXkoAQAAMAAJ
+[/paper-summary]
 
 [1] Kaplan, R., & Kaplan, S. の注意回復理論に基づく要約。
