@@ -142,17 +142,17 @@ function buildCctCycleBlock(rawLines) {
   const topCount = Math.ceil(items.length / 2);
   const bottomCount = items.length - topCount;
 
-  const boxW = 210;
-  const gapX = 36;
-  const gapY = 70;
+  const boxW = 228;
+  const gapX = 44;
+  const gapY = 74;
   const margin = 26;
 
   const prepared = items.map((item) => {
     const labelLines = wrapText(item.label, 8, 2);
-    const valueLines = wrapText(item.value, 12, 4);
+    const valueLines = wrapText(item.value, 10, 5);
 
     const labelHeight = labelLines.length * 18;
-    const valueHeight = valueLines.length * 22;
+    const valueHeight = valueLines.length * 20;
     const boxH = 28 + labelHeight + 12 + valueHeight + 18;
 
     return {
@@ -202,7 +202,7 @@ function buildCctCycleBlock(rawLines) {
       return `
 <rect x="${item.x}" y="${item.y}" rx="16" ry="16" width="${boxW}" height="${item.boxH}" class="cct-flow-box" />
 ${buildTextBlock(labelX, labelY, item.labelLines, { className: "cct-flow-label", lineHeight: 18 })}
-${buildTextBlock(valueX, valueY, item.valueLines, { className: "cct-flow-value", lineHeight: 22 })}
+${buildTextBlock(valueX, valueY, item.valueLines, { className: "cct-flow-value", lineHeight: 20 })}
 `.trim();
     })
     .join("\n");
@@ -478,13 +478,13 @@ function buildComponentStyles() {
 
 .cct-flow-label {
   fill: #617c70;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
 }
 
 .cct-flow-value {
   fill: #1b2430;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 </style>`.trim();
