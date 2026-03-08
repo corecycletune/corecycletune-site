@@ -60,49 +60,42 @@ readingTime: 9 min
 
   <section class="article-body">
     <style>
-.cct-cycle-block {
-  margin: 1.25rem 0;
-  padding: 1rem;
-  border: 1px solid #d7e2dd;
-  border-radius: 16px;
-  background: #f7faf8;
+.cct-flow-wrap {
+  margin: 1.4rem 0 1.6rem;
 }
 
-.cct-cycle-step {
-  padding: 0.75rem 0.875rem;
-  border-radius: 12px;
-  background: #ffffff;
-  border: 1px solid #e5ece8;
+.cct-flow-svg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.cct-cycle-label {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #567064;
-  margin-bottom: 0.25rem;
-  line-height: 1.4;
+.cct-flow-box {
+  fill: #ffffff;
+  stroke: #d7e3dd;
+  stroke-width: 1.4;
 }
 
-.cct-cycle-value {
-  font-size: 1rem;
-  color: #1b2430;
-  line-height: 1.7;
+.cct-flow-line {
+  stroke: #7d998d;
+  stroke-width: 3.2;
+  stroke-linecap: round;
 }
 
-.cct-cycle-arrow {
-  text-align: center;
-  font-size: 1.3rem;
-  line-height: 1;
-  color: #6c8a7d;
-  padding: 0.45rem 0;
+.cct-flow-head {
+  fill: #7d998d;
+}
+
+.cct-flow-label {
+  fill: #617d71;
+  font-size: 14px;
   font-weight: 700;
 }
 
-@media (min-width: 900px) {
-  .cct-cycle-block {
-    display: grid;
-    gap: 0.75rem;
-  }
+.cct-flow-value {
+  fill: #1b2430;
+  font-size: 18px;
+  font-weight: 600;
 }
 </style>
 <h2>机で止まる思考が歩くと動き出すのはなぜか</h2>
@@ -124,31 +117,41 @@ readingTime: 9 min
 <p>この研究は、なぜ歩行で創造性が高まりやすいのかを最終的に断定しているわけではありません。けれど、体の中と脳の中で何が起きていそうかを整理すると、かなり理解しやすくなります。</p>
 <p>まず、座り続けている状態では、身体も視線も注意も一つの場所に固定されやすくなります。 同じ椅子、同じ画面、同じ課題、同じ姿勢。 この状態は、深く考えることには向く場面がありますが、発想の切り替えには不利になりやすいです。</p>
 <p>一方、歩き始めると、身体は軽いリズム運動に入ります。激しい運動ではないので、息が上がるほどの負荷にはなりません。しかし、完全な静止状態からは離れます。この「軽い変化」が重要です。</p>
-<div class="cct-cycle-block" role="group" aria-label="循環調律の流れ">
-  <div class="cct-cycle-step">
-  <div class="cct-cycle-label">生活行動</div>
-  <div class="cct-cycle-value">歩く</div>
-</div>
-<div class="cct-cycle-arrow" aria-hidden="true">→</div>
-<div class="cct-cycle-step">
-  <div class="cct-cycle-label">身体の仕組み</div>
-  <div class="cct-cycle-value">軽い運動で覚醒度・血流・身体感覚が変わる</div>
-</div>
-<div class="cct-cycle-arrow" aria-hidden="true">→</div>
-<div class="cct-cycle-step">
-  <div class="cct-cycle-label">身体状態</div>
-  <div class="cct-cycle-value">停滞感がゆるむ</div>
-</div>
-<div class="cct-cycle-arrow" aria-hidden="true">→</div>
-<div class="cct-cycle-step">
-  <div class="cct-cycle-label">心理状態</div>
-  <div class="cct-cycle-value">注意の固定がほどける</div>
-</div>
-<div class="cct-cycle-arrow" aria-hidden="true">→</div>
-<div class="cct-cycle-step">
-  <div class="cct-cycle-label">次の行動</div>
-  <div class="cct-cycle-value">発想が広がり、メモや構成の組み直しにつながる</div>
-</div>
+<div class="cct-flow-wrap">
+  <svg class="cct-flow-svg" viewBox="0 0 702 286" role="img" aria-label="循環調律の流れ図" preserveAspectRatio="xMidYMid meet">
+    <defs>
+      <filter id="cct-flow-shadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#9db1a8" flood-opacity="0.18" />
+      </filter>
+    </defs>
+    <g class="cct-flow-group" filter="url(#cct-flow-shadow)">
+      <line x1="228" y1="70" x2="242" y2="70" class="cct-flow-line" />
+<polygon points="242,70 234,65 234,75" class="cct-flow-head" />
+<line x1="460" y1="70" x2="474" y2="70" class="cct-flow-line" />
+<polygon points="474,70 466,65 466,75" class="cct-flow-head" />
+<line x1="583" y1="130" x2="351" y2="156" class="cct-flow-line" />
+<polygon points="351,156 346,148 356,148" class="cct-flow-head" />
+<line x1="432" y1="216" x2="38" y2="216" class="cct-flow-line" />
+<polygon points="38,216 46,211 46,221" class="cct-flow-head" />
+      <rect x="24" y="24" rx="16" ry="16" width="190" height="92" class="cct-flow-box" />
+<text x="40" y="52" class="cct-flow-label">生活行動</text>
+<text x="40" y="82" class="cct-flow-value">歩く</text>
+<rect x="256" y="24" rx="16" ry="16" width="190" height="92" class="cct-flow-box" />
+<text x="272" y="52" class="cct-flow-label">身体の仕組み</text>
+<text x="272" y="82" class="cct-flow-value">軽い運動で覚醒度・血流・身体</text>
+<text x="272" y="104" class="cct-flow-value">感覚が変わる</text>
+<rect x="488" y="24" rx="16" ry="16" width="190" height="92" class="cct-flow-box" />
+<text x="504" y="52" class="cct-flow-label">身体状態</text>
+<text x="504" y="82" class="cct-flow-value">停滞感がゆるむ</text>
+<rect x="256" y="170" rx="16" ry="16" width="190" height="92" class="cct-flow-box" />
+<text x="272" y="198" class="cct-flow-label">心理状態</text>
+<text x="272" y="228" class="cct-flow-value">注意の固定がほどける</text>
+<rect x="24" y="170" rx="16" ry="16" width="190" height="92" class="cct-flow-box" />
+<text x="40" y="198" class="cct-flow-label">次の行動</text>
+<text x="40" y="228" class="cct-flow-value">発想が広がり、メモや構成の組</text>
+<text x="40" y="250" class="cct-flow-value">み直しにつながる</text>
+    </g>
+  </svg>
 </div>
 <p>ここで大切なのは、歩くことが答えを直接くれるわけではない、ということです。 歩行は、<strong>答えが出やすい状態を作る</strong>行動として働いている可能性があります。</p>
 <p>つまり、歩行は一回きりの刺激ではなく、次の思考や次の行動を変え、その次の状態まで動かしていくきっかけになり得ます。</p>
