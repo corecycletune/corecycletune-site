@@ -53,6 +53,42 @@ function inlineFormat(text) {
   return s;
 }
 
+function buildCctCycleBlock(rawLines) {
+  const items = rawLines
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => {
+      const parts = line.split("|");
+      const label = (parts[0] || "").trim();
+      const value = parts.slice(1).join("|").trim();
+
+      return { label, value };
+    })
+    .filter((item) => item.label && item.value);
+
+  if (!items.length) return "";
+
+  const itemHtml = items
+    .map((item, index) => {
+      const arrowHtml = index < items.length - 1
+        ? `<div class="cct-cycle-arrow" aria-hidden="true">→</div>`
+        : "";
+
+      return `
+<div class="cct-cycle-step">
+  <div class="cct-cycle-label">${inlineFormat(item.label)}</div>
+  <div class="cct-cycle-value">${inlineFormat(item.value)}</div>
+</div>
+${arrowHtml}`.trim();
+    })
+    .join("\n");
+
+  return `
+<div class="cct-cycle-block" role="group" aria-label="循環調律の流れ">
+  ${itemHtml}
+</div>`.trim();
+}
+
 function markdownToHtml(md) {
   const lines = md.replace(/\r\n/g, "\n").split("\n");
 
@@ -60,6 +96,8 @@ function markdownToHtml(md) {
   let paragraph = [];
   let inList = false;
   let inBlockquote = false;
+  let inCctCycle = false;
+  let cctCycleLines = [];
 
   function flushParagraph() {
     if (!paragraph.length) return;
@@ -79,8 +117,34 @@ function markdownToHtml(md) {
     inBlockquote = false;
   }
 
+  function closeCctCycle() {
+    if (!inCctCycle) return;
+    html += `${buildCctCycleBlock(cctCycleLines)}\n`;
+    inCctCycle = false;
+    cctCycleLines = [];
+  }
+
   lines.forEach((rawLine) => {
     const line = rawLine.trim();
+
+    if (line === "[cct-cycle]") {
+      flushParagraph();
+      closeList();
+      closeBlockquote();
+      inCctCycle = true;
+      cctCycleLines = [];
+      return;
+    }
+
+    if (line === "[/cct-cycle]") {
+      closeCctCycle();
+      return;
+    }
+
+    if (inCctCycle) {
+      cctCycleLines.push(rawLine);
+      return;
+    }
 
     if (!line) {
       flushParagraph();
@@ -141,6 +205,7 @@ function markdownToHtml(md) {
   flushParagraph();
   closeList();
   closeBlockquote();
+  closeCctCycle();
 
   return html;
 }
@@ -201,6 +266,56 @@ function buildStructuredData(meta, slug) {
   return `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
 }
 
+function buildComponentStyles() {
+  return `
+<style>
+.cct-cycle-block {
+  margin: 1.25rem 0;
+  padding: 1rem;
+  border: 1px solid #d7e2dd;
+  border-radius: 16px;
+  background: #f7faf8;
+}
+
+.cct-cycle-step {
+  padding: 0.75rem 0.875rem;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e5ece8;
+}
+
+.cct-cycle-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #567064;
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+.cct-cycle-value {
+  font-size: 1rem;
+  color: #1b2430;
+  line-height: 1.7;
+}
+
+.cct-cycle-arrow {
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: #6c8a7d;
+  padding: 0.45rem 0;
+  font-weight: 700;
+}
+
+@media (min-width: 900px) {
+  .cct-cycle-block {
+    display: grid;
+    gap: 0.75rem;
+  }
+}
+</style>`.trim();
+}
+
 function replaceAll(templateText, values) {
   let out = templateText;
 
@@ -234,7 +349,7 @@ dirs.forEach((entry) => {
     UPDATED: escapeHtml(meta.updated || ""),
     READING_TIME: escapeHtml(meta.readingTime || ""),
     EYECATCH: buildEyecatch(meta),
-    CONTENT: htmlBody,
+    CONTENT: `${buildComponentStyles()}\n${htmlBody}`,
     CANONICAL_URL: canonicalUrl(slug),
     OG_IMAGE: ogImageUrl(meta),
     STRUCTURED_DATA: buildStructuredData(meta, slug)
