@@ -11,13 +11,13 @@
 
 https://corecycletune.com
 
-※ sitemap.xml の絶対URL生成に使用する
+※ canonical URL / sitemap.xml / robots.txt などの絶対URL生成に使用する
 
 ---
 
 # 1) 採用する構造方針（最重要）
 
-CCT Lab は今後の **AI記事生成・広告挿入・テンプレ共通化**を見据え  
+CCT Lab は今後の **AI記事生成・広告挿入・テンプレ共通化** を見据え、  
 以下の **3層構造** を採用する。
 
 ---
@@ -35,13 +35,13 @@ articles_src/<slug>/article.md
 - AI生成対象
 - 人間が編集する対象
 
-このファイルが **記事のSingle Source of Truth** になる。
+このファイルが **記事内容と記事メタの Single Source of Truth** になる。
 
 ---
 
 ## 1.2 Build（生成工程）
 
-Source を元に以下を生成する
+Source を元に以下を生成する。
 
 - HTML記事
 - posts.json
@@ -80,9 +80,19 @@ data/posts.json
     index.html
     post-meal-sleepiness/
       index.html
+    walking-creativity/
+      index.html
+    nature-brain-recovery/
+      index.html
 
   articles_src/
+    _template/
+      article.md
     post-meal-sleepiness/
+      article.md
+    walking-creativity/
+      article.md
+    nature-brain-recovery/
       article.md
 
   assets/
@@ -130,6 +140,10 @@ slugルール
 英小文字 + ハイフン  
 kebab-case
 
+記事URLは必ず以下に統一する
+
+/articles/<slug>/
+
 ---
 
 # 4) 各コンポーネントの責務
@@ -143,13 +157,35 @@ articles_src/<slug>/article.md
 - 記事本文
 - 記事メタ
 - tags
-- 更新日
+- topics
+- category
+- updated
+- readingTime
+- eyecatch
 
-ここが **記事内容の唯一の正本**
+ここが **記事内容と記事メタの唯一の正本**
 
 ---
 
-## 4.2 テンプレート
+## 4.2 記事雛形
+
+articles_src/_template/article.md
+
+役割
+
+- 人間用・AI用の雛形
+- 記事フォーマットの見本
+- 実記事を作る時のテンプレ
+
+重要
+
+- build対象ではない
+- posts.json 生成対象ではない
+- `_` で始まるディレクトリは source の補助用途として扱う
+
+---
+
+## 4.3 テンプレート
 
 templates/article.html
 
@@ -159,24 +195,33 @@ templates/article.html
 
 含むもの
 
-- head
-- meta
+- title
+- description
+- robots meta
+- canonical
 - OGP
+- Twitter Card
+- JSON-LD 差し込み口
+- アイキャッチ表示枠
+- 関連記事表示枠
+- 共通フッター構造
+
+将来的にここへ集約するもの
+
 - Analytics
 - AdSense
 - Search Console verification
 - Amazon導線
-- アイキャッチ枠
-- 関連記事表示枠
-- フッター
+- 共通UI
 
-静的構造のみを持つ。
+重要
 
-記事ごとに重複させない。
+- 静的構造のみを持つ
+- 記事ごとに重複させない
 
 ---
 
-## 4.3 公開HTML
+## 4.4 公開HTML
 
 articles/<slug>/index.html
 
@@ -192,7 +237,7 @@ article.md + article.html
 
 ---
 
-## 4.4 CSS
+## 4.5 CSS
 
 assets/style.css
 
@@ -200,7 +245,7 @@ assets/style.css
 
 ---
 
-## 4.5 JS（軽いCMS機能）
+## 4.6 JS（軽いCMS機能）
 
 assets/app.js
 
@@ -221,9 +266,15 @@ assets/app.js
 
 data/posts.json
 
+重要
+
+- `templates/article.html` は静的な器
+- `assets/app.js` は動的描画担当
+- 役割を混ぜない
+
 ---
 
-## 4.6 記事台帳
+## 4.7 記事台帳
 
 data/posts.json
 
@@ -246,6 +297,9 @@ data/posts.json
 
 articles_src/<slug>/article.md
 
+※ HTML は読まない  
+※ Source のみを入力とする
+
 ---
 
 # 5) Build Scripts
@@ -258,11 +312,20 @@ articles_src/<slug>/article.md
 
 処理
 
-Markdown → HTML
+- front matter 解析
+- Markdown → HTML
+- templates/article.html へ差し込み
+- canonical / OGP / JSON-LD を埋め込み
+- HTML先頭にメタコメントを付与
 
 出力
 
 articles/<slug>/index.html
+
+補足
+
+- `_` で始まるディレクトリは除外する
+- `articles_src/_template/` は build対象外
 
 ---
 
@@ -280,8 +343,12 @@ articles_src/*
 
 data/posts.json
 
-※HTMLは読まない  
-※Sourceのみが入力
+補足
+
+- HTMLは読まない
+- Sourceのみが入力
+- `_` で始まるディレクトリは除外する
+- tags / topics / category / readingTime を含める
 
 ---
 
@@ -294,6 +361,12 @@ data/posts.json
 出力
 
 sitemap.xml
+
+補足
+
+- Base URL は https://corecycletune.com
+- 記事URL一覧を自動生成する
+- sitemap.xml は生成物として扱う
 
 ---
 
@@ -309,6 +382,11 @@ sitemap.xml
 ## robots.txt
 
 検索エンジンへの案内
+
+内容
+
+User-agent: *
+Allow: /
 
 Sitemap: https://corecycletune.com/sitemap.xml
 
@@ -334,13 +412,17 @@ CCTの思想
 
 記事構造設計
 
+- 見出し設計
+- ブロック役割
+- 記事の流れ
+
 ---
 
 ## generate_article.md
 
 記事生成プロンプト
 
-AIは
+AIは最終的に
 
 articles_src/<slug>/article.md
 
@@ -370,10 +452,10 @@ commit
 # 9) Single Source of Truth
 
 記事本文  
-articles_src/article.md
+articles_src/<slug>/article.md
 
 記事メタ  
-articles_src/article.md
+articles_src/<slug>/article.md
 
 記事台帳  
 data/posts.json
@@ -383,6 +465,9 @@ sitemap.xml
 
 記事HTML  
 build生成
+
+構造説明  
+meta/site_architecture.md
 
 ---
 
@@ -396,9 +481,16 @@ meta/site_architecture.md
 
 のみ。
 
+記事構造の説明と記事雛形は役割を分ける。
+
+- `prompts/article_structure.md`
+  - 設計書
+- `articles_src/_template/article.md`
+  - 実物の雛形
+
 ---
 
-# 変更履歴
+# 11) 変更履歴
 
 2026-03-03  
 軽量CMS構造を採用
@@ -414,3 +506,12 @@ sitemap 自動生成
 
 2026-03-xx  
 テンプレート責務を明確化
+
+2026-03-xx  
+`articles_src/_template/` を導入し、記事雛形と実記事を分離
+
+2026-03-xx  
+`generate_posts.js` は Source のみを読む方針に統一
+
+2026-03-xx  
+`build_article.js` / `generate_posts.js` ともに `_` で始まる補助ディレクトリを除外する方針を明記
