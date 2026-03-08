@@ -53,6 +53,59 @@ function inlineFormat(text) {
   return s;
 }
 
+function wrapText(text, maxCharsPerLine, maxLines) {
+  const chars = Array.from(String(text || "").trim());
+  const lines = [];
+
+  while (chars.length && lines.length < maxLines) {
+    lines.push(chars.splice(0, maxCharsPerLine).join(""));
+  }
+
+  if (chars.length && lines.length) {
+    const last = lines[lines.length - 1];
+    const trimmed = Array.from(last).slice(0, Math.max(0, maxCharsPerLine - 1)).join("");
+    lines[lines.length - 1] = `${trimmed}…`;
+  }
+
+  return lines;
+}
+
+function buildTextBlock(x, y, lines, options = {}) {
+  const lineHeight = options.lineHeight || 22;
+  const cls = options.className || "";
+  return lines
+    .map((line, index) => {
+      const yy = y + index * lineHeight;
+      return `<text x="${x}" y="${yy}" class="${cls}">${escapeHtml(line)}</text>`;
+    })
+    .join("\n");
+}
+
+function buildArrow(fromX, fromY, toX, toY) {
+  const isHorizontal = fromY === toY;
+  const arrowSize = 8;
+
+  if (isHorizontal) {
+    const dir = toX > fromX ? 1 : -1;
+    const endX = toX - dir * 14;
+    const startX = fromX + dir * 14;
+
+    return `
+<line x1="${startX}" y1="${fromY}" x2="${endX}" y2="${toY}" class="cct-flow-line" />
+<polygon points="${endX},${toY} ${endX - dir * arrowSize},${toY - arrowSize / 1.6} ${endX - dir * arrowSize},${toY + arrowSize / 1.6}" class="cct-flow-head" />
+`.trim();
+  }
+
+  const dir = toY > fromY ? 1 : -1;
+  const endY = toY - dir * 14;
+  const startY = fromY + dir * 14;
+
+  return `
+<line x1="${fromX}" y1="${startY}" x2="${toX}" y2="${endY}" class="cct-flow-line" />
+<polygon points="${toX},${endY} ${toX - arrowSize / 1.6},${endY - dir * arrowSize} ${toX + arrowSize / 1.6},${endY - dir * arrowSize}" class="cct-flow-head" />
+`.trim();
+}
+
 function buildCctCycleBlock(rawLines) {
   const items = rawLines
     .map((line) => line.trim())
@@ -61,31 +114,100 @@ function buildCctCycleBlock(rawLines) {
       const parts = line.split("|");
       const label = (parts[0] || "").trim();
       const value = parts.slice(1).join("|").trim();
-
       return { label, value };
     })
     .filter((item) => item.label && item.value);
 
   if (!items.length) return "";
 
-  const itemHtml = items
-    .map((item, index) => {
-      const arrowHtml = index < items.length - 1
-        ? `<div class="cct-cycle-arrow" aria-hidden="true">→</div>`
-        : "";
+  const boxW = 190;
+  const boxH = 92;
+  const gapX = 42;
+  const gapY = 54;
+  const margin = 24;
+
+  const topCount = Math.ceil(items.length / 2);
+  const bottomCount = items.length - topCount;
+
+  const topXs = Array.from({ length: topCount }, (_, i) => margin + i * (boxW + gapX));
+  const bottomXs = Array.from({ length: bottomCount }, (_, i) => margin + i * (boxW + gapX));
+
+  const topY = margin;
+  const bottomY = margin + boxH + gapY;
+
+  const coords = items.map((item, index) => {
+    if (index < topCount) {
+      return {
+        ...item,
+        x: topXs[index],
+        y: topY
+      };
+    }
+
+    const j = index - topCount;
+    const reversed = bottomCount - 1 - j;
+
+    return {
+      ...item,
+      x: bottomXs[reversed],
+      y: bottomY
+    };
+  });
+
+  const maxRight = Math.max(...coords.map((c) => c.x + boxW));
+  const maxBottom = Math.max(...coords.map((c) => c.y + boxH));
+  const viewW = maxRight + margin;
+  const viewH = maxBottom + margin;
+
+  const boxesHtml = coords
+    .map((item) => {
+      const labelLines = wrapText(item.label, 8, 1);
+      const valueLines = wrapText(item.value, 14, 3);
+
+      const labelX = item.x + 16;
+      const labelY = item.y + 28;
+      const valueX = item.x + 16;
+      const valueY = item.y + 58;
 
       return `
-<div class="cct-cycle-step">
-  <div class="cct-cycle-label">${inlineFormat(item.label)}</div>
-  <div class="cct-cycle-value">${inlineFormat(item.value)}</div>
-</div>
-${arrowHtml}`.trim();
+<rect x="${item.x}" y="${item.y}" rx="16" ry="16" width="${boxW}" height="${boxH}" class="cct-flow-box" />
+${buildTextBlock(labelX, labelY, labelLines, { className: "cct-flow-label", lineHeight: 18 })}
+${buildTextBlock(valueX, valueY, valueLines, { className: "cct-flow-value", lineHeight: 22 })}
+`.trim();
+    })
+    .join("\n");
+
+  const arrowsHtml = coords
+    .slice(0, -1)
+    .map((item, index) => {
+      const next = coords[index + 1];
+
+      const fromX = item.x + boxW / 2;
+      const fromY = item.y + boxH / 2;
+      const toX = next.x + boxW / 2;
+      const toY = next.y + boxH / 2;
+
+      if (item.y === next.y) {
+        return buildArrow(item.x + boxW, fromY, next.x, toY);
+      }
+
+      return buildArrow(fromX, item.y + boxH, toX, next.y);
     })
     .join("\n");
 
   return `
-<div class="cct-cycle-block" role="group" aria-label="循環調律の流れ">
-  ${itemHtml}
+<div class="cct-flow-wrap">
+  <svg class="cct-flow-svg" viewBox="0 0 ${viewW} ${viewH}" role="img" aria-label="循環調律の流れ図" preserveAspectRatio="xMidYMid meet">
+    <defs>
+      <filter id="cct-flow-shadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#9db1a8" flood-opacity="0.18" />
+      </filter>
+    </defs>
+    <g class="cct-flow-group" filter="url(#cct-flow-shadow)">
+      ${arrowsHtml}
+      ${boxesHtml}
+    </g>
+  </svg>
 </div>`.trim();
 }
 
@@ -269,49 +391,42 @@ function buildStructuredData(meta, slug) {
 function buildComponentStyles() {
   return `
 <style>
-.cct-cycle-block {
-  margin: 1.25rem 0;
-  padding: 1rem;
-  border: 1px solid #d7e2dd;
-  border-radius: 16px;
-  background: #f7faf8;
+.cct-flow-wrap {
+  margin: 1.4rem 0 1.6rem;
 }
 
-.cct-cycle-step {
-  padding: 0.75rem 0.875rem;
-  border-radius: 12px;
-  background: #ffffff;
-  border: 1px solid #e5ece8;
+.cct-flow-svg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.cct-cycle-label {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #567064;
-  margin-bottom: 0.25rem;
-  line-height: 1.4;
+.cct-flow-box {
+  fill: #ffffff;
+  stroke: #d7e3dd;
+  stroke-width: 1.4;
 }
 
-.cct-cycle-value {
-  font-size: 1rem;
-  color: #1b2430;
-  line-height: 1.7;
+.cct-flow-line {
+  stroke: #7d998d;
+  stroke-width: 3.2;
+  stroke-linecap: round;
 }
 
-.cct-cycle-arrow {
-  text-align: center;
-  font-size: 1.3rem;
-  line-height: 1;
-  color: #6c8a7d;
-  padding: 0.45rem 0;
+.cct-flow-head {
+  fill: #7d998d;
+}
+
+.cct-flow-label {
+  fill: #617d71;
+  font-size: 14px;
   font-weight: 700;
 }
 
-@media (min-width: 900px) {
-  .cct-cycle-block {
-    display: grid;
-    gap: 0.75rem;
-  }
+.cct-flow-value {
+  fill: #1b2430;
+  font-size: 18px;
+  font-weight: 600;
 }
 </style>`.trim();
 }
