@@ -20,7 +20,7 @@ eyecatch: /assets/eyecatch/post-meal-sleepiness.jpg
 ## 血糖値の急変動は眠気と集中力低下にどうつながるのか
 
 > "A high glycemic response after meals may be followed by a decline in alertness and cognitive performance." [1]  
-> （食後の血糖反応が高いと、そのあとに覚醒度や認知機能の低下が続くことがある。）  
+> （食後の血糖反応が高いと、そのあとに覚醒度や認知機能の低下が続くことがある。）
 
 この研究知見の面白さは、食後の眠気を「気合いの問題」ではなく、食後に起きる代謝の流れとして見られることです。
 
