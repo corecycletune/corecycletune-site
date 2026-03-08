@@ -9,6 +9,10 @@
       "attention",
       "psychology"
     ],
+    "topics": [
+      "research",
+      "lifestyle"
+    ],
     "category": "focus",
     "readingTime": "6 min"
   },
@@ -22,6 +26,10 @@
       "sleepiness",
       "metabolism"
     ],
+    "topics": [
+      "health",
+      "research"
+    ],
     "category": "metabolism",
     "readingTime": "6 min"
   },
@@ -34,6 +42,10 @@
       "walking",
       "creativity",
       "cognition"
+    ],
+    "topics": [
+      "research",
+      "lifestyle"
     ],
     "category": "focus",
     "readingTime": "5 min"
