@@ -7,6 +7,11 @@ topics: health, research
 category: metabolism
 readingTime: 9 min
 eyecatchQuery: healthy lunch blood sugar meal
+eyecatch: https://images.unsplash.com/photo-1644204317919-a0185a4997f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwbHVuY2glMjBibG9vZCUyMHN1Z2FyJTIwbWVhbHxlbnwxfDB8fHwxNzczMDYyMTcxfDA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: a plastic container filled with rice and a hot dog
+eyecatchPhotoBy: Markus Winkler
+eyecatchPhotoUrl: https://unsplash.com/@markuswinkler?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 ## 食後の眠気は食べすぎだけでは説明しきれない
