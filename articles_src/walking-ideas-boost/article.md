@@ -6,7 +6,7 @@ tags: walking, creativity, cognition
 topics: research, lifestyle
 category: focus
 readingTime: 9 min
-eyecatch: /assets/eyecatch/walking-ideas-boost.jpg
+eyecatchQuery: walking 
 ---
 
 ## 机で止まる思考が歩くと動き出すのはなぜか
