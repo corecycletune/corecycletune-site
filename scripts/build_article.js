@@ -46,7 +46,6 @@ function parseFrontMatter(md) {
 function inlineFormat(text) {
   let s = escapeHtml(text);
 
-  s = s.replace(/$begin:math:display$\(\[\^$end:math:display$]+)\]$begin:math:text$\(\[\^\)\]\+\)$end:math:text$/g, '<a href="$2">$1</a>');
   s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   s = s.replace(/\*([^*]+)\*/g, "<em>$1</em>");
   s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
