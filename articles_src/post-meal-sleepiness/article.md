@@ -6,7 +6,7 @@ tags: blood-sugar, sleepiness, metabolism
 topics: health, research
 category: metabolism
 readingTime: 9 min
-eyecatch: /assets/eyecatch/post-meal-sleepiness.jpg
+eyecatchQuery: healthy lunch blood sugar meal
 ---
 
 ## 食後の眠気は食べすぎだけでは説明しきれない
