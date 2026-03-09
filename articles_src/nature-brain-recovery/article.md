@@ -6,7 +6,7 @@ tags: nature, attention, psychology
 topics: research, lifestyle
 category: focus
 readingTime: 8 min
-eyecatch: /assets/eyecatch/nature-brain-recovery.jpg
+eyecatchQuery: forest path sunlight calm nature
 ---
 
 ## 自然を見ると頭が軽くなる感覚は本当に説明できるのか
