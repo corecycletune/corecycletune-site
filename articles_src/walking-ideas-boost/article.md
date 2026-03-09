@@ -5,13 +5,8 @@ updated: 2026-03-10
 tags: walking, creativity, cognition
 topics: research, lifestyle
 category: focus
-readingTime: 9 min
+readingTime: 10 min
 eyecatchQuery: walking park morning creativity
-eyecatch: https://images.unsplash.com/photo-1765273703260-75fd7d920845?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHx3YWxraW5nJTIwcGFyayUyMG1vcm5pbmclMjBjcmVhdGl2aXR5fGVufDF8MHx8fDE3NzMwOTc1MzB8MA&ixlib=rb-4.1.0&q=80&w=1080
-eyecatchAlt: Curving park path with bare trees and buildings.
-eyecatchPhotoBy: Choi Chulho
-eyecatchPhotoUrl: https://unsplash.com/@chulho?utm_source=cctlab&utm_medium=referral
-eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 ## 考えが詰まった時に歩きたくなるのは気分の問題だけではない
@@ -60,11 +55,19 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 ここで大切なのは、「集中していないからダメ」ではなく、注意や発想の状態が固まりすぎている可能性があることです。真面目に長く座るほど進むとは限らないのは、このズレがあるからです。
 
+## 循環調律では発想の詰まりも生活循環の乱れとして見る
+
+循環調律（コアサイクルチューン）では、人の状態は単発の原因ではなく、生活行動から身体状態、心理状態、次の行動へつながる循環で考えます。発想の出やすさも例外ではありません。
+
+ここでいうコアサイクルとは、人の状態を作る生活循環のことです。座り方、刺激量、身体活動、注意の向きが積み重なって、その時の集中や発想の出方を作ります。
+
+この視点では、「発想が出ないこと」そのものを問題の中心とは見ません。まず探すのは、発想が出にくい状態を作っている不協です。
+
 ## 不協はどう発想の悪循環を作るのか
 
-循環調律では、人の状態は単発の原因ではなく、生活行動から次の行動へとつながる循環で考えます。
+不協（ディゾナンス）とは、コアサイクルを乱す原因行動や状態です。ここでの不協は、長時間の座位、同じ刺激への固定、考えすぎによる身体活動の低下です。
 
-この文脈で見ると、発想が詰まりやすい時の不協は、長時間の座位、同じ刺激への固定、考えすぎによる身体活動の低下です。問題は「ひらめかないこと」そのものではなく、ひらめきにくい循環に入っていることです。
+大事なのは、詰まりそのものは症状であって原因ではないことです。頭が固まる、言葉が出ない、切り替えが起きない。これらは身体からのサインであり、その背後には崩れた循環があります。
 
 [cct-cycle type="dissonance"]
 不協 | 長時間座ったまま同じ課題に固定される
@@ -74,11 +77,11 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 不協 | ますます発想が詰まりやすくなる
 [/cct-cycle]
 
-ここで出ている「詰まり」は症状です。原因は、思考力の欠如よりも、発想が出にくい循環のほうにあります。
+この悪循環に入ると、「まだ頑張りが足りない」と思って同じ姿勢を続けてしまいがちです。けれども、それがさらに発想を出にくくします。能力不足ではなく、循環の崩れが発想を締めつけている状態です。
 
 ## 解決はどう発想の好循環を作るのか
 
-解決は、大げさなことではありません。短い歩行でも、座位固定から抜けるだけで循環の向きが変わることがあります。
+解決（レゾリューション）は、コアサイクルを整える行動です。ここでの解決は、大げさなことではありません。短い歩行でも、座位固定から抜けるだけで循環の向きが変わることがあります。
 
 大切なのは、歩くことを「サボり」ではなく、「思考のモードを切り替える操作」として扱うことです。少し歩くと、身体のリズムが戻り、注意がほぐれ、次の連想が生まれやすくなります。
 
@@ -90,7 +93,7 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 解決 | 短い歩行を発想の切り替え習慣にできる
 [/cct-cycle]
 
-歩行の価値は、長さよりもタイミングにあります。考えが止まった瞬間に少し動く。この小さな操作だけでも、思考の流れは変わりやすくなります。
+ここで変わるのは、単に一度ひらめくかどうかではありません。歩いてほどく、戻って書く、また詰まったら少し動く。この好循環ができると、発想の停滞が長引きにくくなります。
 
 ## アイデアを出したい日に最初に変えるなら何がいいのか
 
@@ -105,11 +108,11 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 歩行は創造性の魔法ではありません。けれども、同じ場所で固まった思考をほどくには、かなり現実的で再現しやすい方法です。
 
-## 歩くことは発想を直接くれるのではなく出やすい状態を作る
+## 歩くことは発想を直接くれるのではなく出やすい循環を作る
 
 この研究が示しているのは、歩けば必ず名案が浮かぶということではありません。そうではなく、歩行が創造的思考、とくに発散的な発想に向いた状態を作りやすいということです。
 
-日常では、考えが出ない自分を責めがちです。けれども循環調律の視点では、責めるべきは能力ではなく、不協の循環です。長く座って固まり続ける循環を切り、短く歩いてほぐれる循環へ変える。その小さな切り替えが、次の発想につながります。
+循環調律で見れば、問題は「アイデアがないこと」より、アイデアが出にくい不協の循環に入っていることです。長く座って固まり続ける悪循環を切り、短く歩いてほどける好循環へ変える。その小さな切り替えが、次の発想につながります。
 
 [paper-summary]
 論文タイトル | Give Your Ideas Some Legs: The Positive Effect of Walking on Creative Thinking
