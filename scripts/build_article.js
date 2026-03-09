@@ -4,7 +4,7 @@ const path = require("path");
 const SITE_URL = "https://corecycletune.com";
 const SRC_DIR = "articles_src";
 const OUT_DIR = "articles";
-const TEMPLATE_PATH = "templates/article.html";
+const TEMPLATE_PATH = path.join(__dirname, "../templates/article.html");
 
 const template = fs.readFileSync(TEMPLATE_PATH, "utf8");
 
@@ -46,6 +46,7 @@ function parseFrontMatter(md) {
 function inlineFormat(text) {
   let s = escapeHtml(text);
 
+  s = s.replace(/$begin:math:display$\(\[\^$end:math:display$]+)\]$begin:math:text$\(\[\^\)\]\+\)$end:math:text$/g, '<a href="$2">$1</a>');
   s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   s = s.replace(/\*([^*]+)\*/g, "<em>$1</em>");
   s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
@@ -132,7 +133,6 @@ function buildCctCycleBlock(rawLines) {
       const parts = line.split("|");
       const label = (parts[0] || "").trim();
       const value = parts.slice(1).join("|").trim();
-
       return { label, value };
     })
     .filter((item) => item.label && item.value);
@@ -511,7 +511,23 @@ function buildMetaComment(meta) {
 
 function buildEyecatch(meta) {
   if (!meta.eyecatch) return "";
-  return `<figure class="article-eyecatch"><img src="${meta.eyecatch}" alt="${escapeHtml(meta.title || "")}"></figure>`;
+
+  const creditHtml =
+    meta.eyecatchPhotoBy && meta.eyecatchPhotoUrl && meta.eyecatchSourceUrl
+      ? `
+  <figcaption class="photo-credit">
+    Photo by <a href="${escapeHtml(meta.eyecatchPhotoUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(meta.eyecatchPhotoBy)}</a>
+    on <a href="${escapeHtml(meta.eyecatchSourceUrl)}" target="_blank" rel="noopener noreferrer">Unsplash</a>
+  </figcaption>`
+      : "";
+
+  const alt = meta.eyecatchAlt || meta.title || "";
+
+  return `
+<figure class="article-eyecatch">
+  <img src="${escapeHtml(meta.eyecatch)}" alt="${escapeHtml(alt)}">
+  ${creditHtml}
+</figure>`.trim();
 }
 
 function canonicalUrl(slug) {
@@ -519,13 +535,15 @@ function canonicalUrl(slug) {
 }
 
 function ogImageUrl(meta) {
-  if (!meta.eyecatch) return `${SITE_URL}/assets/og-default.jpg`;
-
-  if (meta.eyecatch.startsWith("http://") || meta.eyecatch.startsWith("https://")) {
+  if (meta.eyecatch && (meta.eyecatch.startsWith("http://") || meta.eyecatch.startsWith("https://"))) {
     return meta.eyecatch;
   }
 
-  return `${SITE_URL}${meta.eyecatch}`;
+  if (meta.eyecatch && meta.eyecatch.startsWith("/")) {
+    return `${SITE_URL}${meta.eyecatch}`;
+  }
+
+  return `${SITE_URL}/assets/og-default.jpg`;
 }
 
 function buildStructuredData(meta, slug) {
@@ -561,45 +579,49 @@ function replaceAll(templateText, values) {
   return out;
 }
 
-const dirs = fs.readdirSync(SRC_DIR, { withFileTypes: true });
+function run() {
+  const dirs = fs.readdirSync(SRC_DIR, { withFileTypes: true });
 
-dirs.forEach((entry) => {
-  if (!entry.isDirectory()) return;
+  for (const entry of dirs) {
+    if (!entry.isDirectory()) continue;
 
-  const slug = entry.name;
+    const slug = entry.name;
+    if (slug.startsWith("_")) continue;
 
-  if (slug.startsWith("_")) return;
+    const mdPath = path.join(SRC_DIR, slug, "article.md");
+    if (!fs.existsSync(mdPath)) continue;
 
-  const mdPath = path.join(SRC_DIR, slug, "article.md");
-  if (!fs.existsSync(mdPath)) return;
+    const md = fs.readFileSync(mdPath, "utf8");
+    const { meta, body } = parseFrontMatter(md);
 
-  const md = fs.readFileSync(mdPath, "utf8");
-  const { meta, body } = parseFrontMatter(md);
+    const htmlBody = markdownToHtml(body);
+    const eyecatchHtml = buildEyecatch(meta);
 
-  const htmlBody = markdownToHtml(body);
+    const html = replaceAll(template, {
+      TITLE: escapeHtml(meta.title || ""),
+      DESCRIPTION: escapeHtml(meta.description || ""),
+      UPDATED: escapeHtml(meta.updated || ""),
+      READING_TIME: escapeHtml(meta.readingTime || ""),
+      EYECATCH: eyecatchHtml,
+      CONTENT: htmlBody,
+      CANONICAL_URL: canonicalUrl(slug),
+      OG_IMAGE: ogImageUrl(meta),
+      STRUCTURED_DATA: buildStructuredData(meta, slug)
+    });
 
-  const html = replaceAll(template, {
-    TITLE: escapeHtml(meta.title || ""),
-    DESCRIPTION: escapeHtml(meta.description || ""),
-    UPDATED: escapeHtml(meta.updated || ""),
-    READING_TIME: escapeHtml(meta.readingTime || ""),
-    EYECATCH: buildEyecatch(meta),
-    CONTENT: htmlBody,
-    CANONICAL_URL: canonicalUrl(slug),
-    OG_IMAGE: ogImageUrl(meta),
-    STRUCTURED_DATA: buildStructuredData(meta, slug)
-  });
+    const outDir = path.join(OUT_DIR, slug);
+    ensureDir(outDir);
 
-  const outDir = path.join(OUT_DIR, slug);
-  ensureDir(outDir);
+    const finalHtml = `${buildMetaComment(meta)}\n${html}`;
 
-  const finalHtml = `${buildMetaComment(meta)}\n${html}`;
+    fs.writeFileSync(
+      path.join(outDir, "index.html"),
+      finalHtml,
+      "utf8"
+    );
 
-  fs.writeFileSync(
-    path.join(outDir, "index.html"),
-    finalHtml,
-    "utf8"
-  );
+    console.log("build:", slug);
+  }
+}
 
-  console.log("build:", slug);
-});
+run();
