@@ -236,11 +236,11 @@ assets/style.css
 
 全ページ共通の基本スタイル。
 
-補足
+重要
 
-一部の build生成コンポーネントは、必要な専用スタイルを  
-`build_article.js` が記事HTML内へ埋め込む場合がある。  
-現時点では循環図コンポーネントがこれに該当する。
+- 見た目の責務は **assets/style.css に集約**する
+- 記事用コンポーネントのスタイルもここで管理する
+- `build_article.js` は見た目を埋め込まず、構造だけを生成する
 
 ---
 
@@ -323,7 +323,10 @@ articles/<slug>/index.html
 - `_` で始まるディレクトリは除外する
 - `articles_src/_template/` は build対象外
 - 現在の専用構文として `[cct-cycle] ... [/cct-cycle]` を解釈する
+- 現在の専用構文として `[paper-summary] ... [/paper-summary]` を解釈する
 - `cct-cycle` は循環図用の専用オブジェクトとしてHTML/SVGへ変換される
+- `paper-summary` は論文概要カード用のHTMLへ変換される
+- 見た目のCSSは埋め込まず、クラス名だけを出力する
 
 ---
 
@@ -389,6 +392,7 @@ sitemap.xml
   - `` `code` ``
 - 専用構文
   - `[cct-cycle] ... [/cct-cycle]`
+  - `[paper-summary] ... [/paper-summary]`
 
 未保証または未対応として扱うもの
 
@@ -485,7 +489,28 @@ commit
 
 ---
 
-# 10) Single Source of Truth
+# 10) 記事削除手順
+
+1  
+articles_src/<slug>/ を削除
+
+2  
+articles/<slug>/ を削除
+
+3  
+commit
+
+4  
+workflow により posts.json / sitemap.xml を更新
+
+重要
+
+- Source だけ消しても公開HTMLが残る場合がある
+- 記事削除時は **source と output の両方** を削除する
+
+---
+
+# 11) Single Source of Truth
 
 記事本文  
 articles_src/<slug>/article.md
@@ -505,9 +530,12 @@ build生成
 構造説明  
 meta/site_architecture.md
 
+見た目  
+assets/style.css
+
 ---
 
-# 11) ファイル増殖防止ルール
+# 12) ファイル増殖防止ルール
 
 似た役割のファイルを増やさない。
 
@@ -524,9 +552,16 @@ meta/site_architecture.md
 - `articles_src/_template/article.md`
   - 実物の雛形
 
+見た目の責務も分ける。
+
+- `assets/style.css`
+  - 見た目
+- `build_article.js`
+  - 構造生成
+
 ---
 
-# 12) 変更履歴
+# 13) 変更履歴
 
 2026-03-03  
 軽量CMS構造を採用
@@ -553,4 +588,10 @@ sitemap 自動生成
 `build_article.js` / `generate_posts.js` ともに `_` で始まる補助ディレクトリを除外する方針を明記
 
 2026-03-xx  
-`[cct-cycle] ... [/cct-cycle]` を記事本文で使える専用構文として導入
+`[cct-cycle]` を専用構文として導入
+
+2026-03-xx  
+`[paper-summary]` を専用構文として導入
+
+2026-03-xx  
+記事用コンポーネントの見た目責務を `assets/style.css` に集約
