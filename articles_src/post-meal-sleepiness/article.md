@@ -5,13 +5,8 @@ updated: 2026-03-10
 tags: blood-sugar, sleepiness, metabolism
 topics: health, research
 category: metabolism
-readingTime: 9 min
+readingTime: 10 min
 eyecatchQuery: healthy lunch blood sugar meal
-eyecatch: https://images.unsplash.com/photo-1644204317919-a0185a4997f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwbHVuY2glMjBibG9vZCUyMHN1Z2FyJTIwbWVhbHxlbnwxfDB8fHwxNzczMDk3NzI5fDA&ixlib=rb-4.1.0&q=80&w=1080
-eyecatchAlt: a plastic container filled with rice and a hot dog
-eyecatchPhotoBy: Markus Winkler
-eyecatchPhotoUrl: https://unsplash.com/@markuswinkler?utm_source=cctlab&utm_medium=referral
-eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 ## 昼食後に急にぼんやりするのは意志の弱さだけではない
@@ -56,9 +51,19 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 ここで大事なのは、眠気そのものを根性で抑え込むより、眠気を作る循環を見直すことです。
 
+## 循環調律では食後の崩れも食行動の循環として見る
+
+循環調律（コアサイクルチューン）では、人の状態は生活行動から身体状態、心理状態、次の行動へつながる循環として見ます。食後の眠気も、その場だけの反応ではなく、前後の食行動や刺激の取り方まで含んだ循環の中で起きるものとして扱います。
+
+ここでいうコアサイクルとは、人の状態を作る生活循環です。食事内容、吸収の速さ、食後の過ごし方、次の間食の選び方がつながって、午後の状態を作ります。
+
+この視点に立つと、「午後は弱い」「意思が足りない」ではなく、「午後に崩れやすい循環に入っていないか」を見ることができます。
+
 ## 不協はどう食後の悪循環を作るのか
 
-循環調律で見ると、食後の強い眠気の不協は、吸収の速い食事、糖質偏重、早食い、食後すぐ座り続けることなどです。眠気や無気力は症状であって、原因ではありません。
+不協（ディゾナンス）とは、コアサイクルを乱す原因行動や状態です。ここでの不協は、吸収の速い食事、糖質偏重、早食い、食後すぐ座り続けることなどです。
+
+眠気や無気力は症状であって、原因ではありません。原因は、血糖変動を大きくし、その後の行動まで崩しやすくする食行動のほうにあります。
 
 [cct-cycle type="dissonance"]
 不協 | 吸収の速い糖質中心の食事を急いで食べる
@@ -72,7 +77,7 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 ## 解決はどう食後の好循環を作るのか
 
-解決は、糖質を敵にすることではありません。変動を穏やかにする方向へ食べ方を少し変えることです。
+解決（レゾリューション）は、コアサイクルを整える行動です。ここでの解決は、糖質を敵にすることではありません。変動を穏やかにする方向へ食べ方を少し変えることです。
 
 野菜やたんぱく質を先に入れる、主食の量や質を整える、甘い飲み物を減らす、食後に少し歩く。こうした小さな調整でも、食後の落ち方は変わりやすいです。
 
@@ -84,7 +89,7 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 解決 | 次の間食や夕方の過食も抑えやすくなる
 [/cct-cycle]
 
-好循環のポイントは、食後の1回だけ楽になることではなく、その後の間食や夕食の崩れまで連鎖して変わることです。
+好循環のポイントは、食後の1回だけ楽になることではありません。その後の間食や夕食の崩れまで連鎖して変わるところに価値があります。
 
 ## 昼食後に最初に変えるなら何がいいのか
 
@@ -98,7 +103,7 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 食後の眠気は気合いの問題に見えますが、実際にはかなり身体寄りの問題です。だからこそ、行動で変えやすいとも言えます。
 
-## 食後の眠気は症状であって原因ではない
+## 食後の眠気は症状であって原因ではなく崩れた循環のサインである
 
 この研究が示しているのは、食後の認知機能は食事内容、とくに glycaemic index の違いと無関係ではないということです。大きな断定はできなくても、少なくとも「何を食べても同じ」ではありません。
 
