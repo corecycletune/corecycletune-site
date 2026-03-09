@@ -397,14 +397,9 @@ hr {
 
 .article-body {
   color: var(--text);
-}
-
-.prose,
-.article-body {
   font-size: 17px;
 }
 
-.prose h2,
 .article-body h2 {
   position: relative;
   margin: 28px 0 12px;
@@ -417,7 +412,6 @@ hr {
   box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
 }
 
-.prose h2::before,
 .article-body h2::before {
   content: "";
   position: absolute;
@@ -429,7 +423,6 @@ hr {
   background: rgba(47, 111, 100, 0.55);
 }
 
-.prose h3,
 .article-body h3 {
   margin: 20px 0 8px;
   font-size: 18px;
@@ -437,32 +430,26 @@ hr {
   letter-spacing: -0.01em;
 }
 
-.prose p,
 .article-body p {
   margin: 12px 0;
 }
 
-.article-body > p:first-of-type,
-.prose > p:first-of-type {
+.article-body > p:first-of-type {
   font-size: 18px;
   color: #334155;
   line-height: 1.95;
 }
 
-.prose ul,
-.prose ol,
 .article-body ul,
 .article-body ol {
   margin: 12px 0 12px 1.2em;
   padding: 0;
 }
 
-.prose li,
 .article-body li {
   margin: 6px 0;
 }
 
-.prose blockquote,
 .article-body blockquote {
   margin: 16px 0;
   padding: 14px 16px;
@@ -716,7 +703,6 @@ hr {
     font-size: 16.5px;
   }
 
-  .prose,
   .article-body {
     font-size: 16.5px;
   }
@@ -730,7 +716,6 @@ hr {
     border-radius: 22px;
   }
 
-  .prose h2,
   .article-body h2 {
     padding: 13px 14px 13px 16px;
     border-radius: 18px;
