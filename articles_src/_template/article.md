@@ -6,7 +6,7 @@ tags: tag-1, tag-2, tag-3
 topics: research, lifestyle
 category: focus
 readingTime: 8 min
-eyecatch: /assets/eyecatch/example.jpg
+eyecatchQuery: walking park morning
 ---
 
 ## 日常で感じる違和感は別の角度から説明できるのか
