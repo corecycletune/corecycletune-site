@@ -367,9 +367,12 @@ articles/<slug>/index.html
 
 - `_` で始まるディレクトリは除外する
 - `articles_src/_template/` は build対象外
-- 現在の専用構文として `[cct-cycle] ... [/cct-cycle]` を解釈する
-- 現在の専用構文として `[paper-summary] ... [/paper-summary]` を解釈する
+- 現在の専用構文として `[cct-cycle type="dissonance"] ... [/cct-cycle]` を解釈する
+- 現在の専用構文として `[cct-cycle type="resolution"] ... [/cct-cycle]` を解釈する
 - `cct-cycle` は循環図用の専用オブジェクトとしてHTML/SVGへ変換される
+- `type="dissonance"` は悪循環の見た目で表示する
+- `type="resolution"` は好循環の見た目で表示する
+- 現在の専用構文として `[paper-summary] ... [/paper-summary]` を解釈する
 - `paper-summary` は論文概要カード用のHTMLへ変換される
 - 見た目のCSSは埋め込まず、クラス名だけを出力する
 - 外部APIは呼ばない
@@ -437,7 +440,8 @@ sitemap.xml
 - インラインコード
   - `` `code` ``
 - 専用構文
-  - `[cct-cycle] ... [/cct-cycle]`
+  - `[cct-cycle type="dissonance"] ... [/cct-cycle]`
+  - `[cct-cycle type="resolution"] ... [/cct-cycle]`
   - `[paper-summary] ... [/paper-summary]`
 
 未保証または未対応として扱うもの
@@ -647,9 +651,6 @@ sitemap 自動生成
 `build_article.js` / `generate_posts.js` ともに `_` で始まる補助ディレクトリを除外する方針を明記
 
 2026-03-xx  
-`[cct-cycle]` を専用構文として導入
-
-2026-03-xx  
 `[paper-summary]` を専用構文として導入
 
 2026-03-xx  
@@ -657,3 +658,6 @@ sitemap 自動生成
 
 2026-03-xx  
 `eyecatchQuery` を導入し、`fetch_eyecatch.js` にアイキャッチ取得責務を分離
+
+2026-03-xx  
+`cct-cycle` を後半のCCTパート専用に再定義し、`type="dissonance"` / `type="resolution"` を導入
