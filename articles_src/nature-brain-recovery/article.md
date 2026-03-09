@@ -5,13 +5,8 @@ updated: 2026-03-10
 tags: nature, attention, psychology
 topics: research, lifestyle
 category: focus
-readingTime: 8 min
+readingTime: 9 min
 eyecatchQuery: forest path sunlight calm nature
-eyecatch: https://images.unsplash.com/photo-1767107114829-c3e92bf81b13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxmb3Jlc3QlMjBwYXRoJTIwc3VubGlnaHQlMjBjYWxtJTIwbmF0dXJlfGVufDF8MHx8fDE3NzMwNjIyMTR8MA&ixlib=rb-4.1.0&q=80&w=1080
-eyecatchAlt: Sunlight streams through bare trees in a misty forest.
-eyecatchPhotoBy: Olya Mn
-eyecatchPhotoUrl: https://unsplash.com/@olli_mn?utm_source=cctlab&utm_medium=referral
-eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 ## 画面や街の刺激に疲れた時に自然が恋しくなるのはなぜか
@@ -59,9 +54,19 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 ここでさらに強い刺激で休もうとすると、休憩のつもりが回復にならず、次の集中もしにくくなります。
 
+## 循環調律では集中力の低下も注意を削る循環として見る
+
+循環調律（コアサイクルチューン）では、人の状態は生活行動から身体状態、心理状態、次の行動へつながる循環として見ます。集中力の低下も、その場だけの問題ではなく、注意を削る生活循環の中で起きるものとして捉えます。
+
+ここでいうコアサイクルは、人の状態を作る生活循環です。刺激環境、休み方、視線の置き方、情報の量が積み重なって、その時の集中と疲労を作ります。
+
+この見方に立つと、「集中できない自分」よりも先に、「集中を削り続ける不協がないか」を見ることができます。
+
 ## 不協はどう注意疲労の悪循環を作るのか
 
-循環調律で見ると、この場面の不協は「刺激の強い環境への長時間暴露」と「休憩時間まで刺激で埋めること」です。症状は集中力の低下、頭の重さ、落ち着かなさです。
+不協（ディゾナンス）とは、コアサイクルを乱す原因行動や状態です。ここでの不協は、刺激の強い環境への長時間暴露と、休憩時間まで刺激で埋めることです。
+
+頭が重い、落ち着かない、同じ文を何度も読む。これらは症状であって原因ではありません。原因は、注意を休めにくい循環に入っていることです。
 
 [cct-cycle type="dissonance"]
 不協 | 強い情報刺激が多い環境に長くさらされる
@@ -71,11 +76,13 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 不協 | 注意を休めにくいまま疲労が続く
 [/cct-cycle]
 
-ここでは、疲れたから刺激を求めるのに、刺激を求めるほど回復しにくくなるのが厄介です。
+ここでは、疲れたから刺激を求めるのに、刺激を求めるほど回復しにくくなるのが厄介です。注意を休めるつもりの行動が、むしろ疲労を深くする循環になっています。
 
 ## 解決はどう注意の好循環を作るのか
 
-解決は、必ずしも山に行くことではありません。自然の景色を見る、木のある道を歩く、空を見上げる、窓辺に視線を移す。そうした小さな接触でも、強い刺激から離れるきっかけになります。
+解決（レゾリューション）は、コアサイクルを整える行動です。ここでの解決は、必ずしも山に行くことではありません。自然の景色を見る、木のある道を歩く、空を見上げる、窓辺に視線を移す。そうした小さな接触でも、強い刺激から離れるきっかけになります。
+
+大切なのは、自然がやる気を直接注入するのではなく、張りつめた注意を休ませる条件を整えることです。すると次の集中が少し楽になります。
 
 [cct-cycle type="resolution"]
 解決 | 休憩中に自然の景色や木のある場所へ視線を移す
@@ -85,7 +92,7 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 解決 | 自然を使った休憩が集中の土台になる
 [/cct-cycle]
 
-ここで重要なのは、自然がやる気を直接注入するわけではないことです。自然は、注意を休ませる条件を整えます。その結果として、次の集中が少し楽になるのです。
+ここで変わるのは一時的な気分だけではありません。刺激で削る循環から、穏やかに回復して戻る循環へ移ることで、その後の作業も崩れにくくなります。
 
 ## 注意を休ませたい日に最初に変えるなら何がいいのか
 
@@ -98,11 +105,11 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 自然との接触は、長さよりも切り替えの質が大切です。強い刺激から離れ、穏やかに注意を預けられる対象を持つ。それだけでも回復の感覚は変わってきます。
 
-## 自然は癒やしの雰囲気ではなく注意を休ませる環境として働く
+## 自然は癒やしの雰囲気ではなく注意を休ませる循環の入口になる
 
 この研究が示しているのは、自然がなんとなく気持ちいいからではありません。自然は、意図的に向け続けて疲れた注意を休ませやすい環境として働く、という点です。
 
-循環調律でいえば、集中力の問題は能力の問題ではなく、注意資源を削る不協の問題として見直せます。刺激の強い悪循環から、穏やかな回復をはさむ好循環へ変える。その中継点として、自然はかなり使いやすい解決です。
+循環調律で見れば、集中力の問題は能力の問題ではなく、注意資源を削る不協の問題として見直せます。刺激の強い悪循環から、穏やかな回復をはさむ好循環へ変える。その中継点として、自然はかなり使いやすい解決です。
 
 [paper-summary]
 論文タイトル | The Cognitive Benefits of Interacting With Nature
