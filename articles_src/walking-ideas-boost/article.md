@@ -6,7 +6,12 @@ tags: walking, creativity, cognition
 topics: research, lifestyle
 category: focus
 readingTime: 9 min
-eyecatchQuery: walking 
+eyecatchQuery: walking
+eyecatch: https://images.unsplash.com/photo-1487956382158-bb926046304a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHx3YWxraW5nfGVufDF8MHx8fDE3NzMwNjA0NzB8MA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: shallow focus photography of person walking on road between grass
+eyecatchPhotoBy: Arek Adeoye
+eyecatchPhotoUrl: https://unsplash.com/@areksan?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 ## 机で止まる思考が歩くと動き出すのはなぜか
