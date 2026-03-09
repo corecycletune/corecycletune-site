@@ -81,7 +81,7 @@ tags: tag1, tag2, tag3
 topics: topic1, topic2
 category: category
 readingTime: X min
-eyecatch: /assets/eyecatch/example.jpg
+eyecatchQuery: walking park morning
 ---
 
 重要
@@ -90,6 +90,16 @@ eyecatch: /assets/eyecatch/example.jpg
 - 記事メタはこの front matter を正本とする
 - HTMLメタコメントは出力しない
 - HTML全体は出力しない
+- 初期状態では `eyecatchQuery` を書く
+- `eyecatch` 以下の確定値は後段の画像取得処理が補完する
+
+補完される可能性がある項目
+
+- `eyecatch`
+- `eyecatchAlt`
+- `eyecatchPhotoBy`
+- `eyecatchPhotoUrl`
+- `eyecatchSourceUrl`
 
 ---
 
@@ -156,6 +166,37 @@ dopamine
 walking  
 creativity  
 attention
+
+---
+
+# アイキャッチ検索語ルール
+
+`eyecatchQuery` は以下を満たすこと。
+
+- 英語
+- 2〜5語程度
+- Unsplashで自然な写真が見つかりやすい語にする
+- 記事テーマと大きくズレない
+- 抽象語だけにしすぎない
+
+良い例
+
+- walking park morning
+- healthy lunch blood sugar meal
+- forest path sunlight calm nature
+
+避ける例
+
+- focus
+- health
+- research article
+- cct lab
+
+重要
+
+- 画像そのものを本文で説明しない
+- AIが将来的に自動生成しても、まずはこの文字列を front matter に出す
+- 画像取得の責務は記事生成ではなく後段の `fetch_eyecatch.js` にある
 
 ---
 
