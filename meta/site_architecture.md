@@ -17,7 +17,7 @@ https://corecycletune.com
 
 # 1) 採用する構造方針（最重要）
 
-CCT Lab は今後の **AI記事生成・広告挿入・テンプレ共通化** を見据え、  
+CCT Lab は今後の **AI記事生成・アイキャッチ自動取得・テンプレ共通化** を見据え、  
 以下の **3層構造** を採用する。
 
 ---
@@ -46,6 +46,8 @@ Source を元に以下を生成する。
 - HTML記事
 - posts.json
 - sitemap.xml
+
+加えて、必要に応じてアイキャッチ情報を Source に補完する。
 
 ---
 
@@ -107,6 +109,7 @@ data/posts.json
 
   scripts/
     build_article.js
+    fetch_eyecatch.js
     generate_posts.js
     generate_sitemap.js
 
@@ -154,9 +157,19 @@ articles_src/<slug>/article.md
 - category
 - updated
 - readingTime
+- eyecatchQuery
 - eyecatch
+- eyecatchAlt
+- eyecatchPhotoBy
+- eyecatchPhotoUrl
+- eyecatchSourceUrl
 
 ここが **記事内容と記事メタの唯一の正本**
+
+重要
+
+- 人間が最初に書くのは基本 `eyecatchQuery`
+- `eyecatch` 以下の確定値は自動補完される前提
 
 ---
 
@@ -299,6 +312,37 @@ data/posts.json
 
 # 5) Build Scripts
 
+## fetch_eyecatch.js
+
+入力
+
+articles_src/<slug>/article.md
+
+処理
+
+- `eyecatchQuery` を読む
+- Unsplash API で画像を検索する
+- 利用規約に沿って採用画像を確定する
+- 必要な attribution 情報を取得する
+- Source の front matter に以下を書き戻す
+  - `eyecatch`
+  - `eyecatchAlt`
+  - `eyecatchPhotoBy`
+  - `eyecatchPhotoUrl`
+  - `eyecatchSourceUrl`
+
+出力
+
+articles_src/<slug>/article.md を更新
+
+重要
+
+- 画像取得の責務はこのファイルに集約する
+- `build_article.js` に API 呼び出しを入れない
+- 将来的に AI を導入する場合も、検索語生成の入口はここに寄せる
+
+---
+
 ## build_article.js
 
 入力
@@ -313,6 +357,7 @@ articles_src/<slug>/article.md
 - canonical / OGP / JSON-LD を埋め込み
 - HTML先頭にメタコメントを付与
 - 専用構文を解釈して記事用コンポーネントへ変換する
+- 確定済みのアイキャッチ情報をHTMLに出力する
 
 出力
 
@@ -327,6 +372,7 @@ articles/<slug>/index.html
 - `cct-cycle` は循環図用の専用オブジェクトとしてHTML/SVGへ変換される
 - `paper-summary` は論文概要カード用のHTMLへ変換される
 - 見た目のCSSは埋め込まず、クラス名だけを出力する
+- 外部APIは呼ばない
 
 ---
 
@@ -476,15 +522,21 @@ articles_src/<slug>/article.md
 articles_src/<slug>/article.md 作成
 
 2  
-build_article.js 実行
+必要なら `eyecatchQuery` を書く
 
 3  
-generate_posts.js 実行
+fetch_eyecatch.js 実行
 
 4  
-generate_sitemap.js 実行
+build_article.js 実行
 
 5  
+generate_posts.js 実行
+
+6  
+generate_sitemap.js 実行
+
+7  
 commit
 
 ---
@@ -559,6 +611,13 @@ meta/site_architecture.md
 - `build_article.js`
   - 構造生成
 
+画像取得の責務も分ける。
+
+- `fetch_eyecatch.js`
+  - アイキャッチ取得と確定
+- `build_article.js`
+  - 確定済みデータのHTML化
+
 ---
 
 # 13) 変更履歴
@@ -595,3 +654,6 @@ sitemap 自動生成
 
 2026-03-xx  
 記事用コンポーネントの見た目責務を `assets/style.css` に集約
+
+2026-03-xx  
+`eyecatchQuery` を導入し、`fetch_eyecatch.js` にアイキャッチ取得責務を分離
