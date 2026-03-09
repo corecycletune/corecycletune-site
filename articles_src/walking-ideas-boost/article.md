@@ -7,6 +7,11 @@ topics: research, lifestyle
 category: focus
 readingTime: 9 min
 eyecatchQuery: walking park morning creativity
+eyecatch: https://images.unsplash.com/photo-1765273703260-75fd7d920845?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHx3YWxraW5nJTIwcGFyayUyMG1vcm5pbmclMjBjcmVhdGl2aXR5fGVufDF8MHx8fDE3NzMwOTc1MzB8MA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: Curving park path with bare trees and buildings.
+eyecatchPhotoBy: Choi Chulho
+eyecatchPhotoUrl: https://unsplash.com/@chulho?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 ## 考えが詰まった時に歩きたくなるのは気分の問題だけではない
