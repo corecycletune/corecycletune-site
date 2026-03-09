@@ -124,7 +124,23 @@ ${buildArrowHead(x, endY, dir)}
 `.trim();
 }
 
-function buildCctCycleBlock(rawLines) {
+function cycleMeta(type) {
+  if (type === "dissonance") {
+    return {
+      kindClass: "is-dissonance",
+      kicker: "Dissonance Cycle",
+      title: "不協が作る悪循環"
+    };
+  }
+
+  return {
+    kindClass: "is-resolution",
+    kicker: "Resolution Cycle",
+    title: "解決が作る好循環"
+  };
+}
+
+function buildCctCycleBlock(rawLines, type = "resolution") {
   const items = rawLines
     .map((line) => line.trim())
     .filter(Boolean)
@@ -137,6 +153,8 @@ function buildCctCycleBlock(rawLines) {
     .filter((item) => item.label && item.value);
 
   if (!items.length) return "";
+
+  const meta = cycleMeta(type);
 
   const topCount = Math.ceil(items.length / 2);
   const boxW = 228;
@@ -257,12 +275,12 @@ ${buildTextBlock(valueX, valueY, item.valueLines, { className: "cct-flow-value",
   }
 
   return `
-<div class="cct-flow-wrap">
+<div class="cct-flow-wrap ${meta.kindClass}">
   <div class="cct-flow-header">
-    <span class="cct-flow-kicker">CCT Cycle</span>
-    <span class="cct-flow-title">循環調律の流れ</span>
+    <span class="cct-flow-kicker">${meta.kicker}</span>
+    <span class="cct-flow-title">${meta.title}</span>
   </div>
-  <svg class="cct-flow-svg" viewBox="0 0 ${viewW} ${viewH}" role="img" aria-label="循環調律の流れ図" preserveAspectRatio="xMidYMid meet">
+  <svg class="cct-flow-svg" viewBox="0 0 ${viewW} ${viewH}" role="img" aria-label="${escapeHtml(meta.title)}" preserveAspectRatio="xMidYMid meet">
     <g class="cct-flow-group">
       ${arrows.join("\n")}
       ${boxHtml}
@@ -342,6 +360,12 @@ function buildPaperSummaryBlock(rawLines) {
 </section>`.trim();
 }
 
+function parseCctCycleStart(line) {
+  const match = line.match(/^\[cct-cycle(?:\s+type="(dissonance|resolution)")?\]$/);
+  if (!match) return null;
+  return match[1] || "resolution";
+}
+
 function markdownToHtml(md) {
   const lines = md.replace(/\r\n/g, "\n").split("\n");
 
@@ -351,6 +375,7 @@ function markdownToHtml(md) {
   let inBlockquote = false;
   let inCctCycle = false;
   let cctCycleLines = [];
+  let cctCycleType = "resolution";
   let inPaperSummary = false;
   let paperSummaryLines = [];
 
@@ -374,9 +399,10 @@ function markdownToHtml(md) {
 
   function closeCctCycle() {
     if (!inCctCycle) return;
-    html += `${buildCctCycleBlock(cctCycleLines)}\n`;
+    html += `${buildCctCycleBlock(cctCycleLines, cctCycleType)}\n`;
     inCctCycle = false;
     cctCycleLines = [];
+    cctCycleType = "resolution";
   }
 
   function closePaperSummary() {
@@ -388,14 +414,16 @@ function markdownToHtml(md) {
 
   lines.forEach((rawLine) => {
     const line = rawLine.trim();
+    const cctStartType = parseCctCycleStart(line);
 
-    if (line === "[cct-cycle]") {
+    if (cctStartType) {
       flushParagraph();
       closeList();
       closeBlockquote();
       closePaperSummary();
       inCctCycle = true;
       cctCycleLines = [];
+      cctCycleType = cctStartType;
       return;
     }
 
