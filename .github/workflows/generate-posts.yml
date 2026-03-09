@@ -6,6 +6,7 @@ on:
       - "articles_src/**"
       - "templates/**"
       - "scripts/**"
+      - "assets/**"
       - ".github/workflows/generate-posts.yml"
   workflow_dispatch:
 
@@ -25,6 +26,13 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Fetch eyecatch metadata
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          UTM_SOURCE: cctlab
+          UTM_MEDIUM: referral
+        run: node scripts/fetch_eyecatch.js
+
       - name: Build article HTML
         run: node scripts/build_article.js
 
@@ -39,12 +47,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add articles data/posts.json sitemap.xml
+          git add articles_src articles data/posts.json sitemap.xml
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
           fi
 
-          git commit -m "chore: rebuild articles and update indexes"
+          git commit -m "chore: update eyecatch data and rebuild site"
           git push
