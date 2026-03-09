@@ -69,24 +69,6 @@ articles_src/post-meal-sleepiness/article.md
 
 ---
 
-# slug生成ルール
-
-slug は以下を満たすこと。
-
-- 英語
-- kebab-case
-- 3〜5単語
-- 記事内容が推測できる
-
-例
-
-post-meal-sleepiness  
-walking-creativity  
-nature-brain-recovery  
-coffee-nap-performance
-
----
-
 # front matter（必須）
 
 記事の先頭に必ず以下の front matter を付ける。
@@ -108,6 +90,24 @@ eyecatch: /assets/eyecatch/example.jpg
 - 記事メタはこの front matter を正本とする
 - HTMLメタコメントは出力しない
 - HTML全体は出力しない
+
+---
+
+# slug生成ルール
+
+slug は以下を満たすこと。
+
+- 英語
+- kebab-case
+- 3〜5単語
+- 記事内容が推測できる
+
+例
+
+post-meal-sleepiness  
+walking-creativity  
+nature-brain-recovery  
+coffee-nap-performance
 
 ---
 
@@ -225,12 +225,12 @@ attention
 
 必要な場合は、記事中で以下の専用構文を使ってよい。
 
-[cct-cycle]  
-生活行動 | 内容  
-身体の仕組み | 内容  
-身体状態 | 内容  
-心理状態 | 内容  
-次の行動 | 内容  
+[cct-cycle]
+生活行動 | 内容
+身体の仕組み | 内容
+身体状態 | 内容
+心理状態 | 内容
+次の行動 | 内容
 [/cct-cycle]
 
 重要
@@ -293,6 +293,19 @@ attention
 - 対象・条件
 - 限界があれば短く
 - 論文リンク
+
+論文概要は本文とは分けて、必ず以下の専用構文で出力すること。
+
+[paper-summary]
+論文タイトル | タイトル
+著者 | 著者名
+年 | 年
+どこの研究か | 研究の所属や掲載先
+どんな内容か | 研究内容の短い要約
+対象・条件 | 対象や条件
+限界 | 必要なら短く
+論文リンク | URL
+[/paper-summary]
 
 ---
 
