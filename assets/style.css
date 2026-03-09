@@ -261,7 +261,7 @@ hr {
   background: rgba(47, 111, 100, 0.08);
 }
 
-/* ----- Lists (Latest / Articles / Related) ----- */
+/* ----- Lists ----- */
 .list {
   display: grid;
   gap: 14px;
@@ -395,6 +395,18 @@ hr {
   height: auto;
 }
 
+.photo-credit {
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--muted-2);
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.photo-credit a {
+  color: var(--muted);
+  font-weight: 600;
+}
+
 .article-body {
   color: var(--text);
   font-size: 17px;
@@ -459,21 +471,23 @@ hr {
   color: var(--muted);
 }
 
-.callout {
-  border: 1px dashed rgba(15, 23, 42, 0.22);
-  background: rgba(255, 255, 255, 0.65);
-  border-radius: 14px;
-  padding: 14px;
-}
-
 /* ----- CCT Flow ----- */
 .cct-flow-wrap {
   margin: 26px 0 30px;
   padding: 16px;
   border-radius: 24px;
-  background: linear-gradient(180deg, rgba(47, 111, 100, 0.10), rgba(47, 111, 100, 0.04));
-  border: 1px solid rgba(47, 111, 100, 0.16);
+  border: 1px solid rgba(15, 23, 42, 0.12);
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+}
+
+.cct-flow-wrap.is-dissonance {
+  background: linear-gradient(180deg, rgba(190, 65, 65, 0.10), rgba(190, 65, 65, 0.04));
+  border-color: rgba(190, 65, 65, 0.18);
+}
+
+.cct-flow-wrap.is-resolution {
+  background: linear-gradient(180deg, rgba(47, 111, 100, 0.10), rgba(47, 111, 100, 0.04));
+  border-color: rgba(47, 111, 100, 0.16);
 }
 
 .cct-flow-header {
@@ -487,14 +501,22 @@ hr {
   font-size: 12px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: #6a8578;
   font-weight: 700;
 }
 
 .cct-flow-title {
   font-size: 16px;
-  color: #243428;
   font-weight: 700;
+}
+
+.cct-flow-wrap.is-dissonance .cct-flow-kicker,
+.cct-flow-wrap.is-dissonance .cct-flow-title {
+  color: #8f2f2f;
+}
+
+.cct-flow-wrap.is-resolution .cct-flow-kicker,
+.cct-flow-wrap.is-resolution .cct-flow-title {
+  color: #2e5f54;
 }
 
 .cct-flow-svg {
@@ -505,33 +527,65 @@ hr {
 
 .cct-flow-box {
   fill: #ffffff;
-  stroke: #d9e4de;
   stroke-width: 1.5;
 }
 
+.cct-flow-wrap.is-dissonance .cct-flow-box {
+  stroke: #f0c8c8;
+}
+
+.cct-flow-wrap.is-resolution .cct-flow-box {
+  stroke: #d9e4de;
+}
+
 .cct-flow-line {
-  stroke: #7a9689;
   stroke-width: 3.6;
   stroke-linecap: round;
 }
 
-.cct-flow-head {
+.cct-flow-wrap.is-dissonance .cct-flow-line {
+  stroke: #c26161;
+}
+
+.cct-flow-wrap.is-resolution .cct-flow-line {
+  stroke: #7a9689;
+}
+
+.cct-flow-wrap.is-dissonance .cct-flow-head {
+  fill: #c26161;
+}
+
+.cct-flow-wrap.is-resolution .cct-flow-head {
   fill: #7a9689;
 }
 
 .cct-flow-label {
-  fill: #617c70;
   font-size: 13px;
   font-weight: 700;
 }
 
 .cct-flow-value {
-  fill: #1b2430;
   font-size: 16px;
   font-weight: 600;
 }
 
-/* ----- Paper summary card ----- */
+.cct-flow-wrap.is-dissonance .cct-flow-label {
+  fill: #9d5555;
+}
+
+.cct-flow-wrap.is-dissonance .cct-flow-value {
+  fill: #2b1c1c;
+}
+
+.cct-flow-wrap.is-resolution .cct-flow-label {
+  fill: #617c70;
+}
+
+.cct-flow-wrap.is-resolution .cct-flow-value {
+  fill: #1b2430;
+}
+
+/* ----- Paper summary ----- */
 .paper-card {
   margin: 34px 0 18px;
   border-radius: 24px;
@@ -705,10 +759,6 @@ hr {
 
   .article-body {
     font-size: 16.5px;
-  }
-
-  .btn {
-    padding: 12px 16px;
   }
 
   .article-header {
