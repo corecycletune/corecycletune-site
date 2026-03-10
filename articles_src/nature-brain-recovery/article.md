@@ -7,6 +7,11 @@ topics: research, lifestyle
 category: focus
 readingTime: 10 min
 eyecatchQuery: forest path sunlight calm nature
+eyecatch: https://images.unsplash.com/photo-1767107114829-c3e92bf81b13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxmb3Jlc3QlMjBwYXRoJTIwc3VubGlnaHQlMjBjYWxtJTIwbmF0dXJlfGVufDF8MHx8fDE3NzMwNjIyMTR8MA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: Sunlight streams through bare trees in a misty forest.
+eyecatchPhotoBy: Olya Mn
+eyecatchPhotoUrl: https://unsplash.com/@olli_mn?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 ## 画面や街の刺激に疲れた時に自然が恋しくなるのはなぜか
