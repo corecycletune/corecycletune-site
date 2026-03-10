@@ -7,11 +7,6 @@ topics: research, lifestyle
 category: focus
 readingTime: 9 min
 eyecatchQuery: forest path sunlight calm nature
-eyecatch: https://images.unsplash.com/photo-1767107114829-c3e92bf81b13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxmb3Jlc3QlMjBwYXRoJTIwc3VubGlnaHQlMjBjYWxtJTIwbmF0dXJlfGVufDF8MHx8fDE3NzMwNjIyMTR8MA&ixlib=rb-4.1.0&q=80&w=1080
-eyecatchAlt: Sunlight streams through bare trees in a misty forest.
-eyecatchPhotoBy: Olya Mn
-eyecatchPhotoUrl: https://unsplash.com/@olli_mn?utm_source=cctlab&utm_medium=referral
-eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 ## 画面や街の刺激に疲れた時に自然が恋しくなるのはなぜか
@@ -59,7 +54,7 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 ここでさらに強い刺激で休もうとすると、休憩のつもりが回復にならず、次の集中もしにくくなります。
 
-## コアサイクルチューン（循環調律）では集中力の低下も注意を削る循環として見る
+## 注意を削る生活循環はどこで崩れやすいのか
 
 コアサイクルチューン（循環調律）では、人の状態は生活行動から身体状態、心理状態、次の行動へつながる循環として見ます。集中力の低下も、その場だけの問題ではなく、注意を削る生活循環の中で起きるものとして捉えます。
 
@@ -69,7 +64,7 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 コアサイクルチューン（循環調律）では、生活の好循環を乱す要素を不協（ディゾナンス）、それを整える行動を解決（レゾリューション）として扱う。
 
-## 不協（ディゾナンス）はどう注意疲労の悪循環を作るのか
+## 刺激の強い休憩はどう注意疲労の悪循環を作るのか
 
 不協（ディゾナンス）とは、コアサイクルを乱す原因行動や状態です。ここでの不協（ディゾナンス）は、刺激の強い環境への長時間暴露と、休憩時間まで刺激で埋めることです。
 
@@ -85,7 +80,7 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 ここでは、疲れたから刺激を求めるのに、刺激を求めるほど回復しにくくなるのが厄介です。注意を休めるつもりの行動が、むしろ疲労を深くする循環になっています。
 
-## 解決（レゾリューション）はどう注意の好循環を作るのか
+## 自然との接触はどう集中の好循環を作るのか
 
 解決（レゾリューション）は、コアサイクルを整える行動です。ここでの解決（レゾリューション）は、必ずしも山に行くことではありません。自然の景色を見る、木のある道を歩く、空を見上げる、窓辺に視線を移す。そうした小さな接触でも、強い刺激から離れるきっかけになります。
 
