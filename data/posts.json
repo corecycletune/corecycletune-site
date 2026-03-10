@@ -69,19 +69,19 @@
   },
   {
     "slug": "slow-breathing-stress-reset",
-    "title": "朝の光を浴びると夜は眠くなりやすいのか？体内時計と睡眠リズムの研究",
-    "description": "朝の光を浴びると夜に眠くなりやすい感覚は本当なのか。体内時計と光のタイミングに関する研究をもとに、睡眠リズムの整い方を日常感覚から整理します。",
+    "title": "ゆっくり吐く呼吸で落ち着くのはなぜ？心拍変動とストレス反応の研究",
+    "description": "ゆっくりした呼吸で気持ちが落ち着く感覚は本当なのか。呼吸ペースと心拍変動、ストレス反応の研究をもとに、日常の整え方を整理します。",
     "updated": "2026-03-11",
     "tags": [
-      "light",
-      "circadian",
-      "sleep"
+      "breathing",
+      "hrv",
+      "stress"
     ],
     "topics": [
       "research",
       "lifestyle"
     ],
-    "category": "sleep",
+    "category": "stress",
     "readingTime": "10 min"
   },
   {
