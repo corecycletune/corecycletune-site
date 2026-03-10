@@ -7,6 +7,11 @@ topics: health, research
 category: metabolism
 readingTime: 10 min
 eyecatchQuery: healthy lunch blood sugar meal
+eyecatch: https://images.unsplash.com/photo-1740645580344-bad6f745d09f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwbHVuY2glMjBibG9vZCUyMHN1Z2FyJTIwbWVhbHxlbnwxfDB8fHwxNzczMTc1MjMzfDA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: A wooden block spelling lunch on a table
+eyecatchPhotoBy: Markus Winkler
+eyecatchPhotoUrl: https://unsplash.com/@markuswinkler?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 ## 昼食後に急にぼんやりするのは意志の弱さだけではないのか
