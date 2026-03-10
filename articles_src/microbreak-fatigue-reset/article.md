@@ -7,6 +7,11 @@ topics: research, productivity
 category: focus
 readingTime: 10 min
 eyecatchQuery: short break desk work
+eyecatch: https://images.unsplash.com/photo-1758876203698-551573730e81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzaG9ydCUyMGJyZWFrJTIwZGVzayUyMHdvcmt8ZW58MXwwfHx8MTc3MzE4MzU0MXww&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: Man smiling while looking at his phone
+eyecatchPhotoBy: Vitaly Gariev
+eyecatchPhotoUrl: https://unsplash.com/@silverkblack?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 作業を続けていると、まだ体力は残っているはずなのに、頭だけがじわじわ鈍くなることがあります。集中しているつもりなのに読み返しが増え、入力ミスも増え、少しのことが面倒になります。そんなとき、数分休んでも意味がない気がして、そのまま続けてしまうことがあります。
