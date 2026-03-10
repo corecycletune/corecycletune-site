@@ -7,11 +7,6 @@ topics: health, research
 category: metabolism
 readingTime: 10 min
 eyecatchQuery: healthy lunch blood sugar meal
-eyecatch: https://images.unsplash.com/photo-1644204317919-a0185a4997f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwbHVuY2glMjBibG9vZCUyMHN1Z2FyJTIwbWVhbHxlbnwxfDB8fHwxNzczMDk3NzI5fDA&ixlib=rb-4.1.0&q=80&w=1080
-eyecatchAlt: a plastic container filled with rice and a hot dog
-eyecatchPhotoBy: Markus Winkler
-eyecatchPhotoUrl: https://unsplash.com/@markuswinkler?utm_source=cctlab&utm_medium=referral
-eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 ## 昼食後に急にぼんやりするのは意志の弱さだけではない
@@ -56,7 +51,7 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 ここで大事なのは、眠気そのものを根性で抑え込むより、眠気を作る循環を見直すことです。
 
-## コアサイクルチューン（循環調律）では食後の崩れも食行動の循環として見る
+## 食後の崩れはどんな生活循環で起きやすいのか
 
 コアサイクルチューン（循環調律）では、人の状態は生活行動から身体状態、心理状態、次の行動へつながる循環として見ます。食後の眠気も、その場だけの反応ではなく、前後の食行動や刺激の取り方まで含んだ循環の中で起きるものとして扱います。
 
@@ -66,7 +61,7 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 コアサイクルチューン（循環調律）では、生活の好循環を乱す要素を不協（ディゾナンス）、それを整える行動を解決（レゾリューション）として扱う。
 
-## 不協（ディゾナンス）はどう食後の悪循環を作るのか
+## 速く吸収される食事はどう食後の悪循環を作るのか
 
 不協（ディゾナンス）とは、コアサイクルを乱す原因行動や状態です。ここでの不協（ディゾナンス）は、吸収の速い食事、糖質偏重、早食い、食後すぐ座り続けることなどです。
 
@@ -82,7 +77,7 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 この循環に入ると、「午後は意志が弱い」ではなく、「午後に崩れやすい条件を毎日つくっている」状態になります。
 
-## 解決（レゾリューション）はどう食後の好循環を作るのか
+## 食べ方の調整はどう食後の好循環を作るのか
 
 解決（レゾリューション）は、コアサイクルを整える行動です。ここでの解決（レゾリューション）は、糖質を敵にすることではありません。変動を穏やかにする方向へ食べ方を少し変えることです。
 
@@ -110,7 +105,7 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 食後の眠気は気合いの問題に見えますが、実際にはかなり身体寄りの問題です。だからこそ、行動で変えやすいとも言えます。
 
-## 食後の眠気は症状であって原因ではなく崩れた循環のサインである
+## 食後の眠気は症状ではあっても原因ではない
 
 この研究が示しているのは、食後の認知機能は食事内容、とくに glycaemic index の違いと無関係ではないということです。大きな断定はできなくても、少なくとも「何を食べても同じ」ではありません。
 
