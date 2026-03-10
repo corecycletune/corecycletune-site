@@ -1,5 +1,22 @@
 [
   {
+    "slug": "brief-nap-recovery",
+    "title": "昼寝は何分がいちばん効くのか？10分仮眠が回復しやすかった研究",
+    "description": "昼寝は長いほど良いとは限りません。短時間仮眠の研究をもとに、眠気、集中力、回復感の違いをコアサイクルチューン（循環調律）の視点で整理します。",
+    "updated": "2026-03-10",
+    "tags": [
+      "nap",
+      "alertness",
+      "sleep"
+    ],
+    "topics": [
+      "research",
+      "lifestyle"
+    ],
+    "category": "sleep",
+    "readingTime": "10 min"
+  },
+  {
     "slug": "nature-brain-recovery",
     "title": "自然を見るだけで脳は回復するのか？注意回復理論の研究",
     "description": "森や自然を見ると頭がスッキリする感覚は本当なのか。注意回復理論と環境心理学の研究を紹介し、日常への意味をコアサイクルチューン（循環調律）の視点で整理します。",
