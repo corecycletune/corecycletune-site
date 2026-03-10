@@ -7,6 +7,11 @@ topics: research, lifestyle
 category: sleep
 readingTime: 10 min
 eyecatchQuery: short nap desk calm afternoon
+eyecatch: https://images.unsplash.com/photo-1664910492894-fd44e6136939?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzaG9ydCUyMG5hcCUyMGRlc2slMjBjYWxtJTIwYWZ0ZXJub29ufGVufDF8MHx8fDE3NzMxNzUyNzJ8MA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: a cat sleeping on a table
+eyecatchPhotoBy: Wendy Hoskins
+eyecatchPhotoUrl: https://unsplash.com/@tey1ar?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 ## 少し寝ただけで頭が戻る日は何が起きているのか
