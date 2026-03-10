@@ -7,6 +7,11 @@ topics: research, lifestyle
 category: sleep
 readingTime: 10 min
 eyecatchQuery: morning sunlight window
+eyecatch: https://images.unsplash.com/photo-1663871341330-2e80d0e7b62a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxtb3JuaW5nJTIwc3VubGlnaHQlMjB3aW5kb3d8ZW58MXwwfHx8MTc3MzE3NjY2MHww&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: a couple of potted plants on a window sill
+eyecatchPhotoBy: Yosuke Ota
+eyecatchPhotoUrl: https://unsplash.com/@yosuke_ota?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 休みの日に遅く起きる生活が続くと、夜もなかなか眠くならず、月曜の朝だけ急に苦しくなることがあります。寝不足というより、眠くなる時刻そのものが後ろへずれているような感覚です。逆に、朝に外へ出た日だけは、夜に少し自然な眠気が来ることがあります。
