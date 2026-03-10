@@ -7,6 +7,11 @@ topics: health, research
 category: gut
 readingTime: 10 min
 eyecatchQuery: fermented food kitchen table
+eyecatch: https://images.unsplash.com/photo-1761587412860-222f6ce02f82?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxmZXJtZW50ZWQlMjBmb29kJTIwa2l0Y2hlbiUyMHRhYmxlfGVufDF8MHx8fDE3NzMxODM3MTR8MA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: Breakfast table set with food and drinks in kitchen.
+eyecatchPhotoBy: Caroline Badran
+eyecatchPhotoUrl: https://unsplash.com/@___atmos?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 同じように食べているつもりでも、ある時期はお腹が軽く、別の時期は張りやすかったり、肌や気分まで重く感じたりすることがあります。腸の話になると、何か特定の食品だけを食べれば一気に整うように語られがちですが、実際にはそんなに単純ではありません。それでも、発酵食品を続けて食べると腸の環境に変化が出るのではないか、という感覚は多くの人が気になるところです。

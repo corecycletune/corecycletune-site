@@ -17,6 +17,23 @@
     "readingTime": "10 min"
   },
   {
+    "slug": "fermented-foods-microbiome",
+    "title": "発酵食品を増やすと腸内細菌は変わるのか？多様性と炎症マーカーの研究",
+    "description": "発酵食品を増やすと腸の状態は本当に変わるのか。腸内細菌の多様性と炎症マーカーに関する研究をもとに、日常の食べ方を整理します。",
+    "updated": "2026-03-11",
+    "tags": [
+      "fermented-foods",
+      "microbiome",
+      "gut"
+    ],
+    "topics": [
+      "health",
+      "research"
+    ],
+    "category": "gut",
+    "readingTime": "10 min"
+  },
+  {
     "slug": "microbreak-fatigue-reset",
     "title": "短い休憩でも疲れは戻るのか？マイクロブレイク研究から考える集中力の整え方",
     "description": "数分の短い休憩でも疲れやだるさは戻りやすくなるのか。マイクロブレイク研究をもとに、仕事中の集中力低下と回復の流れを整理します。",
