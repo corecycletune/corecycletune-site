@@ -17,6 +17,23 @@
     "readingTime": "10 min"
   },
   {
+    "slug": "morning-light-body-clock",
+    "title": "朝の光を浴びると夜は眠くなりやすいのか？体内時計と睡眠リズムの研究",
+    "description": "朝の光を浴びると夜に眠くなりやすい感覚は本当なのか。体内時計と光のタイミングに関する研究をもとに、睡眠リズムの整い方を日常感覚から整理します。",
+    "updated": "2026-03-11",
+    "tags": [
+      "light",
+      "circadian",
+      "sleep"
+    ],
+    "topics": [
+      "research",
+      "lifestyle"
+    ],
+    "category": "sleep",
+    "readingTime": "10 min"
+  },
+  {
     "slug": "nature-brain-recovery",
     "title": "自然を見るだけで脳は回復するのか？注意回復理論の研究",
     "description": "森や自然を見ると頭がスッキリする感覚は本当なのか。注意回復理論と環境心理学の研究をもとに、日常の集中力低下をコアサイクルチューン（循環調律）の視点で整理します。",
