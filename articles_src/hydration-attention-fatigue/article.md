@@ -12,7 +12,7 @@ eyecatchQuery: drinking water desk focus
 午後になると、頭が回っていないわけではないのに、妙に重く感じることがあります。眠いほどではないのに集中が続かず、同じ文章を何度も読み返したり、少しの判断が面倒になったりする。こういう日はカフェイン不足ややる気の問題だと思いがちですが、単純に水分が足りていないこともあります。
 
 "Dehydration had negative effects on vigor, esteem-related affect, short-term memory, and attention."
-（脱水は、活力、自尊感情に関わる気分、短期記憶、注意力に悪影響を及ぼしました。）
+（脱水は、活力、自尊感情に関わる気分、短期記憶、注意力に悪影響を及ぼしました。）　
 
 Ning Zhang らの Effects of Dehydration and Rehydration on Cognitive Performance and Mood among Male College Students in Cangzhou, China: A Self-Controlled Trial（中国・滄州の男子大学生における脱水と再水和が認知機能と気分に及ぼす影響）は、水分を控えた状態で起きる変化と、その後に水を飲んだときの回復を見た研究です。ここで示されているのは、水分不足が喉の渇きだけではなく、疲労感や注意力のような、日常の仕事や判断に直結する部分にも関わりうることです。
 
