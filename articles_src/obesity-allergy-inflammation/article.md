@@ -7,6 +7,11 @@ topics: health, research
 category: metabolism
 readingTime: 10 min
 eyecatchQuery: allergy obesity inflammation concept
+eyecatch: https://images.unsplash.com/photo-1636407402219-505654aeba5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxhbGxlcmd5JTIwb2Jlc2l0eSUyMGluZmxhbW1hdGlvbiUyMGNvbmNlcHR8ZW58MXwwfHx8MTc3MzYxNjQ5N3ww&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: a woman biting into a sandwich with lots of lettuce
+eyecatchPhotoBy: Harry Grout
+eyecatchPhotoUrl: https://unsplash.com/@photographybyharry?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 アレルギーがある人の中には、以前より症状が重くなった、薬が効きにくい気がする、息苦しさや鼻づまりが長引きやすい、と感じることがあります。花粉やダニなどの原因は同じはずなのに、身体の反応だけが強くなっているように見えるとき、その背景には体重や代謝の状態が関わっていることがあります。

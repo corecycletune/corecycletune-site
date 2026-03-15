@@ -119,6 +119,23 @@
     "readingTime": "10 min"
   },
   {
+    "slug": "obesity-allergy-inflammation",
+    "title": "肥満があるとアレルギーは悪化しやすいのか？肥満とアレルギー性炎症の研究",
+    "description": "肥満があるとアレルギー症状は重くなりやすいのか。肥満と喘息・鼻炎などのアレルギー性気道炎症の研究をもとに、炎症と生活の流れを整理します。",
+    "updated": "2026-03-11",
+    "tags": [
+      "obesity",
+      "allergy",
+      "inflammation"
+    ],
+    "topics": [
+      "health",
+      "research"
+    ],
+    "category": "metabolism",
+    "readingTime": "10 min"
+  },
+  {
     "slug": "post-meal-sleepiness",
     "title": "食後に眠くなるのはなぜ？血糖値スパイクと集中力低下の関係",
     "description": "食後の強い眠気は睡眠不足だけが原因とは限りません。食後の血糖変動と認知機能の関係を研究ベースで整理し、日常の整え方につなげます。",
