@@ -7,6 +7,11 @@ topics: health, research
 category: metabolism
 readingTime: 10 min
 eyecatchQuery: alcohol drink diet table
+eyecatch: https://images.unsplash.com/photo-1663147475798-7e672b522463?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxhbGNvaG9sJTIwZHJpbmslMjBkaWV0JTIwdGFibGV8ZW58MXwwfHx8MTc3MzY3MjkyOXww&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: a glass of wine sitting on top of a table
+eyecatchPhotoBy: engin akyurt
+eyecatchPhotoUrl: https://unsplash.com/@enginakyurt?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 ダイエット中なのに、お酒だけはやめにくいという人は多いです。食事は気をつけているのに、飲んだ日だけ妙に食べすぎる。翌日もむくみやだるさが残って、体重まで増えたように見えることがあります。こういうとき、多くの人は「お酒はカロリーが高いから太る」と考えますが、厄介なのはそれだけではないかもしれません。
