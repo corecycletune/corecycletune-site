@@ -7,6 +7,11 @@ topics: health, research
 category: metabolism
 readingTime: 10 min
 eyecatchQuery: healthy meal macro balance
+eyecatch: https://images.unsplash.com/photo-1684160244466-b89ef03b7638?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwbWVhbCUyMG1hY3JvJTIwYmFsYW5jZXxlbnwxfDB8fHwxNzczNjcyMTg4fDA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: a white plate topped with fruits and vegetables
+eyecatchPhotoBy: Debby Hudson
+eyecatchPhotoUrl: https://unsplash.com/@hudsoncrafted?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 PFCバランスの話になると、多くの人は「脂質を減らすべきか」「炭水化物をどこまで下げるべきか」を考えます。けれど実際の食欲は、脂質と炭水化物のどちらが多いかだけでは動いていないかもしれません。むしろ、たんぱく質の比率が少し下がるだけで、気づかないうちに全体量を多く食べてしまう可能性があります。
