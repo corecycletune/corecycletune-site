@@ -7,6 +7,11 @@ topics: research, lifestyle
 category: stress
 readingTime: 10 min
 eyecatchQuery: paper book quiet reading
+eyecatch: https://images.unsplash.com/photo-1760840415479-438f61268bed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxwYXBlciUyMGJvb2slMjBxdWlldCUyMHJlYWRpbmd8ZW58MXwwfHx8MTc3MzY3MjUwMnww&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: Close-up of an open book with yellowed pages.
+eyecatchPhotoBy: byVlado
+eyecatchPhotoUrl: https://unsplash.com/@vlado_?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 同じ「読む」でも、紙の本だと落ち着くのに、スマホで長文を読むと妙に疲れることがあります。内容は似ているはずなのに、紙だと頭に入りやすく、スマホだとせかされる感じがする。読んだあとも、紙の本のほうが気分が静かにまとまりやすい、と感じる人は少なくありません。
