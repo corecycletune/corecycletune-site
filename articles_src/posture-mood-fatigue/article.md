@@ -7,6 +7,11 @@ topics: research, lifestyle
 category: stress
 readingTime: 10 min
 eyecatchQuery: upright posture desk calm
+eyecatch: https://images.unsplash.com/photo-1670516537457-f9ea9eb5c5fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHx1cHJpZ2h0JTIwcG9zdHVyZSUyMGRlc2slMjBjYWxtfGVufDF8MHx8fDE3NzM3MDEyMDF8MA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: a toy figure on a desk
+eyecatchPhotoBy: Trnava University
+eyecatchPhotoUrl: https://unsplash.com/@trnavskauni?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 疲れているときほど、姿勢は崩れやすくなります。背中が丸まり、視線は落ち、呼吸も浅くなる。すると気分まで重くなって、さらに身体を起こすのが面倒になります。多くの人はこれを「疲れているから仕方ない」と考えますが、もしかすると姿勢は単なる結果ではなく、その後の気分や考え方にも影響しているのかもしれません。
