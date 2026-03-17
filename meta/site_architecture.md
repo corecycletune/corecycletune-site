@@ -358,6 +358,7 @@ articles_src/<slug>/article.md
 - HTML先頭にメタコメントを付与
 - 専用構文を解釈して記事用コンポーネントへ変換する
 - 確定済みのアイキャッチ情報をHTMLに出力する
+- アイキャッチの `photo-credit` は `figure` の外側に出力する
 
 出力
 
@@ -374,6 +375,9 @@ articles/<slug>/index.html
 - `type="resolution"` は好循環の見た目で表示する
 - 現在の専用構文として `[paper-summary] ... [/paper-summary]` を解釈する
 - `paper-summary` は論文概要カード用のHTMLへ変換される
+- 現在の専用構文として `[quote] ... [/quote]` を解釈する
+- `quote` は英語引用＋日本語訳のカードブロックへ変換される
+- 最後の行が `（` で始まり `）` で終わる場合、日本語訳として分離してスタイルを変える
 - 見た目のCSSは埋め込まず、クラス名だけを出力する
 - 外部APIは呼ばない
 
@@ -443,6 +447,7 @@ sitemap.xml
   - `[cct-cycle type="dissonance"] ... [/cct-cycle]`
   - `[cct-cycle type="resolution"] ... [/cct-cycle]`
   - `[paper-summary] ... [/paper-summary]`
+  - `[quote] ... [/quote]`
 
 未保証または未対応として扱うもの
 
@@ -662,6 +667,13 @@ sitemap 自動生成
 2026-03-xx  
 `cct-cycle` を後半のCCTパート専用に再定義し、`type="dissonance"` / `type="resolution"` を導入
 
+2026-03-17  
+アイキャッチの `photo-credit` を `figure` 外へ移動し、`overflow: hidden` によるクリップを解消
+
+2026-03-17  
+`[quote] ... [/quote]` を専用構文として導入。英語引用＋日本語訳のカードブロックへ変換。`.article-quote` 系クラスを `assets/style.css` に追加
+
+---
 
 # 9) Git運用ルール
 
