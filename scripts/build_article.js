@@ -542,10 +542,10 @@ function buildEyecatch(meta) {
   const creditHtml =
     meta.eyecatchPhotoBy && meta.eyecatchPhotoUrl && meta.eyecatchSourceUrl
       ? `
-  <figcaption class="photo-credit">
-    Photo by <a href="${escapeHtml(meta.eyecatchPhotoUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(meta.eyecatchPhotoBy)}</a>
-    on <a href="${escapeHtml(meta.eyecatchSourceUrl)}" target="_blank" rel="noopener noreferrer">Unsplash</a>
-  </figcaption>`
+<figcaption class="photo-credit">
+  Photo by <a href="${escapeHtml(meta.eyecatchPhotoUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(meta.eyecatchPhotoBy)}</a>
+  on <a href="${escapeHtml(meta.eyecatchSourceUrl)}" target="_blank" rel="noopener noreferrer">Unsplash</a>
+</figcaption>`
       : "";
 
   const alt = meta.eyecatchAlt || meta.title || "";
@@ -553,8 +553,8 @@ function buildEyecatch(meta) {
   return `
 <figure class="article-eyecatch">
   <img src="${escapeHtml(meta.eyecatch)}" alt="${escapeHtml(alt)}">
-  ${creditHtml}
-</figure>`.trim();
+</figure>
+${creditHtml}`.trim();
 }
 
 function canonicalUrl(slug) {
