@@ -360,6 +360,38 @@ function buildPaperSummaryBlock(rawLines) {
 </section>`.trim();
 }
 
+function buildQuoteBlock(rawLines) {
+  const lines = rawLines
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  if (!lines.length) return "";
+
+  // 最後の行が（で始まる日本語訳なら分離する
+  const lastLine = lines[lines.length - 1];
+  const hasTranslation = lastLine.startsWith("（") && lastLine.endsWith("）");
+
+  const englishLines = hasTranslation ? lines.slice(0, -1) : lines;
+  const translationLine = hasTranslation ? lastLine : null;
+
+  const englishHtml = englishLines
+    .map((line) => `<p class="article-quote-en">${inlineFormat(line)}</p>`)
+    .join("\n");
+
+  const translationHtml = translationLine
+    ? `<p class="article-quote-ja">${inlineFormat(translationLine)}</p>`
+    : "";
+
+  return `
+<div class="article-quote">
+  <div class="article-quote-mark">"</div>
+  <div class="article-quote-body">
+    ${englishHtml}
+    ${translationHtml}
+  </div>
+</div>`.trim();
+}
+
 function parseCctCycleStart(line) {
   const match = line.match(/^\[cct-cycle(?:\s+type="(dissonance|resolution)")?\]$/);
   if (!match) return null;
@@ -378,6 +410,8 @@ function markdownToHtml(md) {
   let cctCycleType = "resolution";
   let inPaperSummary = false;
   let paperSummaryLines = [];
+  let inQuote = false;
+  let quoteLines = [];
 
   function flushParagraph() {
     if (!paragraph.length) return;
@@ -412,6 +446,13 @@ function markdownToHtml(md) {
     paperSummaryLines = [];
   }
 
+  function closeQuote() {
+    if (!inQuote) return;
+    html += `${buildQuoteBlock(quoteLines)}\n`;
+    inQuote = false;
+    quoteLines = [];
+  }
+
   lines.forEach((rawLine) => {
     const line = rawLine.trim();
     const cctStartType = parseCctCycleStart(line);
@@ -421,6 +462,7 @@ function markdownToHtml(md) {
       closeList();
       closeBlockquote();
       closePaperSummary();
+      closeQuote();
       inCctCycle = true;
       cctCycleLines = [];
       cctCycleType = cctStartType;
@@ -437,6 +479,7 @@ function markdownToHtml(md) {
       closeList();
       closeBlockquote();
       closeCctCycle();
+      closeQuote();
       inPaperSummary = true;
       paperSummaryLines = [];
       return;
@@ -447,6 +490,22 @@ function markdownToHtml(md) {
       return;
     }
 
+    if (line === "[quote]") {
+      flushParagraph();
+      closeList();
+      closeBlockquote();
+      closeCctCycle();
+      closePaperSummary();
+      inQuote = true;
+      quoteLines = [];
+      return;
+    }
+
+    if (line === "[/quote]") {
+      closeQuote();
+      return;
+    }
+
     if (inCctCycle) {
       cctCycleLines.push(rawLine);
       return;
@@ -454,6 +513,11 @@ function markdownToHtml(md) {
 
     if (inPaperSummary) {
       paperSummaryLines.push(rawLine);
+      return;
+    }
+
+    if (inQuote) {
+      quoteLines.push(rawLine);
       return;
     }
 
@@ -518,6 +582,7 @@ function markdownToHtml(md) {
   closeBlockquote();
   closeCctCycle();
   closePaperSummary();
+  closeQuote();
 
   return html;
 }
