@@ -7,6 +7,11 @@ topics: health, research
 category: gut
 readingTime: 10 min
 eyecatchQuery: gut health fermented food calm
+eyecatch: https://images.unsplash.com/photo-1582138079863-ec3e671f59d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxndXQlMjBoZWFsdGglMjBmZXJtZW50ZWQlMjBmb29kJTIwY2FsbXxlbnwxfDB8fHwxNzczNzE2OTY4fDA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: clear glass jars with green leaves
+eyecatchPhotoBy: Jas Min
+eyecatchPhotoUrl: https://unsplash.com/@filmbetrachterin?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 気分が落ちているとき、その原因を脳や心の問題だと考えることが多いと思います。ストレスが多い、睡眠が足りない、考えすぎている——そういった説明で納得しようとします。けれど近年、別の経路からも気分が作られていることが少しずつわかってきました。腸の中に棲む数兆もの細菌が、脳や気分と深くつながっているという話です。
