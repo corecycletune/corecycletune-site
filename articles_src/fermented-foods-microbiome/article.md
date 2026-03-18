@@ -2,9 +2,9 @@
 title: 発酵食品を増やすと腸内細菌は変わるのか？多様性と炎症マーカーの研究
 description: 発酵食品を増やすと腸の状態は本当に変わるのか。腸内細菌の多様性と炎症マーカーに関する研究をもとに、日常の食べ方を整理します。
 updated: 2026-03-11
-tags: fermented-foods, microbiome, gut
-topics: health, research
-category: gut
+tags: 発酵食品, 腸内細菌, 腸内環境, 腸活, 腸内フローラ, 炎症
+topics: 発酵食品, 腸内細菌, 炎症, 腸活, 腸内フローラ
+category: 食事・栄養
 readingTime: 10 min
 eyecatchQuery: fermented food kitchen table
 eyecatch: https://images.unsplash.com/photo-1761587412860-222f6ce02f82?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxmZXJtZW50ZWQlMjBmb29kJTIwa2l0Y2hlbiUyMHRhYmxlfGVufDF8MHx8fDE3NzMxODM3MTR8MA&ixlib=rb-4.1.0&q=80&w=1080
@@ -16,8 +16,10 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 同じように食べているつもりでも、ある時期はお腹が軽く、別の時期は張りやすかったり、肌や気分まで重く感じたりすることがあります。腸の話になると、何か特定の食品だけを食べれば一気に整うように語られがちですが、実際にはそんなに単純ではありません。それでも、発酵食品を続けて食べると腸の環境に変化が出るのではないか、という感覚は多くの人が気になるところです。
 
+[quote]
 "Alternatively, the high-fermented-food diet steadily increased microbiota diversity and decreased inflammatory markers."
 （これに対して、高発酵食品食では、腸内細菌の多様性が着実に増加し、炎症マーカーが低下しました。）
+[/quote]
 
 Hilary C. Wastyk らの Gut Microbiota-Targeted Diets Modulate Human Immune Status（腸内細菌を標的にした食事はヒトの免疫状態を変化させる）では、発酵食品を増やした食事が、腸内細菌の多様性と炎症関連指標にどう関わるかが詳しく追われています。ここで示されているのは、発酵食品が何となく体に良いという印象ではなく、食事の内容が腸内環境と免疫の流れに実際に影響しうる、というかなり具体的な視点です。
 
@@ -70,8 +72,6 @@ Hilary C. Wastyk らの Gut Microbiota-Targeted Diets Modulate Human Immune Stat
 次の行動 | 食事内容が単調になり、腸を整える材料が不足しやすくなる
 不協 | 乱れた食行動がそのまま翌日以降も続く
 [/cct-cycle]
-
-この循環では、腸の不調は結果として見えますが、原因は日々の流れのほうにあります。だからこそ、整え方も一回のリセットではなく、続けやすい組み合わせとして考える必要があります。
 
 ## 発酵食品は少量でも続けて食べる形のほうが現実的である
 
