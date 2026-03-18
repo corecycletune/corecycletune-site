@@ -202,15 +202,20 @@
     "description": "肥満があるとアレルギー症状は重くなりやすいのか。肥満と喘息・鼻炎などのアレルギー性気道炎症の研究をもとに、炎症と生活の流れを整理します。",
     "updated": "2026-03-11",
     "tags": [
-      "obesity",
-      "allergy",
-      "inflammation"
+      "肥満",
+      "アレルギー",
+      "炎症",
+      "喘息",
+      "代謝",
+      "慢性炎症"
     ],
     "topics": [
-      "health",
-      "research"
+      "肥満",
+      "炎症",
+      "アレルギー",
+      "代謝"
     ],
-    "category": "metabolism",
+    "category": "食事・栄養",
     "readingTime": "10 min"
   },
   {
