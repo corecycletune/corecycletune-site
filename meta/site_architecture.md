@@ -673,6 +673,13 @@ sitemap 自動生成
 2026-03-17  
 `[quote] ... [/quote]` を専用構文として導入。英語引用＋日本語訳のカードブロックへ変換。`.article-quote` 系クラスを `assets/style.css` に追加
 
+
+2026-03-18
+category を8分類の日本語ラベルに刷新。
+topics を「記事の論点」、tags を「細粒度キーワード」として役割を再定義。
+SEOトレンドワードをtopics・tagsに積極的に含める方針を追加。
+posts.json の全記事のcategory・topics・tagsを日本語化・再整理。
+
 ---
 
 # 9) Git運用ルール
