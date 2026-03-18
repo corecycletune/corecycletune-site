@@ -8,7 +8,6 @@
 (function () {
   "use strict";
 
-  // ---------- Small utilities ----------
   const $ = (sel, root = document) => root.querySelector(sel);
 
   function esc(s) {
@@ -69,13 +68,6 @@
     }
   }
 
-  function setQueryParam(name, value) {
-    const u = new URL(location.href);
-    if (!value) u.searchParams.delete(name);
-    else u.searchParams.set(name, value);
-    return u.toString();
-  }
-
   // ---------- Header / Footer ----------
   function injectHeaderFooter() {
     const header = $("#site-header");
@@ -87,7 +79,6 @@
           <a class="brand" href="/" aria-label="CCT Lab ホーム">
             <span class="brand-mark">CCT</span><span class="brand-gap"></span><span class="brand-mark">Lab</span>
           </a>
-
           <nav class="nav" aria-label="グローバルナビ">
             <a class="nav-link" href="/articles/">記事</a>
             <a class="nav-link" href="/topics/">カテゴリ</a>
@@ -95,7 +86,6 @@
           </nav>
         </div>
       `;
-
       header.querySelectorAll("a.nav-link").forEach((a) => {
         if (isActivePath(a.getAttribute("href"))) a.classList.add("is-active");
       });
@@ -160,27 +150,29 @@
     return m;
   }
 
-  // ---------- Topic helpers ----------
-  function collectTopics(posts) {
-    const fromTags = posts.flatMap((p) => (p.tags || []).map(String));
-    const fromTopics = posts.flatMap((p) => (p.topics || []).map(String));
-    const fromCategory = posts.map((p) => String(p.category || "")).filter(Boolean);
-
-    return uniq([...fromTags, ...fromTopics, ...fromCategory])
-      .map((t) => t.trim())
-      .filter(Boolean)
-      .sort((a, b) => a.localeCompare(b, "ja"));
+  // ---------- Category helpers ----------
+  // フィルターUIはcategoryのみ使用
+  // tags / topics は記事カード表示と関連記事スコアリング専用
+  function collectCategories(posts) {
+    return uniq(
+      posts
+        .map((p) => String(p.category || "").trim())
+        .filter(Boolean)
+    ).sort((a, b) => a.localeCompare(b, "ja"));
   }
 
-  function postHasTopic(post, topicLabel) {
-    const label = String(topicLabel || "").trim();
-    if (!label) return false;
+  function postMatchesCategory(post, category) {
+    if (!category) return true;
+    return String(post.category || "").trim() === String(category).trim();
+  }
 
-    const tags = (post.tags || []).map(String);
-    const topics = (post.topics || []).map(String);
-    const category = post.category ? [String(post.category)] : [];
-
-    return [...tags, ...topics, ...category].some((x) => String(x).trim() === label);
+  // 関連記事スコアリング用：tags / topics / category を全部使う
+  function postAllLabels(post) {
+    return uniq([
+      ...(post.tags || []),
+      ...(post.topics || []),
+      post.category,
+    ].filter(Boolean).map(String));
   }
 
   // ---------- Breadcrumbs ----------
@@ -248,17 +240,17 @@
     const target = $("#topics-list");
     if (!target) return;
 
-    const topics = collectTopics(posts);
+    const categories = collectCategories(posts);
     const selected = getQueryParam("t");
 
-    if (topics.length === 0) {
+    if (categories.length === 0) {
       target.innerHTML = `<p class="muted">カテゴリは準備中です。</p>`;
       return;
     }
 
     target.innerHTML = `
       <ul class="topics">
-        ${topics
+        ${categories
           .map((t) => {
             const href = "/topics/?t=" + encodeURIComponent(t);
             const isSel = selected && String(selected) === String(t);
@@ -268,7 +260,6 @@
           })
           .join("")}
       </ul>
-      <p class="muted small">※カテゴリは posts.json の tags / topics / category から自動生成されます。</p>
     `;
   }
 
@@ -288,7 +279,7 @@
       return;
     }
 
-    const filtered = sortByDateDesc(posts).filter((p) => postHasTopic(p, selected));
+    const filtered = sortByDateDesc(posts).filter((p) => postMatchesCategory(p, selected));
 
     if (filtered.length === 0) {
       target.innerHTML = `
@@ -332,15 +323,14 @@
     const target = $("#articles-filters");
     if (!target) return;
 
-    const topics = collectTopics(posts);
+    const categories = collectCategories(posts);
     const selected = getQueryParam("t");
 
-    if (topics.length === 0) {
+    if (categories.length === 0) {
       target.innerHTML = `<p class="muted">絞り込みカテゴリは準備中です。</p>`;
       return;
     }
 
-    // "All" link removes t param
     const allHref = new URL(location.href);
     allHref.searchParams.delete("t");
 
@@ -348,7 +338,7 @@
       <div class="filters">
         <div class="filters-row">
           <a class="filter-pill ${!selected ? "is-selected" : ""}" href="${esc(allHref.toString())}">すべて</a>
-          ${topics
+          ${categories
             .map((t) => {
               const href = "/articles/?t=" + encodeURIComponent(t);
               const isSel = selected && String(selected) === String(t);
@@ -356,7 +346,6 @@
             })
             .join("")}
         </div>
-        <p class="muted small">※絞り込みは posts.json の tags / topics / category から自動生成されます。</p>
       </div>
     `;
   }
@@ -398,7 +387,9 @@
 
     const selected = getQueryParam("t");
     const sorted = sortByDateDesc(posts);
-    const shown = selected ? sorted.filter((p) => postHasTopic(p, selected)) : sorted;
+    const shown = selected
+      ? sorted.filter((p) => postMatchesCategory(p, selected))
+      : sorted;
 
     if (selected && shown.length === 0) {
       target.innerHTML = `
@@ -414,9 +405,8 @@
       <div class="list">
         ${shown
           .map((p) => {
-            const tags = uniq([...(p.tags || []), ...(p.topics || []), p.category].filter(Boolean));
-            const tagHtml = tags.length
-              ? `<div class="list-tags">${tags
+            const tagHtml = p.tags && p.tags.length
+              ? `<div class="list-tags">${p.tags
                   .slice(0, 3)
                   .map((t) => `<span class="tag">${esc(t)}</span>`)
                   .join("")}</div>`
@@ -456,9 +446,7 @@
       return;
     }
 
-    const curTopics = new Set(
-      uniq([...(cur.tags || []), ...(cur.topics || []), cur.category].filter(Boolean)).map(String)
-    );
+    const curLabels = new Set(postAllLabels(cur));
 
     const candidates = posts
       .filter((p) => {
@@ -467,8 +455,10 @@
         return pPath !== curPath;
       })
       .map((p) => {
-        const pTopics = uniq([...(p.tags || []), ...(p.topics || []), p.category].filter(Boolean)).map(String);
-        const score = pTopics.reduce((acc, t) => acc + (curTopics.has(t) ? 1 : 0), 0);
+        const score = postAllLabels(p).reduce(
+          (acc, t) => acc + (curLabels.has(t) ? 1 : 0),
+          0
+        );
         return { p, score };
       })
       .filter((x) => x.score > 0)
