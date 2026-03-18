@@ -93,15 +93,20 @@
     "description": "水をあまり飲まない日ほど頭が重くなる感覚は本当なのか。軽い脱水と再水和の研究をもとに、集中力と疲労感の乱れ方を整理します。",
     "updated": "2026-03-11",
     "tags": [
-      "hydration",
-      "attention",
-      "fatigue"
+      "水分補給",
+      "注意力",
+      "疲労",
+      "脱水",
+      "集中力",
+      "認知機能"
     ],
     "topics": [
-      "health",
-      "research"
+      "脱水",
+      "注意力",
+      "集中力",
+      "疲労"
     ],
-    "category": "focus",
+    "category": "感情・認知",
     "readingTime": "10 min"
   },
   {
