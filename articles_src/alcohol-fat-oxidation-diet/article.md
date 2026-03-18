@@ -2,7 +2,7 @@
 title: アルコールは太るからではなく脂肪が燃えにくくなるから厄介なのか？飲酒とダイエットの研究
 description: アルコールはカロリーが高いから太るだけではないかもしれません。脂肪燃焼、食欲、満腹感に関する研究をもとに、ダイエット中の飲酒の厄介さを整理します。
 updated: 2026-03-11
-tags: アルコール, 脂肪燃焼, ダイエット, 代謝
+tags: アルコール, 脂肪燃焼, ダイエット, 代謝, 食欲抑制, 体重管理
 topics: 脂肪燃焼, 食欲, ダイエット
 category: 食事・栄養
 readingTime: 10 min
@@ -16,8 +16,10 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 ダイエット中なのに、お酒だけはやめにくいという人は多いです。食事は気をつけているのに、飲んだ日だけ妙に食べすぎる。翌日もむくみやだるさが残って、体重まで増えたように見えることがあります。こういうとき、多くの人は「お酒はカロリーが高いから太る」と考えますが、厄介なのはそれだけではないかもしれません。
 
+[quote]
 "Alcohol is energy-dense, elicits weak satiety responses relative to solid food, inhibits dietary fat oxidation, and may stimulate food intake."
 （アルコールは高エネルギー密度であり、固形食に比べて満腹感を起こしにくく、脂肪の酸化を抑え、食物摂取を刺激する可能性があります。）
+[/quote]
 
 Megan Fong らの 'Joining the Dots': Individual, Sociocultural and Environmental Links between Alcohol Consumption, Dietary Intake and Body Weight in Adults（成人における飲酒、食事摂取、体重を結ぶ個人・社会・環境要因）は、飲酒が食欲、食事内容、体重とどう関わるかを整理したレビューです。ここで特に重要なのは、アルコールが単に余分なカロリーを足すだけでなく、満腹感の弱さ、食欲刺激、脂肪燃焼の抑制という複数の方向からダイエットを崩しうる点です。
 
@@ -33,7 +35,7 @@ Megan Fong らの 'Joining the Dots': Individual, Sociocultural and Environmenta
 
 その結果、お酒のカロリーは別枠で入り、さらに食事も追加されやすくなります。飲酒時の食べすぎは、気の緩みだけでなく、満腹感の弱さという構造的な問題でもあります。
 
-## アルコールは脂肪を増やす前に脂肪燃焼を後回しにしやすい
+## アルコールは脂肪燃焼を後回しにしやすい
 
 ここがいちばん驚きのある点です。アルコールは飲んだ瞬間にそのまま脂肪になる、というより、身体がまずアルコールの処理を優先するため、脂肪の酸化が後回しになりやすいと考えられています。
 
