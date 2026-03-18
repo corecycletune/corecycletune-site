@@ -1,36 +1,12 @@
 [
   {
-    "slug": "alcohol-fat-oxidation-diet",
-    "title": "アルコールは太るからではなく脂肪が燃えにくくなるから厄介なのか？飲酒とダイエットの研究",
-    "description": "アルコールはカロリーが高いから太るだけではないかもしれません。脂肪燃焼、食欲、満腹感に関する研究をもとに、ダイエット中の飲酒の厄介さを整理します。",
-    "updated": "2026-03-11",
-    "tags": [
-      "alcohol",
-      "fat-oxidation",
-      "diet"
-    ],
-    "topics": [
-      "health",
-      "research"
-    ],
-    "category": "metabolism",
-    "readingTime": "10 min"
-  },
-  {
     "slug": "brief-nap-recovery",
     "title": "昼寝は何分がいちばん効くのか？10分仮眠が回復しやすかった研究",
     "description": "昼寝は長いほど良いとは限りません。短時間仮眠の研究をもとに、眠気と回復感の違いをコアサイクルチューン（循環調律）の視点で整理します。",
     "updated": "2026-03-11",
-    "tags": [
-      "nap",
-      "alertness",
-      "sleep"
-    ],
-    "topics": [
-      "research",
-      "lifestyle"
-    ],
-    "category": "sleep",
+    "tags": ["仮眠", "覚醒", "睡眠", "脳疲労", "パワーナップ"],
+    "topics": ["仮眠", "覚醒", "疲労回復", "パワーナップ"],
+    "category": "睡眠・休養",
     "readingTime": "10 min"
   },
   {
@@ -38,68 +14,9 @@
     "title": "発酵食品を増やすと腸内細菌は変わるのか？多様性と炎症マーカーの研究",
     "description": "発酵食品を増やすと腸の状態は本当に変わるのか。腸内細菌の多様性と炎症マーカーに関する研究をもとに、日常の食べ方を整理します。",
     "updated": "2026-03-11",
-    "tags": [
-      "fermented-foods",
-      "microbiome",
-      "gut"
-    ],
-    "topics": [
-      "health",
-      "research"
-    ],
-    "category": "gut",
-    "readingTime": "10 min"
-  },
-  {
-    "slug": "gut-brain-probiotics-mood",
-    "title": "腸の状態は気分に影響するのか？プロバイオティクスと抑うつの研究",
-    "description": "腸内細菌が気分に影響するとはどういうことか。抗うつ薬と併用したプロバイオティクスのRCTをもとに、腸脳軸の仕組みと日常の整え方を整理します。",
-    "updated": "2026-03-17",
-    "tags": [
-      "gut-brain",
-      "probiotics",
-      "mood",
-      "depression"
-    ],
-    "topics": [
-      "health",
-      "research"
-    ],
-    "category": "gut",
-    "readingTime": "10 min"
-  },
-  {
-    "slug": "hydration-attention-fatigue",
-    "title": "水分不足で集中は落ちやすくなるのか？脱水と注意力・疲労感の研究",
-    "description": "水をあまり飲まない日ほど頭が重くなる感覚は本当なのか。軽い脱水と再水和の研究をもとに、集中力と疲労感の乱れ方を整理します。",
-    "updated": "2026-03-11",
-    "tags": [
-      "hydration",
-      "attention",
-      "fatigue"
-    ],
-    "topics": [
-      "health",
-      "research"
-    ],
-    "category": "focus",
-    "readingTime": "10 min"
-  },
-  {
-    "slug": "lifestyle-changes-brain-use",
-    "title": "生活を整えたら脳の使い方が変わった話 睡眠・食事・運動を見直して起きた変化5つ",
-    "description": "睡眠・食事・運動を少しずつ整えたとき、脳の使い方はどう変わるのか。研究を手がかりに、刺激の求め方や思考の質が変わっていく流れを整理します。",
-    "updated": "2026-03-11",
-    "tags": [
-      "lifestyle",
-      "sleep",
-      "exercise"
-    ],
-    "topics": [
-      "research",
-      "lifestyle"
-    ],
-    "category": "stress",
+    "tags": ["発酵食品", "腸内細菌", "腸内環境", "腸活", "腸内フローラ"],
+    "topics": ["発酵食品", "腸内細菌", "炎症", "腸活", "腸内フローラ"],
+    "category": "食事・栄養",
     "readingTime": "10 min"
   },
   {
@@ -107,16 +24,9 @@
     "title": "短い休憩でも疲れは戻るのか？マイクロブレイク研究から考える集中力の整え方",
     "description": "数分の短い休憩でも疲れやだるさは戻りやすくなるのか。マイクロブレイク研究をもとに、仕事中の集中力低下と回復の流れを整理します。",
     "updated": "2026-03-11",
-    "tags": [
-      "microbreak",
-      "fatigue",
-      "focus"
-    ],
-    "topics": [
-      "research",
-      "productivity"
-    ],
-    "category": "focus",
+    "tags": ["マイクロブレイク", "疲労", "集中力", "脳疲労"],
+    "topics": ["疲労", "休憩", "集中力", "脳疲労"],
+    "category": "感情・認知",
     "readingTime": "10 min"
   },
   {
@@ -124,16 +34,9 @@
     "title": "朝の光を浴びると夜は眠くなりやすいのか？体内時計と睡眠リズムの研究",
     "description": "朝の光を浴びると夜に眠くなりやすい感覚は本当なのか。体内時計と光のタイミングに関する研究をもとに、睡眠リズムの整い方を日常感覚から整理します。",
     "updated": "2026-03-11",
-    "tags": [
-      "light",
-      "circadian",
-      "sleep"
-    ],
-    "topics": [
-      "research",
-      "lifestyle"
-    ],
-    "category": "sleep",
+    "tags": ["光", "体内時計", "睡眠", "朝活", "概日リズム"],
+    "topics": ["体内時計", "光", "睡眠リズム", "概日リズム"],
+    "category": "睡眠・休養",
     "readingTime": "10 min"
   },
   {
@@ -141,67 +44,9 @@
     "title": "自然を見るだけで脳は回復するのか？注意回復理論の研究",
     "description": "森や自然を見ると頭がスッキリする感覚は本当なのか。注意回復理論と環境心理学の研究をもとに、日常の集中力低下をコアサイクルチューン（循環調律）の視点で整理します。",
     "updated": "2026-03-11",
-    "tags": [
-      "nature",
-      "attention",
-      "psychology"
-    ],
-    "topics": [
-      "research",
-      "lifestyle"
-    ],
-    "category": "focus",
-    "readingTime": "10 min"
-  },
-  {
-    "slug": "obesity-allergy-inflammation",
-    "title": "肥満があるとアレルギーは悪化しやすいのか？肥満とアレルギー性炎症の研究",
-    "description": "肥満があるとアレルギー症状は重くなりやすいのか。肥満と喘息・鼻炎などのアレルギー性気道炎症の研究をもとに、炎症と生活の流れを整理します。",
-    "updated": "2026-03-11",
-    "tags": [
-      "obesity",
-      "allergy",
-      "inflammation"
-    ],
-    "topics": [
-      "health",
-      "research"
-    ],
-    "category": "metabolism",
-    "readingTime": "10 min"
-  },
-  {
-    "slug": "paper-books-mental-calm",
-    "title": "紙の本を読むと落ち着きやすいのか？スマホ読書と呼吸・脳活動の研究",
-    "description": "紙の本を読むと気持ちが落ち着く感覚は本当なのか。紙とスマホの読書を比べた研究をもとに、呼吸、脳の負荷、メンタルの整いやすさを整理します。",
-    "updated": "2026-03-11",
-    "tags": [
-      "paper-books",
-      "reading",
-      "stress"
-    ],
-    "topics": [
-      "research",
-      "lifestyle"
-    ],
-    "category": "stress",
-    "readingTime": "10 min"
-  },
-  {
-    "slug": "pfc-protein-leverage",
-    "title": "PFCバランスは意志よりたんぱく質不足で崩れるのか？少し低たんぱくで食べすぎやすくなった研究",
-    "description": "PFCバランスは何が正解なのか。実は、たんぱく質比率が少し下がるだけで脂質や炭水化物を余計に食べやすくなる可能性があります。低たんぱく食の研究から整理します。",
-    "updated": "2026-03-11",
-    "tags": [
-      "pfc",
-      "protein",
-      "appetite"
-    ],
-    "topics": [
-      "health",
-      "research"
-    ],
-    "category": "metabolism",
+    "tags": ["自然", "注意力", "心理", "マインドフルネス", "リセット"],
+    "topics": ["注意回復", "自然環境", "集中力", "マインドフルネス"],
+    "category": "環境・習慣",
     "readingTime": "10 min"
   },
   {
@@ -209,16 +54,9 @@
     "title": "食後に眠くなるのはなぜ？血糖値スパイクと集中力低下の関係",
     "description": "食後の強い眠気は睡眠不足だけが原因とは限りません。食後の血糖変動と認知機能の関係を研究ベースで整理し、日常の整え方につなげます。",
     "updated": "2026-03-11",
-    "tags": [
-      "blood-sugar",
-      "sleepiness",
-      "metabolism"
-    ],
-    "topics": [
-      "health",
-      "research"
-    ],
-    "category": "metabolism",
+    "tags": ["血糖値", "眠気", "代謝", "血糖値スパイク", "食後血糖"],
+    "topics": ["血糖", "食後血糖", "眠気", "血糖値スパイク"],
+    "category": "食事・栄養",
     "readingTime": "10 min"
   },
   {
@@ -226,16 +64,9 @@
     "title": "姿勢が整うと気分と疲れは変わるのか？猫背とストレス反応の研究",
     "description": "姿勢を少し起こすだけで気分や疲れ方は変わるのか。猫背とアップライト姿勢の研究をもとに、メンタルと身体のつながりを整理します。",
     "updated": "2026-03-11",
-    "tags": [
-      "posture",
-      "mood",
-      "fatigue"
-    ],
-    "topics": [
-      "research",
-      "lifestyle"
-    ],
-    "category": "stress",
+    "tags": ["姿勢", "気分", "疲労", "自律神経", "メンタルヘルス"],
+    "topics": ["姿勢", "呼吸", "気分", "メンタルヘルス", "自律神経"],
+    "category": "呼吸・姿勢",
     "readingTime": "10 min"
   },
   {
@@ -243,16 +74,9 @@
     "title": "朝にたんぱく質を食べると間食は減りやすいのか？高たんぱく朝食と食欲コントロールの研究",
     "description": "朝食でたんぱく質をしっかり取ると、その後の空腹や間食は変わるのか。高たんぱく朝食の研究をもとに、食欲の乱れ方と整え方を整理します。",
     "updated": "2026-03-11",
-    "tags": [
-      "protein",
-      "breakfast",
-      "appetite"
-    ],
-    "topics": [
-      "health",
-      "research"
-    ],
-    "category": "metabolism",
+    "tags": ["たんぱく質", "朝食", "食欲", "食欲コントロール", "ダイエット"],
+    "topics": ["たんぱく質", "食欲", "朝食", "食欲コントロール"],
+    "category": "食事・栄養",
     "readingTime": "10 min"
   },
   {
@@ -260,16 +84,9 @@
     "title": "ゆっくり吐く呼吸で落ち着くのはなぜ？心拍変動とストレス反応の研究",
     "description": "ゆっくりした呼吸で気持ちが落ち着く感覚は本当なのか。呼吸ペースと心拍変動、ストレス反応の研究をもとに、日常の整え方を整理します。",
     "updated": "2026-03-11",
-    "tags": [
-      "breathing",
-      "hrv",
-      "stress"
-    ],
-    "topics": [
-      "research",
-      "lifestyle"
-    ],
-    "category": "stress",
+    "tags": ["呼吸", "心拍変動", "ストレス", "マインドフルネス", "自律神経"],
+    "topics": ["呼吸", "心拍変動", "ストレス", "自律神経", "マインドフルネス"],
+    "category": "呼吸・姿勢",
     "readingTime": "10 min"
   },
   {
@@ -277,16 +94,19 @@
     "title": "歩くとアイデアは本当に増えるのか？創造的思考が高まったスタンフォード研究",
     "description": "歩くと考えがまとまりやすい感覚は本当なのか。スタンフォード大学の研究をもとに、創造性と歩行の関係を日常理解とコアサイクルチューン（循環調律）の視点で整理します。",
     "updated": "2026-03-11",
-    "tags": [
-      "walking",
-      "creativity",
-      "cognition"
-    ],
-    "topics": [
-      "research",
-      "lifestyle"
-    ],
-    "category": "focus",
+    "tags": ["歩行", "創造性", "認知", "ウォーキング", "ブレインフォグ"],
+    "topics": ["歩行", "創造性", "認知", "ウォーキング"],
+    "category": "運動・活動",
+    "readingTime": "10 min"
+  },
+  {
+    "slug": "gut-brain-probiotics-mood",
+    "title": "腸の状態は気分に影響するのか？プロバイオティクスと抑うつの研究",
+    "description": "腸内細菌が気分に影響するとはどういうことか。抗うつ薬と併用したプロバイオティクスのRCTをもとに、腸脳軸の仕組みと日常の整え方を整理します。",
+    "updated": "2026-03-17",
+    "tags": ["腸脳軸", "プロバイオティクス", "気分", "抑うつ", "腸活", "メンタルヘルス"],
+    "topics": ["腸脳軸", "プロバイオティクス", "気分", "腸活", "腸内フローラ", "メンタルヘルス"],
+    "category": "食事・栄養",
     "readingTime": "10 min"
   }
 ]
