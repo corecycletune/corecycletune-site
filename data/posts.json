@@ -268,15 +268,20 @@
     "description": "食後の強い眠気は睡眠不足だけが原因とは限りません。食後の血糖変動と認知機能の関係を研究ベースで整理し、日常の整え方につなげます。",
     "updated": "2026-03-11",
     "tags": [
-      "blood-sugar",
-      "sleepiness",
-      "metabolism"
+      "血糖値",
+      "眠気",
+      "代謝",
+      "血糖値スパイク",
+      "食後血糖",
+      "集中力"
     ],
     "topics": [
-      "health",
-      "research"
+      "血糖",
+      "食後血糖",
+      "眠気",
+      "血糖値スパイク"
     ],
-    "category": "metabolism",
+    "category": "食事・栄養",
     "readingTime": "10 min"
   },
   {
