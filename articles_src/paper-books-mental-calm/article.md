@@ -2,9 +2,9 @@
 title: 紙の本を読むと落ち着きやすいのか？スマホ読書と呼吸・脳活動の研究
 description: 紙の本を読むと気持ちが落ち着く感覚は本当なのか。紙とスマホの読書を比べた研究をもとに、呼吸、脳の負荷、メンタルの整いやすさを整理します。
 updated: 2026-03-11
-tags: paper-books, reading, stress
-topics: research, lifestyle
-category: stress
+tags: 読書, ストレス, 自律神経, メンタルヘルス, 呼吸, 集中力
+topics: 読書媒体, 呼吸, 自律神経, メンタルヘルス
+category: 感情・認知
 readingTime: 10 min
 eyecatchQuery: paper book quiet reading
 eyecatch: https://images.unsplash.com/photo-1760840415479-438f61268bed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxwYXBlciUyMGJvb2slMjBxdWlldCUyMHJlYWRpbmd8ZW58MXwwfHx8MTc3MzY3MjUwMnww&ixlib=rb-4.1.0&q=80&w=1080
@@ -16,14 +16,16 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 同じ「読む」でも、紙の本だと落ち着くのに、スマホで長文を読むと妙に疲れることがあります。内容は似ているはずなのに、紙だと頭に入りやすく、スマホだとせかされる感じがする。読んだあとも、紙の本のほうが気分が静かにまとまりやすい、と感じる人は少なくありません。
 
+[quote]
 "Compared to reading on smartphones, reading on paper books led to greater body relaxation after reading, as shown by increased high-frequency heart rate variability and reduced prefrontal cortex activity."
 （スマートフォンで読む場合と比べて、紙の本で読むほうが、読み終えたあとの身体のリラックスが大きく、高周波心拍変動の増加と前頭前野活動の低下として示されました。）
+[/quote]
 
 本間元康らの Reading on a smartphone affects sigh generation, brain activity, and comprehension（スマートフォン読書はため息の生成、脳活動、理解に影響する）は、紙とスマホで同じ内容を読んだとき、呼吸、脳活動、理解がどう変わるかを比べた研究です。ここで見えてくるのは、紙の本が単なる懐古趣味ではなく、呼吸や注意のあり方まで含めて、心を落ち着かせやすい読み方かもしれないということです。
 
 この研究では、健康な成人を対象に、紙媒体とスマートフォンで同程度の文章を読んでもらい、読書中のため息の回数、前頭前野活動、理解成績、自律神経指標の変化を比較しています。
 
-この研究が面白いのは、「紙の本はなんとなく落ち着く」を、気分の問題だけでなく、呼吸と脳負荷の違いとして見せてくれる点です。落ち着いて読むという感覚には、読んでいる内容だけでなく、読書媒体そのものの影響もあるのかもしれません。  [oai_citation:0‡Nature](https://www.nature.com/articles/s41598-022-05605-0?utm_source=chatgpt.com)
+この研究が面白いのは、「紙の本はなんとなく落ち着く」を、気分の問題だけでなく、呼吸と脳負荷の違いとして見せてくれる点です。落ち着いて読むという感覚には、読んでいる内容だけでなく、読書媒体そのものの影響もあるのかもしれません。
 
 ## 紙の本だと静かに読めるのにスマホだと疲れやすいことがある
 
@@ -39,7 +41,7 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 これはかなり示唆的です。紙で読んでいると、適度な負荷の中で呼吸のリセットが起こりやすく、脳の過剰な緊張がほどけやすい可能性があります。逆にスマホでは、その切り替えが起きにくく、前頭前野の活動が高いまま維持されやすいと考えられます。
 
-つまり、紙の本が落ち着くのは「気持ちの問題」だけではなく、呼吸が整いやすいからかもしれません。読むという知的活動が、紙では鎮静と両立しやすく、スマホでは過緊張と結びつきやすい可能性があります。  [oai_citation:1‡Nature](https://www.nature.com/articles/s41598-022-05605-0?utm_source=chatgpt.com)
+つまり、紙の本が落ち着くのは「気持ちの問題」だけではなく、呼吸が整いやすいからかもしれません。読むという知的活動が、紙では鎮静と両立しやすく、スマホでは過緊張と結びつきやすい可能性があります。
 
 ## メンタルの疲れは内容より媒体の負荷で増えていることがある
 
@@ -79,8 +81,6 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 不協 | 読書まで画面上で処理し続ける
 [/cct-cycle]
 
-この流れでは、問題は「本を読んでいないこと」ではなく、「休むはずの読書まで刺激の多い媒体で行っていること」かもしれません。だから、対策も読む量を増やすことだけでは足りません。
-
 ## 紙の本を夜の静かな切り替えとして使うと整いやすい
 
 解決（レゾリューション）は、デジタルを全否定することではありません。まずは、気持ちを落ち着けたい時間帯だけでも、紙の本を使うことです。たとえば寝る前の10分、休日の朝、休憩の最後の数分を紙の読書へ置き換える。それだけでも、心の切り替え方は変わりやすくなります。
@@ -101,7 +101,7 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 もちろん、紙の本なら何でも気分がよくなるわけではありませんし、スマホ読書が必ず悪いわけでもありません。今回の研究は比較的小規模で、短時間の読書条件を見たものです。また、内容や個人の慣れによって感じ方は変わります。
 
-それでも、メンタルを整えたいときに、読む内容だけでなく、何で読むかまで気にする価値はかなりあります。落ち着きたいのに落ち着かないとき、必要なのはもっと良い情報ではなく、もっと静かな媒体なのかもしれません。  [oai_citation:2‡Nature](https://www.nature.com/articles/s41598-022-05605-0?utm_source=chatgpt.com)
+それでも、メンタルを整えたいときに、読む内容だけでなく、何で読むかまで気にする価値はかなりあります。落ち着きたいのに落ち着かないとき、必要なのはもっと良い情報ではなく、もっと静かな媒体なのかもしれません。
 
 ## Research Note
 
