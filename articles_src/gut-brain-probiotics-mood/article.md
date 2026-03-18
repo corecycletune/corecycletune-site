@@ -2,9 +2,9 @@
 title: 腸の状態は気分に影響するのか？プロバイオティクスと抑うつの研究
 description: 腸内細菌が気分に影響するとはどういうことか。抗うつ薬と併用したプロバイオティクスのRCTをもとに、腸脳軸の仕組みと日常の整え方を整理します。
 updated: 2026-03-17
-tags: gut-brain, probiotics, mood, depression
-topics: health, research
-category: gut
+tags: 腸脳軸, プロバイオティクス, 気分, 抑うつ, 腸活, メンタルヘルス
+topics: 腸脳軸, プロバイオティクス, 気分, 腸活, 腸内フローラ, メンタルヘルス
+category: 食事・栄養
 readingTime: 10 min
 eyecatchQuery: gut health fermented food calm
 eyecatch: https://images.unsplash.com/photo-1582138079863-ec3e671f59d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxndXQlMjBoZWFsdGglMjBmZXJtZW50ZWQlMjBmb29kJTIwY2FsbXxlbnwxfDB8fHwxNzczNzE2OTY4fDA&ixlib=rb-4.1.0&q=80&w=1080
@@ -16,8 +16,10 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 気分が落ちているとき、その原因を脳や心の問題だと考えることが多いと思います。ストレスが多い、睡眠が足りない、考えすぎている——そういった説明で納得しようとします。けれど近年、別の経路からも気分が作られていることが少しずつわかってきました。腸の中に棲む数兆もの細菌が、脳や気分と深くつながっているという話です。
 
+[quote]
 "The microbiota-gut-brain axis is a promising target for novel treatments for mood disorders, such as probiotics."
 （腸内微生物叢-腸-脳軸は、プロバイオティクスのような気分障害の新たな治療のための有望なターゲットです。）
+[/quote]
 
 抗うつ薬を服用しているにもかかわらず十分な改善が見られない大うつ病性障害（MDD）の患者を対象に、プロバイオティクスを8週間追加したパイロット無作為化対照試験（Acceptability, Tolerability, and Estimates of Putative Treatment Effects of Probiotics as Adjunctive Treatment in Patients With Depression、プロバイオティクスのうつ病患者への補助的治療としての受容性・忍容性・推定治療効果）では、プロバイオティクス群がプラセボ群と比較して、抑うつ症状と不安症状の両方で大きな改善が見られました。
 
