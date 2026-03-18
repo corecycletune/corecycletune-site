@@ -2,9 +2,9 @@
 title: アルコールは太るからではなく脂肪が燃えにくくなるから厄介なのか？飲酒とダイエットの研究
 description: アルコールはカロリーが高いから太るだけではないかもしれません。脂肪燃焼、食欲、満腹感に関する研究をもとに、ダイエット中の飲酒の厄介さを整理します。
 updated: 2026-03-11
-tags: alcohol, fat-oxidation, diet
-topics: health, research
-category: metabolism
+tags: アルコール, 脂肪燃焼, ダイエット, 代謝
+topics: 脂肪燃焼, 食欲, ダイエット
+category: 食事・栄養
 readingTime: 10 min
 eyecatchQuery: alcohol drink diet table
 eyecatch: https://images.unsplash.com/photo-1663147475798-7e672b522463?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxhbGNvaG9sJTIwZHJpbmslMjBkaWV0JTIwdGFibGV8ZW58MXwwfHx8MTc3MzY3MjkyOXww&ixlib=rb-4.1.0&q=80&w=1080
