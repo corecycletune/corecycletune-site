@@ -2,9 +2,9 @@
 title: 朝にたんぱく質を食べると間食は減りやすいのか？高たんぱく朝食と食欲コントロールの研究
 description: 朝食でたんぱく質をしっかり取ると、その後の空腹や間食は変わるのか。高たんぱく朝食の研究をもとに、食欲の乱れ方と整え方を整理します。
 updated: 2026-03-11
-tags: protein, breakfast, appetite
-topics: health, research
-category: metabolism
+tags: たんぱく質, 朝食, 食欲, 食欲コントロール, ダイエット, 間食
+topics: たんぱく質, 食欲, 朝食, 食欲コントロール
+category: 食事・栄養
 readingTime: 10 min
 eyecatchQuery: protein breakfast table
 eyecatch: https://images.unsplash.com/photo-1726443069397-66cf6ac430cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxwcm90ZWluJTIwYnJlYWtmYXN0JTIwdGFibGV8ZW58MXwwfHx8MTc3MzIwNjg4NXww&ixlib=rb-4.1.0&q=80&w=1080
@@ -16,8 +16,10 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 朝は食欲が弱いのに、夕方から夜になると急に食べたくなることがあります。昼までは持ったとしても、夕方以降に甘い物や脂っこい物へ引っ張られやすくなり、帰宅後に一気に崩れる。そういう日は、単に意志が弱いというより、朝からの食欲の流れがうまく作れていないのかもしれません。
 
+[quote]
 "A breakfast rich in dietary protein provides additional benefits through reductions in appetite and energy intake."
 （たんぱく質が豊富な朝食は、食欲とエネルギー摂取量を減らすという追加の利点をもたらします。）
+[/quote]
 
 Heather J. Leidy らの The addition of a protein-rich breakfast and its effects on acute appetite control and food intake in 'breakfast-skipping' adolescents（朝食欠食の若者に高たんぱく朝食を加えたときの急性の食欲コントロールと食事摂取への影響）は、朝食を抜きがちな若者に朝食を加えたとき、とくにたんぱく質を多めにした朝食が、その後の食欲や摂取量にどう影響するかを追った研究です。ここで見えてくるのは、朝食を食べるかどうかだけでなく、朝に何を食べるかが、その日の空腹感の出方に関わる可能性です。
 
@@ -61,7 +63,7 @@ Heather J. Leidy らの The addition of a protein-rich breakfast and its effects
 
 この視点で見ると、夜の過食や間食は単発ではありません。朝を抜く、あるいは糖質中心で早く空腹が戻る、昼以降に食欲が強まる、強い報酬のある食べ物へ寄る、食べすぎる、翌朝また食欲がわかない、という流れで固定されていきます。
 
-ここでいう不協（ディゾナンス）は、過食そのものではなく、朝の時点で食欲の土台が作られないことや、満腹感が持続しにくい食べ方を続けることです。夜の崩れは、朝から始まっている可能性があります。
+ここでいう不協（ディゾナンス）は、過食そのものではなく、朝の時点で食欲の土台が作られないことや、満腹感が持続しにくい食べ方を続けることです。
 
 [cct-cycle type="dissonance"]
 不協 | 朝食を抜くか、すぐ空腹が戻りやすい内容で済ませる
@@ -71,15 +73,11 @@ Heather J. Leidy らの The addition of a protein-rich breakfast and its effects
 不協 | 朝の食べ方の乱れが夜の崩れを呼ぶ
 [/cct-cycle]
 
-この流れでは、問題は夜の意志の弱さに見えますが、実際には朝の入力不足が後半の報酬追求を強めていることがあります。だから、対策も夜だけで考えると空回りしやすくなります。
-
 ## 朝にたんぱく質を入れると食欲の波をゆるやかにしやすい
 
 日常で入れやすいのは、豪華な朝食より、たんぱく質を少し意識して朝に入れることです。卵、ギリシャヨーグルト、納豆、豆腐、サラダチキン、プロテインドリンクなど、食べやすい形はいろいろあります。量を完璧にするより、朝にたんぱく質源が入ることのほうが重要です。
 
 朝から食欲が弱い人は、固形を無理に増やすより、飲みやすいものや少量で始めるほうが続きやすいです。大事なのは、朝食を根性の課題にしないことです。後半の崩れを防ぐための準備として扱うと意味づけしやすくなります。
-
-朝の一手で、その日の食欲の荒れ方が少し変わるなら、夜の対策より先に朝を見直す価値があります。
 
 [cct-cycle type="resolution"]
 解決 | 朝に無理のない量のたんぱく質を含む食事を入れる
