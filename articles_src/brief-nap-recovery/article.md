@@ -2,9 +2,9 @@
 title: 昼寝は何分がいちばん効くのか？10分仮眠が回復しやすかった研究
 description: 昼寝は長いほど良いとは限りません。短時間仮眠の研究をもとに、眠気と回復感の違いをコアサイクルチューン（循環調律）の視点で整理します。
 updated: 2026-03-11
-tags: アルコール, 脂肪燃焼, ダイエット, 代謝
-topics: 脂肪燃焼, 食欲, ダイエット
-category: 食事・栄養
+tags: 仮眠, 覚醒, 睡眠, 脳疲労, パワーナップ
+topics: 仮眠, 疲労回復, パワーナップ
+category: 睡眠・休養
 readingTime: 10 min
 eyecatchQuery: short nap desk calm afternoon
 eyecatch: https://images.unsplash.com/photo-1664910492894-fd44e6136939?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzaG9ydCUyMG5hcCUyMGRlc2slMjBjYWxtJTIwYWZ0ZXJub29ufGVufDF8MHx8fDE3NzMxNzUyNzJ8MA&ixlib=rb-4.1.0&q=80&w=1080
