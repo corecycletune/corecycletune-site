@@ -138,15 +138,19 @@
     "description": "数分の短い休憩でも疲れやだるさは戻りやすくなるのか。マイクロブレイク研究をもとに、仕事中の集中力低下と回復の流れを整理します。",
     "updated": "2026-03-11",
     "tags": [
-      "microbreak",
-      "fatigue",
-      "focus"
+      "マイクロブレイク",
+      "疲労",
+      "集中力",
+      "脳疲労",
+      "作業効率"
     ],
     "topics": [
-      "research",
-      "productivity"
+      "疲労",
+      "休憩",
+      "集中力",
+      "脳疲労"
     ],
-    "category": "focus",
+    "category": "感情・認知",
     "readingTime": "10 min"
   },
   {
