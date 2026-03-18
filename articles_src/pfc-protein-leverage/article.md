@@ -2,9 +2,9 @@
 title: PFCバランスは意志よりたんぱく質不足で崩れるのか？少し低たんぱくで食べすぎやすくなった研究
 description: PFCバランスは何が正解なのか。実は、たんぱく質比率が少し下がるだけで脂質や炭水化物を余計に食べやすくなる可能性があります。低たんぱく食の研究から整理します。
 updated: 2026-03-11
-tags: pfc, protein, appetite
-topics: health, research
-category: metabolism
+tags: たんぱく質, 食欲, PFCバランス, ダイエット, 食欲コントロール, 間食
+topics: たんぱく質, 食欲, PFCバランス, 食欲コントロール
+category: 食事・栄養
 readingTime: 10 min
 eyecatchQuery: healthy meal macro balance
 eyecatch: https://images.unsplash.com/photo-1684160244466-b89ef03b7638?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwbWVhbCUyMG1hY3JvJTIwYmFsYW5jZXxlbnwxfDB8fHwxNzczNjcyMTg4fDA&ixlib=rb-4.1.0&q=80&w=1080
@@ -16,8 +16,10 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 PFCバランスの話になると、多くの人は「脂質を減らすべきか」「炭水化物をどこまで下げるべきか」を考えます。けれど実際の食欲は、脂質と炭水化物のどちらが多いかだけでは動いていないかもしれません。むしろ、たんぱく質の比率が少し下がるだけで、気づかないうちに全体量を多く食べてしまう可能性があります。
 
+[quote]
 "Lowering the percent protein of the diet from 15% to 10% resulted in higher (+12±4.5%, p = 0.02) total energy intake."
 （食事中のたんぱく質比率を15%から10%に下げると、総エネルギー摂取量はより高くなりました。〔12±4.5%増、p=0.02〕）
+[/quote]
 
 Alison K. Gosby らの Testing Protein Leverage in Lean Humans: A Randomised Controlled Experimental Study（やせた成人でたんぱく質レバレッジ仮説を検証した無作為化比較実験）は、食事のたんぱく質比率を少し変えたとき、人の総摂取量がどう動くかを調べた研究です。ここで示されたのは、PFCバランスの「P」が少し薄まるだけで、人は脂質や炭水化物を余計に食べやすくなる可能性がある、というかなり意外な結果でした。
 
@@ -78,8 +80,6 @@ Alison K. Gosby らの Testing Protein Leverage in Lean Humans: A Randomised Con
 次の行動 | 追加の軽食や甘い物に流れ、総摂取量が増えやすくなる
 不協 | 低たんぱくの食事設計が食べすぎの土台になる
 [/cct-cycle]
-
-この流れでは、問題は意志に見えますが、実際にはPFCバランスの「P」が薄いことが食欲の流れを乱しているかもしれません。だから、対策も脂質か糖質を悪者にするだけでは足りません。
 
 ## まずは一食ごとにPを薄くしすぎないことが大事である
 
