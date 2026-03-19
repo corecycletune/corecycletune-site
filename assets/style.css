@@ -112,7 +112,6 @@ hr {
   margin: 24px 0;
 }
 
-/* ----- Header ----- */
 #site-header {
   position: sticky;
   top: 0;
@@ -181,7 +180,6 @@ hr {
   box-shadow: inset 0 0 0 1px rgba(29, 91, 99, 0.08);
 }
 
-/* ----- Hero ----- */
 .hero {
   position: relative;
   margin: 4px 0 22px;
@@ -234,7 +232,6 @@ hr {
   margin: 20px 0 0;
 }
 
-/* ----- Breadcrumbs ----- */
 #breadcrumbs {
   margin: 6px 0 12px;
 }
@@ -269,7 +266,6 @@ hr {
   color: var(--heading);
 }
 
-/* ----- Cards / Sections ----- */
 .card {
   background: rgba(255, 253, 248, 0.96);
   border: 1px solid var(--border);
@@ -318,7 +314,6 @@ hr {
   color: var(--muted);
 }
 
-/* ----- Buttons ----- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -362,13 +357,11 @@ hr {
   color: var(--brand);
 }
 
-/* ----- Two-column utility ----- */
 .grid-2 {
   display: grid;
   gap: 18px;
 }
 
-/* ----- Lists ----- */
 .list {
   display: grid;
   gap: 14px;
@@ -437,7 +430,6 @@ hr {
   background: rgba(220, 235, 237, 0.45);
 }
 
-/* ----- Topics / Filters ----- */
 .topics {
   list-style: none;
   padding: 0;
@@ -483,15 +475,3 @@ hr {
   border-color: rgba(29, 91, 99, 0.26);
   color: var(--heading);
 }
-
-/* ----- Article content ----- */
-.article {
-  position: relative;
-}
-
-.article-header {
-  position: relative;
-  margin-bottom: 22px;
-  padding: 22px 20px 14px;
-  border-radius: 28px;
-  background:​​​​​​​​​​​​​​​​
