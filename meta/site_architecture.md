@@ -1,728 +1,347 @@
-<!-- File: meta/site_architecture.md -->
+# site_architecture.md
 
-# CCT Lab｜サイト構造（Single Source of Truth）
+## 概要
 
-このファイルは、CCT Lab の **現行のサイト構造** と **運用ルール** を忘れないための唯一の記録です。  
-構造を変えるときは **必ずこのファイルも同時に更新**します（類似ファイルは増やしません）。
+CCT Lab は、**生活のリズムと状態を整える科学メディア**である。  
+睡眠・食事・運動・呼吸・姿勢・感情・認知・環境・習慣などを、研究知見から日常へ翻訳し、再現可能な生活実践へつなげることを目的とする。
 
----
-
-# 0) Base URL（このサイトの正）
-
-https://corecycletune.com
-
-※ canonical URL / sitemap.xml / robots.txt などの絶対URL生成に使用する
+このサイトは医療行為や診断を行うものではなく、研究・観察・実践のための個人研究ラボとして運営する。  
+記事は、科学研究を起点にしつつ、生活の中で起きる変化や感覚を整理し、読者が「今日の1アクション」に落とし込めることを重視する。
 
 ---
 
-# 1) 採用する構造方針（最重要）
+## SSOT方針
 
-CCT Lab は今後の **AI記事生成・アイキャッチ自動取得・テンプレ共通化** を見据え、  
-以下の **3層構造** を採用する。
+このファイルは、CCT Lab 全体の**単一の正本（SSOT）**である。  
+サイト構造、編集方針、AI生成方針、運用方針に関する最上位の定義はここに集約する。
 
----
-
-## 1.1 Source（記事の元データ）
-
-記事の **唯一の正本**
-
-articles_src/<slug>/article.md
-
-役割
-
-- 記事本文
-- 記事メタ
-- AI生成対象
-- 人間が編集する対象
-
-このファイルが **記事内容と記事メタの Single Source of Truth** になる。
+### ルール
+- 類似目的の定義ファイルを増やさない
+- 構造変更や運用変更が発生した場合は、まずこのファイルを更新する
+- 他のプロンプトや補助ファイルは、このファイルと矛盾してはならない
+- 生成系AIに複数の断片的ルールを渡すのではなく、このファイルを軸に整合を取る
 
 ---
 
-## 1.2 Build（生成工程）
+## サイトの目的
 
-Source を元に以下を生成する。
+CCT Lab の目的は、以下を読者に提供すること。
 
-- HTML記事
-- posts.json
-- sitemap.xml
-
-加えて、必要に応じてアイキャッチ情報を Source に補完する。
-
----
-
-## 1.3 Published（公開物）
-
-公開されるファイル
-
-articles/<slug>/index.html
-
-サイトが実際に参照するデータ
-
-data/posts.json
+1. 眠気・だるさ・食欲・集中力・気分などを「状態」として理解する視点
+2. 原因を単一化せず、睡眠・血糖・食行動・活動量・刺激量・呼吸・姿勢などの相互作用として捉える視点
+3. 日常の不調を、観察 → 整理 → 小さな実践 へ変換する足場
+4. 「やる気」を根性論ではなく、身体と生活リズムの結果として扱う考え方
 
 ---
 
-# 2) ディレクトリ構造（現行）
+## ブランドと基本表現
 
-/
-  index.html
-  README.md
-  sitemap.xml
-  robots.txt
+### ブランド名
+CCT Lab
 
-  .github/
-    workflows/
-      generate-posts.yml
+### タグライン
+生活のリズムと状態を整える科学メディア
 
-  about/
-    index.html
+### 中核概念
+CCT（Core Cycle Tune）は、眠気・だるさ・食欲・集中力・気分などの状態を観察し、不協を見つけ、食事・睡眠・運動を通じた解決を重ねながら、日々の調子を少しずつ調律していくメソッドである。
 
-  articles/
-    index.html
-    <slug>/
-      index.html
+### 用語の統一
+以下3語は常にこの表記で統一する。
 
-  articles_src/
-    _template/
-      article.md
-    <slug>/
-      article.md
+1. コアサイクルチューン（循環調律）
+2. 不協（ディゾナンス）
+3. 解決（レゾリューション）
 
-  assets/
-    app.js
-    style.css
+### 固定文
+記事内で不協の話を始める前には、以下の固定文を優先的に置く。
 
-  data/
-    posts.json
+コアサイクルチューン（循環調律）では、生活の好循環を乱す要素を不協（ディゾナンス）、それを整える行動を解決（レゾリューション）として扱います。
 
-  disclaimer/
-    index.html
+### 見出しルール
+記事の見出しには、原則として以下の用語を直接使わない。
 
-  meta/
-    site_architecture.md
+- コアサイクルチューン（循環調律）
+- 不協（ディゾナンス）
+- 解決（レゾリューション）
 
-  prompts/
-    base_cct_concept.md
-    article_structure.md
-    generate_article.md
-
-  scripts/
-    build_article.js
-    fetch_eyecatch.js
-    generate_posts.js
-    generate_sitemap.js
-
-  templates/
-    article.html
-
-  topics/
-    index.html
+見出しは、内容要約と検索意図を優先した自然な日本語にする。
 
 ---
 
-# 3) URLルール
+## 編集方針
 
-フォルダURLは index.html に統一する。
+### 記事の基本思想
+記事は、単なる健康Tipsではなく、**研究知見を生活実感に翻訳する読み物**として設計する。
 
-例
+### 基本の流れ
+記事は原則として次の流れを取る。
 
-/about/
-/articles/<slug>/
+研究知見  
+↓  
+日常理解  
+↓  
+循環理解  
+↓  
+生活実践
 
-slug ルール
+### 文体
+- 基本はです・ます調
+- 強すぎる断定を避ける
+- 研究の限界や条件差を認める
+- それでも読後に「やってみる理由」が残るように書く
+- 科学寄りだが冷たすぎず、生活者の感覚に寄り添う
 
-- 英小文字
-- ハイフン区切り
-- kebab-case
+### 研究の扱い
+- 研究を起点にする
+- 研究を権威づけの飾りにしない
+- 論文の一節や要点は、導入のフックとして活用する
+- 面白さ優先でテーマを選んでよいが、必ず研究ベースに接続する
 
-記事URLは必ず以下に統一する。
+### 東洋医学の扱い
+- 東洋医学は主軸ではなく補助線として使う
+- 薄い一般論にせず、文脈に応じて適切な東洋医学用語を織り交ぜる
+- 使いうる語の例：気滞、脾胃、湿、痰湿、心神不寧、肝気鬱結
+- 現代医学・生理学と対立させず、読者理解を厚くする補助的視点として扱う
 
-/articles/<slug>/
-
----
-
-# 4) 各コンポーネントの責務
-
-## 4.1 記事Source
-
-articles_src/<slug>/article.md
-
-内容
-
-- 記事本文
-- 記事メタ
-- tags
-- topics
-- category
-- updated
-- readingTime
-- eyecatchQuery
-- eyecatch
-- eyecatchAlt
-- eyecatchPhotoBy
-- eyecatchPhotoUrl
-- eyecatchSourceUrl
-
-ここが **記事内容と記事メタの唯一の正本**
-
-重要
-
-- 人間が最初に書くのは基本 `eyecatchQuery`
-- `eyecatch` 以下の確定値は自動補完される前提
+### 禁止・非推奨
+- 「もちろん主軸は現代の〜研究ですが、」という逃げの定型文は禁止
+- AIっぽい過剰な万能感、完成宣言、誇張表現は避ける
+- 医療断定、治療断定、病名の安易な一般化は避ける
 
 ---
 
-## 4.2 記事雛形
+## カテゴリとトピック
 
-articles_src/_template/article.md
+### カテゴリ
+現行の大分類は以下を基本とする。
 
-役割
+- 睡眠・休養
+- 食事・栄養
+- 運動・活動
+- 呼吸・姿勢
+- 感情・認知
+- 環境・習慣
+- 社会・つながり
 
-- 人間用・AI用の雛形
-- 記事フォーマットの見本
-- 実記事を作る時のテンプレ
+必要に応じてサイト運用上のカテゴリを増減してもよいが、乱立は避ける。
 
-重要
+### トピック
+トピックは、カテゴリよりも具体的な関心軸を示す補助ラベルである。  
+検索導線、関連記事導線、テーマの偏り把握に使う。
 
-- build対象ではない
-- posts.json 生成対象ではない
-- `_` で始まるディレクトリは source の補助用途として扱う
+### タグ
+タグは、記事内容の補助的な文脈ラベルとして扱う。  
+細かすぎる乱立は避けるが、本文内容と検索意図に沿う範囲で付与する。
 
 ---
 
-## 4.3 テンプレート
+## 現在のサイト構造
 
-templates/article.html
+静的サイトとして運用し、記事ソースからビルド成果物を生成する。
 
-役割
+### 基本構造
+- `articles_src/<slug>/article.md`
+- `articles/<slug>/index.html`
+- `data/posts.json`
+- `templates/article.html`
+- `assets/app.js`
+- `assets/style.css`
 
-記事ページの **静的HTMLテンプレート**
+### 既存フロー
+1. `articles_src/<slug>/article.md` を作成
+2. HTMLへビルド
+3. `data/posts.json` を生成
+4. `sitemap.xml` を生成
+5. 公開反映
 
-含むもの
+### front matter 必須項目
+原則として以下を含む。
 
 - title
 - description
-- robots meta
-- canonical
-- OGP
-- Twitter Card
-- JSON-LD 差し込み口
-- アイキャッチ表示枠
-- 関連記事表示枠
-- 共通フッター構造
+- updated
+- tags
+- topics
+- category
+- readingTime
+- eyecatchQuery
 
-将来的にここへ集約するもの
-
-- Analytics
-- AdSense
-- Search Console verification
-- Amazon導線
-- 共通UI
-
-重要
-
-- 静的構造のみを持つ
-- 記事ごとに重複させない
+必要に応じて eyecatch 関連フィールドを後段で付与する。
 
 ---
 
-## 4.4 公開HTML
+## AI生成の基本方針
 
-articles/<slug>/index.html
+CCT Lab のAI生成は、**構造より先にプロンプトを強くする**方針を取る。
 
-これは
+### 基本原則
+- まずはプロンプトで解決できることを最大限プロンプトで担う
+- 構造改修やロジック追加は最小限にとどめる
+- 不足が出た箇所だけ後から実装で補う
+- 出力の正本は常に `articles_src/<slug>/article.md` とする
 
-article.md + article.html
+### AIの主な責務
+AIは以下を担う。
 
-から生成された **出力物**
+- テーマ選定
+- 研究ベースの記事構成
+- front matter の生成
+- タイトル、description、slug、eyecatchQuery の生成
+- 既存記事との重複回避の配慮
+- categories / topics / tags の整理
+- 東洋医学補助パートの自然な挿入
+- 既存文体・世界観への整合
 
-原則
+### 実装初期の考え方
+「高度なことは後回し」に寄せすぎず、以下もまずはプロンプト責務として初期から狙ってよい。
 
-直接編集しない
-
----
-
-## 4.5 CSS
-
-assets/style.css
-
-全ページ共通の基本スタイル。
-
-重要
-
-- 見た目の責務は **assets/style.css に集約**する
-- 記事用コンポーネントのスタイルもここで管理する
-- `build_article.js` は見た目を埋め込まず、構造だけを生成する
-
----
-
-## 4.6 JS（軽いCMS機能）
-
-assets/app.js
-
-役割
-
-サイトの **動的描画**
-
-例
-
-- ヘッダー注入
-- フッター注入
-- パンくず生成
-- 記事一覧生成
-- 関連記事生成
-- トピック一覧生成
-
-データソース
-
-data/posts.json
-
-重要
-
-- `templates/article.html` は静的な器
-- `assets/app.js` は動的描画担当
-- 役割を混ぜない
+- 既存記事とのテーマ重複回避
+- タグの最適化
+- トピックの選定
+- 研究観点の選定
+- SEOを意識したタイトルとdescription
+- 自然言語の依頼から記事化する変換
 
 ---
 
-## 4.7 記事台帳
+## AI生成ワークフロー
 
-data/posts.json
+### 出力形式
+AI生成でも手動作成でも、最終的な出力先は同じとする。
 
-役割
+- `articles_src/<slug>/article.md`
 
-記事メタの **集約台帳**
+### 基本フロー
+1. テーマ決定
+2. AIが `article.md` を生成
+3. 形式・最低限の妥当性を確認
+4. モードに応じてレビュー止まりか公開まで進める
+5. 既存のビルド・一覧生成・sitemap生成へ接続
 
-用途
+### モード制御
+AI運用にはワークフローモードを持たせる。
 
-- 記事一覧
-- 最新記事
+例：
+- `review`
+- `auto_publish`
+
+意味：
+- `review`  
+  自動生成＋確認用出力。自動公開はしない。
+- `auto_publish`  
+  自動生成＋公開まで進める。
+
+この制御は、単一の定数または設定値で切り替え可能にする。
+
+### 安全原則
+- モードが `auto_publish` でも、明らかに壊れた出力は止める
+- ただし、厳密な高機能判定は最初から実装しなくてよい
+- 初期は「壊れた front matter を出さない」「空記事を出さない」など最低限でよい
+
+---
+
+## 自動テーマ生成と手動記事依頼
+
+将来的に、AI記事生成の入口は2系統持てる設計にする。
+
+### 1. 自動入口
+システムが既存記事群やテーマバランスを見て、自動で記事テーマを決める。
+
+### 2. 手動入口
+運営者が自然言語で「こんな記事を書いて」と依頼できる。
+
+例：
+- 最近、朝散歩と血糖値の関係が気になる。研究ベースで記事にして。
+- 週末に娘と過ごすと生活リズムが整う感覚を、家庭のリズムと自律神経の観点で記事化したい。
+
+### article request 概念
+手動依頼は、将来的に内部では article request として扱える設計にする。  
+ただし初期段階では、実装より先に「そういう入口を持てる構造思想」を定義しておけばよい。
+
+article request が含みうる概念例：
+- mode
+- user_intent
+- preferred_angle
+- priority_keywords
+- avoid_keywords
+- desired_category
+- desired_topics
+- notes
+
+重要なのは、**入口が複数でも出力先は一つ**であること。
+
+---
+
+## プロンプト群の役割
+
+### `base_cct_concept.md`
+世界観、用語、考え方の土台を定義する。
+
+### `article_structure.md`
+記事構造、章立て、導入、見出し、固定文の配置などを定義する。
+
+### `generate_article.md`
+実際の生成時に守るべきルール、front matter、禁止事項、出力形式、重複回避方針、AI生成入口の扱いを定義する。
+
+### このファイルとの関係
+上記3ファイルは、この `site_architecture.md` と矛盾してはならない。  
+構造や運用思想が変わった場合は、まず本ファイルを更新し、その後に各プロンプトへ反映する。
+
+---
+
+## デザインと回遊の考え方
+
+### 現段階の優先順位
+現段階では、複雑な回遊設計よりも、**安定した記事生成と更新頻度の確立**を優先する。
+
+### 現実的な導線
+- 記事個別流入
 - 関連記事
-- トピック一覧
+- カテゴリ一覧
+- 必要最小限のラベル導線
 
-重要
-
-- 手編集しない
-- 生成元は `articles_src/<slug>/article.md`
-- HTML は読まない
-- Source のみを入力とする
+タグの高度な絞り込みや回遊導線は、必要になってから拡張してよい。
 
 ---
 
-# 5) Build Scripts
+## 出力と作業ルール
 
-## fetch_eyecatch.js
+### AIがファイルを提示する際のルール
+- ファイル名は相対パスで示す
+- 1ファイルにつき1つのファイル名コードブロックを使う
+- コード本体は別コードブロックで示す
+- 基本はファイル単位で全文提示する
+- フェンスは `~~~` を優先して使う
+- ネスト崩れを起こす書き方を避ける
 
-入力
-
-articles_src/<slug>/article.md
-
-処理
-
-- `eyecatchQuery` を読む
-- Unsplash API で画像を検索する
-- 利用規約に沿って採用画像を確定する
-- 必要な attribution 情報を取得する
-- Source の front matter に以下を書き戻す
-  - `eyecatch`
-  - `eyecatchAlt`
-  - `eyecatchPhotoBy`
-  - `eyecatchPhotoUrl`
-  - `eyecatchSourceUrl`
-
-出力
-
-articles_src/<slug>/article.md を更新
-
-重要
-
-- 画像取得の責務はこのファイルに集約する
-- `build_article.js` に API 呼び出しを入れない
-- 将来的に AI を導入する場合も、検索語生成の入口はここに寄せる
+### 新規ファイル作成方針
+- 類似目的のファイルを増やさない
+- 単一責務・単一正本を優先する
+- 同じ役割の設定ファイルを乱立させない
 
 ---
 
-## build_article.js
+## 今後の拡張方針
 
-入力
+以下は、最初から必須ではないが、将来的に必要に応じて実装してよい。
 
-articles_src/<slug>/article.md
+- 生成記事の形式チェック強化
+- 既存記事との高度な重複判定
+- 手動記事依頼のUI化
+- review / auto_publish の運用改善
+- タグ、関連記事、カテゴリ導線の高度化
+- 研究ソース探索の拡張
+- 日次以外の生成スケジュール
 
-処理
-
-- front matter 解析
-- Markdown → HTML
-- templates/article.html へ差し込み
-- canonical / OGP / JSON-LD を埋め込み
-- HTML先頭にメタコメントを付与
-- 専用構文を解釈して記事用コンポーネントへ変換する
-- 確定済みのアイキャッチ情報をHTMLに出力する
-- アイキャッチの `photo-credit` は `figure` の外側に出力する
-
-出力
-
-articles/<slug>/index.html
-
-補足
-
-- `_` で始まるディレクトリは除外する
-- `articles_src/_template/` は build対象外
-- 現在の専用構文として `[cct-cycle type="dissonance"] ... [/cct-cycle]` を解釈する
-- 現在の専用構文として `[cct-cycle type="resolution"] ... [/cct-cycle]` を解釈する
-- `cct-cycle` は循環図用の専用オブジェクトとしてHTML/SVGへ変換される
-- `type="dissonance"` は悪循環の見た目で表示する
-- `type="resolution"` は好循環の見た目で表示する
-- 現在の専用構文として `[paper-summary] ... [/paper-summary]` を解釈する
-- `paper-summary` は論文概要カード用のHTMLへ変換される
-- 現在の専用構文として `[quote] ... [/quote]` を解釈する
-- `quote` は英語引用＋日本語訳のカードブロックへ変換される
-- 最後の行が `（` で始まり `）` で終わる場合、日本語訳として分離してスタイルを変える
-- 見た目のCSSは埋め込まず、クラス名だけを出力する
-- 外部APIは呼ばない
+ただし、拡張時も「プロンプトで吸収できる部分はまずプロンプトで」を優先する。
 
 ---
 
-## generate_posts.js
+## このファイルの更新原則
 
-入力
+- サイト全体の運用思想が変わったとき
+- AI生成の入口や責務が変わったとき
+- カテゴリ体系や構造定義が変わったとき
+- プロンプト群に影響する上位方針が変わったとき
 
-articles_src/*
-
-処理
-
-記事メタ抽出
-
-出力
-
-data/posts.json
-
-補足
-
-- HTMLは読まない
-- Sourceのみが入力
-- `_` で始まるディレクトリは除外する
-- tags / topics / category / readingTime を含める
-
----
-
-## generate_sitemap.js
-
-入力
-
-data/posts.json
-
-出力
-
-sitemap.xml
-
-補足
-
-- Base URL は https://corecycletune.com
-- 記事URL一覧を自動生成する
-- sitemap.xml は生成物として扱う
-
----
-
-# 6) Markdown対応範囲
-
-現行の `build_article.js` で対応している主な要素
-
-- 見出し
-  - `#`
-  - `##`
-  - `###`
-- 段落
-- 箇条書き
-  - `- `
-- 引用
-  - `> `
-- 太字
-  - `**text**`
-- 斜体
-  - `*text*`
-- インラインコード
-  - `` `code` ``
-- 専用構文
-  - `[cct-cycle type="dissonance"] ... [/cct-cycle]`
-  - `[cct-cycle type="resolution"] ... [/cct-cycle]`
-  - `[paper-summary] ... [/paper-summary]`
-  - `[quote] ... [/quote]`
-
-未保証または未対応として扱うもの
-
-- 表
-- 番号付きリスト
-- 画像Markdown記法
-- 脚注記法
-- 深いネスト
-- 複雑な埋め込み
-
-重要
-
-記事は **現行buildが対応しているMarkdown範囲** に収める。
-
----
-
-# 7) 検索エンジン
-
-## sitemap.xml
-
-検索エンジン用サイトマップ  
-自動生成
-
----
-
-## robots.txt
-
-検索エンジンへの案内
-
-内容
-
-User-agent: *
-Allow: /
-
-Sitemap: https://corecycletune.com/sitemap.xml
-
----
-
-# 8) プロンプト保存
-
-prompts/
-
-目的
-
-AI記事生成の設計保存
-
----
-
-## base_cct_concept.md
-
-循環調律（コアサイクルチューン）の思想辞書
-
----
-
-## article_structure.md
-
-記事構造設計
-
-- 見出し設計
-- ブロック役割
-- 記事の流れ
-- 表現ルール
-
----
-
-## generate_article.md
-
-記事生成プロンプト
-
-AIは最終的に
-
-articles_src/<slug>/article.md
-
-形式で出力する。
-
----
-
-# 9) 記事追加手順
-
-1  
-articles_src/<slug>/article.md 作成
-
-2  
-必要なら `eyecatchQuery` を書く
-
-3  
-fetch_eyecatch.js 実行
-
-4  
-build_article.js 実行
-
-5  
-generate_posts.js 実行
-
-6  
-generate_sitemap.js 実行
-
-7  
-commit
-
----
-
-# 10) 記事削除手順
-
-1  
-articles_src/<slug>/ を削除
-
-2  
-articles/<slug>/ を削除
-
-3  
-commit
-
-4  
-workflow により posts.json / sitemap.xml を更新
-
-重要
-
-- Source だけ消しても公開HTMLが残る場合がある
-- 記事削除時は **source と output の両方** を削除する
-
----
-
-# 11) Single Source of Truth
-
-記事本文  
-articles_src/<slug>/article.md
-
-記事メタ  
-articles_src/<slug>/article.md
-
-記事台帳  
-data/posts.json
-
-サイトマップ  
-sitemap.xml
-
-記事HTML  
-build生成
-
-構造説明  
-meta/site_architecture.md
-
-見た目  
-assets/style.css
-
----
-
-# 12) ファイル増殖防止ルール
-
-似た役割のファイルを増やさない。
-
-構造説明は
-
-meta/site_architecture.md
-
-のみ。
-
-記事構造の説明と記事雛形は役割を分ける。
-
-- `prompts/article_structure.md`
-  - 設計書
-- `articles_src/_template/article.md`
-  - 実物の雛形
-
-見た目の責務も分ける。
-
-- `assets/style.css`
-  - 見た目
-- `build_article.js`
-  - 構造生成
-
-画像取得の責務も分ける。
-
-- `fetch_eyecatch.js`
-  - アイキャッチ取得と確定
-- `build_article.js`
-  - 確定済みデータのHTML化
-
----
-
-# 13) 変更履歴
-
-2026-03-03  
-軽量CMS構造を採用
-
-2026-03-xx  
-Markdown source 分離
-
-2026-03-xx  
-posts.json 自動生成
-
-2026-03-xx  
-sitemap 自動生成
-
-2026-03-xx  
-テンプレート責務を明確化
-
-2026-03-xx  
-`articles_src/_template/` を導入し、記事雛形と実記事を分離
-
-2026-03-xx  
-`generate_posts.js` は Source のみを読む方針に統一
-
-2026-03-xx  
-`build_article.js` / `generate_posts.js` ともに `_` で始まる補助ディレクトリを除外する方針を明記
-
-2026-03-xx  
-`[paper-summary]` を専用構文として導入
-
-2026-03-xx  
-記事用コンポーネントの見た目責務を `assets/style.css` に集約
-
-2026-03-xx  
-`eyecatchQuery` を導入し、`fetch_eyecatch.js` にアイキャッチ取得責務を分離
-
-2026-03-xx  
-`cct-cycle` を後半のCCTパート専用に再定義し、`type="dissonance"` / `type="resolution"` を導入
-
-2026-03-17  
-アイキャッチの `photo-credit` を `figure` 外へ移動し、`overflow: hidden` によるクリップを解消
-
-2026-03-17  
-`[quote] ... [/quote]` を専用構文として導入。英語引用＋日本語訳のカードブロックへ変換。`.article-quote` 系クラスを `assets/style.css` に追加
-
-
-2026-03-18
-category を8分類の日本語ラベルに刷新。
-topics を「記事の論点」、tags を「細粒度キーワード」として役割を再定義。
-SEOトレンドワードをtopics・tagsに積極的に含める方針を追加。
-posts.json の全記事のcategory・topics・tagsを日本語化・再整理。
-
----
-
-# 9) Git運用ルール
-
-## 9.1 安定版ブランチ
-
-`main` は公開中サイトの安定版ブランチとして扱う。
-
-重要
-
-- いきなり `main` でデザイン変更を始めない
-- 戻し先として `main` を残す
-- 公開反映の基準は原則 `main`
-
----
-
-## 9.2 作業ブランチ
-
-大きめの見た目変更、導線整理、実験的なUI変更は作業ブランチで行う。
-
-今回のデザイン改修用ブランチ
-
-- `design/refresh-ui`
-
-重要
-
-- デザイン修正は原則このブランチで行う
-- 崩れた場合でも `main` を見れば安定状態に戻れる
-- 作業内容が固まってから `main` へ統合する
-
----
-
-## 9.3 この運用を採用する理由
-
-CCT Lab はスマホ中心で作業することが多く、  
-大きめのデザイン修正では「一度触ってみて戻す」可能性が高い。
-
-そのため、公開中の安定状態と作業中の試行錯誤を分離するために、
-
-- `main` = 安定版
-- 作業ブランチ = 検証版
-
-の運用を採用する。
-
-これは破壊的変更を避けるための運用ルールであり、  
-SSOT を壊さず安全に見た目改善を進めるための前提とする。
+これらの場合は、まず `site_architecture.md` を更新する。
