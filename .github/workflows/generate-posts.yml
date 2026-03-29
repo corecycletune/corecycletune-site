@@ -9,6 +9,21 @@ on:
       - "assets/**"
       - ".github/workflows/generate-posts.yml"
   workflow_dispatch:
+    inputs:
+      workflow_mode:
+        description: "review or auto_publish"
+        required: false
+        default: "review"
+      manual_request:
+        description: "Optional natural-language article request"
+        required: false
+        default: ""
+      run_ai_generation:
+        description: "true to run AI article generation before build"
+        required: false
+        default: "true"
+  schedule:
+    - cron: "15 22 * * *"
 
 permissions:
   contents: write
@@ -16,6 +31,17 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    env:
+      TZ: Asia/Tokyo
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+      UTM_SOURCE: cctlab
+      UTM_MEDIUM: referral
+      WORKFLOW_MODE: ${{ github.event.inputs.workflow_mode || 'review' }}
+      MANUAL_REQUEST: ${{ github.event.inputs.manual_request || '' }}
+      RUN_AI_GENERATION: ${{ github.event.inputs.run_ai_generation || 'true' }}
+      OPENAI_MODEL: gpt-5.4-mini
 
     steps:
       - name: Checkout
@@ -26,11 +52,11 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Generate article.md with AI
+        if: env.RUN_AI_GENERATION == 'true'
+        run: node scripts/generate_ai_article.js
+
       - name: Fetch eyecatch metadata
-        env:
-          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
-          UTM_SOURCE: cctlab
-          UTM_MEDIUM: referral
         run: node scripts/fetch_eyecatch.js
 
       - name: Build article HTML
@@ -54,5 +80,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "chore: update eyecatch data and rebuild site"
+          git commit -m "chore: generate article and rebuild site"
           git push
