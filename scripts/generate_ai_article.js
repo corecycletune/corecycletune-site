@@ -49,11 +49,6 @@ function findFirstExistingPath(candidates) {
 }
 
 function loadPromptFiles() {
-  const siteArchitecturePath = findFirstExistingPath([
-    "site_architecture.md",
-    "meta/site_architecture.md",
-  ]);
-
   const generateArticlePath = findFirstExistingPath([
     "generate_article.md",
     "prompts/generate_article.md",
@@ -69,9 +64,6 @@ function loadPromptFiles() {
     "prompts/base_cct_concept.md",
   ]);
 
-  const siteArchitecture = siteArchitecturePath
-    ? readIfExists(siteArchitecturePath)
-    : "";
   const generateArticle = generateArticlePath
     ? readIfExists(generateArticlePath)
     : "";
@@ -80,19 +72,29 @@ function loadPromptFiles() {
     : "";
   const baseConcept = baseConceptPath ? readIfExists(baseConceptPath) : "";
 
-  if (!generateArticle) {
+  if (!generateArticlePath || !generateArticle) {
     fail(
       "Missing generate_article.md. Expected one of: generate_article.md or prompts/generate_article.md"
     );
   }
 
+  if (!articleStructurePath || !articleStructure) {
+    fail(
+      "Missing article_structure.md. Expected one of: article_structure.md or prompts/article_structure.md"
+    );
+  }
+
+  if (!baseConceptPath || !baseConcept) {
+    fail(
+      "Missing base_cct_concept.md. Expected one of: base_cct_concept.md or prompts/base_cct_concept.md"
+    );
+  }
+
   return {
-    siteArchitecture,
     generateArticle,
     articleStructure,
     baseConcept,
     resolvedPaths: {
-      siteArchitecturePath,
       generateArticlePath,
       articleStructurePath,
       baseConceptPath,
@@ -200,7 +202,7 @@ function buildRequestPayload({
     "The article_md value must be the exact saveable contents of articles_src/<slug>/article.md.",
     "article_md must include front matter and full markdown body.",
     "Do not include slug in front matter unless it already belongs to the existing format. The save path uses the JSON slug field.",
-    "Respect the provided site architecture and prompt files.",
+    "Respect the provided prompt files as separate required authorities with distinct roles.",
     "Avoid duplicating existing themes, titles, descriptions, slugs, and near-identical angles.",
     "Use natural Japanese for the article body.",
     "The article must be publishable in the site's house style.",
@@ -214,19 +216,16 @@ function buildRequestPayload({
     .join("\n");
 
   const userInstruction = [
-    "Below are the authoritative project files and current site context.",
-    "",
-    "=== site_architecture.md ===",
-    promptFiles.siteArchitecture || "(not provided)",
+    "Below are the required project prompt files and current site context.",
     "",
     "=== base_cct_concept.md ===",
-    promptFiles.baseConcept || "(not provided)",
+    promptFiles.baseConcept,
     "",
     "=== article_structure.md ===",
-    promptFiles.articleStructure || "(not provided)",
+    promptFiles.articleStructure,
     "",
     "=== generate_article.md ===",
-    promptFiles.generateArticle || "(not provided)",
+    promptFiles.generateArticle,
     "",
     "=== existing posts summary JSON ===",
     existingPostsCompactJson,
