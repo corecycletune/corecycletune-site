@@ -181,20 +181,18 @@ function normalizeListForPrompt(value) {
 }
 
 function getTodayInTokyo() {
-  const now = new Date();
-  const tokyo = new Date(now.getTime() + 9 * 60 * 60 * 1000);
-  return tokyo.toISOString().slice(0, 10);
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
 }
 
-function buildRequestPayload({
-  promptFiles,
-  existingPostsCompactJson,
-  manualRequest,
-  duplicateRetryNote,
-}) {
+function buildInstructions({ duplicateRetryNote }) {
   const today = getTodayInTokyo();
 
-  const systemInstruction = [
+  return [
     "You are generating one article source file for a static site called CCT Lab.",
     "Return STRICT JSON only. No markdown fence. No prose outside JSON.",
     'Return exactly this shape: {"slug":"...","article_md":"..."}',
@@ -214,8 +212,14 @@ function buildRequestPayload({
   ]
     .filter(Boolean)
     .join("\n");
+}
 
-  const userInstruction = [
+function buildInput({
+  promptFiles,
+  existingPostsCompactJson,
+  manualRequest,
+}) {
+  return [
     "Below are the required project prompt files and current site context.",
     "",
     "=== base_cct_concept.md ===",
@@ -235,31 +239,37 @@ function buildRequestPayload({
     "",
     "Generate exactly one article.",
   ].join("\n");
+}
 
+function buildRequestPayload({
+  promptFiles,
+  existingPostsCompactJson,
+  manualRequest,
+  duplicateRetryNote,
+}) {
   return {
     model: OPENAI_MODEL,
-    response_format: { type: "json_object" },
-    temperature: 0.9,
-    max_tokens: 7000,
-    messages: [
-      {
-        role: "system",
-        content: systemInstruction,
+    instructions: buildInstructions({ duplicateRetryNote }),
+    input: buildInput({
+      promptFiles,
+      existingPostsCompactJson,
+      manualRequest,
+    }),
+    max_output_tokens: 7000,
+    text: {
+      format: {
+        type: "text",
       },
-      {
-        role: "user",
-        content: userInstruction,
-      },
-    ],
+    },
   };
 }
 
-async function callOpenAIChatCompletions(payload) {
+async function callOpenAIResponses(payload) {
   if (!OPENAI_API_KEY) {
     fail("OPENAI_API_KEY is missing.");
   }
 
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+  const response = await fetch("https://api.openai.com/v1/responses", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -281,12 +291,31 @@ async function callOpenAIChatCompletions(payload) {
     fail(`Failed to parse OpenAI API response as JSON.\n${text}`);
   }
 
-  const content = json?.choices?.[0]?.message?.content;
-  if (!content || typeof content !== "string") {
-    fail(`OpenAI API returned no message content.\n${text}`);
+  const outputText = extractOutputTextFromResponse(json);
+  if (!outputText) {
+    fail(`OpenAI Responses API returned no output text.\n${text}`);
   }
 
-  return content;
+  return outputText;
+}
+
+function extractOutputTextFromResponse(json) {
+  if (typeof json?.output_text === "string" && json.output_text.trim()) {
+    return json.output_text;
+  }
+
+  const output = Array.isArray(json?.output) ? json.output : [];
+  for (const item of output) {
+    if (item?.type !== "message") continue;
+    const content = Array.isArray(item.content) ? item.content : [];
+    for (const part of content) {
+      if (part?.type === "output_text" && typeof part.text === "string") {
+        return part.text;
+      }
+    }
+  }
+
+  return "";
 }
 
 function parseModelJson(text) {
@@ -414,7 +443,7 @@ async function generateOneArticle() {
       duplicateRetryNote,
     });
 
-    const rawModelText = await callOpenAIChatCompletions(payload);
+    const rawModelText = await callOpenAIResponses(payload);
     const parsed = parseModelJson(rawModelText);
 
     const slug = sanitizeSlug(parsed.slug);
@@ -435,7 +464,6 @@ async function generateOneArticle() {
     validateArticleMarkdown(articleMd);
 
     const title = extractTitleFromFrontMatter(articleMd);
-
     const writeResult = writeArticleFile({ slug, articleMd });
 
     const summary = {
