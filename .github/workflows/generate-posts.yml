@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "articles_src/**"
+      - "articles_draft/**"
       - "templates/**"
       - "scripts/**"
       - "assets/**"
@@ -57,15 +58,19 @@ jobs:
         run: node scripts/generate_ai_article.js
 
       - name: Fetch eyecatch metadata
+        if: env.WORKFLOW_MODE == 'auto_publish'
         run: node scripts/fetch_eyecatch.js
 
       - name: Build article HTML
+        if: env.WORKFLOW_MODE == 'auto_publish'
         run: node scripts/build_article.js
 
       - name: Generate posts.json
+        if: env.WORKFLOW_MODE == 'auto_publish'
         run: node scripts/generate_posts.js
 
       - name: Generate sitemap.xml
+        if: env.WORKFLOW_MODE == 'auto_publish'
         run: node scripts/generate_sitemap.js
 
       - name: Commit generated files (if changed)
@@ -73,7 +78,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add articles_src articles data/posts.json sitemap.xml
+          git add articles_src articles_draft articles data/posts.json sitemap.xml tmp
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
