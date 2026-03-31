@@ -368,15 +368,15 @@ function assertRequiredFrontMatter(frontMatter) {
 }
 
 function assertQuoteBlock(articleMd) {
-  const hasOpenQuoteTag = articleMd.includes("[quote]");
-  const hasCloseQuoteTag = articleMd.includes("[/quote]");
-  const quoteRegexMatch = /$begin:math:display$quote$end:math:display$[\s\S]*?$begin:math:display$\\\/quote$end:math:display$/.test(articleMd);
+  const openIndex = articleMd.indexOf("[quote]");
+  const closeIndex = articleMd.indexOf("[/quote]");
 
-  console.log("HAS_OPEN_QUOTE_TAG:", hasOpenQuoteTag);
-  console.log("HAS_CLOSE_QUOTE_TAG:", hasCloseQuoteTag);
-  console.log("QUOTE_REGEX_MATCH:", quoteRegexMatch);
+  console.log("HAS_OPEN_QUOTE_TAG:", openIndex !== -1);
+  console.log("HAS_CLOSE_QUOTE_TAG:", closeIndex !== -1);
+  console.log("QUOTE_OPEN_INDEX:", openIndex);
+  console.log("QUOTE_CLOSE_INDEX:", closeIndex);
 
-  if (!quoteRegexMatch) {
+  if (openIndex === -1 || closeIndex === -1 || closeIndex <= openIndex) {
     fail("Generated article_md is missing the required [quote]...[/quote] block.");
   }
 }
@@ -457,7 +457,7 @@ function assertCctCycleBlocks(articleMd) {
 }
 
 function validateArticleMarkdown(articleMd) {
-  if (typeof articleMd !== 'string' || !articleMd.trim()) {
+  if (typeof articleMd !== "string" || !articleMd.trim()) {
     fail("Generated article_md is empty.");
   }
 
