@@ -62,7 +62,7 @@ jobs:
         run: node scripts/generate_ai_article.js
 
       - name: Fetch eyecatch metadata
-        if: env.WORKFLOW_MODE == 'auto_publish'
+        if: env.WORKFLOW_MODE == 'auto_publish' || github.event_name == 'push'
         run: node scripts/fetch_eyecatch.js
 
       - name: Build article HTML
@@ -77,13 +77,13 @@ jobs:
         if: env.WORKFLOW_MODE == 'auto_publish' || github.event_name == 'push'
         run: node scripts/generate_sitemap.js
 
-      - name: Commit generated files (auto_publish only)
-        if: env.WORKFLOW_MODE == 'auto_publish'
+      - name: Commit generated files (push or auto_publish only)
+        if: github.event_name == 'push' || env.WORKFLOW_MODE == 'auto_publish'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add articles_src articles data/posts.json sitemap.xml tmp
+          git add articles_src articles data/posts.json sitemap.xml
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
@@ -91,6 +91,6 @@ jobs:
           fi
 
           git pull --rebase origin main
-          git add articles_src articles data/posts.json sitemap.xml tmp
-          git commit -m "chore: generate article and rebuild site"
+          git add articles_src articles data/posts.json sitemap.xml
+          git commit -m "chore: rebuild generated site files"
           git push
