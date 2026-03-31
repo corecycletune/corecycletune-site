@@ -382,17 +382,19 @@ function assertQuoteBlock(articleMd) {
 }
 
 function assertPaperSummaryBlock(articleMd) {
-  const hasResearchNote = articleMd.includes("Research Note");
-  const paperSummaryMatch = /$begin:math:display$paper\-summary$end:math:display$[\s\S]*?$begin:math:display$\\\/paper\-summary$end:math:display$/.test(articleMd);
+  const researchNoteIndex = articleMd.indexOf("Research Note");
+  const openIndex = articleMd.indexOf("[paper-summary]");
+  const closeIndex = articleMd.indexOf("[/paper-summary]");
 
-  console.log("HAS_RESEARCH_NOTE:", hasResearchNote);
-  console.log("PAPER_SUMMARY_REGEX_MATCH:", paperSummaryMatch);
+  console.log("HAS_RESEARCH_NOTE:", researchNoteIndex !== -1);
+  console.log("PAPER_SUMMARY_OPEN_INDEX:", openIndex);
+  console.log("PAPER_SUMMARY_CLOSE_INDEX:", closeIndex);
 
-  if (!hasResearchNote) {
+  if (researchNoteIndex === -1) {
     fail("Generated article_md is missing required 'Research Note'.");
   }
 
-  if (!paperSummaryMatch) {
+  if (openIndex === -1 || closeIndex === -1 || closeIndex <= openIndex) {
     fail("Generated article_md is missing the required [paper-summary]...[/paper-summary] block.");
   }
 
@@ -414,46 +416,42 @@ function assertPaperSummaryBlock(articleMd) {
   }
 }
 
+function assertSingleCctCycle(articleMd, typeName, leadingField) {
+  const openTag = `[cct-cycle type="${typeName}"]`;
+  const closeTag = "[/cct-cycle]";
+  const openIndex = articleMd.indexOf(openTag);
+
+  let closeIndex = -1;
+  if (openIndex !== -1) {
+    closeIndex = articleMd.indexOf(closeTag, openIndex + openTag.length);
+  }
+
+  console.log(`CCT_${typeName.toUpperCase()}_OPEN_INDEX:`, openIndex);
+  console.log(`CCT_${typeName.toUpperCase()}_CLOSE_INDEX:`, closeIndex);
+
+  if (openIndex === -1 || closeIndex === -1 || closeIndex <= openIndex) {
+    fail(`Generated article_md is missing the required ${openTag}...${closeTag} block.`);
+  }
+
+  const blockText = articleMd.slice(openIndex, closeIndex + closeTag.length);
+
+  const requiredFields = [
+    `${leadingField} |`,
+    "身体状態 |",
+    "心理状態 |",
+    "次の行動 |",
+  ];
+
+  for (const field of requiredFields) {
+    if (!blockText.includes(field)) {
+      fail(`Generated ${typeName} cct-cycle block is missing field: ${field}`);
+    }
+  }
+}
+
 function assertCctCycleBlocks(articleMd) {
-  const hasDissonance = /$begin:math:display$cct\-cycle type\=\"dissonance\"$end:math:display$[\s\S]*?$begin:math:display$\\\/cct\-cycle$end:math:display$/.test(articleMd);
-  const hasResolution = /$begin:math:display$cct\-cycle type\=\"resolution\"$end:math:display$[\s\S]*?$begin:math:display$\\\/cct\-cycle$end:math:display$/.test(articleMd);
-
-  console.log("HAS_DISSONANCE_CYCLE:", hasDissonance);
-  console.log("HAS_RESOLUTION_CYCLE:", hasResolution);
-
-  if (!hasDissonance) {
-    fail('Generated article_md is missing the required [cct-cycle type="dissonance"]...[/cct-cycle] block.');
-  }
-
-  if (!hasResolution) {
-    fail('Generated article_md is missing the required [cct-cycle type="resolution"]...[/cct-cycle] block.');
-  }
-
-  const dissonanceFields = [
-    "不協 |",
-    "身体状態 |",
-    "心理状態 |",
-    "次の行動 |",
-  ];
-
-  for (const field of dissonanceFields) {
-    if (!articleMd.includes(field)) {
-      fail(`Generated article_md is missing cct-cycle field: ${field}`);
-    }
-  }
-
-  const resolutionFields = [
-    "解決 |",
-    "身体状態 |",
-    "心理状態 |",
-    "次の行動 |",
-  ];
-
-  for (const field of resolutionFields) {
-    if (!articleMd.includes(field)) {
-      fail(`Generated article_md is missing cct-cycle field: ${field}`);
-    }
-  }
+  assertSingleCctCycle(articleMd, "dissonance", "不協");
+  assertSingleCctCycle(articleMd, "resolution", "解決");
 }
 
 function validateArticleMarkdown(articleMd) {
