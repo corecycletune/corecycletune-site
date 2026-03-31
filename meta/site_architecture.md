@@ -468,3 +468,155 @@ AI運用にはワークフローモードを持たせる。
 - prompt のさらなる責務調整
 
 ただし、**まずはSSOTと実行プロンプトの整合を保つこと**を優先する。
+
+---
+
+## GitHub Actions の運用分岐
+
+CCT Lab では、**あなたのコミット→プッシュ** と、**その後に GitHub Actions が何をするか** を分けて考える。
+
+### 用語
+- あなたのコミット→プッシュ  
+  スマホから行う通常の更新操作。実務上は1セットとして扱う。
+- AI生成  
+  `scripts/generate_ai_article.js` が実行され、OpenAI API を呼ぶこと。これが走ると課金対象になる。
+- ビルド  
+  記事HTML、`data/posts.json`、`sitemap.xml` などの公開用生成物を作ること。
+- Actions側の自動反映  
+  Actions が生成したファイルをさらにコミット→プッシュすること。
+
+### 基本原則
+- **AI生成は、記事を生成したいときだけ動かす**
+- 通常の構造変更やCSS変更で、AI生成を走らせない
+- `scripts/generate_ai_article.js` が実行されなければ、OpenAI API は呼ばれず、課金は発生しない
+- `review` では AI生成のみを行い、Actions側の自動反映はしない
+- `auto_publish` では AI生成後にビルドし、必要なら Actions側の自動反映を行う
+- push 起点の通常ビルドでは、AI生成を走らせない
+
+---
+
+## ファイル分類と Actions の挙動
+
+### 1. 記事を手動で追加・修正
+対象:
+- `articles_src/**`
+
+挙動:
+- あなたのコミット→プッシュ: する
+- AI生成: しない
+- ビルド: する
+- Actions側の自動反映: する
+
+### 2. テンプレートやビルドロジックを変更
+対象:
+- `templates/**`
+- `scripts/build_article.js`
+- `scripts/generate_posts.js`
+- `scripts/generate_sitemap.js`
+- `scripts/fetch_eyecatch.js`
+
+挙動:
+- あなたのコミット→プッシュ: する
+- AI生成: しない
+- ビルド: する
+- Actions側の自動反映: する
+
+### 3. CSS / JS のみを変更
+対象:
+- `assets/style.css`
+- `assets/app.js`
+
+挙動:
+- あなたのコミット→プッシュ: する
+- AI生成: しない
+- ビルド: 原則しない
+- Actions側の自動反映: しない
+
+補足:
+- `app.js` は公開後のページで動くフロント用JSであり、主に共通UI、パンくず、`posts.json` を元にした一覧・関連記事描画などを担う
+- 記事HTMLそのものを生成するスクリプトではないため、単独変更では原則ビルド対象にしない
+
+### 4. AI用の定義ファイル・プロンプトを変更
+対象:
+- `generate_article.md`
+- `article_structure.md`
+- `base_cct_concept.md`
+- `site_architecture.md`
+
+挙動:
+- あなたのコミット→プッシュ: する
+- AI生成: しない
+- ビルド: しない
+- Actions側の自動反映: しない
+
+補足:
+- これらは次回のAI生成ルールにだけ影響する
+- 既存公開ページを直接変えない
+
+### 5. workflow 自体を変更
+対象:
+- `.github/workflows/generate-posts.yml`
+
+挙動:
+- あなたのコミット→プッシュ: する
+- AI生成: しない
+- ビルド: しない
+- Actions側の自動反映: しない
+
+### 6. AI生成スクリプトを変更
+対象:
+- `scripts/generate_ai_article.js`
+
+挙動:
+- あなたのコミット→プッシュ: する
+- AI生成: しない
+- ビルド: しない
+- Actions側の自動反映: しない
+
+補足:
+- これは AI生成ロジックの変更であり、通常 push では実行しない
+- 次回 review / auto_publish / schedule 実行時にだけ効く
+
+### 7. AIレビュー用の生成物
+対象:
+- `articles_draft/**`
+- `tmp/ai_generation_summary.json`
+
+挙動:
+- 通常 push の監視対象にしない
+- 公開用ビルドにも使わない
+- review 実行時の確認用とする
+
+---
+
+## trigger ごとの挙動
+
+### push
+- AI生成: しない
+- ビルド: 必要な変更に対してのみ行う
+- Actions側の自動反映: 必要な変更に対してのみ行う
+
+### workflow_dispatch
+- `review`
+  - AI生成: する
+  - ビルド: しない
+  - Actions側の自動反映: しない
+- `auto_publish`
+  - AI生成: する
+  - ビルド: する
+  - Actions側の自動反映: する
+
+### schedule
+- 原則として `review` 相当で扱う
+- AI生成: する
+- ビルド: しない
+- Actions側の自動反映: しない
+
+---
+
+## 重要な安全原則
+
+- AI生成後の push は、条件分岐を誤ると loop の原因になりうる
+- そのため、**push起点では AI生成を走らせない**ことを基本原則とする
+- 課金の発生源は OpenAI API 呼び出しであり、`scripts/generate_ai_article.js` が実行されない限り課金は発生しない
+- review は確認用であり、main を勝手に更新しない
