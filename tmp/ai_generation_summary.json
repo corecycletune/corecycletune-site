@@ -2,14 +2,14 @@
   "workflowMode": "review",
   "manualRequest": "",
   "model": "gpt-5.4-mini",
-  "slug": "evening-snacking-blood-sugar",
-  "title": "夕方にお腹が空きすぎると夜食が止まりにくいのはなぜか？血糖変動と報酬刺激の研究",
+  "slug": "afternoon-snack-night-appetite",
+  "title": "夕方の軽い間食で夜の食べすぎは減るのか？空腹の波と夜食の研究",
   "outputBaseDir": "articles_draft",
-  "articlePath": "articles_draft/evening-snacking-blood-sugar/article.md",
+  "articlePath": "articles_draft/afternoon-snack-night-appetite/article.md",
   "promptFiles": {
     "generateArticlePath": "/home/runner/work/corecycletune-site/corecycletune-site/prompts/generate_article.md",
     "articleStructurePath": "/home/runner/work/corecycletune-site/corecycletune-site/prompts/article_structure.md",
     "baseConceptPath": "/home/runner/work/corecycletune-site/corecycletune-site/prompts/base_cct_concept.md"
   },
-  "generatedAt": "2026-03-31T08:52:28.219Z"
+  "generatedAt": "2026-03-31T08:53:10.403Z"
 }
