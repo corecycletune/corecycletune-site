@@ -387,7 +387,15 @@ function validateArticleMarkdown(articleMd) {
     fail("Generated article_md body is empty.");
   }
 
-  if (!/$begin:math:display$quote$end:math:display$[\s\S]*?$begin:math:display$\\\/quote$end:math:display$/.test(articleMd)) {
+  const hasOpenQuoteTag = articleMd.includes("[quote]");
+  const hasCloseQuoteTag = articleMd.includes("[/quote]");
+  const quoteRegexMatch = /$begin:math:display$quote$end:math:display$[\s\S]*?$begin:math:display$\\\/quote$end:math:display$/.test(articleMd);
+
+  console.log("HAS_OPEN_QUOTE_TAG:", hasOpenQuoteTag);
+  console.log("HAS_CLOSE_QUOTE_TAG:", hasCloseQuoteTag);
+  console.log("QUOTE_REGEX_MATCH:", quoteRegexMatch);
+
+  if (!quoteRegexMatch) {
     fail("Generated article_md is missing the required [quote]...[/quote] block.");
   }
 }
