@@ -1,15 +1,15 @@
 {
   "workflowMode": "review",
   "manualRequest": "",
-  "model": "gpt-5.4-mini",
-  "slug": "afternoon-snack-night-appetite",
-  "title": "夕方の軽い間食で夜の食べすぎは減るのか？空腹の波と夜食の研究",
+  "model": "gpt-5.4",
+  "slug": "green-exercise-mood",
+  "title": "自然の中で動くと気分は上がりやすいのか？グリーンエクササイズ研究で見るストレス回復",
   "outputBaseDir": "articles_draft",
-  "articlePath": "articles_draft/afternoon-snack-night-appetite/article.md",
+  "articlePath": "articles_draft/green-exercise-mood/article.md",
   "promptFiles": {
     "generateArticlePath": "/home/runner/work/corecycletune-site/corecycletune-site/prompts/generate_article.md",
     "articleStructurePath": "/home/runner/work/corecycletune-site/corecycletune-site/prompts/article_structure.md",
     "baseConceptPath": "/home/runner/work/corecycletune-site/corecycletune-site/prompts/base_cct_concept.md"
   },
-  "generatedAt": "2026-03-31T08:53:10.403Z"
+  "generatedAt": "2026-03-31T09:14:16.806Z"
 }
