@@ -14,8 +14,7 @@ const OUTPUT_DIR_REVIEW = "articles_draft";
 const OUTPUT_DIR_PUBLISH = "articles_src";
 
 function fail(message) {
-  console.error(message);
-  process.exit(1);
+  throw new Error(message);
 }
 
 function readIfExists(filePath) {
@@ -348,22 +347,7 @@ function extractTitleFromFrontMatter(articleMd) {
   return titleMatch[1].trim().replace(/^["']|["']$/g, "");
 }
 
-function validateArticleMarkdown(articleMd) {
-  if (typeof articleMd !== "string" || !articleMd.trim()) {
-    fail("Generated article_md is empty.");
-  }
-
-  if (!articleMd.startsWith("---\n")) {
-    fail("Generated article_md does not start with front matter.");
-  }
-
-  const frontMatterMatch = articleMd.match(/^---\n([\s\S]*?)\n---\n?/);
-  if (!frontMatterMatch) {
-    fail("Generated article_md front matter is malformed.");
-  }
-
-  const frontMatter = frontMatterMatch[1];
-
+function assertRequiredFrontMatter(frontMatter) {
   const requiredKeys = [
     "title",
     "description",
@@ -381,12 +365,9 @@ function validateArticleMarkdown(articleMd) {
       fail(`Generated article_md is missing required front matter key: ${key}`);
     }
   }
+}
 
-  const body = articleMd.slice(frontMatterMatch[0].length).trim();
-  if (!body) {
-    fail("Generated article_md body is empty.");
-  }
-
+function assertQuoteBlock(articleMd) {
   const hasOpenQuoteTag = articleMd.includes("[quote]");
   const hasCloseQuoteTag = articleMd.includes("[/quote]");
   const quoteRegexMatch = /$begin:math:display$quote$end:math:display$[\s\S]*?$begin:math:display$\\\/quote$end:math:display$/.test(articleMd);
@@ -398,6 +379,108 @@ function validateArticleMarkdown(articleMd) {
   if (!quoteRegexMatch) {
     fail("Generated article_md is missing the required [quote]...[/quote] block.");
   }
+}
+
+function assertPaperSummaryBlock(articleMd) {
+  const hasResearchNote = articleMd.includes("Research Note");
+  const paperSummaryMatch = /$begin:math:display$paper\-summary$end:math:display$[\s\S]*?$begin:math:display$\\\/paper\-summary$end:math:display$/.test(articleMd);
+
+  console.log("HAS_RESEARCH_NOTE:", hasResearchNote);
+  console.log("PAPER_SUMMARY_REGEX_MATCH:", paperSummaryMatch);
+
+  if (!hasResearchNote) {
+    fail("Generated article_md is missing required 'Research Note'.");
+  }
+
+  if (!paperSummaryMatch) {
+    fail("Generated article_md is missing the required [paper-summary]...[/paper-summary] block.");
+  }
+
+  const requiredPaperFields = [
+    "論文タイトル |",
+    "著者 |",
+    "年 |",
+    "どこの研究か |",
+    "どんな内容か |",
+    "対象・条件 |",
+    "限界 |",
+    "論文リンク |",
+  ];
+
+  for (const field of requiredPaperFields) {
+    if (!articleMd.includes(field)) {
+      fail(`Generated article_md is missing paper-summary field: ${field}`);
+    }
+  }
+}
+
+function assertCctCycleBlocks(articleMd) {
+  const hasDissonance = /$begin:math:display$cct\-cycle type\=\"dissonance\"$end:math:display$[\s\S]*?$begin:math:display$\\\/cct\-cycle$end:math:display$/.test(articleMd);
+  const hasResolution = /$begin:math:display$cct\-cycle type\=\"resolution\"$end:math:display$[\s\S]*?$begin:math:display$\\\/cct\-cycle$end:math:display$/.test(articleMd);
+
+  console.log("HAS_DISSONANCE_CYCLE:", hasDissonance);
+  console.log("HAS_RESOLUTION_CYCLE:", hasResolution);
+
+  if (!hasDissonance) {
+    fail('Generated article_md is missing the required [cct-cycle type="dissonance"]...[/cct-cycle] block.');
+  }
+
+  if (!hasResolution) {
+    fail('Generated article_md is missing the required [cct-cycle type="resolution"]...[/cct-cycle] block.');
+  }
+
+  const dissonanceFields = [
+    "不協 |",
+    "身体状態 |",
+    "心理状態 |",
+    "次の行動 |",
+  ];
+
+  for (const field of dissonanceFields) {
+    if (!articleMd.includes(field)) {
+      fail(`Generated article_md is missing cct-cycle field: ${field}`);
+    }
+  }
+
+  const resolutionFields = [
+    "解決 |",
+    "身体状態 |",
+    "心理状態 |",
+    "次の行動 |",
+  ];
+
+  for (const field of resolutionFields) {
+    if (!articleMd.includes(field)) {
+      fail(`Generated article_md is missing cct-cycle field: ${field}`);
+    }
+  }
+}
+
+function validateArticleMarkdown(articleMd) {
+  if (typeof articleMd !== 'string' || !articleMd.trim()) {
+    fail("Generated article_md is empty.");
+  }
+
+  if (!articleMd.startsWith("---\n")) {
+    fail("Generated article_md does not start with front matter.");
+  }
+
+  const frontMatterMatch = articleMd.match(/^---\n([\s\S]*?)\n---\n?/);
+  if (!frontMatterMatch) {
+    fail("Generated article_md front matter is malformed.");
+  }
+
+  const frontMatter = frontMatterMatch[1];
+  assertRequiredFrontMatter(frontMatter);
+
+  const body = articleMd.slice(frontMatterMatch[0].length).trim();
+  if (!body) {
+    fail("Generated article_md body is empty.");
+  }
+
+  assertQuoteBlock(articleMd);
+  assertPaperSummaryBlock(articleMd);
+  assertCctCycleBlocks(articleMd);
 }
 
 function escapeRegExp(text) {
