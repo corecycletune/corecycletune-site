@@ -5,9 +5,10 @@ on:
     paths:
       - "articles_src/**"
       - "templates/**"
-      - "scripts/**"
-      - "assets/**"
-      - ".github/workflows/generate-posts.yml"
+      - "scripts/build_article.js"
+      - "scripts/generate_posts.js"
+      - "scripts/generate_sitemap.js"
+      - "scripts/fetch_eyecatch.js"
   workflow_dispatch:
     inputs:
       workflow_mode:
@@ -27,6 +28,10 @@ on:
 
 permissions:
   contents: write
+
+concurrency:
+  group: generate-posts-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -54,43 +59,38 @@ jobs:
 
       - name: Generate article.md with AI
         if: >
-          (
-            github.event_name == 'workflow_dispatch' ||
-            github.event_name == 'schedule'
-          ) &&
-          env.RUN_AI_GENERATION == 'true'
+          (github.event_name == 'workflow_dispatch' && env.RUN_AI_GENERATION == 'true') ||
+          github.event_name == 'schedule'
         run: node scripts/generate_ai_article.js
 
       - name: Fetch eyecatch metadata
-        if: env.WORKFLOW_MODE == 'auto_publish' || github.event_name == 'push'
+        if: github.event_name == 'push' || env.WORKFLOW_MODE == 'auto_publish'
         run: node scripts/fetch_eyecatch.js
 
       - name: Build article HTML
-        if: env.WORKFLOW_MODE == 'auto_publish' || github.event_name == 'push'
+        if: github.event_name == 'push' || env.WORKFLOW_MODE == 'auto_publish'
         run: node scripts/build_article.js
 
       - name: Generate posts.json
-        if: env.WORKFLOW_MODE == 'auto_publish' || github.event_name == 'push'
+        if: github.event_name == 'push' || env.WORKFLOW_MODE == 'auto_publish'
         run: node scripts/generate_posts.js
 
       - name: Generate sitemap.xml
-        if: env.WORKFLOW_MODE == 'auto_publish' || github.event_name == 'push'
+        if: github.event_name == 'push' || env.WORKFLOW_MODE == 'auto_publish'
         run: node scripts/generate_sitemap.js
 
-      - name: Commit generated files (push or auto_publish only)
+      - name: Commit generated files
         if: github.event_name == 'push' || env.WORKFLOW_MODE == 'auto_publish'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add articles_src articles data/posts.json sitemap.xml
+          git add articles data/posts.json sitemap.xml
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
           fi
 
-          git pull --rebase origin main
-          git add articles_src articles data/posts.json sitemap.xml
           git commit -m "chore: rebuild generated site files"
           git push
