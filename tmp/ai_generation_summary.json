@@ -2,14 +2,14 @@
   "workflowMode": "review",
   "manualRequest": "",
   "model": "gpt-5.4",
-  "slug": "green-exercise-mood",
-  "title": "自然の中で動くと気分は上がりやすいのか？グリーンエクササイズ研究で見るストレス回復",
+  "slug": "social-jetlag-weekend-fatigue",
+  "title": "週末の寝だめで月曜が重いのはなぜ？ソーシャルジェットラグとだるさの研究",
   "outputBaseDir": "articles_draft",
-  "articlePath": "articles_draft/green-exercise-mood/article.md",
+  "articlePath": "articles_draft/social-jetlag-weekend-fatigue/article.md",
   "promptFiles": {
     "generateArticlePath": "/home/runner/work/corecycletune-site/corecycletune-site/prompts/generate_article.md",
     "articleStructurePath": "/home/runner/work/corecycletune-site/corecycletune-site/prompts/article_structure.md",
     "baseConceptPath": "/home/runner/work/corecycletune-site/corecycletune-site/prompts/base_cct_concept.md"
   },
-  "generatedAt": "2026-03-31T09:14:16.806Z"
+  "generatedAt": "2026-03-31T09:22:05.874Z"
 }
