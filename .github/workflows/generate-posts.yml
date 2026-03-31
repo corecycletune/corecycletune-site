@@ -42,7 +42,7 @@ jobs:
       WORKFLOW_MODE: ${{ github.event.inputs.workflow_mode || 'review' }}
       MANUAL_REQUEST: ${{ github.event.inputs.manual_request || '' }}
       RUN_AI_GENERATION: ${{ github.event.inputs.run_ai_generation || 'true' }}
-      OPENAI_MODEL: gpt-5.4-mini
+      OPENAI_MODEL: gpt-5.4
 
     steps:
       - name: Checkout
