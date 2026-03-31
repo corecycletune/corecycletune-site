@@ -449,6 +449,13 @@ async function generateOneArticle() {
     const slug = sanitizeSlug(parsed.slug);
     const articleMd = parsed.article_md;
 
+    console.log("===== GENERATED SLUG START =====");
+    console.log(slug);
+    console.log("===== GENERATED SLUG END =====");
+    console.log("===== GENERATED ARTICLE START =====");
+    console.log(articleMd);
+    console.log("===== GENERATED ARTICLE END =====");
+
     if (!slug) {
       duplicateRetryNote =
         "Previous attempt failed because the slug was empty or invalid. Return a valid English kebab-case slug.";
