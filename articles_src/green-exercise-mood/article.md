@@ -7,6 +7,11 @@ topics: 自然環境, 気分回復, 歩行
 category: 運動・活動
 readingTime: 11 min
 eyecatchQuery: green walking park
+eyecatch: https://images.unsplash.com/photo-1723925665826-a7656c4807f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxncmVlbiUyMHdhbGtpbmclMjBwYXJrfGVufDF8MHx8fDE3NzQ5NTMwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: A man and woman walking down a path in a park
+eyecatchPhotoBy: Tasha Kostyuk
+eyecatchPhotoUrl: https://unsplash.com/@tashakostyuk?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 [quote]
