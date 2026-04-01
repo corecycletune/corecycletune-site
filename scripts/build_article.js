@@ -367,7 +367,6 @@ function buildQuoteBlock(rawLines) {
 
   if (!lines.length) return "";
 
-  // 最後の行が（で始まる日本語訳なら分離する
   const lastLine = lines[lines.length - 1];
   const hasTranslation = lastLine.startsWith("（") && lastLine.endsWith("）");
 
@@ -671,17 +670,45 @@ function replaceAll(templateText, values) {
   return out;
 }
 
-function run() {
-  const dirs = fs.readdirSync(SRC_DIR, { withFileTypes: true });
+function getSourceSlugs() {
+  if (!fs.existsSync(SRC_DIR)) return [];
 
-  for (const entry of dirs) {
+  return fs
+    .readdirSync(SRC_DIR, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .filter((slug) => !slug.startsWith("_"))
+    .filter((slug) => fs.existsSync(path.join(SRC_DIR, slug, "article.md")));
+}
+
+function removeStaleOutputDirs(validSlugs) {
+  if (!fs.existsSync(OUT_DIR)) return;
+
+  const validSlugSet = new Set(validSlugs);
+
+  const entries = fs.readdirSync(OUT_DIR, { withFileTypes: true });
+
+  for (const entry of entries) {
     if (!entry.isDirectory()) continue;
 
     const slug = entry.name;
     if (slug.startsWith("_")) continue;
+    if (validSlugSet.has(slug)) continue;
 
+    const targetDir = path.join(OUT_DIR, slug);
+    fs.rmSync(targetDir, { recursive: true, force: true });
+    console.log("remove stale article:", slug);
+  }
+}
+
+function run() {
+  ensureDir(OUT_DIR);
+
+  const slugs = getSourceSlugs();
+  removeStaleOutputDirs(slugs);
+
+  for (const slug of slugs) {
     const mdPath = path.join(SRC_DIR, slug, "article.md");
-    if (!fs.existsSync(mdPath)) continue;
 
     const md = fs.readFileSync(mdPath, "utf8");
     const { meta, body } = parseFrontMatter(md);
