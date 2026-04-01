@@ -620,3 +620,71 @@ CCT Lab では、**あなたのコミット→プッシュ** と、**その後�
 - そのため、**push起点では AI生成を走らせない**ことを基本原則とする
 - 課金の発生源は OpenAI API 呼び出しであり、`scripts/generate_ai_article.js` が実行されない限り課金は発生しない
 - review は確認用であり、main を勝手に更新しない
+
+## 追記: AI生成ワークフローと既存記事コンテキストの整理（2026-04-01）
+
+### workflow_dispatch / schedule の運用
+AI記事生成の手動実行は `review` と `auto_publish` の2系統とする。
+
+- `review`
+  - AI生成のみ行う
+  - 出力先は `articles_draft/<slug>/article.md`
+  - build はしない
+  - 自動反映もしない
+
+- `auto_publish`
+  - AI生成を行う
+  - 出力先は `articles_src/<slug>/article.md`
+  - その後 `scripts/fetch_eyecatch.js` `scripts/build_article.js` `scripts/generate_posts.js` `scripts/generate_sitemap.js` を実行する
+  - `articles_src/**` `articles/**` `data/posts.json` `sitemap.xml` をコミット対象に含める
+
+`schedule` は `auto_publish` 相当として扱う。
+つまり、定期実行では AI生成から build・公開反映までを一連で流す。
+
+### push の原則
+`push` 起点では AI生成を走らせない。
+`push` では build 系のみを実行対象とし、OpenAI API は呼ばない。
+したがって、`scripts/generate_ai_article.js` が動かない限り API課金は発生しない。
+
+### build_article.js の責務追加
+`scripts/build_article.js` は `articles_src` を正として HTML を生成する。
+あわせて、`articles_src` から消えた slug に対応する `articles/<slug>/` は build 時に削除する。
+
+これにより、記事ソース削除時の挙動は以下になる。
+
+- `articles_src/<slug>/article.md` を削除すると
+  - `data/posts.json` から消える
+  - `sitemap.xml` から消える
+  - 次回 build 時に `articles/<slug>/` も削除される
+
+前提として、`articles/` 配下は build 生成物のみを置く。
+
+### generate_ai_article.js の既存記事コンテキスト圧縮
+収益化初期は APIコスト抑制を優先するため、AI実行時に渡す既存記事コンテキストは圧縮する。
+
+- 最大件数は 30件
+- AIに渡す既存記事情報は以下のみとする
+  - `slug`
+  - `title`
+  - `description`
+  - `tags`
+  - `paperTitle`
+
+`paperTitle` は `data/posts.json` には持たせず、`generate_ai_article.js` が `articles_src/**/article.md` を直接読んで `[paper-summary]` 内の `論文タイトル | ...` を抽出して使う。
+
+### 重複回避の優先順位
+CCT Lab では、もともと「面白い論文を見つけて、そこから記事を書く」流れを重視する。
+そのため、重複回避では特に論文重複を避けることを重視する。
+
+優先順位は以下。
+
+1. 論文タイトルの重複回避
+2. title / description の近似回避
+3. slug の重複回避
+
+### 現時点の考え方
+初期フェーズでは、ある程度のテーマ近接は許容する。
+ただし、同一論文または極めて近い論文の重複採用は避ける。
+また、コスト最適化のために、既存記事コンテキストは必要最小限に保つ。
+
+
