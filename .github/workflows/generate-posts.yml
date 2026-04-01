@@ -9,20 +9,18 @@ on:
       - "scripts/generate_posts.js"
       - "scripts/generate_sitemap.js"
       - "scripts/fetch_eyecatch.js"
+
   workflow_dispatch:
     inputs:
       workflow_mode:
         description: "review or auto_publish"
-        required: false
+        required: true
         default: "review"
       manual_request:
         description: "Optional natural-language article request"
         required: false
         default: ""
-      run_ai_generation:
-        description: "true to run AI article generation"
-        required: false
-        default: "true"
+
   schedule:
     - cron: "15 22 * * *"
 
@@ -43,9 +41,6 @@ jobs:
       UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
       UTM_SOURCE: cctlab
       UTM_MEDIUM: referral
-      WORKFLOW_MODE: ${{ github.event.inputs.workflow_mode || 'review' }}
-      MANUAL_REQUEST: ${{ github.event.inputs.manual_request || '' }}
-      RUN_AI_GENERATION: ${{ github.event.inputs.run_ai_generation || 'false' }}
       OPENAI_MODEL: gpt-5.4
 
     steps:
@@ -57,30 +52,93 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Resolve workflow flags
+        shell: bash
+        run: |
+          EVENT_NAME="${{ github.event_name }}"
+          INPUT_MODE="${{ github.event.inputs.workflow_mode }}"
+          MANUAL_REQUEST_INPUT="${{ github.event.inputs.manual_request }}"
+
+          WORKFLOW_MODE="review"
+          RUN_AI_GENERATION="false"
+          RUN_BUILD="false"
+          RUN_COMMIT="false"
+          COMMIT_SCOPE="none"
+          MANUAL_REQUEST="$MANUAL_REQUEST_INPUT"
+
+          if [ "$EVENT_NAME" = "push" ]; then
+            WORKFLOW_MODE="push_build"
+            RUN_AI_GENERATION="false"
+            RUN_BUILD="true"
+            RUN_COMMIT="true"
+            COMMIT_SCOPE="generated_only"
+          elif [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            if [ "$INPUT_MODE" = "auto_publish" ]; then
+              WORKFLOW_MODE="auto_publish"
+              RUN_AI_GENERATION="true"
+              RUN_BUILD="true"
+              RUN_COMMIT="true"
+              COMMIT_SCOPE="publish"
+            else
+              WORKFLOW_MODE="review"
+              RUN_AI_GENERATION="true"
+              RUN_BUILD="false"
+              RUN_COMMIT="false"
+              COMMIT_SCOPE="none"
+            fi
+          elif [ "$EVENT_NAME" = "schedule" ]; then
+            WORKFLOW_MODE="auto_publish"
+            RUN_AI_GENERATION="true"
+            RUN_BUILD="true"
+            RUN_COMMIT="true"
+            COMMIT_SCOPE="publish"
+            MANUAL_REQUEST=""
+          fi
+
+          echo "WORKFLOW_MODE=$WORKFLOW_MODE" >> "$GITHUB_ENV"
+          echo "RUN_AI_GENERATION=$RUN_AI_GENERATION" >> "$GITHUB_ENV"
+          echo "RUN_BUILD=$RUN_BUILD" >> "$GITHUB_ENV"
+          echo "RUN_COMMIT=$RUN_COMMIT" >> "$GITHUB_ENV"
+          echo "COMMIT_SCOPE=$COMMIT_SCOPE" >> "$GITHUB_ENV"
+
+          {
+            echo "MANUAL_REQUEST<<EOF"
+            echo "$MANUAL_REQUEST"
+            echo "EOF"
+          } >> "$GITHUB_ENV"
+
+          echo "Resolved flags:"
+          echo "  EVENT_NAME=$EVENT_NAME"
+          echo "  WORKFLOW_MODE=$WORKFLOW_MODE"
+          echo "  RUN_AI_GENERATION=$RUN_AI_GENERATION"
+          echo "  RUN_BUILD=$RUN_BUILD"
+          echo "  RUN_COMMIT=$RUN_COMMIT"
+          echo "  COMMIT_SCOPE=$COMMIT_SCOPE"
+          echo "  MANUAL_REQUEST_SET=$( [ -n "$MANUAL_REQUEST" ] && echo true || echo false )"
+
       - name: Generate article.md with AI
-        if: >
-          (github.event_name == 'workflow_dispatch' && env.RUN_AI_GENERATION == 'true') ||
-          github.event_name == 'schedule'
+        if: env.RUN_AI_GENERATION == 'true'
         run: node scripts/generate_ai_article.js
 
       - name: Fetch eyecatch metadata
-        if: github.event_name == 'push' || env.WORKFLOW_MODE == 'auto_publish'
+        if: env.RUN_BUILD == 'true'
         run: node scripts/fetch_eyecatch.js
 
       - name: Build article HTML
-        if: github.event_name == 'push' || env.WORKFLOW_MODE == 'auto_publish'
+        if: env.RUN_BUILD == 'true'
         run: node scripts/build_article.js
 
       - name: Generate posts.json
-        if: github.event_name == 'push' || env.WORKFLOW_MODE == 'auto_publish'
+        if: env.RUN_BUILD == 'true'
         run: node scripts/generate_posts.js
 
       - name: Generate sitemap.xml
-        if: github.event_name == 'push' || env.WORKFLOW_MODE == 'auto_publish'
+        if: env.RUN_BUILD == 'true'
         run: node scripts/generate_sitemap.js
 
-      - name: Commit generated files
-        if: github.event_name == 'push' || env.WORKFLOW_MODE == 'auto_publish'
+      - name: Commit generated files for push rebuild
+        if: env.RUN_COMMIT == 'true' && env.COMMIT_SCOPE == 'generated_only'
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -93,4 +151,21 @@ jobs:
           fi
 
           git commit -m "chore: rebuild generated site files"
+          git push
+
+      - name: Commit AI article and generated files
+        if: env.RUN_COMMIT == 'true' && env.COMMIT_SCOPE == 'publish'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add articles_src articles data/posts.json sitemap.xml
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: publish AI-generated article"
           git push
