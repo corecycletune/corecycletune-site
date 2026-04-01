@@ -9,7 +9,7 @@ const WORKFLOW_MODE = process.env.WORKFLOW_MODE || "review";
 const MANUAL_REQUEST = (process.env.MANUAL_REQUEST || "").trim();
 
 const MAX_ARTICLES_PER_RUN = 1;
-const MAX_EXISTING_POSTS_FOR_CONTEXT = 80;
+const MAX_EXISTING_POSTS_FOR_CONTEXT = 30;
 const OUTPUT_DIR_REVIEW = "articles_draft";
 const OUTPUT_DIR_PUBLISH = "articles_src";
 
@@ -147,36 +147,124 @@ function collectExistingSlugs(posts) {
   return slugs;
 }
 
-function compactPostsForPrompt(posts) {
-  return posts.slice(0, MAX_EXISTING_POSTS_FOR_CONTEXT).map((post) => {
-    const title = valueOrEmpty(post.title);
-    const slug = valueOrEmpty(post.slug);
-    const description = valueOrEmpty(post.description);
-    const category = valueOrEmpty(post.category);
-    const topics = normalizeListForPrompt(post.topics);
-    const tags = normalizeListForPrompt(post.tags);
-    const updated = valueOrEmpty(post.updated);
-
-    return {
-      title,
-      slug,
-      description,
-      category,
-      topics,
-      tags,
-      updated,
-    };
-  });
-}
-
 function valueOrEmpty(value) {
   return typeof value === "string" ? value : "";
 }
 
-function normalizeListForPrompt(value) {
-  if (Array.isArray(value)) return value.join(", ");
-  if (typeof value === "string") return value;
+function normalizeTagsForPrompt(value) {
+  if (Array.isArray(value)) {
+    return value.map((item) => String(item || "").trim()).filter(Boolean);
+  }
+
+  if (typeof value === "string") {
+    return value
+      .split(",")
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
+  return [];
+}
+
+function parseDateForSort(value) {
+  if (typeof value !== "string" || !value.trim()) return 0;
+  const time = Date.parse(value);
+  return Number.isFinite(time) ? time : 0;
+}
+
+function extractPaperTitleFromArticleMd(articleMd) {
+  if (typeof articleMd !== "string" || !articleMd.trim()) return "";
+
+  const lines = articleMd.replace(/\r\n/g, "\n").split("\n");
+  let inPaperSummary = false;
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+
+    if (line === "[paper-summary]") {
+      inPaperSummary = true;
+      continue;
+    }
+
+    if (line === "[/paper-summary]") {
+      inPaperSummary = false;
+      continue;
+    }
+
+    if (!inPaperSummary) continue;
+
+    if (line.startsWith("論文タイトル |")) {
+      return line.slice("論文タイトル |".length).trim();
+    }
+  }
+
   return "";
+}
+
+function readArticleSourceBySlug(slug) {
+  const candidates = [
+    path.join(ROOT, "articles_src", slug, "article.md"),
+    path.join(ROOT, "articles_draft", slug, "article.md"),
+  ];
+
+  for (const absPath of candidates) {
+    if (!fileExists(absPath)) continue;
+    return readIfExists(absPath);
+  }
+
+  return "";
+}
+
+function buildExistingArticleContext(posts) {
+  const postMap = new Map();
+
+  for (const post of posts) {
+    if (!post || typeof post.slug !== "string" || !post.slug.trim()) continue;
+    postMap.set(post.slug.trim(), post);
+  }
+
+  const allSlugs = new Set();
+
+  for (const slug of postMap.keys()) {
+    allSlugs.add(slug);
+  }
+
+  for (const slug of listDirectoryNamesIfExists("articles_src")) {
+    allSlugs.add(slug);
+  }
+
+  for (const slug of listDirectoryNamesIfExists("articles_draft")) {
+    allSlugs.add(slug);
+  }
+
+  const rows = [];
+
+  for (const slug of allSlugs) {
+    const post = postMap.get(slug) || {};
+    const articleMd = readArticleSourceBySlug(slug);
+    const paperTitle = extractPaperTitleFromArticleMd(articleMd);
+
+    rows.push({
+      slug,
+      title: valueOrEmpty(post.title),
+      description: valueOrEmpty(post.description),
+      tags: normalizeTagsForPrompt(post.tags),
+      paperTitle,
+      updatedForSort: parseDateForSort(post.updated),
+    });
+  }
+
+  rows.sort((a, b) => b.updatedForSort - a.updatedForSort);
+
+  return rows
+    .slice(0, MAX_EXISTING_POSTS_FOR_CONTEXT)
+    .map((row) => ({
+      slug: row.slug,
+      title: row.title,
+      description: row.description,
+      tags: row.tags,
+      paperTitle: row.paperTitle,
+    }));
 }
 
 function getTodayInTokyo() {
@@ -201,6 +289,7 @@ function buildInstructions({ duplicateRetryNote }) {
     "Do not include slug in front matter unless it already belongs to the existing format. The save path uses the JSON slug field.",
     "Respect the provided prompt files as separate required authorities with distinct roles.",
     "Avoid duplicating existing themes, titles, descriptions, slugs, and near-identical angles.",
+    "Pay special attention to avoiding duplicate or near-duplicate paper choices based on existing paper titles.",
     "Use natural Japanese for the article body.",
     "The article must be publishable in the site's house style.",
     `Today's date in Asia/Tokyo is ${today}. Use this for updated.`,
@@ -230,7 +319,7 @@ function buildInput({
     "=== generate_article.md ===",
     promptFiles.generateArticle,
     "",
-    "=== existing posts summary JSON ===",
+    "=== existing posts compact JSON ===",
     existingPostsCompactJson,
     "",
     "=== manual article request ===",
@@ -519,7 +608,7 @@ async function generateOneArticle() {
   const promptFiles = loadPromptFiles();
   const posts = loadPostsJson();
   const existingSlugs = collectExistingSlugs(posts);
-  const existingPostsCompact = compactPostsForPrompt(posts);
+  const existingPostsCompact = buildExistingArticleContext(posts);
   const existingPostsCompactJson = JSON.stringify(existingPostsCompact, null, 2);
 
   let duplicateRetryNote = "";
@@ -572,6 +661,7 @@ async function generateOneArticle() {
       articlePath: path.relative(ROOT, writeResult.articlePath),
       promptFiles: promptFiles.resolvedPaths,
       generatedAt: new Date().toISOString(),
+      existingPostsContextCount: existingPostsCompact.length,
     };
 
     const summaryPath = writeRunSummaryFile(summary);
@@ -581,6 +671,7 @@ async function generateOneArticle() {
     console.log(`title: ${title}`);
     console.log(`article path: ${path.relative(ROOT, writeResult.articlePath)}`);
     console.log(`summary path: ${path.relative(ROOT, summaryPath)}`);
+    console.log(`existing posts context count: ${existingPostsCompact.length}`);
 
     return summary;
   }
