@@ -7,6 +7,11 @@ topics: 生活習慣, 神経可塑性, 集中力
 category: 環境・習慣
 readingTime: 10 min
 eyecatchQuery: morning walk quiet room
+eyecatch: https://images.unsplash.com/photo-1764921587475-866c1d48dc48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxtb3JuaW5nJTIwd2FsayUyMHF1aWV0JTIwcm9vbXxlbnwxfDB8fHwxNzc1MDQzODAzfDA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: A person kneels in a dimly lit living room.
+eyecatchPhotoBy: Kyle Kioko
+eyecatchPhotoUrl: https://unsplash.com/@kylekioko?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 以前の私は、生活のリズムがかなり崩れていました。夜遅くまでスマホや動画を見て、食事は空腹や衝動に任せ、運動はほとんどしない。気分の波も大きく、何か特別な問題があるわけではないのに、なんとなくエネルギーが出にくい状態が続いていました。

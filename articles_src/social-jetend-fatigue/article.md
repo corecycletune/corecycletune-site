@@ -7,6 +7,11 @@ topics: ソーシャルジェットラグ, 週末の寝だめ, 月曜のだる�
 category: 睡眠・休養
 readingTime: 11 min
 eyecatchQuery: social jetlag morning
+eyecatch: https://images.unsplash.com/photo-1626804852963-fe8c4f425ac9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBqZXRsYWclMjBtb3JuaW5nfGVufDF8MHx8fDE3NzUwODQzMTh8MA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: city buildings near sea during sunset
+eyecatchPhotoBy: Lisha Riabinina
+eyecatchPhotoUrl: https://unsplash.com/@weekendtripcreator?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 [quote]

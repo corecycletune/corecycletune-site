@@ -7,6 +7,11 @@ topics: 呼吸, 心拍変動, ストレス
 category: 呼吸・姿勢
 readingTime: 10 min
 eyecatchQuery: slow breathing calm morning
+eyecatch: https://images.unsplash.com/photo-1572009589907-2d66d0af9db1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzbG93JTIwYnJlYXRoaW5nJTIwY2FsbSUyMG1vcm5pbmd8ZW58MXwwfHx8MTc3NTAxMjYwMnww&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: photography of lake near tree
+eyecatchPhotoBy: Evi T.
+eyecatchPhotoUrl: https://unsplash.com/@evit?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 イライラしているときや、焦って頭が空回りするときに、深呼吸したほうがいいと言われることがあります。けれど実際には、息を大きく吸おうとするほど苦しくなったり、うまく落ち着けなかったりすることもあります。そんなときに感覚的に効いているのは、「大きく吸うこと」よりも、「少しゆっくり吐くこと」に近いのかもしれません。
