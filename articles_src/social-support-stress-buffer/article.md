@@ -7,6 +7,11 @@ topics: 社会的支援,ストレス緩衝,気疲れ
 category: 社会・つながり
 readingTime: 10 min
 eyecatchQuery: quiet support hands
+eyecatch: https://images.unsplash.com/photo-1598793923805-184b1adc10e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxxdWlldCUyMHN1cHBvcnQlMjBoYW5kc3xlbnwxfDB8fHwxNzc1NTE1OTU2fDA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: persons left hand on purple textile
+eyecatchPhotoBy: Alexander Grey
+eyecatchPhotoUrl: https://unsplash.com/@sharonmccutcheon?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 [quote]

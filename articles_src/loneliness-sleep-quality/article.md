@@ -7,6 +7,11 @@ topics: 孤独感,睡眠の質,社会的リズム
 category: 社会・つながり
 readingTime: 10 min
 eyecatchQuery: quiet window night
+eyecatch: https://images.unsplash.com/photo-1552005618-e88d32b4995b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxxdWlldCUyMHdpbmRvdyUyMG5pZ2h0fGVufDF8MHx8fDE3NzU1MTI4MzB8MA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: gray high-rise building
+eyecatchPhotoBy: Dima Pechurin
+eyecatchPhotoUrl: https://unsplash.com/@pechka?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 [quote]
