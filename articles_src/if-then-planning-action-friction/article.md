@@ -7,6 +7,11 @@ topics: 実行計画,先延ばし,着手のしにくさ
 category: 環境・習慣
 readingTime: 10 min
 eyecatchQuery: planning notebook desk
+eyecatch: https://images.unsplash.com/photo-1758876020200-1e19cddaf656?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxwbGFubmluZyUyMG5vdGVib29rJTIwZGVza3xlbnwxfDB8fHwxNzc1NTY2NTM1fDA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: Man working at desk with laptop and notebook.
+eyecatchPhotoBy: Vitaly Gariev
+eyecatchPhotoUrl: https://unsplash.com/@silverkblack?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 [quote]

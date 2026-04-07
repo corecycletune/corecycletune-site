@@ -7,6 +7,11 @@ topics: 散らかり,回復感,環境ストレス
 category: 環境・習慣
 readingTime: 10 min
 eyecatchQuery: tidy calm room
+eyecatch: https://images.unsplash.com/photo-1758790015866-eca4eead1900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHx0aWR5JTIwY2FsbSUyMHJvb218ZW58MXwwfHx8MTc3NTUxNzMyOHww&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: Children's playroom with toys and storage
+eyecatchPhotoBy: Roman Kravtsov
+eyecatchPhotoUrl: https://unsplash.com/@r_kravtsov?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 [quote]

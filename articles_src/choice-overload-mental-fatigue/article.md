@@ -7,6 +7,11 @@ topics: 選択疲れ,認知負荷,先延ばし
 category: 感情・認知
 readingTime: 10 min
 eyecatchQuery: many choices desk
+eyecatch: https://images.unsplash.com/photo-1500067803284-4304564c8655?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxtYW55JTIwY2hvaWNlcyUyMGRlc2t8ZW58MXwwfHx8MTc3NTU1Nzc1MHww&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: silver iMac with Magic Mouse and Keyboard
+eyecatchPhotoBy: Jesus Hilario H.
+eyecatchPhotoUrl: https://unsplash.com/@jesushilarioh?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 [quote]
