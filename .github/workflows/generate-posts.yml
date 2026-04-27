@@ -21,8 +21,7 @@ on:
         required: false
         default: ""
 
-  schedule:
-    - cron: "15 22 * * *"
+
 
 permissions:
   contents: write
