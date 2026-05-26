@@ -12,12 +12,26 @@ function parseFrontMatter(md) {
   const meta = {};
 
   metaLines.forEach(line => {
-    const [key, ...rest] = line.split(":");
+    const i = line.indexOf(":");
+    if (i === -1) return;
+
+    const key = line.slice(0, i).trim();
+    const value = line.slice(i + 1).trim();
+
     if (!key) return;
-    meta[key.trim()] = rest.join(":").trim();
+    meta[key] = value;
   });
 
   return meta;
+}
+
+function splitCsv(value) {
+  if (!value) return [];
+
+  return String(value)
+    .split(",")
+    .map(t => t.trim())
+    .filter(Boolean);
 }
 
 const dirs = fs.readdirSync(SRC_DIR, { withFileTypes: true });
@@ -43,14 +57,12 @@ dirs.forEach((entry) => {
     title: meta.title || "",
     description: meta.description || "",
     updated: meta.updated || "",
-    tags: meta.tags
-      ? meta.tags.split(",").map(t => t.trim()).filter(Boolean)
-      : [],
-    topics: meta.topics
-      ? meta.topics.split(",").map(t => t.trim()).filter(Boolean)
-      : [],
+    tags: splitCsv(meta.tags),
+    topics: splitCsv(meta.topics),
     category: meta.category || "",
-    readingTime: meta.readingTime || ""
+    readingTime: meta.readingTime || "",
+    eyecatch: meta.eyecatch || "",
+    eyecatchAlt: meta.eyecatchAlt || meta.title || ""
   });
 });
 
