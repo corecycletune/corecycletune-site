@@ -68,6 +68,10 @@
     }
   }
 
+  function categoryHref(category, basePath = "/articles/") {
+    return `${basePath}?t=${encodeURIComponent(category)}`;
+  }
+
   function injectHeaderFooter() {
     const header = $("#site-header");
     const footer = $("#site-footer");
@@ -81,7 +85,7 @@
           <nav class="nav" aria-label="グローバルナビ">
             <a class="nav-link" href="/articles/">記事</a>
             <a class="nav-link" href="/topics/">カテゴリ</a>
-            <a class="nav-link" href="/about/">About</a>
+            <a class="nav-link" href="/concept/">コンセプト</a>
           </nav>
         </div>
       `;
@@ -95,6 +99,8 @@
       footer.innerHTML = `
         <div class="container footer-inner">
           <div class="footer-links">
+            <a href="/concept/">コンセプト</a>
+            <span class="dot">•</span>
             <a href="/about/">About</a>
             <span class="dot">•</span>
             <a href="/disclaimer/">免責</a>
@@ -132,6 +138,8 @@
           category: p.category || "",
           updated: p.updated || p.date || p.published || "",
           readingTime: p.readingTime || p.reading_time || p.readTime || p.read || "",
+          eyecatch: p.eyecatch || p.image || p.ogImage || "",
+          eyecatchAlt: p.eyecatchAlt || p.imageAlt || p.title || "",
         };
       })
       .filter((p) => p.path && p.title);
@@ -167,6 +175,50 @@
     );
   }
 
+  function postMetaText(post) {
+    return [
+      post.updated ? `更新: ${esc(post.updated)}` : "",
+      post.readingTime ? `読了目安: ${esc(post.readingTime)}` : "",
+    ].filter(Boolean).join(" ・ ");
+  }
+
+  function buildPostCard(post, options = {}) {
+    const compact = Boolean(options.compact);
+    const meta = postMetaText(post);
+    const tagHtml = post.tags && post.tags.length && !compact
+      ? `<div class="list-tags">${post.tags.slice(0, 3).map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>`
+      : "";
+    const categoryHtml = post.category
+      ? `<a class="article-card-category" href="${esc(categoryHref(post.category))}">${esc(post.category)}</a>`
+      : "";
+    const imageHtml = post.eyecatch
+      ? `
+        <a class="article-card-image-link" href="${esc(post.path)}" aria-label="${esc(post.title)}">
+          <img class="article-card-image" src="${esc(post.eyecatch)}" alt="${esc(post.eyecatchAlt || post.title)}" loading="lazy">
+        </a>
+      `
+      : `
+        <a class="article-card-image-link is-empty" href="${esc(post.path)}" aria-label="${esc(post.title)}">
+          <span class="article-card-image-placeholder">CCT Lab</span>
+        </a>
+      `;
+
+    return `
+      <article class="article-card ${compact ? "is-compact" : ""}">
+        ${imageHtml}
+        <div class="article-card-body">
+          <div class="article-card-topline">
+            ${categoryHtml}
+          </div>
+          <a class="article-card-title" href="${esc(post.path)}">${esc(post.title)}</a>
+          ${post.description ? `<div class="article-card-desc">${esc(post.description)}</div>` : ""}
+          ${tagHtml}
+          ${meta ? `<div class="article-card-meta">${meta}</div>` : ""}
+        </div>
+      </article>
+    `;
+  }
+
   function buildBreadcrumbs(postsIndexByPath) {
     const el = $("#breadcrumbs");
     if (!el) return;
@@ -192,6 +244,8 @@
         crumbs.push({ name: "カテゴリ", href: "/topics/" });
         const t = getQueryParam("t");
         if (t) crumbs.push({ name: t, href: "/topics/?t=" + encodeURIComponent(t) });
+      } else if (first === "concept") {
+        crumbs.push({ name: "コンセプト", href: "/concept/" });
       } else if (first === "about") {
         crumbs.push({ name: "About", href: "/about/" });
       } else if (first === "disclaimer") {
@@ -263,24 +317,13 @@
     target.innerHTML = `
       <section class="card">
         <h2>「${esc(selected)}」の記事</h2>
-        <div class="list">
-          ${filtered.map((p) => {
-            const meta = [
-              p.updated ? `更新: ${esc(p.updated)}` : "",
-              p.readingTime ? `読了目安: ${esc(p.readingTime)}` : "",
-            ].filter(Boolean).join(" ・ ");
-            return `
-              <article class="list-item">
-                <a class="list-title" href="${esc(p.path)}">${esc(p.title)}</a>
-                ${p.description ? `<div class="list-desc">${esc(p.description)}</div>` : ""}
-                ${meta ? `<div class="list-meta">${meta}</div>` : ""}
-              </article>
-            `;
-          }).join("")}
+        <div class="article-card-grid">
+          ${filtered.map((p) => buildPostCard(p)).join("")}
         </div>
       </section>
     `;
   }
+
   function renderArticlesFilters(posts) {
     const target = $("#articles-filters");
     if (!target) return;
@@ -309,22 +352,10 @@
   function renderLatestArticles(posts) {
     const target = $("#latest-articles");
     if (!target) return;
-    const latest = sortByDateDesc(posts).slice(0, 5);
+    const latest = sortByDateDesc(posts).slice(0, 6);
     target.innerHTML = `
-      <div class="list">
-        ${latest.map((p) => {
-          const meta = [
-            p.updated ? `更新: ${esc(p.updated)}` : "",
-            p.readingTime ? `読了目安: ${esc(p.readingTime)}` : "",
-          ].filter(Boolean).join(" ・ ");
-          return `
-            <article class="list-item">
-              <a class="list-title" href="${esc(p.path)}">${esc(p.title)}</a>
-              ${p.description ? `<div class="list-desc">${esc(p.description)}</div>` : ""}
-              ${meta ? `<div class="list-meta">${meta}</div>` : ""}
-            </article>
-          `;
-        }).join("")}
+      <div class="article-card-grid is-latest">
+        ${latest.map((p) => buildPostCard(p, { compact: true })).join("")}
       </div>
     `;
   }
@@ -345,24 +376,8 @@
       return;
     }
     target.innerHTML = `
-      <div class="list">
-        ${shown.map((p) => {
-          const tagHtml = p.tags && p.tags.length
-            ? `<div class="list-tags">${p.tags.slice(0, 3).map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>`
-            : "";
-          const meta = [
-            p.updated ? `更新: ${esc(p.updated)}` : "",
-            p.readingTime ? `読了目安: ${esc(p.readingTime)}` : "",
-          ].filter(Boolean).join(" ・ ");
-          return `
-            <article class="list-item">
-              <a class="list-title" href="${esc(p.path)}">${esc(p.title)}</a>
-              ${p.description ? `<div class="list-desc">${esc(p.description)}</div>` : ""}
-              ${tagHtml}
-              ${meta ? `<div class="list-meta">${meta}</div>` : ""}
-            </article>
-          `;
-        }).join("")}
+      <div class="article-card-grid">
+        ${shown.map((p) => buildPostCard(p)).join("")}
       </div>
     `;
   }
@@ -391,13 +406,14 @@
       })
       .filter((x) => x.score > 0)
       .sort((a, b) => b.score - a.score)
-      .slice(0, 5)
+      .slice(0, 4)
       .map((x) => x.p);
     if (candidates.length === 0) {
       target.innerHTML = `
         <section class="card related">
           <h2>関連記事</h2>
           <p class="muted">関連記事は準備中です。</p>
+          <p><a class="btn btn-ghost" href="/concept/">コアサイクルチューンとは</a></p>
         </section>
       `;
       return;
@@ -405,13 +421,12 @@
     target.innerHTML = `
       <section class="card related">
         <h2>関連記事</h2>
-        <div class="list compact">
-          ${candidates.map((p) => `
-            <article class="list-item">
-              <a class="list-title" href="${esc(p.path)}">${esc(p.title)}</a>
-              ${p.description ? `<div class="list-desc">${esc(p.description)}</div>` : ""}
-            </article>
-          `).join("")}
+        <div class="article-card-grid is-related">
+          ${candidates.map((p) => buildPostCard(p, { compact: true })).join("")}
+        </div>
+        <div class="related-concept-link">
+          <p>この記事で扱う生活のつながりは、コアサイクルチューン（循環調律）の考え方で整理できます。</p>
+          <p><a class="btn btn-ghost" href="/concept/">コアサイクルチューンとは</a></p>
         </div>
       </section>
     `;
