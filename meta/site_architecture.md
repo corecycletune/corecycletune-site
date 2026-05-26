@@ -72,6 +72,8 @@ CCT（Core Cycle Tune）は、眠気・だるさ・食欲・集中力・気分�
 見出しは、**その節の内容をSEO語句で要約した一文**にする。  
 章ラベルやメタ見出しにしない。
 
+例外として、`concept/index.html` のような理論説明ページでは、読者に概念を体系的に説明する目的で、上記のCCT用語を見出しに使ってよい。
+
 禁止例：
 - 研究が示すこと
 - 日常で何が起きているか
@@ -157,12 +159,48 @@ CCT（Core Cycle Tune）は、眠気・だるさ・食欲・集中力・気分�
 静的サイトとして運用し、記事ソースからビルド成果物を生成する。
 
 ### 基本構造
-- `articles_src/<slug>/article.md`
+- `index.html`
+- `concept/index.html`
+- `articles/index.html`
 - `articles/<slug>/index.html`
+- `topics/index.html`
+- `about/index.html`
+- `disclaimer/index.html`
+- `articles_src/<slug>/article.md`
 - `data/posts.json`
 - `templates/article.html`
 - `assets/app.js`
 - `assets/style.css`
+
+### 公開ページの役割
+- `index.html`
+  - サイトの入口
+  - 長い理論説明は置かず、初見読者が「困りごとから探す」「コアサイクルチューンとは」へ進める導線を優先する
+  - 最新記事は `#latest-articles` に `assets/app.js` が描画する
+- `concept/index.html`
+  - コアサイクルチューン（循環調律）の理論説明ページ
+  - CCT Labとは何か、生活を循環として見る理由、不協（ディゾナンス）、解決（レゾリューション）、医療との関係を体系的に説明する
+- `articles/index.html`
+  - 記事一覧ページ
+  - `#articles-list` に `assets/app.js` が描画する
+- `topics/index.html`
+  - カテゴリページ
+  - `#topics-list` と `#topic-posts` に `assets/app.js` が描画する
+- `about/index.html`
+  - サイト運営や背景の補助ページ
+  - グローバルメニューからは外してよいが、フッターなどから辿れる状態は維持する
+- `disclaimer/index.html`
+  - 免責・医療に関する注意のページ
+  - フッターから辿れる状態を維持する
+
+### グローバルメニュー
+原則として、グローバルメニューは以下の3つに絞る。
+
+- 記事
+- カテゴリ
+- コンセプト
+
+`About` はグローバルメニューには置かず、フッターに退避してよい。
 
 ### AIレビュー用構造
 - `articles_draft/<slug>/article.md`
@@ -194,7 +232,18 @@ CCT（Core Cycle Tune）は、眠気・だるさ・食欲・集中力・気分�
 - readingTime
 - eyecatchQuery
 
-必要に応じて eyecatch 関連フィールドを後段で付与する。
+必要に応じて、`scripts/fetch_eyecatch.js` が以下の eyecatch 関連フィールドを後段で付与する。
+
+- eyecatch
+- eyecatchAlt
+- eyecatchCredit
+- eyecatchCreditUrl
+- ogImage
+
+`data/posts.json` には、記事一覧・最新記事・カテゴリ別記事・関連記事の画像付きカード表示に使うため、少なくとも以下を出力してよい。
+
+- eyecatch
+- eyecatchAlt
 
 ---
 
@@ -533,7 +582,9 @@ CCT Lab では、**あなたのコミット→プッシュ** と、**その後�
 - Actions側の自動反映: しない
 
 補足:
-- `app.js` は公開後のページで動くフロント用JSであり、主に共通UI、パンくず、`posts.json` を元にした一覧・関連記事描画などを担う
+- `app.js` は公開後のページで動くフロント用JSであり、主に共通UI、パンくず、`posts.json` を元にした一覧・最新記事・カテゴリ別記事・関連記事描画などを担う
+- グローバルメニューは `記事 / カテゴリ / コンセプト` を基本とし、`About` はフッターに退避してよい
+- `posts.json` に `eyecatch` / `eyecatchAlt` がある場合、一覧系UIでは画像付き記事カードとして描画してよい
 - 記事HTMLそのものを生成するスクリプトではないため、単独変更では原則ビルド対象にしない
 
 ### 4. AI用の定義ファイル・プロンプトを変更
@@ -686,5 +737,3 @@ CCT Lab では、もともと「面白い論文を見つけて、そこから記
 初期フェーズでは、ある程度のテーマ近接は許容する。
 ただし、同一論文または極めて近い論文の重複採用は避ける。
 また、コスト最適化のために、既存記事コンテキストは必要最小限に保つ。
-
-
