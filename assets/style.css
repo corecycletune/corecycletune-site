@@ -1892,3 +1892,270 @@ hr {
     font-size: 11.5px;
   }
 }
+/* =========================================================
+   Concept icon cards refinement
+   コンセプトページ: SVGアイコン巨大化防止とカードUI調整
+   ========================================================= */
+
+/* コンセプトページ内のSVGが巨大化しないように全体制御 */
+.concept-page svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+/* 上部の「このページでわかること」系カード */
+.concept-card svg,
+.concept-toc svg,
+.concept-keyword-grid svg,
+.concept-compare-card svg,
+.concept-flow-card svg {
+  width: 44px;
+  height: 44px;
+  stroke-width: 1.8;
+}
+
+/* アイコンを丸背景に入れる想定 */
+.concept-icon,
+.concept-card-icon,
+.concept-toc-icon,
+.concept-keyword-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.96), rgba(220, 235, 237, 0.66));
+  border: 1px solid rgba(29, 91, 99, 0.12);
+  color: var(--brand);
+  box-shadow: 0 10px 22px rgba(18, 36, 40, 0.06);
+}
+
+.concept-icon svg,
+.concept-card-icon svg,
+.concept-toc-icon svg,
+.concept-keyword-icon svg {
+  width: 42px;
+  height: 42px;
+  stroke: currentColor;
+}
+
+/* 画像1枚目のような横長巨大カードを抑える */
+.concept-toc a,
+.concept-keyword-grid a {
+  min-height: auto;
+  padding: 16px 14px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at top right, rgba(220, 235, 237, 0.52), transparent 38%),
+    rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(29, 91, 99, 0.14);
+  box-shadow: var(--shadow-sm);
+  color: var(--heading);
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 800;
+}
+
+/* アイコン付きカードとして縦並びにする */
+.concept-toc a:has(svg),
+.concept-keyword-grid a:has(svg) {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+}
+
+/* :has 非対応環境でも最低限崩れにくくする */
+.concept-toc a svg,
+.concept-keyword-grid a svg {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto;
+  color: var(--brand);
+}
+
+/* 「このページでわかること」風の3カード */
+.concept-card-grid.three .concept-card {
+  text-align: center;
+  padding: 24px 18px 22px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top, rgba(220, 235, 237, 0.5), transparent 34%),
+    rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(29, 91, 99, 0.12);
+  box-shadow: 0 12px 26px rgba(18, 36, 40, 0.06);
+}
+
+.concept-card-grid.three .concept-card h3 {
+  margin-top: 0;
+  color: #0f2d63;
+  font-size: 20px;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+}
+
+.concept-card-grid.three .concept-card p {
+  color: #27384a;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+/* 基本モデルの6ステップを2枚目以降のような横長カードに寄せる */
+.concept-cycle-steps {
+  gap: 13px;
+}
+
+.concept-step {
+  display: grid;
+  grid-template-columns: 42px 54px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  min-height: 92px;
+  padding: 16px 18px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(29, 91, 99, 0.12);
+  box-shadow: var(--shadow-sm);
+}
+
+.concept-step-number {
+  position: static;
+  width: 42px;
+  height: 42px;
+  font-size: 20px;
+  background: linear-gradient(180deg, #15928e, var(--brand));
+}
+
+.concept-step-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f2d63;
+}
+
+.concept-step-icon svg {
+  width: 42px;
+  height: 42px;
+}
+
+.concept-step h3 {
+  margin: 0 0 4px;
+  color: #0f2d63;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.concept-step p {
+  margin: 0;
+  color: #3d4652;
+  font-size: 14.8px;
+  line-height: 1.65;
+}
+
+.concept-step::after {
+  display: none;
+}
+
+/* 不協・解決カードのアイコンサイズ */
+.concept-compare-card,
+.concept-flow-card {
+  position: relative;
+}
+
+.concept-compare-card > svg:first-child,
+.concept-flow-card > svg:first-child {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 12px;
+}
+
+.concept-compare-card.is-dissonance svg,
+.concept-flow-card.is-dissonance svg {
+  color: #c34545;
+}
+
+.concept-compare-card.is-resolution svg,
+.concept-flow-card.is-resolution svg {
+  color: var(--brand);
+}
+
+/* スマホでは、巨大化防止をさらに強める */
+@media (max-width: 560px) {
+  .concept-icon,
+  .concept-card-icon,
+  .concept-toc-icon,
+  .concept-keyword-icon {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 14px;
+  }
+
+  .concept-icon svg,
+  .concept-card-icon svg,
+  .concept-toc-icon svg,
+  .concept-keyword-icon svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .concept-card svg,
+  .concept-toc svg,
+  .concept-keyword-grid svg,
+  .concept-compare-card svg,
+  .concept-flow-card svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .concept-card-grid.three .concept-card {
+    padding: 20px 16px 18px;
+  }
+
+  .concept-card-grid.three .concept-card h3 {
+    font-size: 18px;
+  }
+
+  .concept-card-grid.three .concept-card p {
+    font-size: 14.5px;
+  }
+
+  .concept-step {
+    grid-template-columns: 38px 44px minmax(0, 1fr);
+    gap: 11px;
+    min-height: 82px;
+    padding: 14px 14px;
+    border-radius: 19px;
+  }
+
+  .concept-step-number {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  .concept-step-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .concept-step h3 {
+    font-size: 18px;
+  }
+
+  .concept-step p {
+    font-size: 13.8px;
+  }
+
+  .concept-toc a,
+  .concept-keyword-grid a {
+    padding: 14px 12px;
+    border-radius: 18px;
+    font-size: 14px;
+  }
+}
