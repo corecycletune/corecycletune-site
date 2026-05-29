@@ -142,7 +142,21 @@ CCT（Core Cycle Tune）は、眠気・だるさ・食欲・集中力・気分�
 - 環境・習慣
 - 社会・つながり
 
+カテゴリは当面この7分類を維持する。  
 必要に応じてサイト運用上のカテゴリを増減してもよいが、乱立は避ける。
+
+### 困りごと導線とカテゴリの関係
+トップページの「困りごとから探す」は、読者の入口として生活上の悩みを並べる導線である。  
+ここに並ぶ項目は、必ずしもカテゴリ名そのものと一致しなくてよい。
+
+例：
+- 「お腹の調子が崩れやすい」は困りごと導線上のテーマとして扱う
+- 「腸内環境」は、現時点では正式カテゴリとして追加しない
+- 腸内環境に関する記事は、内容に応じて `食事・栄養`、`環境・習慣`、`感情・認知` など既存カテゴリへ割り当てる
+- `腸内環境` は topic または tag として扱ってよい
+
+トップページからカテゴリページへリンクする場合は、`/articles/?t=<category>` の `<category>` が `data/posts.json` の `category` と一致する必要がある。  
+そのため、困りごと名と正式カテゴリ名が一致しない場合は、リンク先を既存カテゴリへ寄せる。
 
 ### トピック
 トピックは、カテゴリよりも具体的な関心軸を示す補助ラベルである。  
@@ -176,6 +190,8 @@ CCT（Core Cycle Tune）は、眠気・だるさ・食欲・集中力・気分�
 - `index.html`
   - サイトの入口
   - 長い理論説明は置かず、初見読者が「困りごとから探す」「コアサイクルチューンとは」へ進める導線を優先する
+  - 「困りごとから探す」は `#trouble-search` と `.feature-list` で構成する
+  - 困りごと導線は読者の入口であり、正式カテゴリ一覧そのものではない
   - 最新記事は `#latest-articles` に `assets/app.js` が描画する
 - `concept/index.html`
   - コアサイクルチューン（循環調律）の理論説明ページ
@@ -201,6 +217,34 @@ CCT（Core Cycle Tune）は、眠気・だるさ・食欲・集中力・気分�
 - コンセプト
 
 `About` はグローバルメニューには置かず、フッターに退避してよい。
+
+### 共通UIと見た目の責務
+`assets/app.js` は、共通UIと記事カードの描画を担う。  
+`assets/style.css` は、その見た目を担う。
+
+現時点で `assets/style.css` 側に維持すべき主要クラスは以下。
+
+- `.feature-list`
+- `.feature-list section`
+- `.article-card-grid`
+- `.article-card`
+- `.article-card-image-link`
+- `.article-card-image`
+- `.article-card-image-placeholder`
+- `.article-card-body`
+- `.article-card-topline`
+- `.article-card-category`
+- `.article-card-title`
+- `.article-card-desc`
+- `.article-card-meta`
+- `.article-card.is-compact`
+- `.article-card-grid.is-latest`
+- `.article-card-grid.is-related`
+
+HTMLやJSで上記クラスを使う場合、CSS側にも対応する見た目を追加する。  
+特にトップページの「困りごとから探す」と、`app.js` が生成する最新記事・記事一覧・関連記事カードは、CSSがないと素の縦並びに近くなるため、カードUIとして明示的に整える。
+
+CSS / JS のみの修正では原則ビルドは不要であり、公開済みHTMLが参照する `assets/style.css` / `assets/app.js` の更新として扱う。
 
 ### AIレビュー用構造
 - `articles_draft/<slug>/article.md`
