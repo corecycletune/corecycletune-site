@@ -2159,3 +2159,62 @@ hr {
     font-size: 14px;
   }
 }
+/* =========================================================
+   Fix concept basic model step layout
+   CCT基本モデルの説明文が左の細い列に回り込む問題を修正
+   ========================================================= */
+
+.concept-step {
+  grid-template-columns: 46px 54px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-items: center;
+}
+
+.concept-step-number {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.concept-step-icon {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.concept-step h3 {
+  grid-column: 3;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.concept-step p {
+  grid-column: 3;
+  grid-row: 2;
+  min-width: 0;
+}
+
+@media (max-width: 560px) {
+  .concept-step {
+    grid-template-columns: 38px 42px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+  }
+
+  .concept-step-number {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .concept-step-icon {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .concept-step h3 {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .concept-step p {
+    grid-column: 3;
+    grid-row: 2;
+  }
+}
