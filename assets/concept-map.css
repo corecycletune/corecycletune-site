@@ -104,3 +104,12 @@
 .cct-loop-pair span { color:var(--brand); font-weight:800; }
 .cct-loop-pair p { margin:8px 0 0; line-height:1.8; }
 @media (max-width:700px) { .cct-loop-pair { grid-template-columns:1fr; } }
+
+@media (min-width:701px) {
+  .cct-branches-signal { position:relative; }
+  .cct-branches-signal::after { content:""; position:absolute; left:50%; bottom:-16px; height:16px; border-left:2px solid #167d79; }
+  .cct-branches-grid { position:relative; }
+  .cct-branches-grid::before { content:""; position:absolute; left:16.666%; right:16.666%; top:-16px; border-top:2px solid #167d79; }
+  .cct-branch { position:relative; }
+  .cct-branch::before { content:""; position:absolute; left:50%; top:-16px; height:16px; border-left:2px solid #167d79; }
+}
