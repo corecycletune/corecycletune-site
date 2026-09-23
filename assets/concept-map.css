@@ -1,14 +1,22 @@
 /* CCT concept journey: a readable overview before detail. */
 #model,#mechanism,#elements,#dissonance-resolution,#practice,#evidence,#medical,#reading { scroll-margin-top: 90px; }
+/* Four everyday moments sit around a genuine, clockwise cycle. */
 .cct-map { margin:0; padding:24px; border:1px solid var(--border); border-radius:24px; background:linear-gradient(160deg,#edf6f5,#fffdf8); }
-.cct-map-track { display:grid; grid-template-columns:1fr; gap:30px; margin:0; padding:0; list-style:none; }
-.cct-map-track li { position:relative; min-width:0; padding:18px; border:1px solid rgba(29,91,99,.17); border-radius:18px; background:#fff; box-shadow:var(--shadow-sm); }
-.cct-map-track li:not(:last-child)::after { content:"↓"; position:absolute; left:50%; bottom:-29px; transform:translateX(-50%); color:var(--brand); font-size:26px; font-weight:800; line-height:1; }
+.cct-cycle { position:relative; isolation:isolate; width:min(100%,680px); aspect-ratio:1; margin:0 auto; }
+.cct-cycle-arrows { position:absolute; left:9%; top:50%; width:82%; height:auto; transform:translateY(-50%); overflow:visible; fill:none; stroke:#167d79; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; opacity:.8; }
+.cct-cycle-arrowhead { stroke-width:5; }
+.cct-cycle-steps { position:absolute; inset:0; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:14%; margin:0; padding:0; list-style:none; }
+.cct-cycle-steps li { z-index:1; align-self:start; width:min(100%,210px); min-width:0; padding:16px; border:1px solid rgba(29,91,99,.22); border-radius:18px; background:#fff; box-shadow:var(--shadow-sm); }
+.cct-cycle-steps li:nth-child(even) { justify-self:end; }
+.cct-cycle-steps li:nth-child(n+3) { align-self:end; }
+.cct-cycle-steps li:nth-child(3) { grid-column:2; grid-row:2; }
+.cct-cycle-steps li:nth-child(4) { grid-column:1; grid-row:2; }
 .cct-map-count { display:block; color:var(--brand-2); font-weight:850; font-size:13px; letter-spacing:.12em; }
-.cct-map-track strong { display:block; color:var(--heading); font-size:19px; margin:4px 0; }
-.cct-map-track li > span:last-child { display:block; color:var(--muted); font-size:14px; line-height:1.6; }
-.cct-map-return { display:flex; align-items:center; gap:12px; margin-top:22px; padding:10px 16px; border-radius:14px; background:var(--brand); color:#fff; font-weight:700; line-height:1.5; }
-.cct-map-return span { font-size:26px; line-height:1; }
+.cct-cycle-steps strong { display:block; color:var(--heading); font-size:18px; margin:4px 0; line-height:1.35; }
+.cct-cycle-steps li > span:last-child { display:block; color:var(--muted); font-size:13px; line-height:1.55; }
+.cct-cycle-center { position:absolute; left:50%; top:50%; display:flex; flex-direction:column; justify-content:center; align-items:center; width:24%; aspect-ratio:1; transform:translate(-50%,-50%); border-radius:50%; background:var(--brand); box-shadow:0 10px 24px rgba(29,91,99,.2); color:#fff; text-align:center; }
+.cct-cycle-center strong { font-size:clamp(20px,4vw,32px); line-height:1.1; }
+.cct-cycle-center span { margin-top:5px; font-size:clamp(9px,1.5vw,12px); line-height:1.35; }
 .cct-map figcaption { margin-top:12px; color:var(--muted); font-size:13px; line-height:1.7; }
 .cct-map-explain { margin:18px 2px 0; line-height:1.9; }
 .cct-scenes,.cct-element-grid { display:grid; gap:14px; }
@@ -44,13 +52,20 @@
   .guide-mini-map { grid-template-columns:repeat(4,minmax(0,1fr)); }
 }
 @media (min-width:900px) {
-  .cct-map-track { grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; }
-  .cct-map-track li:not(:last-child)::after { content:"→"; top:50%; right:-24px; bottom:auto; left:auto; transform:translateY(-50%); font-size:23px; }
   .cct-element-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
 }
 @media (max-width:560px) {
-  .cct-map { padding:16px; }
-  .cct-map-track li { padding:14px 16px; }
+  .cct-map { padding:12px; }
+  .cct-cycle { height:clamp(310px,90vw,370px); aspect-ratio:auto; }
+  .cct-cycle-steps { gap:11%; }
+  .cct-cycle-steps li { padding:9px; border-radius:13px; }
+  .cct-map-count { font-size:10px; }
+  .cct-cycle-steps strong { font-size:clamp(12px,3.8vw,16px); margin:2px 0; }
+  .cct-cycle-steps li > span:last-child { font-size:clamp(10px,3vw,12px); line-height:1.35; }
+  .cct-cycle-center { width:27%; }
+  .cct-cycle-center strong { font-size:clamp(18px,6vw,24px); }
+  .cct-cycle-center span { font-size:clamp(8px,2.6vw,10px); }
+  .cct-cycle-arrows { stroke-width:5; }
   .concept-page .concept-hero { min-height:0; }
   .concept-page .concept-hero-content { max-width:none; }
   .concept-page .concept-hero h1 { font-size:clamp(28px,8vw,42px); }
@@ -58,6 +73,3 @@
   .concept-page .hero-actions { display:flex; flex-wrap:wrap; }
   .concept-page .hero-actions .btn { white-space:normal; }
 }
-.home-cct-steps { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin:18px 0; }
-.home-cct-steps span { padding:10px; border-radius:12px; background:var(--surface-2); border:1px solid var(--border); color:var(--brand); font-weight:800; text-align:center; font-size:14px; }
-@media (min-width:720px) { .home-cct-steps { grid-template-columns:repeat(4,minmax(0,1fr)); } }
