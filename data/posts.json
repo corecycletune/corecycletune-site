@@ -288,8 +288,8 @@
     ],
     "category": "睡眠・休養",
     "readingTime": "10 min",
-    "eyecatch": "https://images.unsplash.com/photo-1477511801984-4ad318ed9846?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxsYXZlbmRlciUyMG5pZ2h0JTIwcm91dGluZSUyMHNsZWVwfGVufDF8MHx8fDE3Nzk2NTkwMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "tilt shift lens pink fetal flowers"
+    "eyecatch": "https://images.unsplash.com/photo-1592685776885-97a964ad8293?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxsYXZlbmRlciUyMG5pZ2h0JTIwcm91dGluZSUyMHNsZWVwfGVufDF8MHx8fDE3OTAxNjUyMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "eyecatchAlt": "white flowers with green leaves"
   },
   {
     "slug": "fermented-foods-microbiome",
@@ -653,26 +653,25 @@
   {
     "slug": "music-tempo-eating-speed",
     "title": "食事中の音楽が速いと食べるペースも上がるのか？BGMテンポと食行動の研究",
-    "description": "店や家で流れている音楽の速さは、気分だけでなく食べる速さや食事時間にも影響する可能性があります。BGMテンポと食行動の研究をもとに、早食い、満腹感の遅れ、食後の重さがどうつながるかを日常の流れとして整理します。",
-    "updated": "2026-04-27",
+    "description": "85 BPMと145 BPMの音楽を比較した実験では、遅い音楽の群で食事時間と咀嚼が増えました。研究で測った結果と、CCT Labが考える日常での試し方を分けて整理します。",
+    "updated": "2026-09-23",
     "tags": [
       "食べる速さ",
       "早食い",
       "BGM",
       "音楽テンポ",
-      "満腹感",
-      "外食",
+      "咀嚼",
       "食環境"
     ],
     "topics": [
       "食環境",
       "早食い",
-      "満腹感"
+      "音楽テンポ"
     ],
     "category": "食事・栄養",
-    "readingTime": "10 min",
-    "eyecatch": "",
-    "eyecatchAlt": "食事中の音楽が速いと食べるペースも上がるのか？BGMテンポと食行動の研究"
+    "readingTime": "7 min",
+    "eyecatch": "https://images.unsplash.com/photo-1510577956525-69bd3c29339e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxmYXN0JTIwbXVzaWMlMjByZXN0YXVyYW50fGVufDF8MHx8fDE3OTAxNjUyMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "eyecatchAlt": "red music of the people neon-light signage"
   },
   {
     "slug": "music-walking-effort",
@@ -696,7 +695,7 @@
     ],
     "category": "運動・活動",
     "readingTime": "10 min",
-    "eyecatch": "https://images.unsplash.com/photo-1487956382158-bb926046304a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxtdXNpYyUyMHdhbGtpbmclMjBleGVyY2lzZXxlbnwxfDB8fHwxNzc5NjU5MDM4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "eyecatch": "https://images.unsplash.com/photo-1487956382158-bb926046304a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxtdXNpYyUyMHdhbGtpbmclMjBleGVyY2lzZXxlbnwxfDB8fHwxNzkwMTY1MjE3fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "eyecatchAlt": "shallow focus photography of person walking on road between grass"
   },
   {
@@ -815,8 +814,8 @@
     ],
     "category": "腸内環境",
     "readingTime": "10 min",
-    "eyecatch": "https://images.unsplash.com/photo-1609840113564-ab4aba4956c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxvcmFsJTIwY2FyZSUyMGd1dCUyMGhlYWx0aHxlbnwxfDB8fHwxNzc5NjU5MDM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "girl with red and white toothbrush in mouth"
+    "eyecatch": "https://images.unsplash.com/photo-1734607402858-a10164ded7a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxvcmFsJTIwY2FyZSUyMGd1dCUyMGhlYWx0aHxlbnwxfDB8fHwxNzkwMTY1MjE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "eyecatchAlt": "A pink box of pills and a glass of water"
   },
   {
     "slug": "paper-books-mental-calm",
