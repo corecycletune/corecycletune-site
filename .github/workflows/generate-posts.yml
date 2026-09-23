@@ -120,7 +120,7 @@ jobs:
         run: node scripts/generate_ai_article.js
 
       - name: Fetch eyecatch metadata
-        if: env.RUN_BUILD == 'true'
+        if: env.RUN_AI_GENERATION == 'true'
         run: node scripts/fetch_eyecatch.js
 
       - name: Build article HTML
