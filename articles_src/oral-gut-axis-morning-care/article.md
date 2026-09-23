@@ -7,6 +7,11 @@ topics: 口腔—腸 axis, 歯周病, 朝の歯磨き
 category: 腸内環境
 readingTime: 10 min
 eyecatchQuery: oral care gut health
+eyecatch: https://images.unsplash.com/photo-1609840113564-ab4aba4956c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxvcmFsJTIwY2FyZSUyMGd1dCUyMGhlYWx0aHxlbnwxfDB8fHwxNzc5NjU5MDM5fDA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: girl with red and white toothbrush in mouth
+eyecatchPhotoBy: Diana Polekhina
+eyecatchPhotoUrl: https://unsplash.com/@diana_pole?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 [quote]

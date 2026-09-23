@@ -7,6 +7,11 @@ topics: 寝る前の香り, 入眠前の覚醒, 夜の切り替え
 category: 睡眠・休養
 readingTime: 10 min
 eyecatchQuery: lavender night routine sleep
+eyecatch: https://images.unsplash.com/photo-1477511801984-4ad318ed9846?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxsYXZlbmRlciUyMG5pZ2h0JTIwcm91dGluZSUyMHNsZWVwfGVufDF8MHx8fDE3Nzk2NTkwMzd8MA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: tilt shift lens pink fetal flowers
+eyecatchPhotoBy: Daiga Ellaby
+eyecatchPhotoUrl: https://unsplash.com/@daiga_ellaby?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 [quote]

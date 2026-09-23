@@ -4,10 +4,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>コアサイクルチューンとは | CCT Lab</title>
-  <meta name="description" content="コアサイクルチューン（循環調律）は、睡眠・食欲・血糖・腸・呼吸・姿勢・情報刺激などを生活の循環として観察し、日々の状態を整える考え方です。" />
+  <meta name="description" content="コアサイクルチューン（循環調律）は、睡眠・食欲・血糖・腸・呼吸・姿勢・情報刺激などを生活の循環として捉え、状態を観察しながら行動を試すためのメソッドです。" />
   <link rel="stylesheet" href="/assets/style.css" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7298122720505347"
      crossorigin="anonymous"></script>
+  <style>
+    .theory-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; }
+    .theory-card,.theory-distinction,.theory-note,.theory-method li { background:#fff; border:1px solid rgba(29,91,99,.16); border-radius:18px; padding:20px; }
+    .theory-card h3,.theory-distinction h3 { margin:0 0 10px; color:#0f2d63; }
+    .theory-card p,.theory-distinction p,.theory-note,.theory-method span { line-height:1.8; }
+    .theory-source { font-size:.9rem; margin-bottom:0; }
+    .theory-note,.theory-distinction { margin-top:18px; background:#f1f7f6; }
+    .theory-method { list-style:none; padding:0; display:grid; gap:12px; counter-reset:theory; }
+    .theory-method li { counter-increment:theory; display:grid; grid-template-columns:2em 1fr; column-gap:10px; }
+    .theory-method li:before { content:counter(theory,decimal-leading-zero); color:#167d79; font-weight:800; grid-row:span 2; }
+    .theory-method strong,.theory-method span { grid-column:2; }
+  </style>
 </head>
 <body>
   <header id="site-header"></header>
@@ -20,7 +32,7 @@
         <p class="concept-kicker">Core Cycle Tune</p>
         <h1>コアサイクルチューンとは</h1>
         <p>
-          コアサイクルチューン（循環調律）は、睡眠・食欲・血糖・腸・呼吸・姿勢・情報刺激などを、ばらばらの問題ではなく「生活の循環」として見ていく考え方です。
+          コアサイクルチューン（循環調律）は、睡眠・食欲・血糖・腸・呼吸・姿勢・情報刺激などを、ばらばらの問題ではなく「生活の循環」として読み解くメソッドです。
         </p>
         <p>
           気合いで変えるのではなく、今の状態がどんな流れの中で起きているのかを観察し、次の行動が少し軽くなる場所を探します。
@@ -75,7 +87,7 @@
           <div class="concept-card-number">02</div>
           <h3>不協と解決</h3>
           <p>
-            好循環を乱す要素を不協（ディゾナンス）、流れを整える行動を解決（レゾリューション）として扱います。
+            好循環を乱す行動や状態を不協、流れを整える行動を解決として扱います。
           </p>
         </article>
 
@@ -107,6 +119,7 @@
           </svg>
           CCTの基本モデル
         </a>
+        <a href="#mechanism"><svg class="toc-icon" aria-hidden="true"><use href="/assets/icons.svg#icon-waves"></use></svg>循環の仕組み</a>
         <a href="#dissonance-resolution">
           <svg class="toc-icon" aria-hidden="true">
             <use href="/assets/icons.svg#icon-alert-triangle"></use>
@@ -119,6 +132,8 @@
           </svg>
           夜の過食で見る例
         </a>
+        <a href="#practice"><svg class="toc-icon" aria-hidden="true"><use href="/assets/icons.svg#icon-circle-dashed"></use></svg>観察と調律</a>
+        <a href="#evidence"><svg class="toc-icon" aria-hidden="true"><use href="/assets/icons.svg#icon-book-open"></use></svg>研究と限界</a>
         <a href="#reading">
           <svg class="toc-icon" aria-hidden="true">
             <use href="/assets/icons.svg#icon-book-open"></use>
@@ -212,12 +227,24 @@
       </div>
     </section>
 
+
+    <section class="concept-section theory-section" id="mechanism">
+      <div class="concept-section-header"><p class="concept-kicker">Mechanism</p><h2>6段階はどう「循環」するのか</h2>
+        <p>今の状態は今日の選択に関わり、その選択は次の状態の条件になり得ます。CCTはこの時間をまたぐ関係を、一つの原因に決めつけずに整理するメソッドです。</p></div>
+      <div class="theory-grid">
+        <article class="theory-card"><h3>時間をまたぐ</h3><p>夕方の眠気や空腹が夜の選択に関わり、夜の過ごし方が翌朝の調子に関わる。どのつながりも、その人に当てはまるか確認します。</p></article>
+        <article class="theory-card"><h3>複数の入口がある</h3><p>睡眠、食事、予定、仕事量、光、気分は同時に変わります。一つの症状から原因を一意に逆算することはできません。</p></article>
+        <article class="theory-card"><h3>次の条件を変える</h3><p>休む、歩く、画面を閉じるなど、負担の少ない行動を一つ試し、予想した変化が起きたかを振り返ります。</p></article>
+      </div>
+      <p class="theory-note"><strong>位置づけ：</strong>6段階と「コアサイクル」はCCT Lab独自の整理です。人体に実在する単一の回路や、臨床試験で有効性が確認された治療法を指しません。</p>
+    </section>
+
     <section class="concept-section" id="dissonance-resolution">
       <div class="concept-section-header">
         <p class="concept-kicker">Dissonance / Resolution</p>
-        <h2>不協（ディゾナンス）と解決（レゾリューション）</h2>
+        <h2>不協と解決</h2>
         <p>
-          コアサイクルチューン（循環調律）では、生活の好循環を乱す要素を不協（ディゾナンス）、それを整える行動を解決（レゾリューション）として扱います。
+          コアサイクルチューン（循環調律）では、生活の好循環を乱す行動や状態を不協、それを整える行動を解決として扱います。
         </p>
       </div>
 
@@ -229,14 +256,14 @@
             </svg>
           </div>
           <p class="concept-kicker">Dissonance</p>
-          <h3>不協（ディゾナンス）</h3>
+          <h3>不協</h3>
           <p>
             生活の循環を乱し、次の乱れにつながっていく要素です。
           </p>
           <ul>
             <li>疲れているのにスマホを見続ける</li>
-            <li>空腹とストレスが重なって夜に食べすぎる</li>
-            <li>睡眠不足で翌日の活動量が落ちる</li>
+            <li>強い空腹のまま夜の食事を迎える</li>
+            <li>就寝時刻が遅くなり、睡眠の機会が減る</li>
           </ul>
         </article>
 
@@ -247,7 +274,7 @@
             </svg>
           </div>
           <p class="concept-kicker">Resolution</p>
-          <h3>解決（レゾリューション）</h3>
+          <h3>解決</h3>
           <p>
             乱れた流れを整え、次の行動を少し軽くするための行動です。
           </p>
@@ -258,14 +285,20 @@
           </ul>
         </article>
       </div>
+      <div class="theory-distinction">
+        <h3>不協、症状、解決の区別</h3>
+        <p><strong>不協</strong>は循環を乱し得る行動・条件・状態。眠気やだるさなどの<strong>症状・体感</strong>は現れた結果として別に記します。<strong>解決</strong>は原因と見立てた箇所に働きかける、試行可能な行動です。ある日の食べすぎはその日の結果であり、翌日の条件にもなり得ます。</p>
+        <p>「夕方に空腹が強い（観察）→食事間隔が関係するかもしれない（仮説）→帰宅前の食べ方を変える（試行）」と書き分けます。変化がなければ仮説を修正します。</p>
+      </div>
     </section>
+
 
     <section class="concept-section" id="example">
       <div class="concept-section-header">
         <p class="concept-kicker">Example</p>
         <h2>夜の過食をCCTで見る例</h2>
         <p>
-          たとえば「夜に食べすぎてしまう」という行動も、意志の弱さだけではなく、生活の流れとして見ることができます。
+          夜の食事が多くなる日を生活の流れとして見る、CCTの仮説例です。誰にでも同じ変化が起きると示したものではありません。
         </p>
       </div>
 
@@ -275,7 +308,7 @@
             <svg class="concept-flow-icon" aria-hidden="true">
               <use href="/assets/icons.svg#icon-alert-triangle"></use>
             </svg>
-            <h3>不協（ディゾナンス）の流れ</h3>
+            <h3>不協の流れ</h3>
           </div>
           <ol>
             <li><strong>生活条件：</strong>帰宅が遅い</li>
@@ -292,15 +325,15 @@
             <svg class="concept-flow-icon" aria-hidden="true">
               <use href="/assets/icons.svg#icon-check-circle"></use>
             </svg>
-            <h3>解決（レゾリューション）の流れ</h3>
+            <h3>解決の流れ</h3>
           </div>
           <ol>
             <li><strong>生活条件：</strong>夕方に軽食を入れる</li>
-            <li><strong>身体反応：</strong>空腹がやわらぐ</li>
-            <li><strong>感情・欲求：</strong>焦りや衝動が少し落ち着く</li>
-            <li><strong>行動：</strong>帰宅後に食べすぎにくくなる</li>
-            <li><strong>生活リズム：</strong>寝る準備に入りやすくなる</li>
-            <li><strong>次の状態：</strong>翌朝のだるさが少し軽くなる</li>
+            <li><strong>身体反応：</strong>空腹がやわらぐか観察する</li>
+            <li><strong>感情・欲求：</strong>焦りや衝動の変化を観察する</li>
+            <li><strong>行動：</strong>帰宅後の食事量を確認する</li>
+            <li><strong>生活リズム：</strong>就寝時刻に変化があるか確認する</li>
+            <li><strong>次の状態：</strong>翌朝の状態を記録し、予想と比べる</li>
           </ol>
         </article>
       </div>
@@ -317,13 +350,13 @@
           <svg class="toc-icon" aria-hidden="true">
             <use href="/assets/icons.svg#icon-alert-triangle"></use>
           </svg>
-          不協（ディゾナンス）
+          不協
         </a>
         <a href="#dissonance-resolution">
           <svg class="toc-icon" aria-hidden="true">
             <use href="/assets/icons.svg#icon-check-circle"></use>
           </svg>
-          解決（レゾリューション）
+          解決
         </a>
         <a href="#model">
           <svg class="toc-icon" aria-hidden="true">
@@ -361,6 +394,29 @@
           </svg>
           次の状態
         </a>
+      </div>
+    </section>
+
+
+    <section class="concept-section theory-section" id="practice">
+      <div class="concept-section-header"><p class="concept-kicker">Observe / Try / Review</p><h2>日常で調律する4つの手順</h2>
+        <p>CCT Labが提案する観察手順です。効果が検証された治療プログラムではありません。</p></div>
+      <ol class="theory-method">
+        <li><strong>困りごとを具体化する</strong><span>「午後に眠い」のように時刻と場面を残す。</span></li>
+        <li><strong>前後の条件を並べる</strong><span>睡眠、食事間隔、予定、活動、気分の記録と推測を分ける。</span></li>
+        <li><strong>変える点を一つ選ぶ</strong><span>「夕方の食べ方を変えた日は夜の食事も変わるか」と予想を立てる。</span></li>
+        <li><strong>同じ指標で振り返る</strong><span>実行できたか、体感や次の状態に変化があったかを確かめる。</span></li>
+      </ol>
+      <div class="theory-distinction"><h3>仮説が外れたら</h3><p>食事間隔を変えても夜の食事が変わらないなら、空腹だけでは説明できないかもしれません。仕事、睡眠、薬や病気など別の要因も検討します。日々の記録だけでは因果関係を証明できません。</p></div>
+    </section>
+
+    <section class="concept-section theory-section" id="evidence">
+      <div class="concept-section-header"><p class="concept-kicker">Evidence and Limits</p><h2>研究でわかることと、CCTの未検証部分</h2>
+        <p>生活の一部を調べた研究と、CCTというメソッド全体の有効性は別の問いです。</p></div>
+      <div class="theory-grid">
+        <article class="theory-card"><h3>睡眠と摂取量の一例</h3><p>短時間睡眠が習慣になっている過体重の成人を対象とした2週間の無作為化試験では、睡眠延長を支援した群のエネルギー摂取量が対照群より減りました。全員や長期間に当てはまるとは言えません。</p><p class="theory-source"><a href="https://pubmed.ncbi.nlm.nih.gov/35129580/" rel="noopener noreferrer">Tasali ほか、2022：原著論文</a></p></article>
+        <article class="theory-card"><h3>反対の結果もある</h3><p>別の睡眠制限実験では、食欲と摂取量がむしろ低下しました。「睡眠不足なら必ず過食する」と単純化できません。</p><p class="theory-source"><a href="https://pubmed.ncbi.nlm.nih.gov/33940082/" rel="noopener noreferrer">Radcliffe ほか、2021：原著論文</a></p></article>
+        <article class="theory-card"><h3>CCT全体の効果は未検証</h3><p>6段階、不協・解決の分類、4つの手順を一体として検証した試験は、現時点で提示できません。CCT自体の効果や診断精度を証明したものとして扱いません。</p><p class="theory-source">CCT Lab独自の整理</p></article>
       </div>
     </section>
 
@@ -406,7 +462,7 @@
           <div class="concept-card-number">03</div>
           <h3>小さく試して整える</h3>
           <p>
-            今日できる解決（レゾリューション）をひとつ選び、体感や生活の変化を観察します。
+            今日できる解決をひとつ選び、予想と体感のずれも含めて観察します。
           </p>
         </article>
       </div>

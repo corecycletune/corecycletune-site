@@ -465,8 +465,10 @@ function assertQuoteBlock(articleMd) {
   console.log("QUOTE_OPEN_INDEX:", openIndex);
   console.log("QUOTE_CLOSE_INDEX:", closeIndex);
 
+  // A quote is optional; an unverified verbatim quote is worse than a paraphrase.
+  if (openIndex === -1 && closeIndex === -1) return;
   if (openIndex === -1 || closeIndex === -1 || closeIndex <= openIndex) {
-    fail("Generated article_md is missing the required [quote]...[/quote] block.");
+    fail("Generated article_md contains an incomplete [quote]...[/quote] block.");
   }
 }
 

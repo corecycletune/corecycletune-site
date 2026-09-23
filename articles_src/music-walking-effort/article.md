@@ -7,6 +7,11 @@ topics: 音楽と運動, 歩き出しやすさ, 運動のきつさ
 category: 運動・活動
 readingTime: 10 min
 eyecatchQuery: music walking exercise
+eyecatch: https://images.unsplash.com/photo-1487956382158-bb926046304a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxtdXNpYyUyMHdhbGtpbmclMjBleGVyY2lzZXxlbnwxfDB8fHwxNzc5NjU5MDM4fDA&ixlib=rb-4.1.0&q=80&w=1080
+eyecatchAlt: shallow focus photography of person walking on road between grass
+eyecatchPhotoBy: Arek Adeoye
+eyecatchPhotoUrl: https://unsplash.com/@areksan?utm_source=cctlab&utm_medium=referral
+eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 ---
 
 [quote]
