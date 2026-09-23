@@ -1,0 +1,63 @@
+/* CCT concept journey: a readable overview before detail. */
+#model,#mechanism,#elements,#dissonance-resolution,#practice,#evidence,#medical,#reading { scroll-margin-top: 90px; }
+.cct-map { margin:0; padding:24px; border:1px solid var(--border); border-radius:24px; background:linear-gradient(160deg,#edf6f5,#fffdf8); }
+.cct-map-track { display:grid; grid-template-columns:1fr; gap:30px; margin:0; padding:0; list-style:none; }
+.cct-map-track li { position:relative; min-width:0; padding:18px; border:1px solid rgba(29,91,99,.17); border-radius:18px; background:#fff; box-shadow:var(--shadow-sm); }
+.cct-map-track li:not(:last-child)::after { content:"↓"; position:absolute; left:50%; bottom:-29px; transform:translateX(-50%); color:var(--brand); font-size:26px; font-weight:800; line-height:1; }
+.cct-map-count { display:block; color:var(--brand-2); font-weight:850; font-size:13px; letter-spacing:.12em; }
+.cct-map-track strong { display:block; color:var(--heading); font-size:19px; margin:4px 0; }
+.cct-map-track li > span:last-child { display:block; color:var(--muted); font-size:14px; line-height:1.6; }
+.cct-map-return { display:flex; align-items:center; gap:12px; margin-top:22px; padding:10px 16px; border-radius:14px; background:var(--brand); color:#fff; font-weight:700; line-height:1.5; }
+.cct-map-return span { font-size:26px; line-height:1; }
+.cct-map figcaption { margin-top:12px; color:var(--muted); font-size:13px; line-height:1.7; }
+.cct-map-explain { margin:18px 2px 0; line-height:1.9; }
+.cct-scenes,.cct-element-grid { display:grid; gap:14px; }
+.cct-scene { padding:20px; border:1px solid var(--border); border-radius:18px; background:var(--surface); }
+.cct-scene-label { color:var(--brand-2); font-size:13px; font-weight:800; letter-spacing:.08em; }
+.cct-scene h3 { color:var(--heading); margin:5px 0 8px; }
+.cct-scene p { margin:0; color:var(--muted); line-height:1.8; }
+.cct-soft-note { margin:20px 0 0; padding:16px 18px; border-left:4px solid var(--brand-2); border-radius:12px; background:var(--surface-2); line-height:1.85; }
+.cct-element { display:flex; flex-direction:column; gap:7px; min-width:0; padding:18px; border:1px solid var(--border); border-radius:18px; background:#fff; color:var(--text); box-shadow:var(--shadow-sm); text-decoration:none; }
+.cct-element:hover,.cct-element:focus-visible { border-color:var(--brand-2); background:var(--surface-2); transform:translateY(-2px); }
+.cct-element-no { color:var(--brand-2); font-size:13px; font-weight:850; }
+.cct-element strong { color:var(--heading); font-size:19px; }
+.cct-element span:not(.cct-element-no) { color:var(--muted); line-height:1.65; }
+.cct-element em { margin-top:auto; padding-top:8px; color:var(--brand); font-style:normal; font-weight:800; }
+.concept-compare-card p + p { margin-top:12px; }
+.concept-compare-card .concept-guide-link { margin-top:0; }
+.cct-practice { display:grid; gap:12px; margin:0; padding:0; list-style:none; counter-reset:cct-practice; }
+.cct-practice li { counter-increment:cct-practice; padding:16px 18px 16px 62px; position:relative; border:1px solid var(--border); border-radius:16px; background:#fff; }
+.cct-practice li::before { content:counter(cct-practice); position:absolute; top:17px; left:18px; display:grid; place-items:center; width:30px; height:30px; border-radius:50%; background:var(--brand); color:#fff; font-weight:800; }
+.cct-practice li > span { color:var(--heading); font-weight:800; }
+.cct-practice p { margin:3px 0 0; color:var(--muted); line-height:1.75; }
+.guide-orientation { margin:0 0 18px; padding:18px 22px; border:1px solid var(--border); border-radius:18px; background:var(--surface-2); }
+.guide-orientation p { margin:0; line-height:1.8; }
+.guide-orientation p + p { margin-top:6px; }
+.guide-orientation a { font-weight:800; }
+.guide-orientation-label { color:var(--brand); font-size:13px; font-weight:800; letter-spacing:.06em; }
+.guide-mini-map { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; margin:14px 0 0; padding:0; list-style:none; }
+.guide-mini-map li { padding:8px; border:1px solid var(--border); border-radius:10px; background:#fff; color:var(--muted); font-size:13px; text-align:center; line-height:1.45; }
+.guide-mini-map li.is-current { background:var(--brand); color:#fff; font-weight:800; }
+@media (min-width:640px) {
+  .cct-scenes { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .cct-element-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .guide-mini-map { grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+@media (min-width:900px) {
+  .cct-map-track { grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; }
+  .cct-map-track li:not(:last-child)::after { content:"→"; top:50%; right:-24px; bottom:auto; left:auto; transform:translateY(-50%); font-size:23px; }
+  .cct-element-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+@media (max-width:560px) {
+  .cct-map { padding:16px; }
+  .cct-map-track li { padding:14px 16px; }
+  .concept-page .concept-hero { min-height:0; }
+  .concept-page .concept-hero-content { max-width:none; }
+  .concept-page .concept-hero h1 { font-size:clamp(28px,8vw,42px); }
+  .concept-page .concept-hero p { font-size:15px; }
+  .concept-page .hero-actions { display:flex; flex-wrap:wrap; }
+  .concept-page .hero-actions .btn { white-space:normal; }
+}
+.home-cct-steps { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin:18px 0; }
+.home-cct-steps span { padding:10px; border-radius:12px; background:var(--surface-2); border:1px solid var(--border); color:var(--brand); font-weight:800; text-align:center; font-size:14px; }
+@media (min-width:720px) { .home-cct-steps { grid-template-columns:repeat(4,minmax(0,1fr)); } }
