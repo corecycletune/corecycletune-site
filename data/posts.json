@@ -890,9 +890,9 @@
   },
   {
     "slug": "post-meal-sleepiness",
-    "title": "食後に眠くなるのはなぜ？血糖値スパイクと集中力低下の関係",
-    "description": "食後の強い眠気は睡眠不足だけが原因とは限りません。食後の血糖変動と認知機能の関係を研究ベースで整理し、日常の整え方につなげます。",
-    "updated": "2026-03-11",
+    "title": "食後の眠気は血糖値スパイクだけで説明できる？朝食GI研究でわかること",
+    "description": "高GI・低GIの朝食と認知課題を比べた試験では、影響は限定的でした。研究が調べた集中力と、調べていない眠気・血糖スパイクを分けて整理します。",
+    "updated": "2026-09-23",
     "tags": [
       "血糖値",
       "食後の眠気",
@@ -907,7 +907,7 @@
       "集中力"
     ],
     "category": "食事・栄養",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1740645580344-bad6f745d09f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwbHVuY2glMjBibG9vZCUyMHN1Z2FyJTIwbWVhbHxlbnwxfDB8fHwxNzczMTc1MjMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
     "eyecatchAlt": "A wooden block spelling lunch on a table"
   },
