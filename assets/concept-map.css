@@ -1,5 +1,5 @@
 /* CCT concept journey: a readable overview before detail. */
-#model,#mechanism,#elements,#dissonance-resolution,#practice,#evidence,#medical,#reading { scroll-margin-top: 90px; }
+#model,#mechanism,#lifestyle,#elements,#dissonance-resolution,#practice,#evidence,#medical,#reading { scroll-margin-top: 90px; }
 /* Four everyday moments sit around a genuine, clockwise cycle. */
 .cct-map { margin:0; padding:24px; border:1px solid var(--border); border-radius:24px; background:linear-gradient(160deg,#edf6f5,#fffdf8); }
 .cct-cycle { position:relative; isolation:isolate; width:min(100%,680px); aspect-ratio:1; margin:0 auto; }
@@ -112,4 +112,18 @@
   .cct-branches-grid::before { content:""; position:absolute; left:16.666%; right:16.666%; top:-16px; border-top:2px solid #167d79; }
   .cct-branch { position:relative; }
   .cct-branch::before { content:""; position:absolute; left:50%; top:-16px; height:16px; border-left:2px solid #167d79; }
+}
+
+/* Everyday practices sit between the causal cycle and the six viewpoints. */
+.cct-foundations { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.cct-foundations article { min-width:0; padding:20px; border:1px solid var(--border); border-radius:18px; background:#fff; }
+.cct-foundations span { display:block; color:var(--brand-2); font-size:14px; font-weight:800; }
+.cct-foundations h3 { margin:6px 0 10px; color:var(--heading); font-size:19px; }
+.cct-foundations p { margin:0; line-height:1.8; }
+.guide-subtypes { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.guide-subtypes article { min-width:0; padding:16px; border:1px solid var(--border); border-radius:16px; background:#fff; }
+.guide-subtypes h3 { margin:0 0 7px; color:var(--heading); font-size:18px; }
+.guide-subtypes p { margin:0; line-height:1.75; }
+@media (max-width:700px) {
+  .cct-foundations,.guide-subtypes { grid-template-columns:1fr; }
 }
