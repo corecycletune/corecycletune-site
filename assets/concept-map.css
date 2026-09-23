@@ -77,3 +77,30 @@
   .concept-page .hero-actions { display:flex; flex-wrap:wrap; }
   .concept-page .hero-actions .btn { white-space:normal; }
 }
+
+/* Trace several possible paths backward from a change, then follow the cycle forward. */
+.cct-branches { margin:0; padding:22px; border:1px solid var(--border); border-radius:24px; background:linear-gradient(160deg,#edf6f5,#fffdf8); }
+.cct-branches-signal { width:max-content; max-width:100%; margin:0 auto 32px; padding:16px 28px; border-radius:20px; background:var(--brand); color:#fff; text-align:center; }
+.cct-branches-signal span,.cct-branches-signal strong { display:block; }
+.cct-branches-signal span { font-size:14px; opacity:.9; }
+.cct-branches-signal strong { font-size:clamp(18px,2.4vw,24px); line-height:1.5; }
+.cct-branches-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.cct-branch { min-width:0; padding:18px; border:1px solid rgba(29,91,99,.22); border-radius:18px; background:#fff; box-shadow:var(--shadow-sm); }
+.cct-branch-label { display:block; color:var(--brand-2); font-size:14px; font-weight:800; }
+.cct-branch strong { display:block; margin:8px 0; color:var(--heading); font-size:18px; line-height:1.5; }
+.cct-branch-arrow { display:block; color:var(--brand-2); font-size:25px; font-weight:800; line-height:1; }
+.cct-branch p { margin:8px 0 0; color:var(--text); line-height:1.75; }
+.cct-branches figcaption { margin-top:18px; color:var(--muted); font-size:14px; line-height:1.75; }
+@media (max-width:700px) {
+  .cct-branches { padding:14px; }
+  .cct-branches-grid { grid-template-columns:1fr; gap:12px; }
+  .cct-branches-signal { margin-bottom:20px; }
+  .cct-branch { padding:16px; }
+}
+
+.cct-loop-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:18px; }
+.cct-loop-pair article { padding:18px; border:1px solid var(--border); border-radius:18px; background:#fff; }
+.cct-loop-pair article:last-child { background:#eaf5f2; }
+.cct-loop-pair span { color:var(--brand); font-weight:800; }
+.cct-loop-pair p { margin:8px 0 0; line-height:1.8; }
+@media (max-width:700px) { .cct-loop-pair { grid-template-columns:1fr; } }
