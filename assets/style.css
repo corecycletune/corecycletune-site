@@ -2218,3 +2218,22 @@ hr {
     grid-row: 2;
   }
 }
+
+/* Concept element guides */
+.concept-step .concept-guide-link,.concept-compare-card .concept-guide-link { display:inline-flex; margin-top:12px; font-weight:800; color:var(--brand); text-decoration:underline; text-underline-offset:3px; }
+.guide-page { padding-bottom:64px; }
+.guide-hero { margin:16px 0 24px; padding:clamp(24px,5vw,48px); border-radius:28px; background:linear-gradient(120deg,var(--surface),var(--surface-2)); border:1px solid var(--border); box-shadow:var(--shadow); }
+.guide-hero .concept-kicker { margin-bottom:14px; }
+.guide-hero h1 { color:var(--heading); font-size:clamp(32px,6vw,54px); line-height:1.2; margin:0 0 12px; }
+.guide-hero p:last-child { margin-bottom:0; color:var(--muted); font-size:1.08rem; }
+.guide-layout { display:grid; gap:18px; }
+.guide-section { padding:clamp(20px,4vw,32px); border-radius:24px; background:var(--surface); border:1px solid var(--border); box-shadow:var(--shadow-sm); }
+.guide-section h2 { color:var(--heading); margin:0 0 12px; font-size:clamp(22px,3vw,29px); }
+.guide-section p { margin:0 0 12px; line-height:1.9; }
+.guide-section p:last-child { margin-bottom:0; }
+.guide-section ul { margin:0; padding-left:1.4em; line-height:1.9; }
+.guide-note { background:var(--surface-2); border-left:4px solid var(--brand-2); padding:16px 20px; border-radius:10px; }
+.guide-links { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); margin-top:18px; }
+.guide-links a { display:block; padding:15px 18px; border-radius:15px; background:var(--surface-2); border:1px solid var(--border); color:var(--brand); font-weight:800; }
+.guide-links a:hover,.guide-links a:focus-visible { background:var(--brand-soft); }
+.guide-source { font-size:.9rem; color:var(--muted); }

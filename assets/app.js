@@ -246,6 +246,15 @@
         if (t) crumbs.push({ name: t, href: "/topics/?t=" + encodeURIComponent(t) });
       } else if (first === "concept") {
         crumbs.push({ name: "コンセプト", href: "/concept/" });
+        if (segs.length >= 2) {
+          const conceptNames = {
+            "life-conditions": "生活条件", "body-responses": "身体反応",
+            "feelings-desires": "感情・欲求", "actions": "行動",
+            "life-rhythm": "生活リズム", "next-state": "次の状態",
+            "dissonance": "不協", "resolution": "解決"
+          };
+          crumbs.push({ name: conceptNames[segs[1]] || segs[1], href: "/concept/" + segs[1] + "/" });
+        }
       } else if (first === "about") {
         crumbs.push({ name: "About", href: "/about/" });
       } else if (first === "disclaimer") {

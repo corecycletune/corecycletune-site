@@ -6,6 +6,8 @@ const posts = JSON.parse(
   fs.readFileSync("data/posts.json")
 );
 
+const conceptPages = ["life-conditions","body-responses","feelings-desires","actions","life-rhythm","next-state","dissonance","resolution"];
+
 const urls = posts.map(p => {
 
   return `
@@ -14,7 +16,11 @@ const urls = posts.map(p => {
   </url>
 `;
 
-}).join("");
+}).join("") + ["/concept/", ...conceptPages.map(slug => `/concept/${slug}/`)].map(path => `
+  <url>
+    <loc>${BASE_URL}${path}</loc>
+  </url>
+`).join("");
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 
