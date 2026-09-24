@@ -148,3 +148,5 @@
   .guide-taxonomy h3 { margin-bottom:4px; }
   .guide-jump { gap:5px 12px; }
 }
+
+#groups,#paths { scroll-margin-top:96px; }
