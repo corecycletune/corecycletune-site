@@ -271,3 +271,5 @@
   .cct-interruption-row > * { padding:9px 12px; }
   .cct-interruption-row > *:not(:last-child)::after { content:"↓"; right:auto; top:auto; left:50%; bottom:-17px; transform:translateX(-50%); }
 }
+
+.concept-page .cct-feedback-ring { width:82%; height:82%; max-width:none; }
