@@ -273,3 +273,6 @@
 }
 
 .concept-page .cct-feedback-ring { width:82%; height:82%; max-width:none; }
+
+.cct-amplification-note { margin:20px 0 0; padding:14px 18px; border-left:4px solid var(--brand-2); border-radius:12px; background:var(--surface-2); line-height:1.8; }
+.cct-ripple-tags span:not(:last-child)::after { content:" →"; margin-left:6px; color:var(--brand); font-weight:800; }
