@@ -105,6 +105,8 @@
             <span class="dot">•</span>
             <a href="/disclaimer/">免責</a>
             <span class="dot">•</span>
+            <a href="/privacy/">プライバシーポリシー</a>
+            <span class="dot">•</span>
             <a href="/articles/">記事</a>
             <span class="dot">•</span>
             <a href="/topics/">カテゴリ</a>
@@ -260,6 +262,8 @@
         crumbs.push({ name: "About", href: "/about/" });
       } else if (first === "disclaimer") {
         crumbs.push({ name: "免責", href: "/disclaimer/" });
+      } else if (first === "privacy") {
+        crumbs.push({ name: "プライバシーポリシー", href: "/privacy/" });
       } else {
         crumbs.push({ name: esc(first), href: "/" + first + "/" });
       }
