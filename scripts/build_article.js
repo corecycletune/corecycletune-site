@@ -317,9 +317,11 @@ function buildPaperSummaryBlock(rawLines) {
   const link = map["論文リンク"] || "";
 
   const detailOrder = [
+    "研究種別",
     "どこの研究か",
     "どんな内容か",
     "対象・条件",
+    "主な結果",
     "限界"
   ];
 
