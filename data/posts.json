@@ -365,25 +365,23 @@
   },
   {
     "slug": "gut-brain-probiotics-mood",
-    "title": "腸の状態は気分に影響するのか？プロバイオティクスと抑うつの研究",
-    "description": "腸内細菌が気分に影響するとはどういうことか。抗うつ薬と併用したプロバイオティクスのRCTをもとに、腸脳軸の仕組みと日常の整え方を整理します。",
-    "updated": "2026-03-17",
+    "title": "「腸を整えれば気分も整う」はどこまで本当？プロバイオティクス研究を読み直す",
+    "description": "腸脳軸を万能説明にせず、うつ病患者を対象にしたプロバイオティクス研究で分かっていることと、日常のCCTへ持ち込める範囲を整理します。",
+    "updated": "2026-09-26",
     "tags": [
       "腸脳軸",
       "プロバイオティクス",
       "気分",
-      "抑うつ",
-      "腸内細菌",
-      "メンタル",
-      "発酵食品"
+      "うつ病",
+      "腸内細菌"
     ],
     "topics": [
       "腸脳軸",
-      "気分",
-      "抑うつ"
+      "プロバイオティクス",
+      "気分"
     ],
     "category": "感情・認知",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1582138079863-ec3e671f59d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxndXQlMjBoZWFsdGglMjBmZXJtZW50ZWQlMjBmb29kJTIwY2FsbXxlbnwxfDB8fHwxNzczNzE2OTY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "eyecatchAlt": "clear glass jars with green leaves"
   },
@@ -700,25 +698,24 @@
   },
   {
     "slug": "nasal-breathing-humidity-sleep",
-    "title": "\"口が乾く夜は眠りも浅くなりやすいのか？鼻呼吸・加湿と睡眠の研究\"",
-    "description": "\"朝起きると喉が乾き、眠ったはずなのに回復感が薄い日があります。鼻の通りと寝室の湿度が睡眠中の呼吸のしやすさにどう関わるかを研究ベースでたどり、乾燥する夜の崩れ方と整え方を整理します。\"",
-    "updated": "2026-04-25",
+    "title": "朝、口がカラカラ。加湿すれば睡眠の質まで良くなるのか？",
+    "description": "起床時の口渇を「乾燥＝浅い睡眠」と決めつけず、鼻閉、口呼吸、CPAPの加湿研究などから、夜の呼吸と翌朝の状態をCCTで整理します。",
+    "updated": "2026-09-26",
     "tags": [
       "鼻呼吸",
       "口の乾燥",
-      "睡眠環境",
-      "湿度",
-      "いびき",
-      "喉の痛み",
-      "起床時のだるさ"
+      "睡眠",
+      "鼻閉",
+      "加湿",
+      "CPAP"
     ],
     "topics": [
+      "口渇",
       "鼻閉",
-      "寝室湿度",
-      "睡眠中の呼吸"
+      "睡眠環境"
     ],
     "category": "睡眠・休養",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1623495488621-3ad36a7d9475?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxiZWRyb29tJTIwaHVtaWRpdHklMjBzbGVlcHxlbnwxfDB8fHwxNzc3MDcxNTg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "eyecatchAlt": "grayscale photo of bed with white blanket"
   },
@@ -771,51 +768,48 @@
   },
   {
     "slug": "obesity-allergy-inflammation",
-    "title": "肥満があるとアレルギーは悪化しやすいのか？肥満とアレルギー性炎症の研究",
-    "description": "肥満があるとアレルギー症状は重くなりやすいのか。肥満と喘息・鼻炎などのアレルギー性気道炎症の研究をもとに、炎症と生活の流れを整理します。",
-    "updated": "2026-03-11",
+    "title": "体重が増えた時期に喘息がつらい。肥満と気道症状はどうつながる？",
+    "description": "肥満と喘息・アレルギー性気道疾患の関係を、炎症だけに単純化せず、呼吸の力学、活動量、睡眠などの循環も含めてCCTで整理します。",
+    "updated": "2026-09-26",
     "tags": [
       "肥満",
-      "アレルギー",
-      "炎症",
       "喘息",
-      "鼻炎",
-      "気道炎症"
+      "アレルギー",
+      "気道炎症",
+      "呼吸",
+      "体重"
     ],
     "topics": [
       "肥満",
-      "アレルギー",
-      "炎症"
+      "喘息",
+      "気道症状"
     ],
     "category": "食事・栄養",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1636407402219-505654aeba5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxhbGxlcmd5JTIwb2Jlc2l0eSUyMGluZmxhbW1hdGlvbiUyMGNvbmNlcHR8ZW58MXwwfHx8MTc3MzYxNjQ5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
     "eyecatchAlt": "a woman biting into a sandwich with lots of lettuce"
   },
   {
     "slug": "oral-gut-axis-morning-care",
-    "title": "口の中の菌は腸に影響するのか？歯周病と口腔—腸 axis の研究",
-    "description": "朝の歯磨きをしないだけで腸が壊れるとは言い切れません。ただ、歯周病・歯肉炎・舌苔・プラークが多い状態が続くと、口腔内細菌が腸や全身炎症に関わる可能性があります。",
-    "updated": "2026-05-25",
+    "title": "朝の歯磨きを忘れると腸まで悪くなる？「口腔―腸」の研究が本当に見ているもの",
+    "description": "朝一回の歯磨きと腸内環境を直結させず、歯周病と口腔―腸マイクロバイオーム研究から、口の慢性炎症を生活の循環として考えます。",
+    "updated": "2026-09-26",
     "tags": [
-      "口腔内環境",
+      "口腔ケア",
       "歯周病",
-      "歯肉炎",
-      "舌苔",
-      "プラーク",
       "腸内細菌",
-      "全身炎症",
-      "口腔ケア"
+      "口腔腸軸",
+      "歯磨き"
     ],
     "topics": [
-      "口腔—腸 axis",
+      "口腔腸軸",
       "歯周病",
-      "朝の歯磨き"
+      "口腔ケア"
     ],
-    "category": "腸内環境",
-    "readingTime": "10 min",
-    "eyecatch": "https://images.unsplash.com/photo-1609840113564-ab4aba4956c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxvcmFsJTIwY2FyZSUyMGd1dCUyMGhlYWx0aHxlbnwxfDB8fHwxNzc5NjU5MDM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "girl with red and white toothbrush in mouth"
+    "category": "食事・栄養",
+    "readingTime": "7 min",
+    "eyecatch": "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    "eyecatchAlt": "toothbrushes and oral care items"
   },
   {
     "slug": "paper-books-mental-calm",
