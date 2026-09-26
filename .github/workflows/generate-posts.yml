@@ -17,9 +17,8 @@ on:
         required: true
         default: "review"
       manual_request:
-        description: "Optional natural-language article request"
-        required: false
-        default: ""
+        description: "Required article problem / search intent / brief"
+        required: true
 
 
 
