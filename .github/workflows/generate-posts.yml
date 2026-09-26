@@ -79,13 +79,6 @@ jobs:
             RUN_BUILD="false"
             RUN_COMMIT="false"
             COMMIT_SCOPE="none"
-          elif [ "$EVENT_NAME" = "schedule" ]; then
-            WORKFLOW_MODE="auto_publish"
-            RUN_AI_GENERATION="true"
-            RUN_BUILD="true"
-            RUN_COMMIT="true"
-            COMMIT_SCOPE="publish"
-            MANUAL_REQUEST=""
           fi
 
           echo "WORKFLOW_MODE=$WORKFLOW_MODE" >> "$GITHUB_ENV"
@@ -146,19 +139,3 @@ jobs:
           git commit -m "chore: rebuild generated site files"
           git push
 
-      - name: Commit AI article and generated files
-        if: env.RUN_COMMIT == 'true' && env.COMMIT_SCOPE == 'publish'
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          git add articles_src articles data/posts.json sitemap.xml
-
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-            exit 0
-          fi
-
-          git commit -m "chore: publish AI-generated article"
-          git push
