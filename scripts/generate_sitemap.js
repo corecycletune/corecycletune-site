@@ -8,6 +8,8 @@ const posts = JSON.parse(
 
 const conceptPages = ["life-conditions","body-responses","feelings-desires","actions","life-rhythm","next-state","dissonance","resonance","how-to"];
 
+const staticPages = ["/", "/articles/", "/topics/", "/concept/", "/about/", "/disclaimer/", "/privacy/"];
+
 const urls = posts.map(p => {
 
   return `
@@ -16,7 +18,7 @@ const urls = posts.map(p => {
   </url>
 `;
 
-}).join("") + ["/concept/", ...conceptPages.map(slug => `/concept/${slug}/`), "/privacy/"].map(path => `
+}).join("") + [...staticPages, ...conceptPages.map(slug => `/concept/${slug}/`)].map(path => `
   <url>
     <loc>${BASE_URL}${path}</loc>
   </url>
