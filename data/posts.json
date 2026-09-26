@@ -99,8 +99,8 @@
   {
     "slug": "brief-nap-recovery",
     "title": "昼寝は何分がいちばん効くのか？10分仮眠が回復しやすかった研究",
-    "description": "昼寝は長いほど良いとは限りません。短時間仮眠の研究をもとに、眠気と回復感の違いをコアサイクルチューン（循環調律）の視点で整理します。",
-    "updated": "2026-03-11",
+    "description": "午後の仮眠は何分がちょうどいいのか。10分・20分・30分を比べた研究とメタ解析から、短い昼寝の使い分け、睡眠慣性、午後から夜へ崩れる循環まで整理します。",
+    "updated": "2026-09-26",
     "tags": [
       "仮眠",
       "昼寝",
@@ -108,17 +108,18 @@
       "覚醒",
       "疲労回復",
       "睡眠",
-      "眠気"
+      "眠気",
+      "睡眠慣性"
     ],
     "topics": [
       "仮眠",
-      "疲労回復",
-      "午後の眠気"
+      "午後の眠気",
+      "疲労回復"
     ],
     "category": "睡眠・休養",
-    "readingTime": "10 min",
+    "readingTime": "6 min",
     "eyecatch": "https://images.unsplash.com/photo-1664910492894-fd44e6136939?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzaG9ydCUyMG5hcCUyMGRlc2slMjBjYWxtJTIwYWZ0ZXJub29ufGVufDF8MHx8fDE3NzMxNzUyNzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "a cat sleeping on a table"
+    "eyecatchAlt": "昼下がりに短い仮眠をとるイメージ"
   },
   {
     "slug": "chewing-speed-appetite",
@@ -795,8 +796,8 @@
   {
     "slug": "oral-gut-axis-morning-care",
     "title": "口の中の菌は腸に影響するのか？歯周病と口腔—腸 axis の研究",
-    "description": "朝の歯磨きをしないだけで腸が壊れるとは言い切れません。ただ、歯周病・歯肉炎・舌苔・プラークが多い状態が続くと、口腔内細菌が腸や全身炎症に関わる可能性があります。",
-    "updated": "2026-05-25",
+    "description": "朝の歯磨き一回で腸が変わるわけではありません。ただ、慢性的な歯周病では口と腸の細菌叢に同時の変化が見つかっています。人での研究と舌苔という別の観察視点から、口と腸のつながりを考えます。",
+    "updated": "2026-09-26",
     "tags": [
       "口腔内環境",
       "歯周病",
@@ -804,18 +805,18 @@
       "舌苔",
       "プラーク",
       "腸内細菌",
-      "全身炎症",
+      "口腔腸軸",
       "口腔ケア"
     ],
     "topics": [
       "口腔—腸 axis",
       "歯周病",
-      "朝の歯磨き"
+      "舌苔"
     ],
-    "category": "腸内環境",
-    "readingTime": "10 min",
+    "category": "食事・栄養",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1609840113564-ab4aba4956c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxvcmFsJTIwY2FyZSUyMGd1dCUyMGhlYWx0aHxlbnwxfDB8fHwxNzc5NjU5MDM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "girl with red and white toothbrush in mouth"
+    "eyecatchAlt": "歯ブラシで口腔ケアをしている様子"
   },
   {
     "slug": "paper-books-mental-calm",
