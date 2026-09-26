@@ -367,8 +367,8 @@
   {
     "slug": "gut-brain-probiotics-mood",
     "title": "腸の状態は気分に影響するのか？プロバイオティクスと抑うつの研究",
-    "description": "腸内細菌が気分に影響するとはどういうことか。抗うつ薬と併用したプロバイオティクスのRCTをもとに、腸脳軸の仕組みと日常の整え方を整理します。",
-    "updated": "2026-03-17",
+    "description": "「腸でセロトニンが作られるから気分が変わる」ほど単純ではありません。腸脳軸の神経・免疫・HPA軸と、プロバイオティクスのRCT・メタ解析から、どこまで分かっているかを整理します。",
+    "updated": "2026-09-27",
     "tags": [
       "腸脳軸",
       "プロバイオティクス",
@@ -380,13 +380,13 @@
     ],
     "topics": [
       "腸脳軸",
-      "気分",
+      "プロバイオティクス",
       "抑うつ"
     ],
     "category": "感情・認知",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1582138079863-ec3e671f59d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxndXQlMjBoZWFsdGglMjBmZXJtZW50ZWQlMjBmb29kJTIwY2FsbXxlbnwxfDB8fHwxNzczNzE2OTY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "clear glass jars with green leaves"
+    "eyecatchAlt": "発酵食品と腸内環境をイメージした瓶"
   },
   {
     "slug": "hydration-attention-fatigue",
@@ -773,25 +773,25 @@
   {
     "slug": "obesity-allergy-inflammation",
     "title": "肥満があるとアレルギーは悪化しやすいのか？肥満とアレルギー性炎症の研究",
-    "description": "肥満があるとアレルギー症状は重くなりやすいのか。肥満と喘息・鼻炎などのアレルギー性気道炎症の研究をもとに、炎症と生活の流れを整理します。",
-    "updated": "2026-03-11",
+    "description": "肥満とアレルギー性気道疾患はどこまで関係するのか。特に喘息では、体重・炎症・呼吸の力学が症状や治療反応に関わる研究があります。因果を単純化せず、CCTの循環として整理します。",
+    "updated": "2026-09-27",
     "tags": [
       "肥満",
       "アレルギー",
-      "炎症",
       "喘息",
-      "鼻炎",
-      "気道炎症"
+      "炎症",
+      "気道炎症",
+      "体重管理"
     ],
     "topics": [
       "肥満",
-      "アレルギー",
-      "炎症"
+      "喘息",
+      "アレルギー性気道疾患"
     ],
     "category": "食事・栄養",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1636407402219-505654aeba5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxhbGxlcmd5JTIwb2Jlc2l0eSUyMGluZmxhbW1hdGlvbiUyMGNvbmNlcHR8ZW58MXwwfHx8MTc3MzYxNjQ5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "a woman biting into a sandwich with lots of lettuce"
+    "eyecatchAlt": "食事をする人のイメージ"
   },
   {
     "slug": "oral-gut-axis-morning-care",
