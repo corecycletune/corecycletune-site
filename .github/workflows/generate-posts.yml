@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
     inputs:
       workflow_mode:
-        description: "review or auto_publish"
+        description: "review (AI generation always creates a draft)"
         required: true
         default: "review"
       manual_request:
@@ -72,26 +72,13 @@ jobs:
             RUN_COMMIT="true"
             COMMIT_SCOPE="generated_only"
           elif [ "$EVENT_NAME" = "workflow_dispatch" ]; then
-            if [ "$INPUT_MODE" = "auto_publish" ]; then
-              WORKFLOW_MODE="auto_publish"
-              RUN_AI_GENERATION="true"
-              RUN_BUILD="true"
-              RUN_COMMIT="true"
-              COMMIT_SCOPE="publish"
-            else
-              WORKFLOW_MODE="review"
-              RUN_AI_GENERATION="true"
-              RUN_BUILD="false"
-              RUN_COMMIT="false"
-              COMMIT_SCOPE="none"
-            fi
-          elif [ "$EVENT_NAME" = "schedule" ]; then
-            WORKFLOW_MODE="auto_publish"
+            # Health-related AI content is generated as a draft only.
+            # Publishing requires a reviewed source to be committed separately.
+            WORKFLOW_MODE="review"
             RUN_AI_GENERATION="true"
-            RUN_BUILD="true"
-            RUN_COMMIT="true"
-            COMMIT_SCOPE="publish"
-            MANUAL_REQUEST=""
+            RUN_BUILD="false"
+            RUN_COMMIT="false"
+            COMMIT_SCOPE="none"
           fi
 
           echo "WORKFLOW_MODE=$WORKFLOW_MODE" >> "$GITHUB_ENV"
@@ -152,19 +139,3 @@ jobs:
           git commit -m "chore: rebuild generated site files"
           git push
 
-      - name: Commit AI article and generated files
-        if: env.RUN_COMMIT == 'true' && env.COMMIT_SCOPE == 'publish'
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          git add articles_src articles data/posts.json sitemap.xml
-
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-            exit 0
-          fi
-
-          git commit -m "chore: publish AI-generated article"
-          git push
