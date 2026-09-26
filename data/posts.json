@@ -560,8 +560,8 @@
   {
     "slug": "microbreak-fatigue-reset",
     "title": "短い休憩でも疲れは戻るのか？マイクロブレイク研究から考える集中力の整え方",
-    "description": "数分の短い休憩でも疲れやだるさは戻りやすくなるのか。マイクロブレイク研究をもとに、仕事中の集中力低下と回復の流れを整理します。",
-    "updated": "2026-03-11",
+    "description": "1〜10分ほどの短い休憩は本当に意味があるのか。19報・22サンプルをまとめたメタ解析から、疲労感には効きやすい一方、仕事の成績は単純ではない理由と、休めない循環を整理します。",
+    "updated": "2026-09-26",
     "tags": [
       "短い休憩",
       "マイクロブレイク",
@@ -571,14 +571,14 @@
       "デスクワーク"
     ],
     "topics": [
-      "短い休憩",
+      "マイクロブレイク",
       "疲労",
       "集中力"
     ],
     "category": "環境・習慣",
-    "readingTime": "10 min",
+    "readingTime": "6 min",
     "eyecatch": "https://images.unsplash.com/photo-1758876203698-551573730e81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzaG9ydCUyMGJyZWFrJTIwZGVzayUyMHdvcmt8ZW58MXwwfHx8MTc3MzE4MzU0MXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "Man smiling while looking at his phone"
+    "eyecatchAlt": "デスクワークの合間に短い休憩をとる人"
   },
   {
     "slug": "mind-wandering-mood",
@@ -726,8 +726,8 @@
   {
     "slug": "nature-brain-recovery",
     "title": "自然を見るだけで脳は回復するのか？注意回復理論の研究",
-    "description": "森や自然を見ると頭がスッキリする感覚は本当なのか。注意回復理論と環境心理学の研究をもとに、日常の集中力低下を整理します。",
-    "updated": "2026-03-11",
+    "description": "木や公園を見ると頭が少し軽くなる感覚は、研究でどこまで確かめられているのか。自然散歩の実験と注意回復理論のレビューから、画面休憩との違いとCCTの回復循環を考えます。",
+    "updated": "2026-09-26",
     "tags": [
       "自然",
       "注意回復",
@@ -742,9 +742,9 @@
       "集中力"
     ],
     "category": "環境・習慣",
-    "readingTime": "10 min",
+    "readingTime": "6 min",
     "eyecatch": "https://images.unsplash.com/photo-1767107114829-c3e92bf81b13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxmb3Jlc3QlMjBwYXRoJTIwc3VubGlnaHQlMjBjYWxtJTIwbmF0dXJlfGVufDF8MHx8fDE3NzMwNjIyMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "Sunlight streams through bare trees in a misty forest."
+    "eyecatchAlt": "木々の間に光が差し込む静かな森"
   },
   {
     "slug": "nostril-breathing-memory-sleep",
@@ -1226,26 +1226,26 @@
   {
     "slug": "ultra-processed-satiety",
     "title": "加工度の高い食品が止まりにくいのはなぜ？超加工食品と食べすぎの研究",
-    "description": "スナックや菓子パン、ファストフードが続くと、食べたはずなのに満たされにくいことがあります。超加工食品とエネルギー摂取の研究をもとに、満腹感のずれと食行動の乱れを日常の流れとして整理します。",
-    "updated": "2026-04-17",
+    "description": "超加工食品は「加工してあるから」食べすぎるのか。NIHの入院試験と2026年の食感・食べる速度の実験から、加工度だけでは見えない食べすぎの仕組みと生活の循環を整理します。",
+    "updated": "2026-09-26",
     "tags": [
       "超加工食品",
       "食べすぎ",
       "満腹感",
-      "食欲",
-      "高エネルギー密度",
+      "食べる速度",
+      "食感",
       "間食",
       "食環境"
     ],
     "topics": [
       "超加工食品",
-      "満腹感",
+      "食べる速度",
       "食行動"
     ],
     "category": "食事・栄養",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1775440051299-742f6d3eba59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxwcm9jZXNzZWQlMjBmb29kJTIwc25hY2t8ZW58MXwwfHx8MTc3NjM4MDY0MXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "Billboard advertising corn snacks with a celebrity"
+    "eyecatchAlt": "加工されたスナック食品の広告"
   },
   {
     "slug": "video-binge-reward-loop",
