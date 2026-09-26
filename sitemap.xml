@@ -228,7 +228,31 @@
   </url>
 
   <url>
+    <loc>https://corecycletune.com/</loc>
+  </url>
+
+  <url>
+    <loc>https://corecycletune.com/articles/</loc>
+  </url>
+
+  <url>
+    <loc>https://corecycletune.com/topics/</loc>
+  </url>
+
+  <url>
     <loc>https://corecycletune.com/concept/</loc>
+  </url>
+
+  <url>
+    <loc>https://corecycletune.com/about/</loc>
+  </url>
+
+  <url>
+    <loc>https://corecycletune.com/disclaimer/</loc>
+  </url>
+
+  <url>
+    <loc>https://corecycletune.com/privacy/</loc>
   </url>
 
   <url>
@@ -267,29 +291,5 @@
     <loc>https://corecycletune.com/concept/how-to/</loc>
   </url>
 
-  <url>
-    <loc>https://corecycletune.com/privacy/</loc>
-  </url>
-
-
-  <url>
-    <loc>https://corecycletune.com/</loc>
-  </url>
-
-  <url>
-    <loc>https://corecycletune.com/articles/</loc>
-  </url>
-
-  <url>
-    <loc>https://corecycletune.com/topics/</loc>
-  </url>
-
-  <url>
-    <loc>https://corecycletune.com/about/</loc>
-  </url>
-
-  <url>
-    <loc>https://corecycletune.com/disclaimer/</loc>
-  </url>
 
 </urlset>
