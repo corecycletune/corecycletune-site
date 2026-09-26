@@ -6,7 +6,7 @@ const posts = JSON.parse(
   fs.readFileSync("data/posts.json")
 );
 
-const conceptPages = ["life-conditions","body-responses","feelings-desires","actions","life-rhythm","next-state","dissonance","resonance","how-to"];
+const conceptPages = ["life-conditions","body-responses","feelings-desires","actions","life-rhythm","next-state","dissonance","resolution","how-to"];
 
 const staticPages = ["/", "/articles/", "/topics/", "/concept/", "/about/", "/disclaimer/", "/privacy/"];
 

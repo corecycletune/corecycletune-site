@@ -274,48 +274,48 @@
 
 
 /* Page-level cycle themes: keep CCT's neutral teal for the framework,
-   but make dissonance and resonance immediately distinguishable. */
+   but make dissonance and resolution immediately distinguishable. */
 .theme-dissonance { --cycle-theme:#a65349; --cycle-theme-strong:#8f4038; --cycle-theme-soft:#fbefed; --cycle-theme-border:#e2b9b4; }
-.theme-resonance { --cycle-theme:#3f7d58; --cycle-theme-strong:#326747; --cycle-theme-soft:#edf7ef; --cycle-theme-border:#b8d8c1; }
+.theme-resolution { --cycle-theme:#3f7d58; --cycle-theme-strong:#326747; --cycle-theme-soft:#edf7ef; --cycle-theme-border:#b8d8c1; }
 
 .theme-dissonance .guide-hero,
-.theme-resonance .guide-hero {
+.theme-resolution .guide-hero {
   background:
     radial-gradient(circle at 88% 18%, color-mix(in srgb,var(--cycle-theme) 12%,transparent), transparent 34%),
     linear-gradient(120deg,var(--cycle-theme-soft),#fffdf8 74%);
   border-color:var(--cycle-theme-border);
 }
 .theme-dissonance .guide-hero .concept-kicker,
-.theme-resonance .guide-hero .concept-kicker,
+.theme-resolution .guide-hero .concept-kicker,
 .theme-dissonance .guide-orientation-label,
-.theme-resonance .guide-orientation-label,
+.theme-resolution .guide-orientation-label,
 .theme-dissonance .guide-jump a,
-.theme-resonance .guide-jump a,
+.theme-resolution .guide-jump a,
 .theme-dissonance .guide-links a,
-.theme-resonance .guide-links a {
+.theme-resolution .guide-links a {
   color:var(--cycle-theme-strong);
 }
 .theme-dissonance .guide-orientation,
-.theme-resonance .guide-orientation {
+.theme-resolution .guide-orientation {
   border-left:4px solid var(--cycle-theme);
   background:linear-gradient(110deg,var(--cycle-theme-soft),var(--surface-2) 78%);
 }
 .theme-dissonance .guide-taxonomy-icon,
-.theme-resonance .guide-taxonomy-icon {
+.theme-resolution .guide-taxonomy-icon {
   background:var(--cycle-theme-soft);
   color:var(--cycle-theme);
 }
 .theme-dissonance .guide-taxonomy-number,
-.theme-resonance .guide-taxonomy-number,
+.theme-resolution .guide-taxonomy-number,
 .theme-dissonance .guide-taxonomy-clue strong,
-.theme-resonance .guide-taxonomy-clue strong {
+.theme-resolution .guide-taxonomy-clue strong {
   color:var(--cycle-theme-strong);
 }
 .theme-dissonance .guide-paths article,
-.theme-resonance .guide-paths article {
+.theme-resolution .guide-paths article {
   border-left-color:var(--cycle-theme);
 }
 .theme-dissonance .cct-loop-break,
-.theme-resonance .cct-loop-break {
+.theme-resolution .cct-loop-break {
   border-left-color:var(--cycle-theme);
 }
