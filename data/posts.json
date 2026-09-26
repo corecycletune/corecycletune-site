@@ -796,8 +796,8 @@
   {
     "slug": "oral-gut-axis-morning-care",
     "title": "口の中の菌は腸に影響するのか？歯周病と口腔—腸 axis の研究",
-    "description": "朝の歯磨きをしないだけで腸が壊れるとは言い切れません。ただ、歯周病・歯肉炎・舌苔・プラークが多い状態が続くと、口腔内細菌が腸や全身炎症に関わる可能性があります。",
-    "updated": "2026-05-25",
+    "description": "朝の歯磨き一回で腸が変わるわけではありません。ただ、慢性的な歯周病では口と腸の細菌叢に同時の変化が見つかっています。人での研究と舌苔という別の観察視点から、口と腸のつながりを考えます。",
+    "updated": "2026-09-26",
     "tags": [
       "口腔内環境",
       "歯周病",
@@ -805,18 +805,18 @@
       "舌苔",
       "プラーク",
       "腸内細菌",
-      "全身炎症",
+      "口腔腸軸",
       "口腔ケア"
     ],
     "topics": [
       "口腔—腸 axis",
       "歯周病",
-      "朝の歯磨き"
+      "舌苔"
     ],
-    "category": "腸内環境",
-    "readingTime": "10 min",
+    "category": "食事・栄養",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1609840113564-ab4aba4956c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxvcmFsJTIwY2FyZSUyMGd1dCUyMGhlYWx0aHxlbnwxfDB8fHwxNzc5NjU5MDM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "girl with red and white toothbrush in mouth"
+    "eyecatchAlt": "歯ブラシで口腔ケアをしている様子"
   },
   {
     "slug": "paper-books-mental-calm",
