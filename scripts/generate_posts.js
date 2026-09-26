@@ -4,6 +4,18 @@ const path = require("path");
 const SRC_DIR = "articles_src";
 const OUT_FILE = "data/posts.json";
 
+function stripWrappingQuotes(value) {
+  const s = String(value || "").trim();
+  if (s.length >= 2) {
+    const first = s[0];
+    const last = s[s.length - 1];
+    if ((first === '"' && last === '"') || (first === "'" && last === "'")) {
+      return s.slice(1, -1);
+    }
+  }
+  return s;
+}
+
 function parseFrontMatter(md) {
   const match = md.match(/^---\n([\s\S]*?)\n---/);
   if (!match) return {};
@@ -16,7 +28,7 @@ function parseFrontMatter(md) {
     if (i === -1) return;
 
     const key = line.slice(0, i).trim();
-    const value = line.slice(i + 1).trim();
+    const value = stripWrappingQuotes(line.slice(i + 1));
 
     if (!key) return;
     meta[key] = value;

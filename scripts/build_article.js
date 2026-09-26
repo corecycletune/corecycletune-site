@@ -21,6 +21,18 @@ function escapeHtml(s) {
     .replaceAll("'", "&#039;");
 }
 
+function stripWrappingQuotes(value) {
+  const s = String(value || "").trim();
+  if (s.length >= 2) {
+    const first = s[0];
+    const last = s[s.length - 1];
+    if ((first === '"' && last === '"') || (first === "'" && last === "'")) {
+      return s.slice(1, -1);
+    }
+  }
+  return s;
+}
+
 function parseFrontMatter(md) {
   const match = md.match(/^---\n([\s\S]*?)\n---\n?/);
   if (!match) {
@@ -35,7 +47,7 @@ function parseFrontMatter(md) {
     if (i === -1) return;
 
     const key = line.slice(0, i).trim();
-    const value = line.slice(i + 1).trim();
+    const value = stripWrappingQuotes(line.slice(i + 1));
     meta[key] = value;
   });
 
@@ -317,9 +329,11 @@ function buildPaperSummaryBlock(rawLines) {
   const link = map["論文リンク"] || "";
 
   const detailOrder = [
+    "研究種別",
     "どこの研究か",
     "どんな内容か",
     "対象・条件",
+    "主な結果",
     "限界"
   ];
 

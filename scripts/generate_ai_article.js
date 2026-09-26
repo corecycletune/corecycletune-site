@@ -9,7 +9,7 @@ const WORKFLOW_MODE = process.env.WORKFLOW_MODE || "review";
 const MANUAL_REQUEST = (process.env.MANUAL_REQUEST || "").trim();
 
 const MAX_ARTICLES_PER_RUN = 1;
-const MAX_EXISTING_POSTS_FOR_CONTEXT = 30;
+const MAX_EXISTING_POSTS_FOR_CONTEXT = 200;
 const OUTPUT_DIR_REVIEW = "articles_draft";
 const OUTPUT_DIR_PUBLISH = "articles_src";
 
@@ -48,6 +48,10 @@ function findFirstExistingPath(candidates) {
 }
 
 function loadPromptFiles() {
+  const editorialPolicyPath = findFirstExistingPath([
+    "docs/editorial_policy.md",
+  ]);
+
   const generateArticlePath = findFirstExistingPath([
     "generate_article.md",
     "prompts/generate_article.md",
@@ -63,6 +67,9 @@ function loadPromptFiles() {
     "prompts/base_cct_concept.md",
   ]);
 
+  const editorialPolicy = editorialPolicyPath
+    ? readIfExists(editorialPolicyPath)
+    : "";
   const generateArticle = generateArticlePath
     ? readIfExists(generateArticlePath)
     : "";
@@ -70,6 +77,10 @@ function loadPromptFiles() {
     ? readIfExists(articleStructurePath)
     : "";
   const baseConcept = baseConceptPath ? readIfExists(baseConceptPath) : "";
+
+  if (!editorialPolicyPath || !editorialPolicy) {
+    fail("Missing docs/editorial_policy.md.");
+  }
 
   if (!generateArticlePath || !generateArticle) {
     fail(
@@ -90,10 +101,12 @@ function loadPromptFiles() {
   }
 
   return {
+    editorialPolicy,
     generateArticle,
     articleStructure,
     baseConcept,
     resolvedPaths: {
+      editorialPolicyPath,
       generateArticlePath,
       articleStructurePath,
       baseConceptPath,
@@ -293,8 +306,8 @@ function buildInstructions({ duplicateRetryNote }) {
     "Use natural Japanese for the article body.",
     "The article must be publishable in the site's house style.",
     `Today's date in Asia/Tokyo is ${today}. Use this for updated.`,
-    "If a manual request is provided, prioritize it while still making the result fit the site's rules.",
-    "If no manual request is provided, autonomously choose a fresh theme that fits the site.",
+    "The manual request defines the article problem or intent. Do not invent a new topic merely to be different from existing posts.",
+    "Use web search to verify research and bibliographic details before writing. Prefer primary papers and authoritative academic/public sources.",
     "Do not output explanations, apologies, notes, or analysis.",
     duplicateRetryNote || "",
   ]
@@ -309,6 +322,9 @@ function buildInput({
 }) {
   return [
     "Below are the required project prompt files and current site context.",
+    "",
+    "=== editorial_policy.md ===",
+    promptFiles.editorialPolicy,
     "",
     "=== base_cct_concept.md ===",
     promptFiles.baseConcept,
@@ -343,7 +359,14 @@ function buildRequestPayload({
       existingPostsCompactJson,
       manualRequest,
     }),
-    max_output_tokens: 7000,
+    max_output_tokens: 10000,
+    tools: [
+      {
+        type: "web_search",
+        search_context_size: "high",
+      },
+    ],
+    tool_choice: "required",
     text: {
       format: {
         type: "text",
@@ -493,9 +516,11 @@ function assertPaperSummaryBlock(articleMd) {
     "論文タイトル |",
     "著者 |",
     "年 |",
+    "研究種別 |",
     "どこの研究か |",
     "どんな内容か |",
     "対象・条件 |",
+    "主な結果 |",
     "限界 |",
     "論文リンク |",
   ];
@@ -507,7 +532,7 @@ function assertPaperSummaryBlock(articleMd) {
   }
 }
 
-function assertSingleCctCycle(articleMd, typeName, leadingField) {
+function assertSingleCctCycle(articleMd, typeName) {
   const openTag = `[cct-cycle type="${typeName}"]`;
   const closeTag = "[/cct-cycle]";
   const openIndex = articleMd.indexOf(openTag);
@@ -524,25 +549,24 @@ function assertSingleCctCycle(articleMd, typeName, leadingField) {
     fail(`Generated article_md is missing the required ${openTag}...${closeTag} block.`);
   }
 
-  const blockText = articleMd.slice(openIndex, closeIndex + closeTag.length);
+  const blockText = articleMd.slice(openIndex + openTag.length, closeIndex);
+  const rows = blockText
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .filter((line) => {
+      const i = line.indexOf("|");
+      return i > 0 && line.slice(i + 1).trim().length > 0;
+    });
 
-  const requiredFields = [
-    `${leadingField} |`,
-    "身体状態 |",
-    "心理状態 |",
-    "次の行動 |",
-  ];
-
-  for (const field of requiredFields) {
-    if (!blockText.includes(field)) {
-      fail(`Generated ${typeName} cct-cycle block is missing field: ${field}`);
-    }
+  if (rows.length < 4) {
+    fail(`Generated ${typeName} cct-cycle block must contain at least 4 meaningful label | value rows.`);
   }
 }
 
 function assertCctCycleBlocks(articleMd) {
-  assertSingleCctCycle(articleMd, "dissonance", "不協");
-  assertSingleCctCycle(articleMd, "resolution", "解決");
+  assertSingleCctCycle(articleMd, "dissonance");
+  assertSingleCctCycle(articleMd, "resolution");
 }
 
 function validateArticleMarkdown(articleMd) {
@@ -607,6 +631,10 @@ function writeRunSummaryFile(summary) {
 }
 
 async function generateOneArticle() {
+  if (!MANUAL_REQUEST) {
+    fail("MANUAL_REQUEST is required. Autonomous topic generation is disabled to avoid low-value article production.");
+  }
+
   const promptFiles = loadPromptFiles();
   const posts = loadPostsJson();
   const existingSlugs = collectExistingSlugs(posts);
