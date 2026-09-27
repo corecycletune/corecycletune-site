@@ -1,28 +1,27 @@
 [
   {
     "slug": "alcohol-fat-oxidation-diet",
-    "title": "アルコールは太るからではなく脂肪が燃えにくくなるから厄介なのか？飲酒とダイエットの研究",
-    "description": "アルコールは高カロリーだから太るだけではないかもしれません。脂肪燃焼、満腹感、食欲への影響をもとに、ダイエット中の飲酒の厄介さを整理します。",
-    "updated": "2026-03-11",
+    "title": "お酒で太るのは酒のカロリーだけ？飲酒後の食欲・代謝・睡眠の研究",
+    "description": "アルコールは1gあたり7kcalですが、体重管理を崩すのはカロリーだけではありません。飲酒後の食事量、脂肪酸化、睡眠までを研究からつなぎ、崩れやすい一晩の循環を整理します。",
+    "updated": "2026-09-27",
     "tags": [
       "アルコール",
       "飲酒",
-      "脂肪燃焼",
       "食欲",
-      "満腹感",
+      "脂肪酸化",
+      "睡眠",
       "ダイエット",
-      "代謝",
       "体重管理"
     ],
     "topics": [
-      "脂肪燃焼",
+      "飲酒",
       "食欲",
-      "ダイエット"
+      "体重管理"
     ],
     "category": "食事・栄養",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1663147475798-7e672b522463?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxhbGNvaG9sJTIwZHJpbmslMjBkaWV0JTIwdGFibGV8ZW58MXwwfHx8MTc3MzY3MjkyOXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "a glass of wine sitting on top of a table"
+    "eyecatchAlt": "食卓に置かれたワイングラス"
   },
   {
     "slug": "bedtime-procrastination-stress",
@@ -74,27 +73,27 @@
   },
   {
     "slug": "breakfast-window-metabolism",
-    "title": "朝食を遅らせると日中のだるさは増えやすいのか？食事時間帯と代謝リズムの研究",
-    "description": "朝は食べないほうが楽に感じる日でも、その遅れが体温、空腹感、血糖のリズムとずれて、昼以降のだるさや食欲の荒れにつながることがあります。早い時間帯の食事と代謝に関する研究をもとに、朝食の“量”ではなく“窓”の整え方を考えます。",
-    "updated": "2026-04-23",
+    "title": "朝食は早い方がいい？食事を一日の前半へ寄せる時間栄養学の研究",
+    "description": "「朝食を食べれば健康」ではなく、食べる時間帯そのものは代謝に影響するのか。早い時間制限食の試験と41RCTのネットワークメタ解析から、食事窓を前へ寄せる意味を整理します。",
+    "updated": "2026-09-27",
     "tags": [
       "朝食",
       "食事時間",
       "時間制限食",
+      "時間栄養学",
       "概日リズム",
-      "血糖変動",
-      "だるさ",
-      "空腹感"
+      "インスリン",
+      "食欲"
     ],
     "topics": [
-      "朝の食事",
-      "代謝リズム",
-      "日中のだるさ"
+      "食事時間",
+      "早い時間制限食",
+      "代謝リズム"
     ],
     "category": "食事・栄養",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1529411081224-84ac0d0bf6ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxlYXJseSUyMGJyZWFrZmFzdCUyMG1ldGFib2xpc218ZW58MXwwfHx8MTc3Njg5OTI5MXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "sunny-side up served on plate"
+    "eyecatchAlt": "朝の食卓に置かれた卵料理"
   },
   {
     "slug": "brief-nap-recovery",
@@ -269,28 +268,27 @@
   },
   {
     "slug": "evening-scent-sleep-switch",
-    "title": "寝る前の香りで気分は切り替わるのか？快い香りと睡眠前の覚醒の研究",
-    "description": "寝る前に頭が冴えている夜、香りで気分が少し切り替わることがあります。快い香りと睡眠の研究をもとに、夜の覚醒、呼吸、入眠前ルーティンの整え方を考えます。",
-    "updated": "2026-04-24",
+    "title": "寝る前の香りで睡眠は良くなる？139人・14夜の嗅覚研究",
+    "description": "ラベンダーなど「睡眠に良い香り」が語られますが、139人の研究では香り条件そのものに一貫した改善はありませんでした。鍵になった「快いと感じるか」と夜の合図としての使い方を整理します。",
+    "updated": "2026-09-27",
     "tags": [
       "香り",
       "嗅覚",
       "睡眠",
       "入眠",
       "リラックス",
-      "覚醒",
       "夜のルーティン",
-      "自律神経"
+      "寝室"
     ],
     "topics": [
       "寝る前の香り",
-      "入眠前の覚醒",
+      "睡眠環境",
       "夜の切り替え"
     ],
     "category": "睡眠・休養",
-    "readingTime": "10 min",
+    "readingTime": "6 min",
     "eyecatch": "https://images.unsplash.com/photo-1477511801984-4ad318ed9846?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxsYXZlbmRlciUyMG5pZ2h0JTIwcm91dGluZSUyMHNsZWVwfGVufDF8MHx8fDE3Nzk2NTkwMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "tilt shift lens pink fetal flowers"
+    "eyecatchAlt": "睡眠用の香りをイメージした花"
   },
   {
     "slug": "fermented-foods-microbiome",
@@ -463,9 +461,9 @@
   },
   {
     "slug": "lifestyle-changes-brain-use",
-    "title": "生活を整えたら脳の使い方が変わった話 睡眠・食事・運動を見直して起きた変化5つ",
-    "description": "睡眠・食事・運動を少しずつ整えたとき、脳の使い方はどう変わるのか。研究を手がかりに、刺激の求め方や思考の質が変わっていく流れを整理します。",
-    "updated": "2026-03-11",
+    "title": "睡眠・食事・運動を一緒に整えると脳は変わる？神経可塑性と生活習慣の研究",
+    "description": "睡眠、食事、運動は別々の健康項目ではありません。神経可塑性のレビューを手がかりに、一つの生活習慣が次の習慣を変えるCCTの循環として読み直します。",
+    "updated": "2026-09-27",
     "tags": [
       "生活習慣",
       "睡眠",
@@ -473,17 +471,17 @@
       "運動",
       "神経可塑性",
       "集中力",
-      "思考"
+      "脳"
     ],
     "topics": [
       "生活習慣",
       "神経可塑性",
-      "集中力"
+      "CCT"
     ],
     "category": "環境・習慣",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1764921587475-866c1d48dc48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxtb3JuaW5nJTIwd2FsayUyMHF1aWV0JTIwcm9vbXxlbnwxfDB8fHwxNzc1MDQzODAzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "A person kneels in a dimly lit living room."
+    "eyecatchAlt": "静かな部屋で朝の時間を過ごす人"
   },
   {
     "slug": "loneliness-sleep-quality",
@@ -1035,28 +1033,27 @@
   },
   {
     "slug": "social-support-stress-buffer",
-    "title": "誰かがそばにいるだけで緊張は下がるのか？社会的支援とストレス反応の研究",
-    "description": "大きな励ましより、ただ一緒にいてくれることや、さりげない助けのほうが気持ちを落ち着かせることがあります。社会的支援とストレス反応の研究をもとに、緊張、気疲れ、回復の循環を整理します。",
-    "updated": "2026-04-07",
+    "title": "誰かがいるだけでストレスは減る？「支援のされ方」と身体反応の研究",
+    "description": "人に支えてもらうと楽になる一方、あからさまな励ましが負担になることもあります。社会的支援の実験から、血圧・心拍・コルチゾールと「見えにくい支援」の面白さを整理します。",
+    "updated": "2026-09-27",
     "tags": [
       "社会的支援",
-      "ストレス反応",
-      "緊張",
-      "コルチゾール",
-      "心拍数",
-      "血圧",
+      "ストレス",
       "人間関係",
+      "コルチゾール",
+      "心拍",
+      "血圧",
       "気疲れ"
     ],
     "topics": [
       "社会的支援",
       "ストレス緩衝",
-      "気疲れ"
+      "人間関係"
     ],
     "category": "社会・つながり",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1598793923805-184b1adc10e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxxdWlldCUyMHN1cHBvcnQlMjBoYW5kc3xlbnwxfDB8fHwxNzc1NTE1OTU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "persons left hand on purple textile"
+    "eyecatchAlt": "そっと手を添える支援のイメージ"
   },
   {
     "slug": "stairs-break-alertness",
