@@ -535,17 +535,17 @@
   },
   {
     "slug": "mental-fatigue-posture-slump",
-    "title": "頭を使いすぎた日の猫背はなぜ戻りにくいのか？メンタルファティーグと姿勢制御の研究",
-    "description": "考え続けた日の夕方に、背中が丸まり、座り姿勢まで崩れやすくなることがあります。メンタルファティーグが姿勢制御に及ぼす研究をもとに、集中の消耗が体の支えにどう波及するかを日常の流れとして整理します。",
-    "updated": "2026-04-26",
+    "title": "頭を使いすぎると猫背になる？精神的疲労・姿勢・気分の研究",
+    "description": "夕方になると姿勢まで崩れるのは筋力だけの問題なのか。精神的疲労と運動制御、姿勢操作と気分の研究から、頭と身体が互いに疲れを増やす循環を整理します。",
+    "updated": "2026-09-27",
     "tags": [
-      "メンタルファティーグ",
-      "姿勢制御",
+      "精神的疲労",
+      "姿勢",
       "猫背",
       "集中力",
       "デスクワーク",
-      "だるさ",
-      "座位行動"
+      "気分",
+      "疲労"
     ],
     "topics": [
       "精神的疲労",
@@ -553,9 +553,9 @@
       "夕方のだるさ"
     ],
     "category": "呼吸・姿勢",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1688120248420-3219fdb979b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxtZW50YWwlMjBmYXRpZ3VlJTIwcG9zdHVyZXxlbnwxfDB8fHwxNzc3MTU3OTExfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "a man in a blue suit sitting on a black chair"
+    "eyecatchAlt": "デスクワーク中に座る人のイメージ"
   },
   {
     "slug": "microbreak-fatigue-reset",
@@ -626,30 +626,6 @@
     "readingTime": "10 min",
     "eyecatch": "https://images.unsplash.com/photo-1663871341330-2e80d0e7b62a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxtb3JuaW5nJTIwc3VubGlnaHQlMjB3aW5kb3d8ZW58MXwwfHx8MTc3MzE3NjY2MHww&ixlib=rb-4.1.0&q=80&w=1080",
     "eyecatchAlt": "a couple of potted plants on a window sill"
-  },
-  {
-    "slug": "mouth-rinse-brain-boost",
-    "title": "甘いものを飲まなくても頭は少し動くのか？糖質うがいと集中パフォーマンスの研究",
-    "description": "疲れたときに甘いものが欲しくなるのは、エネルギー不足だけでなく“これから報酬が入る”という脳の反応も関わるかもしれません。糖質を飲み込まず口に含む研究をもとに、午後の集中切れと立て直し方を整理します。",
-    "updated": "2026-04-21",
-    "tags": [
-      "糖質うがい",
-      "集中力",
-      "メンタルファティーグ",
-      "午後のだるさ",
-      "口腔感覚",
-      "報酬系",
-      "作業パフォーマンス"
-    ],
-    "topics": [
-      "集中切れ",
-      "甘いもの欲",
-      "疲労感"
-    ],
-    "category": "感情・認知",
-    "readingTime": "9 min",
-    "eyecatch": "https://images.unsplash.com/photo-1673791031093-eb8eefa60083?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzdWdhciUyMHJpbnNlJTIwZm9jdXN8ZW58MXwwfHx8MTc3NjcyNjI5MHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "a spoon filled with sugar on top of a table"
   },
   {
     "slug": "music-tempo-eating-speed",
@@ -745,30 +721,6 @@
     "readingTime": "6 min",
     "eyecatch": "https://images.unsplash.com/photo-1767107114829-c3e92bf81b13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxmb3Jlc3QlMjBwYXRoJTIwc3VubGlnaHQlMjBjYWxtJTIwbmF0dXJlfGVufDF8MHx8fDE3NzMwNjIyMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "eyecatchAlt": "木々の間に光が差し込む静かな森"
-  },
-  {
-    "slug": "nostril-breathing-memory-sleep",
-    "title": "鼻呼吸をすると覚えやすくなるのか？呼吸の通り道と記憶・睡眠の研究",
-    "description": "口呼吸ぎみの日は頭がぼんやりしやすい、という感覚は気のせいではないかもしれません。鼻呼吸と記憶、睡眠中の呼吸の質に関する研究をもとに、集中低下や朝の重さにつながる流れを整理します。",
-    "updated": "2026-04-06",
-    "tags": [
-      "鼻呼吸",
-      "口呼吸",
-      "記憶",
-      "集中力",
-      "睡眠の質",
-      "鼻づまり",
-      "呼吸習慣"
-    ],
-    "topics": [
-      "鼻呼吸",
-      "記憶力",
-      "睡眠の質"
-    ],
-    "category": "呼吸・姿勢",
-    "readingTime": "10 min",
-    "eyecatch": "https://images.unsplash.com/photo-1635091242797-7283c28610c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxuYXNhbCUyMGJyZWF0aGluZyUyMG1lbW9yeXxlbnwxfDB8fHwxNzc1NDI5NTUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "a package of masala spot sitting on top of a white table"
   },
   {
     "slug": "obesity-allergy-inflammation",
@@ -913,76 +865,28 @@
     "eyecatchAlt": "A wooden block spelling lunch on a table"
   },
   {
-    "slug": "posture-mood-fatigue",
-    "title": "姿勢が整うと気分と疲れは変わるのか？猫背とストレス反応の研究",
-    "description": "姿勢を少し起こすだけで気分や疲れ方は変わるのか。猫背とアップライト姿勢の研究をもとに、メンタルと身体のつながりを整理します。",
-    "updated": "2026-03-11",
-    "tags": [
-      "姿勢",
-      "猫背",
-      "気分",
-      "疲労",
-      "ストレス反応",
-      "呼吸",
-      "メンタル"
-    ],
-    "topics": [
-      "姿勢",
-      "気分",
-      "疲労"
-    ],
-    "category": "呼吸・姿勢",
-    "readingTime": "10 min",
-    "eyecatch": "https://images.unsplash.com/photo-1670516537457-f9ea9eb5c5fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHx1cHJpZ2h0JTIwcG9zdHVyZSUyMGRlc2slMjBjYWxtfGVufDF8MHx8fDE3NzM3MDEyMDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "a toy figure on a desk"
-  },
-  {
     "slug": "protein-breakfast-appetite-control",
-    "title": "朝にたんぱく質を食べると間食は減りやすいのか？高たんぱく朝食と食欲コントロールの研究",
-    "description": "朝食でたんぱく質をしっかり取ると、その後の空腹や間食は変わるのか。高たんぱく朝食の研究をもとに、食欲の乱れ方と整え方を整理します。",
-    "updated": "2026-03-11",
+    "title": "朝にたんぱく質を食べると夕方の間食は減る？高たんぱく朝食と食欲の研究",
+    "description": "高たんぱく朝食は空腹感や夕方の間食にどう影響するのか。朝食欠食の若者を対象にした複数の試験から、朝の食べ方が夜までつながる循環を整理します。",
+    "updated": "2026-09-27",
     "tags": [
-      "たんぱく質",
       "朝食",
-      "間食",
+      "たんぱく質",
       "食欲",
+      "間食",
       "高たんぱく朝食",
       "満腹感",
-      "過食予防"
+      "夕方の食欲"
     ],
     "topics": [
-      "たんぱく質",
-      "朝食",
+      "高たんぱく朝食",
+      "間食",
       "食欲"
     ],
     "category": "食事・栄養",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1726443069397-66cf6ac430cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxwcm90ZWluJTIwYnJlYWtmYXN0JTIwdGFibGV8ZW58MXwwfHx8MTc3MzIwNjg4NXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "A plate of food on a wooden table"
-  },
-  {
-    "slug": "protein-breakfast-cravings",
-    "title": "朝食でたんぱく質をとると夕方の甘いもの欲は減りやすいのか？食欲ホルモンと間食の研究",
-    "description": "朝を軽く済ませた日は、夕方から急に甘いものやスナックへ流れやすいことがあります。高たんぱく朝食と食欲調節の研究をもとに、空腹感、間食、集中切れがつながる流れを整理します。",
-    "updated": "2026-04-14",
-    "tags": [
-      "朝食",
-      "たんぱく質",
-      "食欲",
-      "間食",
-      "血糖変動",
-      "グレリン",
-      "夕方のだるさ"
-    ],
-    "topics": [
-      "高たんぱく朝食",
-      "甘いもの欲",
-      "食欲ホルモン"
-    ],
-    "category": "食事・栄養",
-    "readingTime": "10 min",
-    "eyecatch": "https://images.unsplash.com/photo-1633372171190-4eafd0ce8763?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxwcm90ZWluJTIwYnJlYWtmYXN0JTIwY3JhdmluZ3N8ZW58MXwwfHx8MTc3NjEyMTQ2MXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "a plate of food on a table next to a bowl of sauce"
+    "eyecatchAlt": "たんぱく質を含む朝食のイメージ"
   },
   {
     "slug": "screen-tilt-neck-breathing",
@@ -1081,50 +985,27 @@
   },
   {
     "slug": "slow-breathing-stress-reset",
-    "title": "ゆっくり吐く呼吸で落ち着くのはなぜ？心拍変動とストレス反応の研究",
-    "description": "ゆっくりした呼吸で気持ちが落ち着く感覚は本当なのか。呼吸ペースと心拍変動、ストレス反応の研究をもとに、日常の整え方を整理します。",
-    "updated": "2026-03-11",
+    "title": "ゆっくり呼吸はなぜ落ち着く？吐く息を長くする必要はあるのか",
+    "description": "ゆっくりした呼吸は心拍変動を高める研究が多い一方、「吐く息を長くすればさらに良い」は結果が割れています。呼吸速度と呼気比率を分けて、ストレス時の使い方を整理します。",
+    "updated": "2026-09-27",
     "tags": [
       "呼吸",
       "心拍変動",
       "ストレス",
       "自律神経",
-      "緊張",
+      "迷走神経",
+      "呼気",
       "リラックス"
     ],
     "topics": [
-      "呼吸",
+      "ゆっくり呼吸",
       "心拍変動",
       "ストレス"
     ],
     "category": "呼吸・姿勢",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1572009589907-2d66d0af9db1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzbG93JTIwYnJlYXRoaW5nJTIwY2FsbSUyMG1vcm5pbmd8ZW58MXwwfHx8MTc3NTAxMjYwMnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "photography of lake near tree"
-  },
-  {
-    "slug": "slow-exhale-stress-reset",
-    "title": "吐く息を長くすると落ち着きやすいのはなぜ？ゆっくりした呼気と自律神経の研究",
-    "description": "緊張したときに「深呼吸しよう」と言われても、吸うことばかり意識するとかえって落ち着かないことがあります。呼気をゆっくり長めにする呼吸と自律神経の研究をもとに、焦り、浅い呼吸、集中の乱れがどうつながるかを整理します。",
-    "updated": "2026-04-15",
-    "tags": [
-      "呼吸",
-      "自律神経",
-      "ストレス反応",
-      "迷走神経",
-      "緊張",
-      "集中力",
-      "回復"
-    ],
-    "topics": [
-      "長い呼気",
-      "呼吸ペース",
-      "ストレス調整"
-    ],
-    "category": "呼吸・姿勢",
-    "readingTime": "9 min",
-    "eyecatch": "https://images.unsplash.com/photo-1507120410856-1f35574c3b45?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzbG93JTIwZXhoYWxlJTIwYnJlYXRoaW5nfGVufDF8MHx8fDE3NzYyMDc5NDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "pink breathe neon sign"
+    "eyecatchAlt": "静かな環境でゆっくり呼吸するイメージ"
   },
   {
     "slug": "social-jetend-fatigue",
@@ -1317,29 +1198,5 @@
     "readingTime": "10 min",
     "eyecatch": "https://images.unsplash.com/photo-1631020280892-02a11b5e960a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHx3YXJtJTIwbGlnaHQlMjBiZWRyb29tfGVufDF8MHx8fDE3NzU3NzU3MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "eyecatchAlt": "green plant on brown wooden table"
-  },
-  {
-    "slug": "weekend-nature-inflammation",
-    "title": "週末に自然へ出ると平日のだるさはほどけやすいのか？自然曝露と炎症・気分の研究",
-    "description": "休んだはずなのに疲れが抜けない週末は、単なる睡眠不足だけでは説明しきれないことがあります。自然環境への曝露と炎症・気分に関する研究をもとに、平日の張りつめと回復感のつながりを整理します。",
-    "updated": "2026-04-16",
-    "tags": [
-      "自然環境",
-      "炎症",
-      "気分",
-      "回復",
-      "週末習慣",
-      "ストレス",
-      "だるさ"
-    ],
-    "topics": [
-      "週末の回復",
-      "自然曝露",
-      "炎症反応"
-    ],
-    "category": "環境・習慣",
-    "readingTime": "10 min",
-    "eyecatch": "https://images.unsplash.com/photo-1558282499-5912e5960ad6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxmb3Jlc3QlMjB3ZWVrZW5kJTIwcmVjb3Zlcnl8ZW58MXwwfHx8MTc3NjI5NDIzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "lined trees during daytime"
   }
 ]

@@ -3,6 +3,63 @@
 この棚卸しは、CCT Lab の56記事を「検索資産」「読者価値」「CCT独自性」「重複」の観点で整理したもの。
 削除判断は Search Console の表示ゼロだけでは行わない。
 
+## 2026-09-27 URL Inspection 実測更新
+
+GSC Wizard 経由で56記事すべてを Google URL Inspection API で確認した。
+
+### Submitted and indexed: 6本
+
+- blue-light-headache-strain
+- brief-nap-recovery
+- music-tempo-eating-speed
+- nasal-breathing-humidity-sleep
+- oral-gut-axis-morning-care
+- ultra-processed-satiety
+
+この6URLは検索資産として維持し、削除しない。
+
+### Crawled - currently not indexed: 16本
+
+- alcohol-fat-oxidation-diet
+- bedtime-procrastination-stress
+- breakfast-window-metabolism
+- coffee-afternoon-sleep
+- evening-scent-sleep-switch
+- fermented-foods-microbiome
+- gut-brain-probiotics-mood
+- hydration-attention-fatigue
+- lifestyle-changes-brain-use
+- mental-fatigue-posture-slump
+- microbreak-fatigue-reset
+- nature-brain-recovery
+- obesity-allergy-inflammation
+- post-meal-sleepiness
+- slow-breathing-stress-reset
+- social-support-stress-buffer
+
+Google は実際に取得したが現時点ではインデックスしていない。
+テーマ価値の高いページは削除より先にリライト・統合・内部リンク改善を行う。
+
+### URL is unknown to Google: 34本
+
+Google の検査結果上、クロール履歴・インデックス資産を確認できない。
+ただし「unknown」だけを削除理由にせず、重複・検索意図・CCT独自価値と合わせて判断する。
+
+### 第1統合バッチ
+
+以下6本はすべて URL is unknown to Google であり、重複または独立検索価値が弱いため整理した。
+
+| 削除slug | 処理 |
+|---|---|
+| protein-breakfast-cravings | protein-breakfast-appetite-control へ研究・検索意図を統合 |
+| slow-exhale-stress-reset | slow-breathing-stress-reset へ統合。呼気延長の追加効果が一貫しない研究も反映 |
+| posture-mood-fatigue | mental-fatigue-posture-slump へ姿勢→気分のRCTを統合 |
+| nostril-breathing-memory-sleep | indexed の nasal-breathing-humidity-sleep と役割が近く、認知・睡眠への飛躍が大きいため削除 |
+| weekend-nature-inflammation | nature-brain-recovery と自然系クラスターへ役割を集約 |
+| mouth-rinse-brain-boost | 運動生理の糖質マウスリンスから日常集中への距離が大きく、検索意図も弱いため削除 |
+
+56本から50本へ整理。
+
 ## Search Consoleで表示実績がある記事
 
 直近90日。表示実績があるURLは、少なくともGoogle検索結果へ出た実績があるため、原則URLを維持してリライトする。
@@ -22,9 +79,9 @@
 
 ### 注意
 
-Search Console connector から取得できるのは Search Analytics と sitemap 集計で、URL Inspection の個別インデックス状態は取得できない。
-現在の sitemap データは last_downloaded が 2026-04-10 と古く、indexed フィールドも deprecated。
-したがって「表示がない＝未インデックス」とは扱わない。
+2026-09-27から GSC Wizard の URL Inspection API を併用している。
+Search Analytics の表示有無と URL Inspection のインデックス状態は別物として扱う。
+「表示ゼロ」だけで削除せず、URL Inspection・重複・検索意図・CCT独自価値を合わせて判断する。
 
 ## 強い統合候補
 
