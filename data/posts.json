@@ -267,6 +267,30 @@
     "eyecatchAlt": "woman in black and white striped long sleeve shirt standing near glass window"
   },
   {
+    "slug": "evening-hunger-circadian",
+    "title": "夜になると食欲が強くなるのはなぜ？体内時計と「食べたい」の研究",
+    "description": "夜の食欲を意志の弱さだけで説明する必要はありません。強制脱同調実験と日常のスマホ調査から、空腹と「おいしいものが欲しい」が夕方〜夜に高まりやすい理由を整理します。",
+    "updated": "2026-09-27",
+    "tags": [
+      "夜の食欲",
+      "夜食",
+      "体内時計",
+      "空腹",
+      "食欲",
+      "概日リズム",
+      "過食"
+    ],
+    "topics": [
+      "夜の食欲",
+      "体内時計",
+      "夜食"
+    ],
+    "category": "食事・栄養",
+    "readingTime": "7 min",
+    "eyecatch": "https://images.unsplash.com/photo-1705177530212-5c3507ce4a0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxsYXRlJTIwbmlnaHQlMjBzbmFja2luZ3xlbnwxfDB8fHwxNzc2NTUyOTg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "eyecatchAlt": "夜に食べ物を選ぶ場面のイメージ"
+  },
+  {
     "slug": "evening-scent-sleep-switch",
     "title": "寝る前の香りで睡眠は良くなる？139人・14夜の嗅覚研究",
     "description": "ラベンダーなど「睡眠に良い香り」が語られますが、139人の研究では香り条件そのものに一貫した改善はありませんでした。鍵になった「快いと感じるか」と夜の合図としての使い方を整理します。",
@@ -337,30 +361,6 @@
     "readingTime": "10 min",
     "eyecatch": "https://images.unsplash.com/photo-1619531039667-928e5288a715?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxmb29kJTIwY3VlJTIwY3JhdmluZ3xlbnwxfDB8fHwxNzc2MDM0NTY2fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "eyecatchAlt": "man in black crew neck shirt sitting beside woman in green and white long sleeve shirt"
-  },
-  {
-    "slug": "green-exercise-mood",
-    "title": "自然の中で動くと気分は上がりやすいのか？グリーンエクササイズ研究で見るストレス回復",
-    "description": "公園や緑のある道を歩くと、同じ運動でも気分の軽さが違うことがあります。グリーンエクササイズ研究をもとに、運動・環境・感情の循環がどう整いやすくなるかを整理します。",
-    "updated": "2026-03-31",
-    "tags": [
-      "グリーンエクササイズ",
-      "自然環境",
-      "気分",
-      "ストレス",
-      "歩行",
-      "回復",
-      "屋外活動"
-    ],
-    "topics": [
-      "自然環境",
-      "気分回復",
-      "歩行"
-    ],
-    "category": "運動・活動",
-    "readingTime": "11 min",
-    "eyecatch": "https://images.unsplash.com/photo-1723925665826-a7656c4807f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxncmVlbiUyMHdhbGtpbmclMjBwYXJrfGVufDF8MHx8fDE3NzQ5NTMwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "A man and woman walking down a path in a park"
   },
   {
     "slug": "gut-brain-probiotics-mood",
@@ -510,27 +510,27 @@
   },
   {
     "slug": "meal-timing-jet-lag",
-    "title": "食事の時間が遅いと体内時計はずれやすいのか？食事タイミングと時差ぼけ様の研究",
-    "description": "寝る時間は大きく変えていないのに、夜の食事が遅い日ほど翌朝の重さが残ることがあります。食事タイミングが体内時計に与える影響の研究をもとに、食後のだるさと生活リズムのずれを整理します。",
-    "updated": "2026-04-11",
+    "title": "食事時間を5時間遅らせると体内時計もずれる？人での概日リズム実験",
+    "description": "食事を5時間遅らせた実験では、メラトニンやコルチゾールは動かない一方、血糖リズムは約5.7時間、脂肪組織の時計遺伝子は約1時間遅れました。「体内時計」は一枚岩ではありません。",
+    "updated": "2026-09-27",
     "tags": [
       "食事時間",
       "体内時計",
-      "夕食",
       "概日リズム",
-      "時差ぼけ",
-      "夜食",
-      "だるさ"
+      "血糖",
+      "夕食",
+      "時間栄養学",
+      "末梢時計"
     ],
     "topics": [
       "食事タイミング",
-      "体内時計のずれ",
-      "夜の食習慣"
+      "体内時計",
+      "時間栄養学"
     ],
     "category": "食事・栄養",
-    "readingTime": "10 min",
+    "readingTime": "6 min",
     "eyecatch": "https://images.unsplash.com/photo-1767972159709-52936afffdbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxsYXRlJTIwbWVhbCUyMGNpcmNhZGlhbnxlbnwxfDB8fHwxNzc1ODYxODQ4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "Alarm clock on a plate with cutlery"
+    "eyecatchAlt": "食事時刻と時計をイメージした食卓"
   },
   {
     "slug": "mental-fatigue-posture-slump",
@@ -575,7 +575,7 @@
       "集中力"
     ],
     "category": "環境・習慣",
-    "readingTime": "6 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1758876203698-551573730e81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzaG9ydCUyMGJyZWFrJTIwZGVzayUyMHdvcmt8ZW58MXwwfHx8MTc3MzE4MzU0MXww&ixlib=rb-4.1.0&q=80&w=1080",
     "eyecatchAlt": "デスクワークの合間に短い休憩をとる人"
   },
@@ -717,7 +717,7 @@
       "集中力"
     ],
     "category": "環境・習慣",
-    "readingTime": "6 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1767107114829-c3e92bf81b13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxmb3Jlc3QlMjBwYXRoJTIwc3VubGlnaHQlMjBjYWxtJTIwbmF0dXJlfGVufDF8MHx8fDE3NzMwNjIyMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "eyecatchAlt": "木々の間に光が差し込む静かな森"
   },
@@ -770,28 +770,28 @@
     "eyecatchAlt": "歯ブラシで口腔ケアをしている様子"
   },
   {
-    "slug": "paper-books-mental-calm",
-    "title": "紙の本を読むと落ち着きやすいのか？スマホ読書と呼吸・脳活動の研究",
-    "description": "紙の本を読むと気持ちが落ち着く感覚は本当なのか。紙とスマホの読書を比べた研究をもとに、呼吸、脳の負荷、理解しやすさ、整いやすさを整理します。",
-    "updated": "2026-03-11",
+    "slug": "paper-vs-smartphone-reading",
+    "title": "紙の本とスマホ、同じ文章でも理解度は変わる？ため息と脳活動の研究",
+    "description": "同じ文章を読むなら紙とスマホで何が違うのか。34人の実験ではスマホ読書でため息が減り、前頭前野活動が高まり、理解度が低下しました。研究の範囲と日常の読み方を整理します。",
+    "updated": "2026-09-27",
     "tags": [
       "紙の本",
-      "読書",
       "スマホ読書",
-      "呼吸",
-      "脳活動",
+      "読解",
+      "ため息",
+      "前頭前野",
       "集中",
-      "メンタル"
+      "読書"
     ],
     "topics": [
       "紙の本",
       "スマホ読書",
-      "呼吸"
+      "読解"
     ],
     "category": "感情・認知",
-    "readingTime": "10 min",
+    "readingTime": "6 min",
     "eyecatch": "https://images.unsplash.com/photo-1760840415479-438f61268bed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxwYXBlciUyMGJvb2slMjBxdWlldCUyMHJlYWRpbmd8ZW58MXwwfHx8MTc3MzY3MjUwMnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "Close-up of an open book with yellowed pages."
+    "eyecatchAlt": "開いた紙の本を読むイメージ"
   },
   {
     "slug": "pfc-protein-leverage",
@@ -936,30 +936,6 @@
     "eyecatchAlt": "text"
   },
   {
-    "slug": "self-control-night-hunger",
-    "title": "夜になると食欲のブレーキが弱くなるのはなぜ？自己統制の時間変動と夜の過食の研究",
-    "description": "昼は平気なのに夜になると甘いものやつまみが止まりにくくなることがあります。自己統制が時間帯で揺れうる研究を手がかりに、夜の食欲が強まりやすい流れと整え方を日常に翻訳します。",
-    "updated": "2026-04-19",
-    "tags": [
-      "自己統制",
-      "夜食",
-      "過食",
-      "時間帯",
-      "食欲",
-      "意思決定",
-      "疲労"
-    ],
-    "topics": [
-      "夜の食欲",
-      "自己統制",
-      "時間帯"
-    ],
-    "category": "食事・栄養",
-    "readingTime": "10 min",
-    "eyecatch": "https://images.unsplash.com/photo-1705177530212-5c3507ce4a0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxsYXRlJTIwbmlnaHQlMjBzbmFja2luZ3xlbnwxfDB8fHwxNzc2NTUyOTg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "a couple of people standing outside of a food truck"
-  },
-  {
     "slug": "sleep-inertia-light-move",
     "title": "起きてもしばらく頭が動かないのはなぜ？睡眠慣性と朝の光・軽い運動の研究",
     "description": "目は覚めているのに頭が重く、判断も作業も鈍い朝があります。睡眠慣性の研究をもとに、起床直後のぼんやりが長引く流れと、朝の光や軽い運動でほどく方向を整理します。",
@@ -1008,28 +984,27 @@
     "eyecatchAlt": "静かな環境でゆっくり呼吸するイメージ"
   },
   {
-    "slug": "social-jetend-fatigue",
-    "title": "週末の寝だめで月曜が重いのはなぜ？ソーシャルジェットラグとだるさの研究",
-    "description": "平日と休日で睡眠時刻がずれると、休んだはずなのに月曜が重くなることがあります。ソーシャルジェットラグ研究をもとに、週末の寝だめとだるさ・集中低下の流れを整理します。",
-    "updated": "2026-03-31",
+    "slug": "social-jetlag-fatigue",
+    "title": "週末に寝だめすると月曜が重い？ソーシャルジェットラグの正体",
+    "description": "ソーシャルジェットラグは「寝すぎ」ではなく、仕事日と休日の睡眠時刻のずれです。2006年の原著とその後のレビューから、睡眠不足との違いと週末の戻し方を整理します。",
+    "updated": "2026-09-27",
     "tags": [
       "ソーシャルジェットラグ",
       "週末の寝だめ",
       "月曜のだるさ",
       "体内時計",
       "睡眠リズム",
-      "時差ぼけ",
-      "集中力"
+      "クロノタイプ"
     ],
     "topics": [
       "ソーシャルジェットラグ",
       "週末の寝だめ",
-      "月曜のだるさ"
+      "睡眠時刻"
     ],
     "category": "睡眠・休養",
-    "readingTime": "11 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1626804852963-fe8c4f425ac9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBqZXRsYWclMjBtb3JuaW5nfGVufDF8MHx8fDE3NzUwODQzMTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "city buildings near sea during sunset"
+    "eyecatchAlt": "休日と平日の時刻差をイメージする朝の風景"
   },
   {
     "slug": "social-support-stress-buffer",
@@ -1054,30 +1029,6 @@
     "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1598793923805-184b1adc10e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxxdWlldCUyMHN1cHBvcnQlMjBoYW5kc3xlbnwxfDB8fHwxNzc1NTE1OTU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "eyecatchAlt": "そっと手を添える支援のイメージ"
-  },
-  {
-    "slug": "stairs-break-alertness",
-    "title": "階段を少し上るだけで頭は切り替わるのか？短時間の階段昇降と覚醒・気分の研究",
-    "description": "午後に眠い、頭が重い、でも外に出て運動するほどではない。そんなときの短い階段昇降が、覚醒感や気分をどう動かすかを研究からたどり、だるさの循環を日常の中でほどく視点を整理します。",
-    "updated": "2026-04-18",
-    "tags": [
-      "階段昇降",
-      "覚醒",
-      "午後の眠気",
-      "気分",
-      "デスクワーク",
-      "軽運動",
-      "活動量"
-    ],
-    "topics": [
-      "午後のだるさ",
-      "短時間運動",
-      "オフィス習慣"
-    ],
-    "category": "運動・活動",
-    "readingTime": "10 min",
-    "eyecatch": "https://images.unsplash.com/photo-1758518731290-a9eb64660ead?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzdGFpciUyMHdhbGtpbmclMjBvZmZpY2V8ZW58MXwwfHx8MTc3NjQ2Njk3NHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "People on a modern multi-level staircase"
   },
   {
     "slug": "standing-breaks-glucose-mood",

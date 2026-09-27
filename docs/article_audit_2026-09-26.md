@@ -45,6 +45,21 @@ Google は実際に取得したが現時点ではインデックスしていな�
 Google の検査結果上、クロール履歴・インデックス資産を確認できない。
 ただし「unknown」だけを削除理由にせず、重複・検索意図・CCT独自価値と合わせて判断する。
 
+### 第2統合・URL整理バッチ
+
+Google URL Inspection で `URL is unknown to Google` だったページを、検索意図と親記事の役割から再整理した。
+
+| 旧slug | 処理 |
+|---|---|
+| green-exercise-mood | nature-brain-recovery へグリーンエクササイズ研究（10研究・1,252人）を統合し削除 |
+| stairs-break-alertness | microbreak-fatigue-reset へ階段10分 vs 50mgカフェイン試験を統合し削除 |
+| paper-books-mental-calm | 誇張していた「リラックス」主張を撤去し paper-vs-smartphone-reading へ改名・再構成 |
+| self-control-night-hunger | 自己統制枯渇中心の説明を撤去し evening-hunger-circadian へ改名。概日食欲研究へ置換 |
+| social-jetend-fatigue | typo URL と誤った書誌を修正し social-jetlag-fatigue へ改名。Wittmann 2006 PMID 16687322 を原点に再構成 |
+| meal-timing-jet-lag | URL維持。5時間の食事時刻シフト実験 PMID 28578930 を中心に「主時計と末梢時計のずれ」へ再構成 |
+
+このバッチ後の記事数は48本。
+
 ### 第1統合バッチ
 
 以下6本はすべて URL is unknown to Google であり、重複または独立検索価値が弱いため整理した。

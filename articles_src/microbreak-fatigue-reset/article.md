@@ -5,7 +5,7 @@ updated: 2026-09-26
 tags: 短い休憩,マイクロブレイク,疲労,集中力,活力,デスクワーク
 topics: マイクロブレイク,疲労,集中力
 category: 環境・習慣
-readingTime: 6 min
+readingTime: 7 min
 eyecatchQuery: short break desk work
 eyecatch: https://images.unsplash.com/photo-1758876203698-551573730e81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzaG9ydCUyMGJyZWFrJTIwZGVzayUyMHdvcmt8ZW58MXwwfHx8MTc3MzE4MzU0MXww&ixlib=rb-4.1.0&q=80&w=1080
 eyecatchAlt: デスクワークの合間に短い休憩をとる人
@@ -108,6 +108,24 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 
 短い休憩を「脳の充電」とだけ呼ぶより、人全体の状態を一度動かすものとして見る方が、日常感覚には近いかもしれません。
 
+## 休憩の中身を変えるなら、階段10分という実験もある
+
+「休憩」といっても、椅子でスマホを見るのと、身体を動かすのでは戻る状態が違います。
+
+2017年の小さなクロスオーバー試験では、慢性的に睡眠時間が短い18〜23歳の女性18人が、50mgのカフェイン、プラセボ、10分間の低〜中強度の階段昇降を経験しました。
+
+階段昇降では、カフェインとプラセボより**主観的な活力感が一時的に高まりました**。
+
+一方、ワーキングメモリ、持続注意、反応時間などの認知課題では明確な改善はありませんでした。
+
+これはマイクロブレイクのメタ解析とよく似た結果です。
+
+**少し元気になった感じと、難しい仕事の成績が上がることは別。**
+
+午後に頭が重いとき、「もっと集中しなければ」と考える代わりに、階段や短い歩行で身体の状態を一度変える。そこで戻りやすくなるなら、その人には使える休憩です。
+
+逆に、強い眠気や認知疲労があるのに10分動いただけで押し切る必要もありません。短い休憩で戻らなければ、仮眠やより長い休息が必要なサインかもしれません。
+
 ## 休憩を予定へ入れると、「休むかどうか」の判断を疲れた頭に残さずに済む
 
 疲れてから毎回「休むべきか」と考えると、その判断自体を疲れた状態で行うことになります。
@@ -157,4 +175,17 @@ eyecatchSourceUrl: https://unsplash.com/?utm_source=cctlab&utm_medium=referral
 主な結果 | 活力 d=0.36、疲労 d=0.35で小さい有意な改善。作業成績全体は d=0.16で有意ではなかった。成績への効果は課題の種類や休憩時間によって異なった
 限界 | 休憩内容・課題・対象が多様。高度な認知課題の回復を短時間休憩だけで保証する結果ではない
 論文リンク | https://pubmed.ncbi.nlm.nih.gov/36044424/
+[/paper-summary]
+
+[paper-summary]
+論文タイトル | Stair walking is more energizing than low dose caffeine in sleep deprived young women
+著者 | Derek D. Randolph, Patrick J. O'Connor
+年 | 2017
+研究種別 | 反復測定クロスオーバー試験
+どこの研究か | University of Georgia / Physiology & Behavior
+どんな内容か | 10分間の階段昇降、50mgカフェイン、プラセボを比較し、活力感と認知課題への影響を調べた
+対象・条件 | 慢性的に睡眠時間が短い18〜23歳の活動的な女性18人
+主な結果 | 階段昇降後に主観的活力感が一時的に高まったが、認知課題の明確な改善は確認されなかった
+限界 | 18人の若い女性という限定的な試験で、一般成人の生産性向上を示すものではない
+論文リンク | https://pubmed.ncbi.nlm.nih.gov/28302573/
 [/paper-summary]
