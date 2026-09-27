@@ -339,30 +339,6 @@
     "eyecatchAlt": "man in black crew neck shirt sitting beside woman in green and white long sleeve shirt"
   },
   {
-    "slug": "green-exercise-mood",
-    "title": "自然の中で動くと気分は上がりやすいのか？グリーンエクササイズ研究で見るストレス回復",
-    "description": "公園や緑のある道を歩くと、同じ運動でも気分の軽さが違うことがあります。グリーンエクササイズ研究をもとに、運動・環境・感情の循環がどう整いやすくなるかを整理します。",
-    "updated": "2026-03-31",
-    "tags": [
-      "グリーンエクササイズ",
-      "自然環境",
-      "気分",
-      "ストレス",
-      "歩行",
-      "回復",
-      "屋外活動"
-    ],
-    "topics": [
-      "自然環境",
-      "気分回復",
-      "歩行"
-    ],
-    "category": "運動・活動",
-    "readingTime": "11 min",
-    "eyecatch": "https://images.unsplash.com/photo-1723925665826-a7656c4807f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxncmVlbiUyMHdhbGtpbmclMjBwYXJrfGVufDF8MHx8fDE3NzQ5NTMwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "A man and woman walking down a path in a park"
-  },
-  {
     "slug": "gut-brain-probiotics-mood",
     "title": "腸の状態は気分に影響するのか？プロバイオティクスと抑うつの研究",
     "description": "「腸でセロトニンが作られるから気分が変わる」ほど単純ではありません。腸脳軸の神経・免疫・HPA軸と、プロバイオティクスのRCT・メタ解析から、どこまで分かっているかを整理します。",
@@ -575,7 +551,7 @@
       "集中力"
     ],
     "category": "環境・習慣",
-    "readingTime": "6 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1758876203698-551573730e81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzaG9ydCUyMGJyZWFrJTIwZGVzayUyMHdvcmt8ZW58MXwwfHx8MTc3MzE4MzU0MXww&ixlib=rb-4.1.0&q=80&w=1080",
     "eyecatchAlt": "デスクワークの合間に短い休憩をとる人"
   },
@@ -717,7 +693,7 @@
       "集中力"
     ],
     "category": "環境・習慣",
-    "readingTime": "6 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1767107114829-c3e92bf81b13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxmb3Jlc3QlMjBwYXRoJTIwc3VubGlnaHQlMjBjYWxtJTIwbmF0dXJlfGVufDF8MHx8fDE3NzMwNjIyMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
     "eyecatchAlt": "木々の間に光が差し込む静かな森"
   },
@@ -1054,30 +1030,6 @@
     "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1598793923805-184b1adc10e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxxdWlldCUyMHN1cHBvcnQlMjBoYW5kc3xlbnwxfDB8fHwxNzc1NTE1OTU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "eyecatchAlt": "そっと手を添える支援のイメージ"
-  },
-  {
-    "slug": "stairs-break-alertness",
-    "title": "階段を少し上るだけで頭は切り替わるのか？短時間の階段昇降と覚醒・気分の研究",
-    "description": "午後に眠い、頭が重い、でも外に出て運動するほどではない。そんなときの短い階段昇降が、覚醒感や気分をどう動かすかを研究からたどり、だるさの循環を日常の中でほどく視点を整理します。",
-    "updated": "2026-04-18",
-    "tags": [
-      "階段昇降",
-      "覚醒",
-      "午後の眠気",
-      "気分",
-      "デスクワーク",
-      "軽運動",
-      "活動量"
-    ],
-    "topics": [
-      "午後のだるさ",
-      "短時間運動",
-      "オフィス習慣"
-    ],
-    "category": "運動・活動",
-    "readingTime": "10 min",
-    "eyecatch": "https://images.unsplash.com/photo-1758518731290-a9eb64660ead?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxzdGFpciUyMHdhbGtpbmclMjBvZmZpY2V8ZW58MXwwfHx8MTc3NjQ2Njk3NHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "People on a modern multi-level staircase"
   },
   {
     "slug": "standing-breaks-glucose-mood",
