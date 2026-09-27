@@ -26,11 +26,11 @@
   },
   {
     "slug": "bedtime-procrastination-stress",
-    "title": "夜ふかししたいわけではないのに寝るのを先延ばしするのはなぜ？就寝 procrastination とストレスの研究",
-    "description": "早く寝たい気持ちはあるのに、なぜかスマホや動画を閉じられず就寝が遅れることがあります。就寝 procrastination と自己統制・ストレスの研究をもとに、夜の先延ばしが起こる流れと戻し方を整理します。",
-    "updated": "2026-04-09",
+    "title": "寝たいのに寝るのを先延ばしするのはなぜ？就寝先延ばしとストレスの研究",
+    "description": "早く寝たいのにスマホや動画を閉じられない夜。43研究のメタ解析と日記研究から、日中のストレス、自己統制、夜の「自分の時間」が睡眠不足へつながる循環を整理します。",
+    "updated": "2026-09-27",
     "tags": [
-      "就寝 procrastination",
+      "就寝先延ばし",
       "夜ふかし",
       "ストレス",
       "自己統制",
@@ -39,14 +39,14 @@
       "先延ばし"
     ],
     "topics": [
-      "寝る前の先延ばし",
+      "就寝先延ばし",
       "夜のスマホ",
       "睡眠リズム"
     ],
     "category": "睡眠・休養",
-    "readingTime": "11 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1561484893-abf918051d09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxiZWR0aW1lJTIwcGhvbmUlMjBzdHJlc3N8ZW58MXwwfHx8MTc3NTY4OTMzN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "man holding phone and sitting while putting left hand on his face"
+    "eyecatchAlt": "夜にスマートフォンを見ながら疲れている人"
   },
   {
     "slug": "blue-light-headache-strain",
@@ -197,27 +197,27 @@
   },
   {
     "slug": "coffee-afternoon-sleep",
-    "title": "午後のコーヒーで夜の眠気はずれるのか？カフェインの半減期と睡眠の研究",
-    "description": "午後に飲んだコーヒーが夜まで残る感覚は気のせいではないかもしれません。就寝前カフェインと睡眠の研究をもとに、夕方以降の覚醒、寝つきの遅れ、翌朝のだるさがつながる流れを整理します。",
-    "updated": "2026-04-12",
+    "title": "午後のコーヒーは何時まで？カフェインの量・時間と睡眠の研究",
+    "description": "「就寝6時間前なら大丈夫」とも「午後は全部ダメ」とも言い切れません。カフェインの量と摂取時刻を調べた試験・メタ解析から、自分のコーヒー締切時刻を考えます。",
+    "updated": "2026-09-27",
     "tags": [
       "カフェイン",
       "コーヒー",
-      "睡眠の質",
+      "睡眠",
       "入眠",
-      "夕方習慣",
+      "午後の眠気",
       "覚醒",
-      "だるさ"
+      "睡眠の質"
     ],
     "topics": [
-      "カフェイン代謝",
+      "カフェイン",
       "午後のコーヒー",
-      "夜の寝つき"
+      "睡眠"
     ],
     "category": "睡眠・休養",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1566392665193-f7b00b714cf0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBzbGVlcCUyMHRpbWluZ3xlbnwxfDB8fHwxNzc1OTQ3OTk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "cup of coffee beside rectangular desk clock displays 8:08"
+    "eyecatchAlt": "コーヒーカップと時計"
   },
   {
     "slug": "cold-room-sleep-onset",
@@ -294,27 +294,27 @@
   },
   {
     "slug": "fermented-foods-microbiome",
-    "title": "発酵食品を増やすと腸内細菌は変わるのか？多様性と炎症マーカーの研究",
-    "description": "発酵食品を増やすと腸の状態は本当に変わるのか。腸内細菌の多様性と炎症マーカーに関する研究をもとに、日常の食べ方を整理します。",
-    "updated": "2026-03-11",
+    "title": "発酵食品を増やすと腸内細菌は変わる？17週間の食事介入研究",
+    "description": "ヨーグルトやキムチなどの発酵食品を増やした研究では、腸内細菌の多様性と一部の炎症指標が変化しました。ただし「善玉菌が定着する」とは限りません。研究と日常の食べ方を整理します。",
+    "updated": "2026-09-27",
     "tags": [
       "発酵食品",
       "腸内細菌",
       "腸内環境",
       "多様性",
+      "食物繊維",
       "炎症",
-      "免疫",
       "腸活"
     ],
     "topics": [
       "発酵食品",
-      "腸内環境",
-      "炎症"
+      "腸内細菌",
+      "腸活"
     ],
     "category": "食事・栄養",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1761587412860-222f6ce02f82?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxmZXJtZW50ZWQlMjBmb29kJTIwa2l0Y2hlbiUyMHRhYmxlfGVufDF8MHx8fDE3NzMxODM3MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "Breakfast table set with food and drinks in kitchen."
+    "eyecatchAlt": "発酵食品を含む食卓"
   },
   {
     "slug": "food-noise-appetite-cues",
@@ -390,26 +390,27 @@
   },
   {
     "slug": "hydration-attention-fatigue",
-    "title": "水分不足で集中は落ちやすくなるのか？脱水と注意力・疲労感の研究",
-    "description": "水をあまり飲まない日ほど頭が重くなる感覚は本当なのか。軽い脱水と再水和の研究をもとに、集中力と疲労感の乱れ方を整理します。",
-    "updated": "2026-03-11",
+    "title": "水分不足で集中力は落ちる？脱水・再水和と注意力の研究",
+    "description": "水を飲まない日ほど頭が重いのは本当か。36時間の水分制限試験と33研究の系統的レビューから、脱水と注意・疲労の関係、仕事中の飲水の整え方を考えます。",
+    "updated": "2026-09-27",
     "tags": [
       "水分補給",
       "脱水",
       "注意力",
-      "疲労感",
+      "疲労",
       "集中力",
-      "再水和"
+      "再水和",
+      "デスクワーク"
     ],
     "topics": [
       "水分補給",
       "集中力",
-      "疲労感"
+      "疲労"
     ],
-    "category": "睡眠・休養",
-    "readingTime": "10 min",
+    "category": "環境・習慣",
+    "readingTime": "7 min",
     "eyecatch": "",
-    "eyecatchAlt": "水分不足で集中は落ちやすくなるのか？脱水と注意力・疲労感の研究"
+    "eyecatchAlt": "水分不足で集中力は落ちる？脱水・再水和と注意力の研究"
   },
   {
     "slug": "if-then-planning-action-friction",
@@ -843,26 +844,27 @@
   },
   {
     "slug": "post-meal-sleepiness",
-    "title": "食後の眠気は血糖値スパイクだけで説明できる？朝食GI研究でわかること",
-    "description": "高GI・低GIの朝食と認知課題を比べた試験では、影響は限定的でした。研究が調べた集中力と、調べていない眠気・血糖スパイクを分けて整理します。",
-    "updated": "2026-09-23",
+    "title": "食後の眠気は血糖値スパイクのせい？昼食を抜いても午後に眠くなる理由",
+    "description": "食後に眠いと血糖値スパイクを疑いがちですが、午後には食事なしでも眠気が強まる「post-lunch dip」があります。体内時計、前夜の睡眠、食事量を分けて整理します。",
+    "updated": "2026-09-27",
     "tags": [
-      "血糖値",
       "食後の眠気",
-      "集中力低下",
-      "食後高血糖",
-      "食事設計",
-      "血糖変動"
+      "血糖値",
+      "昼食",
+      "体内時計",
+      "睡眠不足",
+      "午後の眠気",
+      "食事量"
     ],
     "topics": [
-      "血糖値",
       "食後の眠気",
-      "集中力"
+      "午後の眠気",
+      "体内時計"
     ],
     "category": "食事・栄養",
-    "readingTime": "7 min",
+    "readingTime": "8 min",
     "eyecatch": "https://images.unsplash.com/photo-1740645580344-bad6f745d09f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwbHVuY2glMjBibG9vZCUyMHN1Z2FyJTIwbWVhbHxlbnwxfDB8fHwxNzczMTc1MjMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "A wooden block spelling lunch on a table"
+    "eyecatchAlt": "昼食後の午後をイメージした食卓"
   },
   {
     "slug": "protein-breakfast-appetite-control",
