@@ -1,28 +1,27 @@
 [
   {
     "slug": "alcohol-fat-oxidation-diet",
-    "title": "アルコールは太るからではなく脂肪が燃えにくくなるから厄介なのか？飲酒とダイエットの研究",
-    "description": "アルコールは高カロリーだから太るだけではないかもしれません。脂肪燃焼、満腹感、食欲への影響をもとに、ダイエット中の飲酒の厄介さを整理します。",
-    "updated": "2026-03-11",
+    "title": "お酒で太るのは酒のカロリーだけ？飲酒後の食欲・代謝・睡眠の研究",
+    "description": "アルコールは1gあたり7kcalですが、体重管理を崩すのはカロリーだけではありません。飲酒後の食事量、脂肪酸化、睡眠までを研究からつなぎ、崩れやすい一晩の循環を整理します。",
+    "updated": "2026-09-27",
     "tags": [
       "アルコール",
       "飲酒",
-      "脂肪燃焼",
       "食欲",
-      "満腹感",
+      "脂肪酸化",
+      "睡眠",
       "ダイエット",
-      "代謝",
       "体重管理"
     ],
     "topics": [
-      "脂肪燃焼",
+      "飲酒",
       "食欲",
-      "ダイエット"
+      "体重管理"
     ],
     "category": "食事・栄養",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1663147475798-7e672b522463?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxhbGNvaG9sJTIwZHJpbmslMjBkaWV0JTIwdGFibGV8ZW58MXwwfHx8MTc3MzY3MjkyOXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "a glass of wine sitting on top of a table"
+    "eyecatchAlt": "食卓に置かれたワイングラス"
   },
   {
     "slug": "bedtime-procrastination-stress",
@@ -74,27 +73,27 @@
   },
   {
     "slug": "breakfast-window-metabolism",
-    "title": "朝食を遅らせると日中のだるさは増えやすいのか？食事時間帯と代謝リズムの研究",
-    "description": "朝は食べないほうが楽に感じる日でも、その遅れが体温、空腹感、血糖のリズムとずれて、昼以降のだるさや食欲の荒れにつながることがあります。早い時間帯の食事と代謝に関する研究をもとに、朝食の“量”ではなく“窓”の整え方を考えます。",
-    "updated": "2026-04-23",
+    "title": "朝食は早い方がいい？食事を一日の前半へ寄せる時間栄養学の研究",
+    "description": "「朝食を食べれば健康」ではなく、食べる時間帯そのものは代謝に影響するのか。早い時間制限食の試験と41RCTのネットワークメタ解析から、食事窓を前へ寄せる意味を整理します。",
+    "updated": "2026-09-27",
     "tags": [
       "朝食",
       "食事時間",
       "時間制限食",
+      "時間栄養学",
       "概日リズム",
-      "血糖変動",
-      "だるさ",
-      "空腹感"
+      "インスリン",
+      "食欲"
     ],
     "topics": [
-      "朝の食事",
-      "代謝リズム",
-      "日中のだるさ"
+      "食事時間",
+      "早い時間制限食",
+      "代謝リズム"
     ],
     "category": "食事・栄養",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1529411081224-84ac0d0bf6ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxlYXJseSUyMGJyZWFrZmFzdCUyMG1ldGFib2xpc218ZW58MXwwfHx8MTc3Njg5OTI5MXww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "sunny-side up served on plate"
+    "eyecatchAlt": "朝の食卓に置かれた卵料理"
   },
   {
     "slug": "brief-nap-recovery",
@@ -463,9 +462,9 @@
   },
   {
     "slug": "lifestyle-changes-brain-use",
-    "title": "生活を整えたら脳の使い方が変わった話 睡眠・食事・運動を見直して起きた変化5つ",
-    "description": "睡眠・食事・運動を少しずつ整えたとき、脳の使い方はどう変わるのか。研究を手がかりに、刺激の求め方や思考の質が変わっていく流れを整理します。",
-    "updated": "2026-03-11",
+    "title": "睡眠・食事・運動を一緒に整えると脳は変わる？神経可塑性と生活習慣の研究",
+    "description": "睡眠、食事、運動は別々の健康項目ではありません。神経可塑性のレビューを手がかりに、一つの生活習慣が次の習慣を変えるCCTの循環として読み直します。",
+    "updated": "2026-09-27",
     "tags": [
       "生活習慣",
       "睡眠",
@@ -473,17 +472,17 @@
       "運動",
       "神経可塑性",
       "集中力",
-      "思考"
+      "脳"
     ],
     "topics": [
       "生活習慣",
       "神経可塑性",
-      "集中力"
+      "CCT"
     ],
     "category": "環境・習慣",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1764921587475-866c1d48dc48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxtb3JuaW5nJTIwd2FsayUyMHF1aWV0JTIwcm9vbXxlbnwxfDB8fHwxNzc1MDQzODAzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "A person kneels in a dimly lit living room."
+    "eyecatchAlt": "静かな部屋で朝の時間を過ごす人"
   },
   {
     "slug": "loneliness-sleep-quality",
