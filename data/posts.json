@@ -26,11 +26,11 @@
   },
   {
     "slug": "bedtime-procrastination-stress",
-    "title": "夜ふかししたいわけではないのに寝るのを先延ばしするのはなぜ？就寝 procrastination とストレスの研究",
-    "description": "早く寝たい気持ちはあるのに、なぜかスマホや動画を閉じられず就寝が遅れることがあります。就寝 procrastination と自己統制・ストレスの研究をもとに、夜の先延ばしが起こる流れと戻し方を整理します。",
-    "updated": "2026-04-09",
+    "title": "寝たいのに寝るのを先延ばしするのはなぜ？就寝先延ばしとストレスの研究",
+    "description": "早く寝たいのにスマホや動画を閉じられない夜。43研究のメタ解析と日記研究から、日中のストレス、自己統制、夜の「自分の時間」が睡眠不足へつながる循環を整理します。",
+    "updated": "2026-09-27",
     "tags": [
-      "就寝 procrastination",
+      "就寝先延ばし",
       "夜ふかし",
       "ストレス",
       "自己統制",
@@ -39,14 +39,14 @@
       "先延ばし"
     ],
     "topics": [
-      "寝る前の先延ばし",
+      "就寝先延ばし",
       "夜のスマホ",
       "睡眠リズム"
     ],
     "category": "睡眠・休養",
-    "readingTime": "11 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1561484893-abf918051d09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxiZWR0aW1lJTIwcGhvbmUlMjBzdHJlc3N8ZW58MXwwfHx8MTc3NTY4OTMzN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "man holding phone and sitting while putting left hand on his face"
+    "eyecatchAlt": "夜にスマートフォンを見ながら疲れている人"
   },
   {
     "slug": "blue-light-headache-strain",
@@ -197,27 +197,27 @@
   },
   {
     "slug": "coffee-afternoon-sleep",
-    "title": "午後のコーヒーで夜の眠気はずれるのか？カフェインの半減期と睡眠の研究",
-    "description": "午後に飲んだコーヒーが夜まで残る感覚は気のせいではないかもしれません。就寝前カフェインと睡眠の研究をもとに、夕方以降の覚醒、寝つきの遅れ、翌朝のだるさがつながる流れを整理します。",
-    "updated": "2026-04-12",
+    "title": "午後のコーヒーは何時まで？カフェインの量・時間と睡眠の研究",
+    "description": "「就寝6時間前なら大丈夫」とも「午後は全部ダメ」とも言い切れません。カフェインの量と摂取時刻を調べた試験・メタ解析から、自分のコーヒー締切時刻を考えます。",
+    "updated": "2026-09-27",
     "tags": [
       "カフェイン",
       "コーヒー",
-      "睡眠の質",
+      "睡眠",
       "入眠",
-      "夕方習慣",
+      "午後の眠気",
       "覚醒",
-      "だるさ"
+      "睡眠の質"
     ],
     "topics": [
-      "カフェイン代謝",
+      "カフェイン",
       "午後のコーヒー",
-      "夜の寝つき"
+      "睡眠"
     ],
     "category": "睡眠・休養",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1566392665193-f7b00b714cf0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBzbGVlcCUyMHRpbWluZ3xlbnwxfDB8fHwxNzc1OTQ3OTk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "cup of coffee beside rectangular desk clock displays 8:08"
+    "eyecatchAlt": "コーヒーカップと時計"
   },
   {
     "slug": "cold-room-sleep-onset",
