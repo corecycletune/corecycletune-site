@@ -268,28 +268,27 @@
   },
   {
     "slug": "evening-scent-sleep-switch",
-    "title": "寝る前の香りで気分は切り替わるのか？快い香りと睡眠前の覚醒の研究",
-    "description": "寝る前に頭が冴えている夜、香りで気分が少し切り替わることがあります。快い香りと睡眠の研究をもとに、夜の覚醒、呼吸、入眠前ルーティンの整え方を考えます。",
-    "updated": "2026-04-24",
+    "title": "寝る前の香りで睡眠は良くなる？139人・14夜の嗅覚研究",
+    "description": "ラベンダーなど「睡眠に良い香り」が語られますが、139人の研究では香り条件そのものに一貫した改善はありませんでした。鍵になった「快いと感じるか」と夜の合図としての使い方を整理します。",
+    "updated": "2026-09-27",
     "tags": [
       "香り",
       "嗅覚",
       "睡眠",
       "入眠",
       "リラックス",
-      "覚醒",
       "夜のルーティン",
-      "自律神経"
+      "寝室"
     ],
     "topics": [
       "寝る前の香り",
-      "入眠前の覚醒",
+      "睡眠環境",
       "夜の切り替え"
     ],
     "category": "睡眠・休養",
-    "readingTime": "10 min",
+    "readingTime": "6 min",
     "eyecatch": "https://images.unsplash.com/photo-1477511801984-4ad318ed9846?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxsYXZlbmRlciUyMG5pZ2h0JTIwcm91dGluZSUyMHNsZWVwfGVufDF8MHx8fDE3Nzk2NTkwMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "tilt shift lens pink fetal flowers"
+    "eyecatchAlt": "睡眠用の香りをイメージした花"
   },
   {
     "slug": "fermented-foods-microbiome",
@@ -1034,28 +1033,27 @@
   },
   {
     "slug": "social-support-stress-buffer",
-    "title": "誰かがそばにいるだけで緊張は下がるのか？社会的支援とストレス反応の研究",
-    "description": "大きな励ましより、ただ一緒にいてくれることや、さりげない助けのほうが気持ちを落ち着かせることがあります。社会的支援とストレス反応の研究をもとに、緊張、気疲れ、回復の循環を整理します。",
-    "updated": "2026-04-07",
+    "title": "誰かがいるだけでストレスは減る？「支援のされ方」と身体反応の研究",
+    "description": "人に支えてもらうと楽になる一方、あからさまな励ましが負担になることもあります。社会的支援の実験から、血圧・心拍・コルチゾールと「見えにくい支援」の面白さを整理します。",
+    "updated": "2026-09-27",
     "tags": [
       "社会的支援",
-      "ストレス反応",
-      "緊張",
-      "コルチゾール",
-      "心拍数",
-      "血圧",
+      "ストレス",
       "人間関係",
+      "コルチゾール",
+      "心拍",
+      "血圧",
       "気疲れ"
     ],
     "topics": [
       "社会的支援",
       "ストレス緩衝",
-      "気疲れ"
+      "人間関係"
     ],
     "category": "社会・つながり",
-    "readingTime": "10 min",
+    "readingTime": "7 min",
     "eyecatch": "https://images.unsplash.com/photo-1598793923805-184b1adc10e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxxdWlldCUyMHN1cHBvcnQlMjBoYW5kc3xlbnwxfDB8fHwxNzc1NTE1OTU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "eyecatchAlt": "persons left hand on purple textile"
+    "eyecatchAlt": "そっと手を添える支援のイメージ"
   },
   {
     "slug": "stairs-break-alertness",
