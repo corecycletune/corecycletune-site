@@ -5,7 +5,7 @@ updated: 2026-09-26
 tags: 自然,注意回復,集中力,環境心理学,疲労,休憩
 topics: 自然,注意回復,集中力
 category: 環境・習慣
-readingTime: 6 min
+readingTime: 7 min
 eyecatchQuery: forest path sunlight calm nature
 eyecatch: https://images.unsplash.com/photo-1767107114829-c3e92bf81b13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTEzMDd8MHwxfHNlYXJjaHwxfHxmb3Jlc3QlMjBwYXRoJTIwc3VubGlnaHQlMjBjYWxtJTIwbmF0dXJlfGVufDF8MHx8fDE3NzMwNjIyMTR8MA&ixlib=rb-4.1.0&q=80&w=1080
 eyecatchAlt: 木々の間に光が差し込む静かな森
@@ -118,6 +118,23 @@ ARTでは、こうした**穏やかに注意を引く刺激**が、意図的な�
 
 注意の使い方が違う場所へ、いったん移ることです。
 
+## 「見る」だけでなく、自然の中で動くと気分まで変わりやすい
+
+自然環境の研究には、注意課題だけでなく「自然の中で身体を動かす」グリーンエクササイズという系統もあります。
+
+2010年、Jo BartonとJules Prettyは英国の10研究、1,252人分をまとめ、自然環境での運動前後の気分と自己評価を解析しました。
+
+平均すると、気分と自己評価はいずれも運動後に改善していました。特に興味深いのは、長時間や高強度だけに利益が集中していなかったことです。短い自然曝露でも変化がみられました。
+
+ただし、この解析は「普通の街歩き」と「同じ運動量の公園歩き」をすべて無作為化して直接比較した大規模RCTではありません。元になった研究も多様です。
+
+それでも、休憩の設計としては面白い示唆があります。
+
+自然を見るだけなら注意の入力が変わる。
+そこに歩行まで入れば、姿勢、呼吸、筋活動、光、場所まで同時に変わる。
+
+だから「自然で回復する」と「少し歩くと気分が変わる」を別々の健康法にせず、**画面から離れて、自然のある場所へ身体ごと移る**一つの切り替えとして使えます。
+
 ## 森まで行かなくても、回復する環境を生活の近くへ置ける
 
 Bermanらの研究では写真でも効果が出ました。
@@ -199,4 +216,17 @@ CCTでは、自然を正解カードにするのではなく、**何を回復さ
 主な結果 | ワーキングメモリ、認知的柔軟性、より不確実ながら注意制御で低〜中程度の改善がみられた
 限界 | 効果は認知領域ごとに異なり、「自然で脳全体が回復する」と一般化できない
 論文リンク | https://pubmed.ncbi.nlm.nih.gov/30130463/
+[/paper-summary]
+
+[paper-summary]
+論文タイトル | What is the best dose of nature and green exercise for improving mental health? A multi-study analysis
+著者 | Jo Barton, Jules Pretty
+年 | 2010
+研究種別 | 10研究の統合解析
+どこの研究か | University of Essex / Environmental Science & Technology
+どんな内容か | 自然環境で行う運動前後の自己評価と気分の変化を、英国の複数研究から統合した
+対象・条件 | 10研究、1,252人。活動内容・自然環境・参加者属性は研究ごとに異なる
+主な結果 | 自己評価と気分は平均として改善し、短い自然環境での活動でも変化がみられた
+限界 | 研究条件は多様で、自然環境そのものと運動そのものの寄与をすべて厳密に分離した解析ではない
+論文リンク | https://pubmed.ncbi.nlm.nih.gov/20337470/
 [/paper-summary]
