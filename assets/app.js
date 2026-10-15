@@ -169,6 +169,12 @@
     return String(post.category || "").trim() === String(category).trim();
   }
 
+  function postMatchesTag(post, tag) {
+    if (!tag) return true;
+    return [...(post.tags || []), ...(post.topics || [])]
+      .some((label) => String(label).trim() === String(tag).trim());
+  }
+
   function postAllLabels(post) {
     return uniq(
       [...(post.tags || []), ...(post.topics || []), post.category]
@@ -232,9 +238,12 @@
       const first = segs[0];
       if (first === "articles") {
         crumbs.push({ name: "記事", href: "/articles/" });
-        const t = getQueryParam("t");
-        if (t && segs.length === 1) {
-          crumbs.push({ name: t, href: "/articles/?t=" + encodeURIComponent(t) });
+        const category = getQueryParam("t");
+        const tag = getQueryParam("tag");
+        const filter = tag || category;
+        if (filter && segs.length === 1) {
+          const param = tag ? "tag" : "t";
+          crumbs.push({ name: filter, href: "/articles/?" + param + "=" + encodeURIComponent(filter) });
         }
         if (segs.length >= 2) {
           const slug = segs[1];
@@ -377,14 +386,27 @@
   function renderArticlesList(posts) {
     const target = $("#articles-list");
     if (!target) return;
-    const selected = getQueryParam("t");
+    const category = getQueryParam("t");
+    const requestedTag = getQueryParam("tag");
+    // Previously published links used ?t= for some tags. Keep those links working.
+    const legacyTag = category &&
+      !posts.some((p) => postMatchesCategory(p, category)) &&
+      posts.some((p) => postMatchesTag(p, category))
+        ? category
+        : null;
+    const tag = requestedTag || legacyTag;
+    const selected = tag || category;
     const sorted = sortByDateDesc(posts);
-    const shown = selected ? sorted.filter((p) => postMatchesCategory(p, selected)) : sorted;
+    const shown = tag
+      ? sorted.filter((p) => postMatchesTag(p, tag))
+      : category
+        ? sorted.filter((p) => postMatchesCategory(p, category))
+        : sorted;
     if (selected && shown.length === 0) {
       target.innerHTML = `
         <section class="card">
           <h2>「${esc(selected)}」の記事</h2>
-          <p class="muted">このカテゴリの記事はまだありません。</p>
+          <p class="muted">該当する記事はまだありません。</p>
         </section>
       `;
       return;
